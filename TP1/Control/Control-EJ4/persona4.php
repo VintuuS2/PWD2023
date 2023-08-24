@@ -42,7 +42,13 @@ class Persona {
      * @return STRING
      */
     public function saludo() {
-        $salida = "Hola, soy " . $this->getNombre() . " " . $this->getApellido() . ", tengo " . $this->getEdad() . " años y vivo en " . $this->getDireccion() . ".";
+        $salida = "Hola, soy " . $this->getNombre() . " " . $this->getApellido();
+        if ($this->getEdad() >=18) {
+            $salida .= ", soy mayor de edad";
+        } else {
+            $salida .= ", soy menor de edad";
+        }
+            $salida .= " y vivo en " . $this->getDireccion() . ".";
         return $salida;
     }
 }
