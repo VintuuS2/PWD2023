@@ -1,3 +1,15 @@
+<?php
+    include_once '../../Control/Control-EJ8/cine.php';
+    if ($_POST) {
+        $edadUsuario = $_POST['edad-usuario'];
+        $esEstudiante = $_POST['estudiante-usuario'];
+        $cine = new Cine();
+        $precio = $cine->calcularEntrada($edadUsuario, $esEstudiante);
+        $mensaje = "El precio de su entrada es de $" . $precio;
+    } else {
+        $mensaje = "No se recibieron datos";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,23 +36,7 @@
 <body>
     <div>                       
         <?php
-            if ($_POST) {
-                $edadUsuario = $_POST['edad-usuario'];
-                $esEstudiante = $_POST['estudiante-usuario'];
-                $mensaje = "El precio de su entrada es de $";
-                if ($esEstudiante == "si") {
-                    if ($edadUsuario < 12) {
-                        $mensaje .= "160";
-                    } else {
-                        $mensaje .= "180";
-                    }
-                } else {
-                    $mensaje .= "300";
-                }
-                echo $mensaje;
-            } else {
-                echo "No se recibieron datos";
-            }
+            echo $mensaje;
         ?>
     </div>
 </body>
