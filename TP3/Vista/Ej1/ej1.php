@@ -1,3 +1,6 @@
+<?php
+include_once '../../../menu-paginas.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,8 +15,7 @@
 </head>
 
 <body>
-
-    <body class="d-flex align-items-center py-4 bg-body-tertiary">
+    <div class="d-flex align-items-center py-4 bg-body-tertiary">
         <main class="form-signin w-100 m-auto">
             <div class="container-centered">
                 <form action="../Ej1/Action/a_suba_archivo.php" method="post" enctype="multipart/form-data">
@@ -33,5 +35,6 @@
                 </form>
             </div>
         </main>
+    </div>
 </body>
 </html>

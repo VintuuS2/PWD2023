@@ -25,7 +25,7 @@
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">TP1</a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="./TP1/Vista/Vista-EJ1/ej1.php">Ejercicio 1</a></li>
-            <li><a class="dropdown-item" href="./TP1/Vista/Vista-EJ2/ej2.php">Ejercicio 3</a></li>
+            <li><a class="dropdown-item" href="./TP1/Vista/Vista-EJ2/ej2.php">Ejercicio 2</a></li>
             <li><a class="dropdown-item" href="./TP1/Vista/Vista-EJ3/ej3.php">Ejercicio 3</a></li>
             <li><a class="dropdown-item" href="./TP1/Vista/Vista-EJ4/ej4.php">Ejercicio 4</a></li>
             <li><a class="dropdown-item" href="./TP1/Vista/Vista-EJ5/ej5.php">Ejercicio 5</a></li>

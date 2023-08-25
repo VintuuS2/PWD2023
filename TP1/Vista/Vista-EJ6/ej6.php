@@ -1,3 +1,6 @@
+<?php
+include_once '../../../menu-paginas.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

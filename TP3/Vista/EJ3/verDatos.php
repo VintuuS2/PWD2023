@@ -1,4 +1,6 @@
 <?php
+include_once '../../../menu-paginas.php';
+
 include_once './../../Control/EJ3/cargar.php';
 ?>
 <!DOCTYPE html>

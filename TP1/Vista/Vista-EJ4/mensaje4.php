@@ -1,4 +1,5 @@
 <?php
+include_once '../../../menu-paginas.php';
     include_once '../../Control/Control-EJ4/persona4.php';
     if ($_GET) {
         $nombre = $_GET['nombre-usuario'];

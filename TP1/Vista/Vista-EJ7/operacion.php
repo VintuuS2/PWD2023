@@ -1,4 +1,5 @@
 <?php
+include_once '../../../menu-paginas.php';
     include_once '../../Control/Control-EJ7/matematicas.php';
     if ($_GET) {
         $primerNumero = $_GET['primer-numero'];

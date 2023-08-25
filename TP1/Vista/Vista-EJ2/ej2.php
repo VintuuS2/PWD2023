@@ -1,3 +1,6 @@
+<?php
+include_once '../../../menu-paginas.php';
+?>
 <!DOCTYPE html>
 <head>
     <title>Ejercicio 2, TP1</title>

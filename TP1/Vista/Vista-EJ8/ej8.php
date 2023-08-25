@@ -1,3 +1,6 @@
+<?php
+include_once '../../../menu-paginas.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +11,13 @@
     <title>Entradas cine</title>
     <style>
         body {
-            display: flex;
             width: 100%;
             font-family:Arial, Helvetica, sans-serif;
         }
-        div {
+        .div-container {
+            display: flex;
+        }
+        .contenedor-form {
             width: 40%;
             margin: 5px auto;
             padding: 15px;
@@ -27,7 +32,8 @@
     </style>
 </head>
 <body>
-    <div>
+    <div class="div-container">
+    <div class="contenedor-form">
         <h2>Calcular precio de entradas Cine cinem@s</h2>
         <form id="form" action="verPrecio.php" method="post">
             <label for="edad-usuario">Edad: </label><input type="number" name="edad-usuario" id="edad-usuario"><span id="span-edad"></span><br>
@@ -38,5 +44,7 @@
             <button type="reset" style="float: left;">Reestablecer</button>
         </form>
     </div>
+    </div>
+    
 </body>
 </html>

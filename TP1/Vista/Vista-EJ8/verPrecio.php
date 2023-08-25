@@ -1,4 +1,5 @@
 <?php
+include_once '../../../menu-paginas.php';
     include_once '../../Control/Control-EJ8/cine.php';
     if ($_POST) {
         $edadUsuario = $_POST['edad-usuario'];
