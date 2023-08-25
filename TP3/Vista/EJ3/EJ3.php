@@ -111,7 +111,7 @@ include_once '../../../menu-paginas.php';
                         <div class="formulario_grupo mb-3" id="grupo_edad">
                             <label class="formulario_label mb-2">Restricciones de edad</label>
                             <div class="formulario_grupo-input">
-                                <input type="radio" name="edad" id="todolospublicos" value="Todo los publicos" class="formulario_input form-check-input" required><label class="formulario_label etiqueta form-check-label"> Todos los publicos</label>
+                                <input type="radio" name="edad" id="todolospublicos" value="Todos los publicos" class="formulario_input form-check-input" required><label class="formulario_label etiqueta form-check-label"> Todos los publicos</label>
                                 <input type="radio" name="edad" id="mayores7" value="Mayores a 7 años" class="formulario_input form-check-input" required><label class="formulario_label form-check-label"> Mayores a 7 años</label>
                                 <input type="radio" name="edad" id="mayores18" value="Mayores a 18 años" class="formulario_input form-check-input" required><label class="formulario_label form-check-label"> Mayores a 18 años</label>
 

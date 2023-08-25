@@ -57,10 +57,14 @@ include_once './../../Control/EJ3/cargar.php';
                     $archivo = strtolower($_FILES['imagenPeli']['name']);
                     $subirArchivo= new cargaArchivo();
                     $fueCargado= $subirArchivo->analizarArchivo($archivo);
+                    if ($fueCargado) {
+                        echo "<img src='../../archivos/$archivo' width='200px' border='2px' alt='Pelicula'/>";
+                    } else {
+                        echo "Error al subir el archivo.";
+                    }
                 } else {
                     echo "Error al subir el archivo.";
                 }
-            echo "<img src='../../archivos/$archivo' width='200px' border='2px' alt='Pelicula'/>";
             ?>
         </div>
     </div>
