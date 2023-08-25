@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="../../../TP2/Util/TP1/Util-EJ8/script.js"></script>
     <title>Entradas cine</title>
     <style>
         body {
@@ -27,8 +29,8 @@
 <body>
     <div>
         <h2>Calcular precio de entradas Cine cinem@s</h2>
-        <form action="verPrecio.php" method="post">
-            <label for="edad-usuario">Edad: </label><input type="number" name="edad-usuario" id="edad-usuario" required><br>
+        <form id="form" action="verPrecio.php" method="post">
+            <label for="edad-usuario">Edad: </label><input type="number" name="edad-usuario" id="edad-usuario"><span id="span-edad"></span><br>
             <label for="estudiante-usuario">¿Sos estudiante? </label><br>
             Si<input type="radio" name="estudiante-usuario" value="si" checked><br>
             No<input type="radio" name="estudiante-usuario" value="no"><br>
