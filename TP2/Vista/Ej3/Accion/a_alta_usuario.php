@@ -1,5 +1,5 @@
 <?php
-include_once "../../../Control/Ej3/verificaPass.php";
+include_once "../../../Control/Ej3/Usuarios.php";
    
     if ($_POST){
         $datosLoggeo['usuario'] = $_POST['usuario'];
