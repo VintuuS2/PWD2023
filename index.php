@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,8 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+
+<nav class="navbar navbar-expand-sm justify-content-center border-bottom shadow rounded" style="background: linear-gradient(135deg, rgba(85,68,173,0.75) 5%, rgba(72,57,161,0.75) 62%, rgba(110,90,199,0.75) 95%);">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
@@ -23,7 +24,7 @@
       <ul class="navbar-nav"> 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">TP1</a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu" style="background: linear-gradient(135deg, rgba(85,68,173,0.75) 5%, rgba(72,57,161,0.75) 62%, rgba(110,90,199,0.75) 95%);">
             <li><a class="dropdown-item" href="./TP1/Vista/Vista-EJ1/ej1.php">Ejercicio 1</a></li>
             <li><a class="dropdown-item" href="./TP1/Vista/Vista-EJ2/ej2.php">Ejercicio 2</a></li>
             <li><a class="dropdown-item" href="./TP1/Vista/Vista-EJ3/ej3.php">Ejercicio 3</a></li>
@@ -36,7 +37,7 @@
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">TP2</a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" style="background: linear-gradient(135deg, rgba(85,68,173,0.75) 5%, rgba(72,57,161,0.75) 62%, rgba(110,90,199,0.75) 95%);">
                 <li><a class="dropdown-item" href="./TP2/Vista/Ej1/ej1.php">Ejercicio 1</a></li>
                 <li><a class="dropdown-item" href="./TP2/Vista/Ej2/ej2.php">Ejercicio 2</a></li>
                 <li><a class="dropdown-item" href="./TP2/Vista/Ej3/ej3.php">Ejercicio 3</a></li>
@@ -45,7 +46,7 @@
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">TP3</a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" style="background: linear-gradient(135deg, rgba(85,68,173,0.75) 5%, rgba(72,57,161,0.75) 62%, rgba(110,90,199,0.75) 95%);">
                 <li><a class="dropdown-item" href="./TP3/Vista/Ej1/ej1.php">Ejercicio 1</a></li>
                 <li><a class="dropdown-item" href="./TP3/Vista/Ej2/ej2.php">Ejercicio 2</a></li>
                 <li><a class="dropdown-item" href="./TP3/Vista/EJ3/ej3.php">Ejercicio 3</a></li>
@@ -55,9 +56,9 @@
     </div>
   </div>
 </nav>
-<main class="d-flex justify-content-center align-items-center">
-    <div class="container text-center">
-        <h2>Integrantes del grupo 1</h2>
+<main>
+    <div class="container my-5 mx-auto text-center">
+        <h2 class="">Integrantes del grupo 1</h2>
         <ul class="list-unstyled">
             <li>Lautaro Gonzalez FAI-2950</li>
             <li>Emiliano Lopez FAI-3357</li>
