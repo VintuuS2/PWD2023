@@ -18,12 +18,7 @@ include_once '../../../menu-paginas.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Precio entrada</title>
     <style>
-        body {
-            display: flex;
-            width: 100%;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        div {
+        .div-mensaje {
             width: 40%;
             margin:  200px auto;
             padding: 20px;
@@ -35,7 +30,7 @@ include_once '../../../menu-paginas.php';
     </style>
 </head>
 <body>
-    <div>                       
+    <div class="div-mensaje">                       
         <?php
             echo $mensaje;
         ?>
