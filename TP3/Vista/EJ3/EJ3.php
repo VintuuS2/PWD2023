@@ -24,7 +24,7 @@
     <div class="container mt-5">
         <div class="row justify-content-center" id="contenedor">
             <div class="col-md-12">
-                <form class="formulario needs-validation row " id="formulario" method="post" action="verDatos.php" novalidate>
+                <form class="formulario needs-validation row " id="formulario" method="post" action="verDatos.php" enctype="multipart/form-data" novalidate>
                     <div class="titulo  pl-0 ">
                         <h5 class=" p-2">Cinem@s</h5>
                     </div>

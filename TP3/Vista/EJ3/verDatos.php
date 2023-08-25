@@ -51,14 +51,14 @@ include_once './../../Control/EJ3/cargar.php';
             <span class='texto'>Sinopsis: </span><span class='descripcion'><?php echo $sinopsis = $_POST['sinopsis']; ?></span></br>
             <?php
                 // verifica que se puedan cargar el archivo
-                $archivo= strtolower( $_FILES['imagenPeli']); 
-                $subirArchivo= new cargaArchivo();
-                $fueCargado= $subirArchivo->analizarArchivo($archivo);
-                
-                if($fueCargado == false){
-                    $mensaje='El archivo no puede ser cargado, revise que el formato sea PNG o JPG';
+                if(isset($_FILES['imagenPeli']) && $_FILES['imagenPeli']['error'] === UPLOAD_ERR_OK) {
+                    $archivo = strtolower($_FILES['imagenPeli']['name']);
+                    $subirArchivo= new cargaArchivo();
+                    $fueCargado= $subirArchivo->analizarArchivo($archivo);
+                } else {
+                    echo "Error al subir el archivo.";
                 }
-            echo "<img src='../../archivos/$archivo' height='70px' width='70px' border='2px' alt='Pelicula'/>";
+            echo "<img src='../../archivos/$archivo' width='200px' border='2px' alt='Pelicula'/>";
             ?>
         </div>
     </div>
