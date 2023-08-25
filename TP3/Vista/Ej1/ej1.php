@@ -18,7 +18,7 @@ include_once '../../../menu-paginas.php';
     <div class="d-flex align-items-center py-4 bg-body-tertiary">
         <main class="form-signin w-100 m-auto">
             <div class="container-centered">
-                <form action="../Ej1/Action/a_suba_archivo.php" method="post" enctype="multipart/form-data">
+                <form action="../Ej1/a_suba_archivo.php" method="post" enctype="multipart/form-data">
                     <div class="container d-flex justify-content-center">
                         <div class="bg-secondary m-4  d-flex justify-content-center align-items-center" style="height: 300px; width: 500px;">
                             <div class="bg-light position-relative " style="height: 270px; width: 470px;">

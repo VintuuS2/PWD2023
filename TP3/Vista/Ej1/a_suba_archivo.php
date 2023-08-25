@@ -1,5 +1,6 @@
 <?php
-include_once "../../../Control/Ej1/ArchiveManager.php";
+include_once '../../Control/Ej1/ArchiveManager.php';
+include_once '../../../menu-paginas.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fileManager = new ArchiveManager();
     $result = $fileManager->uploadFile($_FILES["archivo"]);
