@@ -1,12 +1,8 @@
 <?php
 class AbmPersona{
-    //Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
-
-    /**
-     * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
-     * @param array $param
-     * @return Persona
-     */
+    /** Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
+     * @param ARRAY $param
+     * @return Persona */
     private function cargarObjeto($param){
         $obj = null;
         if( array_key_exists('NroDni',$param) && array_key_exists('Nombre',$param) && array_key_exists('Apellido',$param) && array_key_exists('fechaNac',$param) && array_key_exists('Telefono',$param) && array_key_exists('Domicilio', $param)){
@@ -16,11 +12,9 @@ class AbmPersona{
         return $obj;
     }
     
-    /**
-     * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto que son claves
-     * @param array $param
-     * @return Tabla
-     */
+    /** Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto que son claves
+     * @param ARRAY $param
+     * @return Persona */
     private function cargarObjetoConClave($param){
         $obj = null;
         if( isset($param['NroDni']) ){
@@ -30,12 +24,9 @@ class AbmPersona{
         return $obj;
     }
     
-    
-    /**
-     * Corrobora que dentro del arreglo asociativo estan seteados los campos claves
-     * @param array $param
-     * @return boolean
-     */
+    /** Corrobora que dentro del arreglo asociativo estan seteados los campos claves
+     * @param ARRAY $param
+     * @return BOOLEAN */
     private function seteadosCamposClaves($param){
         $resp = false;
         if (isset($param['NroDni']))
@@ -44,7 +35,7 @@ class AbmPersona{
     }
     
     /**
-     * @param array $param
+     * @param ARRAY $param
      */
     public function alta($param){
         $resp = false;
@@ -57,11 +48,9 @@ class AbmPersona{
         return $resp;
         
     }
-    /**
-     * permite eliminar un objeto 
-     * @param array $param
-     * @return boolean
-     */
+    /** Permite eliminar un objeto 
+     * @param ARRAY $param
+     * @return BOOLEAN */
     public function baja($param){
         $resp = false;
         if ($this->seteadosCamposClaves($param)){
@@ -73,11 +62,9 @@ class AbmPersona{
         return $resp;
     }
     
-    /**
-     * permite modificar un objeto
-     * @param array $param
-     * @return boolean
-     */
+    /** Permite modificar un objeto
+     * @param ARRAY $param
+     * @return BOOLEAN  */
     public function modificacion($param){
         //echo "Estoy en modificacion";
         $resp = false;
@@ -90,11 +77,9 @@ class AbmPersona{
         return $resp;
     }
     
-    /**
-     * permite buscar un objeto
-     * @param array $param
-     * @return boolean
-     */
+    /** Permite buscar un objeto
+     * @param ARRAY $param
+     * @return BOOLEAN */
     public function buscar($param){
         $where = " true ";
         if ($param<>NULL){
