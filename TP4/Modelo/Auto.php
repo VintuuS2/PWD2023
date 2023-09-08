@@ -66,7 +66,7 @@ class Auto {
             if($res>-1){
                 if($res>0){
                     $row = $base->Registro();
-                    $objDuenio = new Persona;
+                    $objDuenio = new Persona();
                     $objDuenio->cargar($row['dniDuenio']);
                     $this->setear($row['patente'], $row['marca'], $row['modelo'], $objDuenio,"");
                 }
@@ -138,10 +138,12 @@ class Auto {
             if($res>0){    
                 while ($row = $base->Registro()){
                     $obj = new Auto();
-                    $obj->setear($row['Patente'], $row['Marca'], $row['Modelo'], $row['DniDuenio']);
+                    $objDuenio = new Persona();
+                    $objDuenio->setNroDni($row['DniDuenio']);
+                    $objDuenio->cargar();
+                    $obj->setear($row['Patente'], $row['Marca'], $row['Modelo'], $objDuenio);
                     array_push($arreglo, $obj);
                 }
-               
             }     
         } else {
             $this->setMensajeOperacion("Auto->listar: ".$base->getError());

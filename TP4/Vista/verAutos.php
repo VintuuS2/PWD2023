@@ -26,7 +26,6 @@ $listaAutos = $objAuto->buscar(null);
         if (count($listaAutos)>0){
             foreach ($listaAutos as $auto){
                 $objDuenio = $auto->getObjDuenio();
-                echo $objDuenio;
                 echo "<tr><td>".$auto->getPatente()."</td><td>".$auto->getMarca()."</td><td>".$auto->getModelo()."</td><td>".$objDuenio->getNombre()."</td><td>".   $objDuenio->getApellido()."</td></tr><br>";
             }
         }
