@@ -5,3 +5,9 @@
     text-shadow: 1px 1px 6px rgba(0, 0, 0, .25);
     color: #000;
 }
+
+.respuesta{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}

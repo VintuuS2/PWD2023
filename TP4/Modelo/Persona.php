@@ -84,7 +84,7 @@ class Persona {
             if($res>-1){
                 if($res>0){
                     $row = $base->Registro();
-                    $this->setear($row['NroDni'], $row['Nombre'], $row['Apellido'], $row['fechaNac'], $row['Telefono'], $row['Domicilio']); 
+                    $this->setear($row['NroDni'], $row['Apellido'], $row['Nombre'], $row['fechaNac'], $row['Telefono'], $row['Domicilio']); 
                 }
             }
         } else {

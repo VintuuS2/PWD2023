@@ -82,6 +82,7 @@ class AbmPersona{
      * @return BOOLEAN */
     public function buscar($param){
         $where = " true ";
+        $objPersona = new Persona();
         if ($param<>NULL){
             if  (isset($param['NroDni']))
                 $where.=" and NroDni =".$param['NroDni'];
@@ -96,7 +97,7 @@ class AbmPersona{
             if  (isset($param['Domicilio']))
                  $where.=" and Domicilio ='".$param['Domicilio']."'";
         }
-        $arreglo = Persona::listar($where);  
+        $arreglo = $objPersona->listar($where);  
         return $arreglo;
     }
 }
