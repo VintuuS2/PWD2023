@@ -18,7 +18,7 @@ $listaAutos = $objAuto->buscar(null);
 <body>
     <div class="w-75" style="margin: auto;">
     <?php
-        if (count($listaAutos)>0){
+        if (count($listaAutos) > 0){
             echo "<table class=table><thead class=thead-dark><tr><th colspan=6 style=text-align:center>Autos</th></tr><tr><th>#</th><th>Patente</th><th>Marca</th><th>Modelo</th><th>Nombre</th><th>Apellido</th></tr>";
             $i = 1;
             foreach ($listaAutos as $auto){

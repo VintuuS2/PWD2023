@@ -79,7 +79,7 @@ class AbmPersona{
     
     /** Permite buscar un objeto
      * @param ARRAY $param
-     * @return BOOLEAN */
+     * @return ARRAY */
     public function buscar($param){
         $where = " true ";
         $objPersona = new Persona();
