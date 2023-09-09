@@ -155,13 +155,12 @@ class BaseDatos extends PDO {
        if(!$resultado){
            $this->analizarDebug();
        }else {
-         
           $arregloResult = $resultado->fetchAll();
           $cant = count($arregloResult);
           $this->setIndice(0);
           $this->setResultado($arregloResult);
        }
-       echo " La cantidad es ".$cant;
+       // echo " La cantidad es ".$cant;
        return $cant;
        
    }
@@ -186,9 +185,9 @@ class BaseDatos extends PDO {
                $this->setIndice(-1);
            }
           
-       } 
+       } /*
       echo " El valor de fila actual es:";
-      print_r($filaActual);
+      print_r($filaActual);*/
        return $filaActual;
    }
    

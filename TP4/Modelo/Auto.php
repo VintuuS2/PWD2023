@@ -1,4 +1,6 @@
 <?php
+include_once 'conector/BaseDatos.php';
+include_once 'Persona.php';
 class Auto {
     //Atributos
     private $patente;
