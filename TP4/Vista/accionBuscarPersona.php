@@ -2,26 +2,30 @@
 include_once '../menuTP4.php';
 include_once '../Control/AbmAuto.php';
 if ($_GET) {
-    $patente = strtoupper($_GET['patente-auto']);
-    $controlAuto = new AbmAuto();
-    $arrayAutos = $controlAuto->buscar(null);
+    $dniDuenio = strtoupper($_GET['dni-duenio']);
+    $controlPersona = new AbmPersona();
+    $arrayPersonas = $controlPersona->buscar(null);
     $i = 0;
     $encontro = false;
-    while ($i < count($arrayAutos) && !$encontro) {
-        if ($arrayAutos[$i]->getPatente() == $patente) {
-            $mensaje = "<h2>Estos son los datos del vehiculo con la patente que ha ingresado:</h2>
+    while ($i < count($arrayPersonas) && !$encontro) {
+        if ($arrayPersonas[$i]->getNroDni() == $dniDuenio) {
+            $mensaje = "<h2>Estos son los datos de la Persona con el DNI que ha ingresado:</h2>
                     <table border= solid 1px class='table'>
                             <thead class='thead-dark table-dark' >
-                                <th>Patente</th>
-                                <th>Marca</th>
-                                <th>Modelo</th>
-                                <th>Dni del dueño</th>
+                                <th>Apellido</th>
+                                <th>Persona</th>
+                                <th>DNI</th>
+                                <th>Fecha de Nacimiento</th>
+                                <th>Telefono</th>
+                                <th>Domicilio</th>
                             </thead>
                             <tr>
-                                <td>".$arrayAutos[$i]->getPatente()."</td>
-                                <td>".$arrayAutos[$i]->getMarca()."</td>
-                                <td>".$arrayAutos[$i]->getModelo()."</td>
-                                <td>".$arrayAutos[$i]->getObjDuenio()->getNroDni()."</td>
+                                <td>".$arrayPersonas[$i]->getApellido()."</td>
+                                <td>".$arrayPersonas[$i]->getNombre()."</td>
+                                <td>".$arrayPersonas[$i]->getNroDni()."</td>
+                                <td>".$arrayPersonas[$i]->getFechaNac()."</td>
+                                <td>".$arrayPersonas[$i]->getTelefono()."</td>
+                                <td>".$arrayPersonas[$i]->getDomicilio()."</td>
                             </tr>"."
                     </table>";
             $encontro = true;
@@ -29,7 +33,7 @@ if ($_GET) {
         $i++;
     }
     if (!$encontro) {
-        $mensaje = "<h2>No hay ningún vehiculo con la patente '" . $patente . "' en la base de datos.</h2>";
+        $mensaje = "<h2>No hay ninguna persona con '" . $patente . "' en la base de datos.</h2>";
     }
 } else {
     $mensaje = "<h2>No se ha recibido ninguna patente.</h2>";
