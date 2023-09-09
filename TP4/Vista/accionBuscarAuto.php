@@ -2,7 +2,7 @@
 include_once '../menuTP4.php';
 include_once '../Control/AbmAuto.php';
 if ($_GET) {
-    $patente = $_GET['patente-auto'];
+    $patente = strtoupper($_GET['patente-auto']);
     $controlAuto = new AbmAuto();
     $arrayAutos = $controlAuto->buscar(null);
     $i = 0;
