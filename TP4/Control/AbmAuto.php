@@ -81,7 +81,7 @@ class AbmAuto{
     
     /** Permite buscar un objeto
      * @param ARRAY $param
-     * @return BOOLEAN */
+     * @return ARRAY */
     public function buscar($param){
         $where = " true ";
         $objAuto = new Auto();

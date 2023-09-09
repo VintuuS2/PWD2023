@@ -52,6 +52,15 @@
                 <li><a class="dropdown-item" href="./TP3/Vista/EJ3/ej3.php">Ejercicio 3</a></li>
             </ul>
         </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">TP4</a>
+            <ul class="dropdown-menu" style="background: linear-gradient(135deg, rgba(85,68,173,0.75) 5%, rgba(72,57,161,0.75) 62%, rgba(110,90,199,0.75) 95%);">
+                <li><a class="dropdown-item" href="./TP4/Vista/verAutos.php">Ver autos</a></li>
+                <li><a class="dropdown-item" href="./TP4/Vista/buscarAuto.php">Buscar auto</a></li>
+                <li><a class="dropdown-item" href="./TP4/Vista/listarPersonas.php">Ver personas</a></li>
+                <li><a class="dropdown-item" href="./TP4/Vista/listarPersonas.php">Añadir personas</a></li>
+            </ul>
+        </li>
       </ul>
     </div>
   </div>

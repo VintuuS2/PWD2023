@@ -16,15 +16,15 @@ $listaAutos = $objAuto->buscar(null);
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h2 style="text-align: center;">Autos</h2>
-    <div class="d-flex align-items-lg-center flex-column p-10">
-    <table></table>
-        <?php
+    <div class="w-75" style="margin: auto;">
+    <?php
         if (count($listaAutos)>0){
-            echo "<table border=solid 3px><th>Patente</th><th>Marca</th><th>Modelo</th><th>Nombre</th><th>Apellido</th>";
+            echo "<table class=table><thead class=thead-dark><tr><th colspan=6 style=text-align:center>Autos</th></tr><tr><th>#</th><th>Patente</th><th>Marca</th><th>Modelo</th><th>Nombre</th><th>Apellido</th></tr>";
+            $i = 1;
             foreach ($listaAutos as $auto){
                 $objDuenio = $auto->getObjDuenio();
-                echo "<tr><td>".$auto->getPatente()."</td><td>".$auto->getMarca()."</td><td>".$auto->getModelo()."</td><td>".$objDuenio->getNombre()."</td><td>".   $objDuenio->getApellido()."</td></tr><br>";
+                echo "<tr><td>".$i."</td><td>".$auto->getPatente()."</td><td>".$auto->getMarca()."</td><td>".$auto->getModelo()."</td><td>".$objDuenio->getNombre()."</td><td>".   $objDuenio->getApellido()."</td></tr><br>";
+                $i++;
             }
             echo "</table>";
         } else {
