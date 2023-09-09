@@ -24,10 +24,11 @@ $listaPersonas = $objPersona->buscar(null);
         <th>Fecha de Nacimiento</th>
         <th>Telefono</th>
         <th>Domicilio</th>
-        <?
+        <?php
         if (count($listaPersonas) > 0) {
             foreach ($listaPersonas as $persona) {
                 echo "<tr><td>" . $persona->getApellido() . "</td><td>" . $persona->getNombre() . "</td><td>" . $persona->getNroDni() . "</td><td>" . $persona->getFechaNac() . "</td><td>" .   $persona->getTelefono() . "</td><td>" . $persona->getDomicilio() ."</td></tr><br>";
+                echo $persona->getNombre();
             }
         }
         ?>

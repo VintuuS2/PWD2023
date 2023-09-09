@@ -154,7 +154,7 @@ class Persona {
             if($res>0){    
                 while ($row = $base->Registro()){
                     $obj= new Persona();
-                    $obj->setear($row['NroDni'], $row['Nombre'], $row['Apellido'], $row['fechaNac'], $row['Telefono'], $row['Domicilio']);
+                    $obj->setear($row['NroDni'], $row['Apellido'], $row['Nombre'], $row['fechaNac'], $row['Telefono'], $row['Domicilio']);
                     array_push($arreglo, $obj);
                 }
                
