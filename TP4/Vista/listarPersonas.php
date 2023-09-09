@@ -33,8 +33,10 @@ $listaPersonas = $objPersona->buscar(null);
             echo "<h3>No hay Personas registradas</h3>";
         }
         ?>
+        <br>
+        <a href="autosPersona.php">Buscar los autos de determinada persona</a>
         </div>
-    
+        
 </body>
 
 </html>
