@@ -1,6 +1,6 @@
 <?php
 include_once '../menuTP4.php';
-include_once '../Control/AbmAuto.php';
+include_once '../configuracion.php';
 if ($_GET) {
     $patente = strtoupper($_GET['patente-auto']);
     $controlAuto = new AbmAuto();

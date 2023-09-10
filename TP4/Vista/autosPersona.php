@@ -14,24 +14,24 @@ include_once '../configuracion.php';
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const form = document.querySelector('form');
-            const patenteInput = document.getElementById('dni-duenio');
+            const dniDuenioInput = document.getElementById('dni-duenio');
             const invalidFormato = document.querySelector('.formatoCorrecto');
             const invalidCaracteres = document.querySelector('.caracteresCorrectos');
 
             form.addEventListener('submit', function (event) {
-                const patenteValue = patenteInput.value.toUpperCase();
-                const formatoValido = /^[A-Z]{3}\s\d{3}$/;
+                const dniValue = dniDuenioInput.value.toUpperCase();
+                const formatoValido = /^\d{1,8}$/;
 
-                if (!formatoValido.test(patenteValue)) {
+                if (!formatoValido.test(dniValue)) {
                     event.preventDefault(); // Evita que el formulario se envíe
-                    patenteInput.style.border = '1px solid red';
+                    dniDuenioInput.style.border = '1px solid red';
                     invalidFormato.style.display = 'block';
                 } else {
                     invalidFormato.style.display = 'none';
                 }
-                if (patenteValue.length != 7) {
+                if (dniValue.length != 8) {
                     event.preventDefault(); // Evita que el formulario se envíe
-                    patenteInput.style.border = '1px solid red';
+                    dniDuenioInput.style.border = '1px solid red';
                     invalidCaracteres.style.display = 'block';
                 } else {
                     invalidCaracteres.style.display = 'none';
@@ -42,19 +42,19 @@ include_once '../configuracion.php';
 
 </head>
 <body>
-    <form action="accionBuscarPersona.php" method="get" class="d-flex justify-content-center align-items-center" style="margin-top: 15%;">
-        <div class="d-flex align-items-lg-end flex-column bg-dark  p-10" style="padding: 20px; border-radius: 10px;">
-            <div class="form-group" style="text-align:center;">
-                <label for="dni-duenio" class="text-primary fs-3" style="margin-bottom:10px;">DNI Persona</label>
-                <div class="input-group-text w-10" id="input-dni-duenio">
-                    <i class="fa fa-user" style="width: 10%; margin-right:10px;"></i>
-                    <input type="text" class="form-control" id="dni-duenio" name="dni-duenio" placeholder="44041670">
-                </div>
-                <div class="invalid-feedback formatoCorrecto" style="font-size: 1.2em; margin-bottom:-10px;">Debe contener solo números.</div>
-                <div class="invalid-feedback caracteresCorrectos" style="font-size: 1.2em; margin-bottom:-13px;">Deben ser máximo 8 digitos.</div>
+<form action="accionBuscarPersona.php" method="get" class="d-flex justify-content-center align-items-center" style="margin-top: 15%;">
+    <div class="d-flex align-items-lg-end flex-column bg-dark  p-10" style="padding: 20px; border-radius: 10px; max-width:25%; min-width: 300px;">
+        <div class="form-group" style="text-align:center;">
+            <label for="dni-duenio" class="text-primary fs-4" style="margin-bottom:10px;">¿Cuál es el dni de la persona de la que desea ver sus vehículos?</label>
+            <div class="input-group-text w-10" id="input-dni-duenio">
+                <i class="fa fa-user" style="width: 10%; margin-right:10px;"></i>
+                <input type="text" class="form-control" id="dni-duenio" name="dni-duenio" placeholder="Ejempo: 44041670">
             </div>
-            <button type="submit" class="btn btn-primary btn-sm" style="margin-top:15px; font-size:1.1em;">Enviar</button>
+            <div class="invalid-feedback formatoCorrecto" style="font-size: 1.2em; margin-bottom:-10px;">Solo números (sin puntos).</div>
+            <div class="invalid-feedback caracteresCorrectos" style="font-size: 1.2em; margin-bottom:-13px;">Deben ser máximo 8 dígitos.</div>
         </div>
-    </form>
+        <button type="submit" class="btn btn-primary btn-sm" style="margin-top:15px; font-size:1.1em;">Enviar</button>
+    </div>
+</form>
 </body>
 </html>
