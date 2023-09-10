@@ -58,7 +58,7 @@
                 <li><a class="dropdown-item" href="./TP4/Vista/verAutos.php">Ver autos</a></li>
                 <li><a class="dropdown-item" href="./TP4/Vista/buscarAuto.php">Buscar auto</a></li>
                 <li><a class="dropdown-item" href="./TP4/Vista/listarPersonas.php">Ver personas</a></li>
-                <li><a class="dropdown-item" href="./TP4/Vista/listarPersonas.php">Añadir personas</a></li>
+                <li><a class="dropdown-item" href="./TP4/Vista/nuevaPersona.php">Añadir personas</a></li>
             </ul>
         </li>
       </ul>
