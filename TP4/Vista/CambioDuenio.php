@@ -48,16 +48,16 @@ include_once '../configuracion.php';
         <div class="d-flex align-items-lg-end flex-column bg-dark  p-10" style="padding: 20px; border-radius: 10px;">
             <div class="form-group" style="text-align:center;">
                 <label for="cambio-duenio" class="text-primary fs-3" style="margin-bottom:10px;">Cambio de duenio</label>
-                <div class="input-group-text w-10" id="input-cambio-duenio">
+                <div class="input-group-text w-10" id="input-patente-cambio">
                     <i class="fa fa-car" style="width: 10%; margin-right:10px;"></i>
-                    <input type="text" class="form-control" id="cambio-duenio" name="cambio-duenio" placeholder="Ejemplo: KJL 357">
+                    <input type="text" class="form-control" id="patente-cambio" name="patente-cambio" placeholder="Ejemplo: KJL 357">
                 </div>
                 <div class="invalid-feedback formatoCorrecto" style="font-size: 1.2em; margin-bottom:-10px;">Debe contener solo números.</div>
                 <div class="invalid-feedback caracteresCorrectos" style="font-size: 1.2em; margin-bottom:-13px;">Deben ser máximo 8 digitos.</div>
             </div>
-            <div class="input-group-text w-10" id="input-patente-cambio">
+            <div class="input-group-text w-10" id="input-dni-cambio">
                 <i class="fa fa-user" style="width: 10%; margin-right:10px;"></i>
-                <input type="text" class="form-control" id="patente-cambio" name="cambio-duenio" placeholder="44041670">
+                <input type="text" class="form-control" id="dni-cambio" name="dni-cambio" placeholder="44041670">
             </div>
             <div class="invalid-feedback formatoCorrecto" style="font-size: 1.2em; margin-bottom:-10px;">Debe contener solo números.</div>
             <div class="invalid-feedback caracteresCorrectos" style="font-size: 1.2em; margin-bottom:-13px;">Deben ser máximo 8 digitos.</div>
