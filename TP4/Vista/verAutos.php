@@ -16,21 +16,25 @@ $listaAutos = $objAuto->buscar(null);
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <div class="w-75" style="margin: auto;">
-    <?php
-        if (count($listaAutos) > 0){
-            echo "<table class=table><thead class=thead-dark><tr><th colspan=6 style=text-align:center>Autos</th></tr><tr><th>#</th><th>Patente</th><th>Marca</th><th>Modelo</th><th>Nombre</th><th>Apellido</th></tr>";
-            $i = 1;
-            foreach ($listaAutos as $auto){
-                $objDuenio = $auto->getObjDuenio();
-                echo "<tr><td>".$i."</td><td>".$auto->getPatente()."</td><td>".$auto->getMarca()."</td><td>".$auto->getModelo()."</td><td>".$objDuenio->getNombre()."</td><td>".   $objDuenio->getApellido()."</td></tr><br>";
-                $i++;
+    <div class="contenedor">
+        <div style="margin: auto;">
+        <h1></h1>
+        <?php
+            if (count($listaAutos) > 0){
+                echo "<table class=table><thead class='table-dark'><tr><th colspan=6 style=text-align:center>Autos</th></tr><tr><th>#</th><th>Patente</th><th>Marca</th><th>Modelo</th><th>Nombre</th><th>Apellido</th></tr></thead>";
+                $i = 1;
+                foreach ($listaAutos as $auto){
+                    $objDuenio = $auto->getObjDuenio();
+                    echo "<tr><td>".$i."</td><td>".$auto->getPatente()."</td><td>".$auto->getMarca()."</td><td>".$auto->getModelo()."</td><td>".$objDuenio->getNombre()."</td><td>".   $objDuenio->getApellido()."</td></tr><br>";
+                    $i++;
+                }
+                echo "</table>";
+            } else {
+                echo "<h3>No hay autos registrados</h3>";
             }
-            echo "</table>";
-        } else {
-            echo "<h3>No hay autos registrados</h3>";
-        }
-        ?>
+            ?>
+        </div>
     </div>
+    
 </body>
 </html>
