@@ -14,3 +14,12 @@
     border-left: 1px solid #444;
     border-right: 1px solid #444;
 }
+
+.contenedor {
+    margin: auto;
+    width: 50%;
+    background-color:#eee;
+    height:94vh;
+    border-left: 1px solid #444;
+    border-right: 1px solid #444;
+}

@@ -6,37 +6,72 @@ if ($_GET) {
     $controlPersona = new AbmPersona();
     $arrayPersonas = $controlPersona->buscar(null);
     $i = 0;
-    $encontro = false;
-    while ($i < count($arrayPersonas) && !$encontro) {
+    $encontroPersona = false;
+    // While que verifica y busca a la persona con el número de dni
+    while ($i < count($arrayPersonas) && !$encontroPersona) {
         if ($arrayPersonas[$i]->getNroDni() == $dniDuenio) {
-            $mensaje = "<h2>Estos son los datos de la Persona con el DNI que ha ingresado:</h2>
+            // Cuando se encontro a la persona, busca los autos de esa persona
+            $controlAuto = new AbmAuto();
+            $arrayAutos = $controlAuto->buscar(null);
+            // While que busca si el dueño tiene al menos un auto
+            $j = 0;
+            $encontroUnAuto = false;
+            while ($j < count($arrayAutos) && !$encontroUnAuto) {
+                if ($arrayAutos[$j]->getObjDuenio()->getNroDni() == $dniDuenio) {
+                    $encontroUnAuto = true;
+                }
+                $j++;
+            }
+            $encontroPersona = true;
+        }
+        $i++;
+    }
+    if ($encontroPersona) {
+        if ($encontroUnAuto) {
+            // Cuando se encontró a la persona y tiene al menos un vehiculo muestra los datos
+            $mensaje = "<h2>Estos son los datos de la Persona con el DNI N°".$dniDuenio.":</h2>
                     <table border= solid 1px class='table'>
                             <thead class='thead-dark table-dark' >
+                                <th>Nombre</th>
                                 <th>Apellido</th>
-                                <th>Persona</th>
-                                <th>DNI</th>
                                 <th>Fecha de Nacimiento</th>
                                 <th>Telefono</th>
                                 <th>Domicilio</th>
                             </thead>
                             <tr>
-                                <td>".$arrayPersonas[$i]->getApellido()."</td>
-                                <td>".$arrayPersonas[$i]->getNombre()."</td>
-                                <td>".$arrayPersonas[$i]->getNroDni()."</td>
-                                <td>".$arrayPersonas[$i]->getFechaNac()."</td>
-                                <td>".$arrayPersonas[$i]->getTelefono()."</td>
-                                <td>".$arrayPersonas[$i]->getDomicilio()."</td>
+                                <td>".$arrayPersonas[$i-1]->getNombre()."</td>
+                                <td>".$arrayPersonas[$i-1]->getApellido()."</td>
+                                <td>".$arrayPersonas[$i-1]->getFechaNac()."</td>
+                                <td>".$arrayPersonas[$i-1]->getTelefono()."</td>
+                                <td>".$arrayPersonas[$i-1]->getDomicilio()."</td>
                             </tr>"."
                     </table>";
-            $encontro = true;
+            $mensaje .= "<h2>Estos son los datos de los vehiculos de la persona</h2>
+                        <table border= solid 1px class='table'>
+                            <thead class='thead-dark table-dark' >
+                                <th>Patente</th>
+                                <th>Marca</th>
+                                <th>Modelo</th>
+                            </thead>";
+            foreach ($arrayAutos as $unAuto) {
+                if ($unAuto->getObjDuenio()->getNroDni() == $dniDuenio) {
+                    $mensaje .= "<tr>
+                                    <td>".$unAuto->getPatente()."</td>
+                                    <td>".$unAuto->getMarca()."</td>
+                                    <td>".$unAuto->getModelo()."</td>
+                                </tr>";
+                }
+            }
+            $mensaje .= "</table>";
+        } else {
+            // Cuando la persona no es dueña de ningún vehículo
+            $mensaje = "<h2 style='margin-top:10%'>Esta persona no es dueña de ningún vehiculo</h2>";
         }
-        $i++;
-    }
-    if (!$encontro) {
-        $mensaje = "<h2>No hay ninguna persona con '" . $patente . "' en la base de datos.</h2>";
+    } else {
+        $mensaje = "<h2>No hay ninguna persona con el DNI N°" . $dniDuenio . " en la base de datos.</h2>";
     }
 } else {
-    $mensaje = "<h2>No se ha recibido ningun DNI.</h2>";
+    $mensaje = "<h2>No se ha recibido ningún número de documento</h2>";
 }
 ?>
 <!DOCTYPE html>
@@ -49,11 +84,11 @@ if ($_GET) {
     <title>Ver auto</title>
 </head>
 <body>
-    <div class="w-50 d-flex" style="margin: auto; margin-top:15%; flex-wrap:wrap; flex-direction:column; align-items:center;text-align:center;">
+    <div class="w-50 d-flex" style="margin: auto; margin-top:10%; flex-wrap:wrap; flex-direction:column; align-items:center;text-align:center;">
         <?php
         echo $mensaje;
         ?>
-        <button class="btn btn-primary" style="padding: 0;"><a href='buscarAuto.php' class="link-light" style="padding: 12px; font-size:1.2em;">Volver atrás</a></button>
+        <button class="btn btn-primary" style="padding: 0;"><a href='autosPersona.php' class="link-light" style="padding: 12px; font-size:1.2em;">Volver atrás</a></button>
     </div>
 </body>
 </html>
