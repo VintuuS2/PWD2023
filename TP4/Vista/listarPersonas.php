@@ -19,7 +19,7 @@ $listaPersonas = $objPersona->buscar(null);
 
 <body>
     <div class="contenedor">
-        <div class="w-100 d-flex" style="flex-wrap:wrap; flex-direction:column; align-items:center;text-align:center;">
+        <div class="w-100 d-flex" style="flex-wrap:wrap; flex-direction:column; align-items:center;text-align:center; padding-top:10vh;">
             <?php
             if (count($listaPersonas) > 0) {
                 echo "<table class='table'><thead class='table-dark'><tr><th colspan=7 class='table-dark' style='text-align:center;'>Personas</th></tr><tr><th>#</th><th>Apellido</th><th>Nombre</th><th>Numero de DNI</th><th>Fecha de Nacimiento</th><th>Telefono</th><th>Domicilio</th></tr></thead>";
