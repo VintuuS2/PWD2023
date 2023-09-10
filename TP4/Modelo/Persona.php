@@ -1,4 +1,5 @@
 <?php
+include_once 'conector/BaseDatos.php';
 class Persona {
     //Atributos
     private $nroDni;
@@ -96,7 +97,7 @@ class Persona {
     public function insertar(){
         $resp = false;
         $base=new BaseDatos();
-        $sql="INSERT INTO persona(NroDni,Apellido,Nombre,fechaNac,Telefono,Domicilio)  VALUES(".$this->getNroDni().",'".$this->getApellido()."','".$this->getNombre()."','".$this->getFechaNac()."','".$this->getTelefono().",".$this->getDomicilio().");";
+        $sql="INSERT INTO persona(NroDni,Apellido,Nombre,fechaNac,Telefono,Domicilio)  VALUES(".$this->getNroDni().",'".$this->getApellido()."','".$this->getNombre()."','".$this->getFechaNac()."','".$this->getTelefono()."','".$this->getDomicilio()."');";
         if ($base->Iniciar()) {
             if ($nroDni = $base->Ejecutar($sql)) {
                 $this->setNroDni($nroDni);

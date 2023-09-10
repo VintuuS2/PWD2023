@@ -43,7 +43,7 @@ class AbmAuto{
      */
     public function alta($param){
         $resp = false;
-        $param['Patente'] = null;
+        // $param['Patente'] = null;   ----Si no está en comentarios el código no funciona
         $objAuto = $this->cargarObjeto($param);
         // verEstructura($objAuto);
         if ($objAuto!=null and $objAuto->insertar()){

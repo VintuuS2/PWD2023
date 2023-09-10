@@ -1,11 +1,12 @@
 <?php
+include_once '../Modelo/Persona.php';
 class AbmPersona{
     /** Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
      * @param ARRAY $param
      * @return Persona */
     private function cargarObjeto($param){
         $obj = null;
-        if( array_key_exists('NroDni',$param) && array_key_exists('Nombre',$param) && array_key_exists('Apellido',$param) && array_key_exists('fechaNac',$param) && array_key_exists('Telefono',$param) && array_key_exists('Domicilio', $param)){
+        if( array_key_exists('NroDni',$param) and array_key_exists('Nombre',$param) and array_key_exists('Apellido',$param) and array_key_exists('fechaNac',$param) and array_key_exists('Telefono',$param) and array_key_exists('Domicilio', $param)){
             $obj = new Persona();
             $obj->setear($param['NroDni'], $param['Nombre'], $param['Apellido'],$param['fechaNac'],$param['Telefono'],$param['Domicilio']);
         }
@@ -39,7 +40,7 @@ class AbmPersona{
      */
     public function alta($param){
         $resp = false;
-        $param['NroDni'] =null;
+        //$param['NroDni'] = null; ---Si no está en comentarios no funciona el código
         $elObjPersona = $this->cargarObjeto($param);
         //verEstructura($elObjtTabla);
         if ($elObjPersona!=null and $elObjPersona->insertar()){
