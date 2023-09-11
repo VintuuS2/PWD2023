@@ -17,15 +17,14 @@ $listaAutos = $objAuto->buscar(null);
 </head>
 <body>
     <div class="contenedor">
-        <div style="margin: auto;">
-        <h1></h1>
+        <div class="w-75">
         <?php
             if (count($listaAutos) > 0){
                 echo "<table class=table><thead class='table-dark'><tr><th colspan=6 style=text-align:center>Autos</th></tr><tr><th>#</th><th>Patente</th><th>Marca</th><th>Modelo</th><th>Nombre</th><th>Apellido</th></tr></thead>";
                 $i = 1;
                 foreach ($listaAutos as $auto){
                     $objDuenio = $auto->getObjDuenio();
-                    echo "<tr><td>".$i."</td><td>".$auto->getPatente()."</td><td>".$auto->getMarca()."</td><td>".$auto->getModelo()."</td><td>".$objDuenio->getNombre()."</td><td>".   $objDuenio->getApellido()."</td></tr><br>";
+                    echo "<tr><td>".$i."</td><td>".$auto->getPatente()."</td><td>".$auto->getMarca()."</td><td>".$auto->getModelo()."</td><td>".$objDuenio->getNombre()."</td><td>".   $objDuenio->getApellido()."</td></tr>";
                     $i++;
                 }
                 echo "</table>";

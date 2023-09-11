@@ -24,20 +24,20 @@ include_once '../configuracion.php';
                 const formatoValido = /^[A-Z]{3}\s\d{3}$/;
 
                 if (!formatoValido.test(patenteValue)) {
-                    event.preventDefault(); // Evita que el formulario se envíe
-                    patenteInput.style.border = '1px solid red';
                     invalidFormato.style.display = 'block';
                 } else {
-                    patenteInput.style.border = '1px solid green';
                     invalidFormato.style.display = 'none';
                 }
                 if (patenteValue.length != 7) {
-                    event.preventDefault(); // Evita que el formulario se envíe
-                    patenteInput.style.border = '1px solid red';
                     invalidCaracteres.style.display = 'block';
                 } else {
-                    patenteInput.style.border = '1px solid green';
                     invalidCaracteres.style.display = 'none';
+                }
+                if (!formatoValido.test(patenteValue) || patenteValue.length != 7) {
+                    event.preventDefault(); // Evita que el formulario se envíe
+                    patenteInput.style.border = '1px solid red';
+                } else {
+                    patenteInput.style.border = '1px solid green';
                 }
             });
         });
@@ -46,13 +46,13 @@ include_once '../configuracion.php';
 </head>
 <body>
     <div class="contenedor">
-        <form action="accionBuscarAuto.php" method="get" class="d-flex justify-content-center align-items-center" style="padding-top: 19%;">
-            <div class="d-flex align-items-lg-end flex-column bg-dark  p-10" style="padding: 25px; border-radius: 10px; max-width:50%; min-width: 300px;">
+        <form action="accionBuscarAuto.php" method="get" class="d-flex justify-content-center align-items-center">
+            <div class="d-flex align-items-lg-end flex-column bg-dark p-10" style="padding: 25px; border-radius: 10px; max-width:50%; min-width: 300px;">
                 <div class="form-group" style="text-align:center; ">
-                    <label for="patente-auto" class="text-primary fs-3" style="margin-bottom:10px;">¿Cuál es la patente del auto del que desea ver los datos?</label>
+                    <label for="patente-auto" class="text-primary fs-4" style="margin-bottom:10px;">¿Cuál es la patente del vehículo del que desea ver los datos?</label>
                     <div class="input-group-text w-10" id="input-patente-auto">
                         <i class="fa fa-car" style="width: 10%; margin-right:10px;"></i>
-                        <input type="text" class="form-control" id="patente-auto" name="patente-auto" placeholder="Ejemplo: KJL 357">
+                        <input type="text" class="form-control" maxlength="7" id="patente-auto" name="patente-auto" placeholder="Ejemplo: KJL 357">
                     </div>
                     <div class="invalid-feedback formatoCorrecto" style="font-size: 1.2em; margin-bottom:-10px;">El formato debe ser "ABC 123".</div>
                     <div class="invalid-feedback caracteresCorrectos" style="font-size: 1.2em; margin-bottom:-13px;">Deben ser 7 carácteres.</div>

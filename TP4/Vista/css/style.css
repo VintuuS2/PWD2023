@@ -13,6 +13,9 @@
     height:94vh;
     border-left: 1px solid #444;
     border-right: 1px solid #444;
-    padding: 0 25px;
+    padding: 0 25px 56px 25px;
     min-width: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

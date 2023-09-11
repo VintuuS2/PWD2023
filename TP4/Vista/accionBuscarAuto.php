@@ -47,7 +47,7 @@ if ($_GET) {
 </head>
 <body>
     <div class="contenedor">
-        <div class="d-flex" style="margin: auto; padding-top:25%; flex-wrap:wrap; flex-direction:column; align-items:center;text-align:center;">
+        <div class="d-flex" style="margin: auto; flex-wrap:wrap; flex-direction:column; align-items:center;text-align:center;">
             <?php
             echo $mensaje;
             ?>

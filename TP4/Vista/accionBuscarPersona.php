@@ -65,7 +65,7 @@ if ($_GET) {
             $mensaje .= "</table>";
         } else {
             // Cuando la persona no es dueña de ningún vehículo
-            $mensaje = "<h2 style='margin-top:10%'>Esta persona no es dueña de ningún vehiculo</h2>";
+            $mensaje = "<h2>Esta persona no es dueña de ningún vehiculo</h2>";
         }
     } else {
         $mensaje = "<h3>No hay ninguna persona con el DNI N°" . $dniDuenio . " en la base de datos.</h3>";
@@ -86,7 +86,7 @@ if ($_GET) {
 </head>
 <body>
     <div class="contenedor">
-        <div class="d-flex" style="margin: auto; padding-top:22%; flex-wrap:wrap; flex-direction:column; align-items:center;text-align:center;">
+        <div class="d-flex" style="margin: auto; flex-wrap:wrap; flex-direction:column; align-items:center;text-align:center;">
             <?php
             echo $mensaje;
             ?>

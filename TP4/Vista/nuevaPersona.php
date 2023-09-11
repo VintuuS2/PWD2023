@@ -14,7 +14,7 @@ include_once '../menuTP4.php';
 </head>
 <body>
     <div class="contenedor">
-        <h2 style="text-align: center; padding:50px 0px">Añadir persona</h2>
+        <h2 style="text-align: center;">Añadir persona</h2>
         <div class="container" style="margin: auto;">
             <form id="form" action="./accionNuevaPersona.php" method="post" class="row g-3 needs-validation" novalidate>
                 <div class="col-md-4">

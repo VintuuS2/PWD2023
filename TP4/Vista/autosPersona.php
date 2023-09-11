@@ -24,28 +24,29 @@ include_once '../configuracion.php';
                 const formatoValido = /^\d{1,8}$/;
 
                 if (!formatoValido.test(dniValue)) {
-                    event.preventDefault(); // Evita que el formulario se envíe
-                    dniDuenioInput.style.border = '1px solid red';
                     invalidFormato.style.display = 'block';
                 } else {
                     invalidFormato.style.display = 'none';
                 }
-                if (dniValue.length != 8) {
-                    event.preventDefault(); // Evita que el formulario se envíe
-                    dniDuenioInput.style.border = '1px solid red';
+                if (dniValue.length > 8) {
                     invalidCaracteres.style.display = 'block';
                 } else {
                     invalidCaracteres.style.display = 'none';
                 }
+                if (!formatoValido.test(dniValue) || dniValue.length > 8) {
+                    event.preventDefault(); // Evita que el formulario se envíe
+                    dniDuenioInput.style.border = '1px solid red';
+                } else {
+                    dniDuenioInput.style.border = '1px solid green';
+                }
             });
         });
-</script>
-
+    </script>
 </head>
 <body>
     <div class="contenedor">
-        <form action="accionBuscarPersona.php" method="get" class="d-flex justify-content-center align-items-center" style="padding-top: 20%;">
-            <div class="d-flex align-items-lg-end flex-column bg-dark  p-10" style="padding: 20px; border-radius: 10px; max-width:25%; min-width: 300px;">
+        <form action="accionBuscarPersona.php" method="get" class="d-flex justify-content-center align-items-center">
+            <div class="d-flex align-items-lg-end flex-column bg-dark p-10" style="padding: 20px; border-radius: 10px; max-width:45%; min-width: 300px;">
                 <div class="form-group" style="text-align:center;">
                     <label for="dni-duenio" class="text-primary fs-4" style="margin-bottom:10px;">¿Cuál es el dni de la persona de la que desea ver sus vehículos?</label>
                     <div class="input-group-text w-10" id="input-dni-duenio">
