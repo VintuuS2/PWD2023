@@ -18,7 +18,7 @@ $listaPersonas = $objPersona->buscar(null);
 </head>
 
 <body>
-    <div class="contenedor">
+    <div class="contenedor" style="min-width: 802px;">
         <div class="w-100 d-flex" style="flex-wrap:wrap; flex-direction:column; align-items:center;text-align:center;">
             <?php
             if (count($listaPersonas) > 0) {

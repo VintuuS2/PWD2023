@@ -12,37 +12,7 @@ include_once '../configuracion.php';
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Buscar auto</title>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const form = document.querySelector('form');
-            const patenteInput = document.getElementById('patente-auto');
-            const invalidFormato = document.querySelector('.formatoCorrecto');
-            const invalidCaracteres = document.querySelector('.caracteresCorrectos');
-
-            form.addEventListener('submit', function (event) {
-                const patenteValue = patenteInput.value.toUpperCase();
-                const formatoValido = /^[A-Z]{3}\s\d{3}$/;
-
-                if (!formatoValido.test(patenteValue)) {
-                    invalidFormato.style.display = 'block';
-                } else {
-                    invalidFormato.style.display = 'none';
-                }
-                if (patenteValue.length != 7) {
-                    invalidCaracteres.style.display = 'block';
-                } else {
-                    invalidCaracteres.style.display = 'none';
-                }
-                if (!formatoValido.test(patenteValue) || patenteValue.length != 7) {
-                    event.preventDefault(); // Evita que el formulario se envíe
-                    patenteInput.style.border = '1px solid red';
-                } else {
-                    patenteInput.style.border = '1px solid green';
-                }
-            });
-        });
-</script>
-
+    <script src="js/scriptBuscarAuto.js"></script>
 </head>
 <body>
     <div class="contenedor">

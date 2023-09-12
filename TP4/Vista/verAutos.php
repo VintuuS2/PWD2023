@@ -16,8 +16,8 @@ $listaAutos = $objAuto->buscar(null);
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <div class="contenedor">
-        <div class="w-75">
+    <div class="contenedor" >
+        <div class="w-75" style="min-width:450px;">
         <?php
             if (count($listaAutos) > 0){
                 echo "<table class=table><thead class='table-dark'><tr><th colspan=6 style=text-align:center>Autos</th></tr><tr><th>#</th><th>Patente</th><th>Marca</th><th>Modelo</th><th>Nombre</th><th>Apellido</th></tr></thead>";
@@ -34,6 +34,5 @@ $listaAutos = $objAuto->buscar(null);
             ?>
         </div>
     </div>
-    
 </body>
 </html>
