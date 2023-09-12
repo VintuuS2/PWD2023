@@ -1,11 +1,13 @@
 <?php
-include_once '../../../menu-paginas.php';
+include_once '../../../navbar.php';
 ?>
 <!DOCTYPE html>
 <head>
     <title>Ejercicio 2, TP1</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="../../../TP2/Util/TP1/Util-EJ2/script.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
     <h4>¿Cuál es la cantidad de horas que tenés de Programación web dinámica cada dia de la semana?</h4>

@@ -1,6 +1,6 @@
 <?php
-include_once '../../menu-paginas.php';
 include_once '../configuracion.php';
+include_once '../../navbar.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">

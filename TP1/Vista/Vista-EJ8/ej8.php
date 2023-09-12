@@ -1,5 +1,5 @@
 <?php
-include_once '../../../menu-paginas.php';
+include_once '../../../navbar.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,6 +8,8 @@ include_once '../../../menu-paginas.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="../../../TP2/Util/TP1/Util-EJ8/script.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <title>Entradas cine</title>
     <style>
         body {

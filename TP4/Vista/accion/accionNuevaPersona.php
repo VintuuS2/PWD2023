@@ -40,7 +40,7 @@ if ($_POST){
             <div class="col-4 p-5">
                 <div class="p-2 text-center">
                     <?php
-                    echo $mensaje;
+                    echo "<h2>".$mensaje."</h2>";
                     ?>
                 </div>
                 <div class="w-100"></div>
