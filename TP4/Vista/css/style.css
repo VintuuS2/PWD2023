@@ -6,6 +6,10 @@
     color: #000;
 }
 
+body {
+    overflow-y: hidden;
+}
+
 .contenedor {
     margin: auto;
     width: 50%;
@@ -18,4 +22,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+a.dropdown-item:hover {
+    background-color: #483D8D;
 }
