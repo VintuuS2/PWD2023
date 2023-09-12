@@ -1,5 +1,4 @@
 <?php
-include_once 'conector/BaseDatos.php';
 class Persona {
     //Atributos
     private $nroDni;

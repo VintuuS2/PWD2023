@@ -1,6 +1,6 @@
 <?php
 include_once '../configuracion.php';
-include_once '../menuTP4.php';
+include_once '../../menu-paginas.php';
 $objPersona = new AbmPersona();
 
 $listaPersonas = $objPersona->buscar(null);

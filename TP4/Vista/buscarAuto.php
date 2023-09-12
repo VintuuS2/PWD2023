@@ -1,5 +1,5 @@
 <?php
-include_once '../menuTP4.php';
+include_once '../../menu-paginas.php';
 include_once '../configuracion.php';
 ?>
 <!DOCTYPE html>

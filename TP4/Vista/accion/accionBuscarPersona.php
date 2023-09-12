@@ -1,6 +1,6 @@
 <?php
-include_once '../menuTP4.php';
-include_once '../configuracion.php';
+include_once '../../../menu-paginas.php';
+include_once '../../configuracion.php';
 if ($_GET) {
     $dniDuenio = $_GET['dni-duenio'];
     $controlPersona = new AbmPersona();

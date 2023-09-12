@@ -22,7 +22,7 @@
     <div class="container-fluid justify-content-center collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav"> 
         <li class="nav-item dropdown">
-          <a class="nav-link" href="../../../index.php">Inicio</a>
+          <a class="nav-link" href="http://localhost/pwd2023/index.php">Inicio</a>
         </li>
       </ul>
     </div>

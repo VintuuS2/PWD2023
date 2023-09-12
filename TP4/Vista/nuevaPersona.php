@@ -1,6 +1,6 @@
 <?php
 include_once '../configuracion.php';
-include_once '../menuTP4.php';
+include_once '../../menu-paginas.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -16,7 +16,7 @@ include_once '../menuTP4.php';
     <div class="contenedor">
         <h2 style="text-align: center;">Añadir persona</h2>
         <div class="container" style="margin: auto;">
-            <form id="form" action="./accionNuevaPersona.php" method="post" class="row g-3 needs-validation" novalidate>
+            <form id="form" action="./accion/accionNuevaPersona.php" method="post" class="row g-3 needs-validation" novalidate>
                 <div class="col-md-4">
                     <label for="NroDni" class="form-label">DNI</label>
                     <input class="form-control" type="text" pattern="[0-9]" min="0" maxlength="8" placeholder="12345678" id="NroDni" name="NroDni" required/>
