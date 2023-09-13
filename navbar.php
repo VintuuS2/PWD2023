@@ -44,6 +44,7 @@
                             <li><a class="dropdown-item text-light" href="http://localhost/pwd2023/TP4/Vista/buscarAuto.php">Buscar auto</a></li>
                             <li><a class="dropdown-item text-light" href="http://localhost/pwd2023/TP4/Vista/autosPersona.php">Autos por persona</a></li>
                             <li><a class="dropdown-item text-light" href="http://localhost/pwd2023/TP4/Vista/nuevaPersona.php">Añadir personas</a></li>
+                            <li><a class="dropdown-item text-light" href="http://localhost/pwd2023/TP4/Vista/nuevoAuto.php">Añadir un auto</a></li>
                             <li><a class="dropdown-item text-light" href="http://localhost/pwd2023/TP4/Vista/CambioDuenio.php">Cambiar de dueño</a></li>
                         </ul>
                     </li>

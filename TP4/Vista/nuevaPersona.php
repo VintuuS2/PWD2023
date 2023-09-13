@@ -7,11 +7,11 @@ include_once '../configuracion.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Añadir persona</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Nueva persona</title>
 </head>
 
 <body>
@@ -20,7 +20,7 @@ include_once '../configuracion.php';
     ?>
     <div class="contenedor">
         <form id="form" action="./accion/accionNuevaPersona.php" method="post" class="row g-3 needs-validation" novalidate>
-            <h2 style="text-align: center;" class="w-100">Añadir persona a la base de datos</h2>
+            <h2 class="text-center" class="w-100">Añadir persona a la base de datos</h2>
             <div class="col-md-4">
                 <label for="NroDni" class="form-label">DNI</label>
                 <input class="form-control" type="text" pattern="[0-9]" min="0" maxlength="8" placeholder="12345678" id="NroDni" name="NroDni" required />

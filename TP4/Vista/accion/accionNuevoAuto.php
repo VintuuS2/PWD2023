@@ -3,7 +3,7 @@ include_once '../../configuracion.php';
 include_once '../../../navbar.php';
 $mensaje = "No se recibieron datos";
 if ($_POST){
-    $dni = $_POST['NroDni'];
+    $dni = $_POST['DniDuenio'];
 
     $personas = new AbmPersona();
     $listaPersonas = $personas->buscar(null);
@@ -16,14 +16,29 @@ if ($_POST){
         $i++;
     }
     if ($existe){
-        $mensaje = "Ya hay una persona cargada con este número de documento";
-    } else {
-        $respuesta = $personas->alta($_POST);
-        if ($respuesta){
-            $mensaje = "Se cargó exitosamente";
-        } else {
-            $mensaje = "Hubo un error al cargar la persona.";
+        $patente = $_POST['patente'];
+        $autos = new AbmAuto();
+        $listaAutos = $autos->buscar(null);
+        $existe = false;
+        $i = 0;
+        while (!$existe && $i<count($listaAutos)){
+            if ($listaAutos[$i]->getPatente() == $patente){
+                $existe = true;
+            }
+            $i++;
         }
+        if ($existe){
+            $mensaje = "Ya hay un auto con esta patente";
+        } else {
+            $respuesta = $autos->alta($_POST);
+            if ($respuesta){
+                $mensaje = "El auto se cargó con éxito";
+            } else {
+                $mensaje = "Hubo un error al cargar el auto.";
+            }
+        }
+    } else {
+        $mensaje = "No existe una persona con ese Nro de DNI";
     }
 }
 ?>
@@ -31,12 +46,12 @@ if ($_POST){
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Añadir persona</title>
+    <title>Nuevo auto</title>
 </head>
 <body>
     <div class="contenedor">
@@ -50,7 +65,7 @@ if ($_POST){
                     </div>
                     <div class="w-100"></div>
                     <div class="p-2 d-flex justify-content-center align-items-center">
-                        <a class="btn btn-primary" role="button" href="../../Vista/listarPersonas.php">Ver lista de personas</a>
+                        <a class="btn btn-primary" role="button" href="../../Vista/verAutos.php">Ver lista de autos</a>
                     </div>
                 </div>
             </div>
