@@ -2,73 +2,73 @@
 include_once '../../configuracion.php';
 include_once '../../../navbar.php';
 if ($_GET) {
-    $dniDuenio = $_GET['dni-duenio'];
+    $dniPersona = $_GET['dni-modificar'];
     $controlPersona = new AbmPersona();
     $arrayPersonas = $controlPersona->buscar(null);
     $i = 0;
     $encontroPersona = false;
     // While que verifica y busca a la persona con el número de dni
     while ($i < count($arrayPersonas) && !$encontroPersona) {
-        if ($arrayPersonas[$i]->getNroDni() == $dniDuenio) {
-            // Cuando se encontro a la persona, busca los autos de esa persona
-            $controlAuto = new AbmAuto();
-            $arrayAutos = $controlAuto->buscar(null);
-            // While que busca si el dueño tiene al menos un auto
-            $j = 0;
-            $encontroUnAuto = false;
-            while ($j < count($arrayAutos) && !$encontroUnAuto) {
-                if ($arrayAutos[$j]->getObjDuenio()->getNroDni() == $dniDuenio) {
-                    $encontroUnAuto = true;
-                }
-                $j++;
-            }
+        if ($arrayPersonas[$i]->getNroDni() == $dniPersona) {
             $encontroPersona = true;
         }
         $i++;
     }
     if ($encontroPersona) {
-        if ($encontroUnAuto) {
-            // Cuando se encontró a la persona y tiene al menos un vehiculo muestra los datos
-            $mensaje = "<h2>Estos son los datos de la Persona con el DNI N°".$dniDuenio.":</h2>
-                    <table border= solid 1px class='table'>
-                            <thead class='table-dark' >
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Fecha de Nacimiento</th>
-                                <th>Telefono</th>
-                                <th>Domicilio</th>
-                            </thead>
-                            <tr>
-                                <td>".$arrayPersonas[$i-1]->getNombre()."</td>
-                                <td>".$arrayPersonas[$i-1]->getApellido()."</td>
-                                <td>".$arrayPersonas[$i-1]->getFechaNac()."</td>
-                                <td>".$arrayPersonas[$i-1]->getTelefono()."</td>
-                                <td>".$arrayPersonas[$i-1]->getDomicilio()."</td>
-                            </tr>"."
-                    </table>";
-            $mensaje .= "<h2>Estos son los datos de los vehiculos de la persona</h2>
-                        <table border= solid 1px class='table'>
-                            <thead class='thead-dark table-dark' >
-                                <th>Patente</th>
-                                <th>Marca</th>
-                                <th>Modelo</th>
-                            </thead>";
-            foreach ($arrayAutos as $unAuto) {
-                if ($unAuto->getObjDuenio()->getNroDni() == $dniDuenio) {
-                    $mensaje .= "<tr>
-                                    <td>".$unAuto->getPatente()."</td>
-                                    <td>".$unAuto->getMarca()."</td>
-                                    <td>".$unAuto->getModelo()."</td>
-                                </tr>";
-                }
-            }
-            $mensaje .= "</table>";
-        } else {
-            // Cuando la persona no es dueña de ningún vehículo
-            $mensaje = "<h2>Esta persona no es dueña de ningún vehiculo</h2>";
-        }
+            //Cuando se encuentra una persona
+            $mensaje = "
+            <form id='form' action='./ActualizarDatosPersona.php' method='post' class='row g-3 needs-validation' novalidate>
+            <h2 style='text-align: center;' class='w-100'>Modificar Persona DNI N°" . $dniPersona . " en la Base de Datos</h2>
+            <input type='text' class='form-control' id='NroDni' name='NroDni' style='display: none;' value='$dniPersona'>
+            
+            <div class='col-md-4'>
+                <label for='Nombre' class='form-label'>Nombre</label>
+                <input type='text' class='form-control' id='Nombre' name='Nombre' value='". $arrayPersonas[$i-1]->getNombre() . "'required>
+                <div class='valid-feedback'>
+                    Dato ingresado correctamente!
+                </div>
+                <div class='invalid-feedback'>
+                    Ingrese un nombre válido
+                </div>
+            </div>
+            <div class='col-md-4'>
+                <label for='Apellido' class='form-label'>Apellido</label>
+                <input type='text' class='form-control' id='Apellido' name='Apellido' value='". $arrayPersonas[$i-1]->getApellido() ."' required>
+                <div class='valid-feedback'>
+                    Dato ingresado correctamente!
+                </div>
+                <div class='invalid-feedback'>
+                    Ingrese un apellido válido
+                </div>
+            </div>
+            <input type='text' class='form-control' id='fechaNac' name='fechaNac' style='display: none;' value='".$arrayPersonas[$i-1]->getFechaNac()."'>
+            <div class='col-md-4'>
+                <label for='Telefono' class='form-label'>Teléfono</label>
+                <input class='form-control' type='text' pattern='[0-9]+' maxlength='11' min='0' placeholder='299-1231234' name='Telefono' id='Telefono' value='". $arrayPersonas[$i-1]->getTelefono() ."' required>
+                <div class='valid-feedback'>
+                    Dato ingresado correctamente!
+                </div>
+                <div class='invalid-feedback'>
+                    Ingrese un teléfono válido
+                </div>
+            </div>
+
+            <div class='col-md-4'>
+                <label for='Domicilio' class='form-label'>Dirección</label>
+                <input type='text' class='form-control' placeholder='Ingrese su dirección' id='Domicilio' name='Domicilio' value='". $arrayPersonas[$i-1]->getDomicilio() ."' required>
+                <div class='valid-feedback'>
+                    Dato ingresado correctamente!
+                </div>
+                <div class='invalid-feedback'>
+                    Ingrese una dirección válida
+                </div>
+            </div>
+            <div class='d-flex align-content justify-content-center'>
+                <button type='submit' class='btn btn-primary btn-sm' style='margin-top:15px; font-size:1.1em;'>Enviar</button>
+            </div>
+        </form>";
     } else {
-        $mensaje = "<h3>No hay ninguna persona con el DNI N°" . $dniDuenio . " en la base de datos.</h3>";
+        $mensaje = "<h3>No hay ninguna persona con el DNI N°" . $dniPersona . " en la base de datos.</h3>";
     }
 } else {
     $mensaje = "<h2>No se ha recibido ningún número de documento</h2>";
@@ -91,6 +91,7 @@ if ($_GET) {
             echo $mensaje;
             ?>
             <button class="btn btn-primary" style="padding: 0;"><a href='../autosPersona.php' class="link-light" style="padding: 12px; font-size:1.2em;">Volver atrás</a></button>
+
         </div>
     </div>
 </body>
