@@ -1,5 +1,4 @@
 <?php
-include_once '../Modelo/Auto.php';
 class AbmAuto{
     /** Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
      * @param ARRAY $param

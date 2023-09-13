@@ -16,7 +16,7 @@ include_once '../../navbar.php';
 </head>
 <body>
     <div class="contenedor">
-        <form action="accionBuscarAuto.php" method="get" class="d-flex justify-content-center align-items-center">
+        <form action="accion/accionBuscarAuto.php" method="get" class="d-flex justify-content-center align-items-center">
             <div class="d-flex align-items-lg-end flex-column bg-dark p-10" style="padding: 25px; border-radius: 10px; max-width:50%; min-width: 300px;">
                 <div class="form-group" style="text-align:center; ">
                     <label for="patente-auto" class="text-primary fs-4" style="margin-bottom:10px;">¿Cuál es la patente del vehículo del que desea ver los datos?</label>

@@ -17,7 +17,7 @@ include_once '../../navbar.php';
 
 <body>
     <div class="contenedor">
-        <form action="accionCambioDuenio.php" method="get" class="d-flex text-center" >
+        <form action="accion/accionCambioDuenio.php" method="get" class="d-flex text-center" >
             <div class="d-flex  align-items-lg-end flex-column bg-dark" style="padding: 20px; border-radius: 10px;">
                 <h1 class="fs-3 bg-info w-100" style="border-radius:10px; padding: 5px 10px; margin:0;">Cambiar el dueño de un vehículo</h1>
                 <div class="form-group w-100">
