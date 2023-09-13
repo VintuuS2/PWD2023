@@ -39,7 +39,7 @@ $(document).ready(function(){
         var formValido = true;
         var mensaje = "";
 
-        var patente = $('#Patente').val()
+        var patente = $('#Patente').val();
         var marca = $('#Marca').val();
         var modelo = $('#Modelo').val();
         var dni = $('#DniDuenio').val();

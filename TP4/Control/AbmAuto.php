@@ -10,7 +10,7 @@ class AbmAuto{
             $objDuenio = new Persona();
             $objDuenio->setNroDni($param['DniDuenio']);
             $objDuenio->cargar();
-            $objAuto->setear($param['Patente'], $param['Marca'], $param['Modelo'], $objDuenio);
+            $objAuto->setear(strtoupper($param['Patente']), $param['Marca'], $param['Modelo'], $objDuenio);
         }
         return $objAuto;
     }

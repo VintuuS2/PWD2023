@@ -7,7 +7,7 @@ class AbmPersona{
         $obj = null;
         if( array_key_exists('NroDni',$param) and array_key_exists('Nombre',$param) and array_key_exists('Apellido',$param) and array_key_exists('fechaNac',$param) and array_key_exists('Telefono',$param) and array_key_exists('Domicilio', $param)){
             $obj = new Persona();
-            $obj->setear($param['NroDni'], $param['Nombre'], $param['Apellido'],$param['fechaNac'],$param['Telefono'],$param['Domicilio']);
+            $obj->setear($param['NroDni'],  $param['Apellido'], $param['Nombre'], $param['fechaNac'],$param['Telefono'],$param['Domicilio']);
         }
         return $obj;
     }
@@ -41,6 +41,7 @@ class AbmPersona{
         $resp = false;
         //$param['NroDni'] = null; ---Si no está en comentarios no funciona el código
         $elObjPersona = $this->cargarObjeto($param);
+        print_r($elObjPersona);
         //verEstructura($elObjtTabla);
         if ($elObjPersona!=null and $elObjPersona->insertar()){
             $resp = true;

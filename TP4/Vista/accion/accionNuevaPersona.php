@@ -49,6 +49,7 @@ if ($_POST){
                         ?>
                     </div>
                     <div class="w-100"></div>
+
                     <div class="p-2 d-flex justify-content-center align-items-center">
                         <a class="btn btn-primary" role="button" href="../../Vista/listarPersonas.php">Ver lista de personas</a>
                     </div>
