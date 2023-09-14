@@ -1,6 +1,6 @@
 <?php
+include_once '../../../../TP4/configuracion.php';
 include_once '../../../../navbar.php';
-
 include_once './../../Control/EJ3/cargar.php';
 ?>
 <!DOCTYPE html>

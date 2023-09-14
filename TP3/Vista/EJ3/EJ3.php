@@ -1,4 +1,5 @@
 <?php
+include_once '../../../TP4/configuracion.php';
 include_once '../../../navbar.php';
 ?>
 <!DOCTYPE html>
@@ -22,7 +23,6 @@ include_once '../../../navbar.php';
         }
     </style>
 </head>
-
 <body>
     <div class="container mt-5">
         <div class="row justify-content-center" id="contenedor">

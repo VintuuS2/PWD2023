@@ -15,6 +15,7 @@ include_once '../../navbar.php';
     <script src="js/scriptBuscarAuto.js"></script>
 </head>
 <body>
+    <?php echo $PROYECTOROOT?>
     <div class="contenedor">
         <form action="accion/accionBuscarAuto.php" method="get" class="d-flex justify-content-center align-items-center">
             <div class="d-flex align-items-lg-end flex-column bg-dark p-10" style="padding: 25px; border-radius: 10px; max-width:50%; min-width: 300px;">
