@@ -1,6 +1,6 @@
 <?php
     include_once '../../../TP4/configuracion.php';
-    include_once '../../../menu-paginas.php';
+    include_once '../../../navbar.php';
     include_once '../../Control/Control-EJ2/pwd.php';
     if ($_GET) {
         $diasLunes = $_GET['lunes-form'];
