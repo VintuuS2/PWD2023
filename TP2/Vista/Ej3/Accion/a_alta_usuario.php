@@ -1,7 +1,7 @@
 <?php
+include_once '--/../../../TP4/configuracion.php';
 include_once "../../../Control/Ej3/Usuarios.php";
 include_once '../../../../navbar.php';
-   
     if ($_POST){
         $datosLoggeo['usuario'] = $_POST['usuario'];
         $datosLoggeo['clave'] = $_POST['contra'];
