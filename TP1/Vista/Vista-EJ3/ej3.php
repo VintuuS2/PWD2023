@@ -4,6 +4,7 @@ include_once '../../../navbar.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,27 +13,35 @@ include_once '../../../navbar.php';
     <script src="../../../TP2/Util/TP1/Util-EJ3/script.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../../../TP4/Vista/css/style.css">
     <title>Ejercicio 3</title>
 </head>
+
 <body>
-    <form id="form" name="form" action="mensaje.php" method="post">
-        <div class="div-input">
-            <label for="nombre-usuario">Nombre: </label><input type="text" name="nombre-usuario" id="nombre-usuario">
-            <span id="span-nombre"></span>
+    <div class="contenedor">
+        <div class="d-flex" style="margin: auto; flex-wrap:wrap; flex-direction:column; align-items:center;text-align:center;">
+            <form id="form" name="form" action="mensaje.php" method="post">
+                <div class="div-input">
+                    <label for="nombre-usuario">Nombre: </label><input type="text" name="nombre-usuario" id="nombre-usuario">
+                    <span id="span-nombre"></span>
+                </div>
+                <div class="div-input">
+                    <label for="apellido-usuario">Apellido: </label><input type="text" name="apellido-usuario" id="apellido-usuario">
+                    <span id="span-apellido"></span>
+                </div>
+                <div class="div-input">
+                    <label for="edad-usuario">Edad: </label><input type="number" name="edad-usuario" id="edad-usuario">
+                    <span id="span-edad"></span>
+                </div>
+                <div class="div-input">
+                    <label for="direccion-usuario">Dirección: </label><input type="text" name="direccion-usuario" id="direccion-usuario">
+                    <span id="span-direccion"></span>
+                </div>
+                <input id="enviar" type="submit" value="Enviar datos">
+            </form>
         </div>
-        <div class="div-input">
-            <label for="apellido-usuario">Apellido: </label><input type="text" name="apellido-usuario" id="apellido-usuario">
-            <span id="span-apellido"></span>
-        </div>
-        <div class="div-input">
-            <label for="edad-usuario">Edad: </label><input type="number" name="edad-usuario" id="edad-usuario">
-            <span id="span-edad"></span>
-        </div>
-        <div class="div-input">
-            <label for="direccion-usuario">Dirección: </label><input type="text" name="direccion-usuario" id="direccion-usuario">
-            <span id="span-direccion"></span>
-        </div>
-        <input id="enviar" type="submit" value="Enviar datos">
-    </form>
+    </div>
+
 </body>
+
 </html>

@@ -9,6 +9,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mensaje .= "<h2>$result</h2>";
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
 <!DOCTYPE html>
 <html lang="en">
