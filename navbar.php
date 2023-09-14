@@ -41,11 +41,12 @@
                         <ul class="dropdown-menu" style="background: linear-gradient(135deg, rgba(85,68,173,0.75) 5%, rgba(72,57,161,0.75) 62%, rgba(110,90,199,0.75) 95%);">
                             <li><a class="dropdown-item text-light" href="http://localhost/pwd2023/TP4/Vista/verAutos.php">Ver autos</a></li>
                             <li><a class="dropdown-item text-light" href="http://localhost/pwd2023/TP4/Vista/listarPersonas.php">Ver personas</a></li>
-                            <li><a class="dropdown-item text-light" href="http://localhost/pwd2023/TP4/Vista/buscarAuto.php">Buscar auto</a></li>
+                            <li><a class="dropdown-item text-light" href="http://localhost/pwd2023/TP4/Vista/buscarAuto.php">Buscar un auto</a></li>
                             <li><a class="dropdown-item text-light" href="http://localhost/pwd2023/TP4/Vista/autosPersona.php">Autos por persona</a></li>
-                            <li><a class="dropdown-item text-light" href="http://localhost/pwd2023/TP4/Vista/nuevaPersona.php">Añadir personas</a></li>
+                            <li><a class="dropdown-item text-light" href="http://localhost/pwd2023/TP4/Vista/nuevaPersona.php">Añadir una persona</a></li>
                             <li><a class="dropdown-item text-light" href="http://localhost/pwd2023/TP4/Vista/nuevoAuto.php">Añadir un auto</a></li>
                             <li><a class="dropdown-item text-light" href="http://localhost/pwd2023/TP4/Vista/CambioDuenio.php">Cambiar de dueño</a></li>
+                            <li><a class="dropdown-item text-light" href="http://localhost/pwd2023/TP4/Vista/BuscarPersona.php">Modificar una persona</a></li>
                         </ul>
                     </li>
                 </ul>
