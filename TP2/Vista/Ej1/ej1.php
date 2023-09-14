@@ -4,6 +4,7 @@ include_once '../../../navbar.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@ include_once '../../../navbar.php';
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../../../TP4/Vista/css/style.css">
     <script>
         $(document).ready(function() {
             $("form").submit(function(event) {
@@ -31,19 +33,25 @@ include_once '../../../navbar.php';
         });
     </script>
 </head>
+
 <body>
-    <h1>Decidimos usar JQuery como framework de JS después de investigación de otros frameworks</h1>
-    <h3>Ejercicio 1: Investigue y pruebe la validación de formularios usando alguna librería o framework javaScript (JQuery, Mootools, Dojo, Prototype, etc).</h3>
-    <br><br>
-    <h5>Ejemplo:</h5>
-    <form>
-        <label for="name">Nombre:</label>
-        <input type="text" id="name" name="name">
-        <br>
-        <label for="email">Correo electrónico:</label>
-        <input type="email" id="email" name="email">
-        <br>
-        <button type="submit">Enviar</button>
-    </form>
+    <div class="contenedor">
+        <div class="d-flex" style="margin: auto; flex-wrap:wrap; flex-direction:column; align-items:center;text-align:center;">
+            <h2>Decidimos usar JQuery como framework de JS después de investigación de otros frameworks</h2>
+            <h3>Ejercicio 1: Investigue y pruebe la validación de formularios usando alguna librería o framework javaScript (JQuery, Mootools, Dojo, Prototype, etc).</h3>
+            <br><br>
+            <h5>Ejemplo:</h5>
+            <form>
+                <label class="form-label" for="name">Nombre:</label>
+                <input class="form-control" type="text" id="name" name="name">
+                <br>
+                <label class="form-label" for="email">Correo electrónico:</label>
+                <input class="form-control" type="email" id="email" name="email">
+                <br>
+                <button class="btn btn-primary mt-3" type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
 </body>
+
 </html>

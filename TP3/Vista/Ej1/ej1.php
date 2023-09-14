@@ -13,29 +13,35 @@ include_once '../../../navbar.php';
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../TP4/Vista/css/style.css">
 </head>
 
 <body>
-    <div class="d-flex align-items-center py-4 bg-body-tertiary">
-        <main class="form-signin w-100 m-auto">
-            <div class="container-centered">
-                <form action="./accion/a_suba_archivo.php" method="post" enctype="multipart/form-data">
-                    <div class="container d-flex justify-content-center">
-                        <div class="bg-secondary m-4  d-flex justify-content-center align-items-center" style="height: 300px; width: 500px;">
-                            <div class="bg-light position-relative " style="height: 270px; width: 470px;">
-                                <div class="d-grid gap-2 col-10 mx-auto position-absolute top-50 start-50 translate-middle">
-                                    <div class="form-floating mb-2">
-                                        Seleccionar archivo:<input type="file" name="archivo" id="archivo">
+    <div class="contenedor">
+        <div class="d-flex" style="margin: auto; flex-wrap:wrap; flex-direction:column; align-items:center;text-align:center;">
+            <div class="d-flex align-items-center py-4 bg-body-tertiary">
+                <main class="form-signin w-100 m-auto">
+                    <div class="container-centered">
+                        <form action="./accion/a_suba_archivo.php" method="post" enctype="multipart/form-data">
+                            <div class="container d-flex justify-content-center">
+                                <div class="bg-secondary m-4  d-flex justify-content-center align-items-center" style="height: 300px; width: 500px;">
+                                    <div class="bg-light position-relative " style="height: 270px; width: 470px;">
+                                        <div class="d-grid gap-2 col-10 mx-auto position-absolute top-50 start-50 translate-middle">
+                                            <div class="form-floating mb-2">
+                                                Seleccionar archivo:<input type="file" name="archivo" id="archivo">
+                                            </div>
+                                            <div id="formconsole" class="error"></div>
+                                            <input type="submit" value="Subir Archivo" id="boton" class="btn btn-primary " style="background-color: rgb(0,206,129);border-color: rgb(0,206,129)">
+                                        </div>
                                     </div>
-                                    <div id="formconsole" class="error"></div>
-                                    <input type="submit" value="Subir Archivo" id="boton" class="btn btn-primary " style="background-color: rgb(0,206,129);border-color: rgb(0,206,129)">
-                                </div>  
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
-                </form>
+                </main>
             </div>
-        </main>
+        </div>
     </div>
 </body>
+
 </html>
