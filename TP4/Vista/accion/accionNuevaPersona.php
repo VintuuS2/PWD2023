@@ -45,13 +45,17 @@ if ($_POST){
                 <div class="col-md-8 p-5">
                     <div class="p-2 text-center">
                         <?php
-                        echo "<h2>".$mensaje."</h2>";
+                        echo "<h2>" . $mensaje . "</h2>";
                         ?>
                     </div>
                     <div class="w-100"></div>
-
-                    <div class="p-2 d-flex justify-content-center align-items-center">
-                        <a class="btn btn-primary" role="button" href="../../Vista/listarPersonas.php">Ver lista de personas</a>
+                    <div class="row justify-content-center text-center mt-3" style="margin: auto;">
+                        <div class="col-md-8">
+                            <div class="d-flex  align-content justify-content-around">
+                                <a class="btn btn-primary" role="button" href="../nuevaPersona.php">Volver</a>
+                                <a class="btn btn-primary" role="button" href="../listarPersonas.php">Ver lista de autos</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

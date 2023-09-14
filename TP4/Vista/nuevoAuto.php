@@ -67,7 +67,7 @@ include_once '../../navbar.php';
                     <div class="col-md-8">
                         <div class="d-flex  align-content justify-content-around">
                             <button type="submit" class="btn btn-primary btn-sm" style="font-size:1.1em;">Enviar</button>
-                            <button class="btn btn-primary" style="padding: 5px;; font-size:1.1em;"><a href="listarPersonas.php" class="link-light" style="padding: 5px;">Ver las personas guardadas</a></button>
+                            <a class="btn btn-primary" role="button" href="listarPersonas.php">Ver lista de autos</a>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 const formatoPatenteValido = /^[A-Z]{3}\s\d{3}$/;
 const formatoDniValido = /^[0-9]{8}$/;
-const formatoModeloValido = /^[0-9]{2}|[0-9]{4}$/
+const formatoModeloValido = /^[0-9]{2,4}$/
 $(document).ready(function(){
     function validarPatente(patente){
         var patenteValida = true;
@@ -19,9 +19,10 @@ $(document).ready(function(){
     }
 
     function validarModelo(modelo){
-        var modeloValido = true;
-        if (!formatoModeloValido.test(modelo)){
-            modeloValido = false;
+        var modeloValido = false;
+        var longitud = modelo.length;
+        if (formatoModeloValido.test(modelo) && (longitud===2 || longitud===4)){
+            modeloValido = true;
         }
         return modeloValido;
     }
@@ -72,7 +73,7 @@ $(document).ready(function(){
             if (modelo === ""){
                 mensaje += "<li class=text-danger>El campo modelo no puede estar vacío</li>";
             }
-            if (modelo.length>4 | modelo.length===3 | modelo.length<2){
+            if (modelo.length>4 || modelo.length===3 || modelo.length<2){
                 mensaje += "<li class=text-danger>El modelo solo admite años de 2 o 4 dígitos</li>";
             }
         }
@@ -82,7 +83,12 @@ $(document).ready(function(){
         } else {
             $('#DniDuenio').addClass("is-invalid").removeClass("is-valid");
             formValido = false; 
-            mensaje += "<li class=text-danger>El campo DNI no puede estar vacío</li>";
+            if (dni===""){
+                mensaje += "<li class=text-danger>El campo DNI no puede estar vacío</li>";
+            }
+            if (!formatoDniValido.test(dni)){
+                mensaje += "<li class=text-danger>El campo DNI solo admite carácteres numéricos</li>"
+            }
         }
 
         if (formValido){
