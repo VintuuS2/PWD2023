@@ -1,7 +1,6 @@
 <?php
 include_once '../../../TP4/configuracion.php';
 include_once '../../../navbar.php';
-include_once '../../configuracion.php';
 ?>
 <!DOCTYPE html>
 <head>
