@@ -5,13 +5,12 @@ $mensaje = "";
 if ($_POST) {
     $personas = new AbmPersona();
     $seModifico = false;
-
     if ($personas->modificacion($_POST)) {
         $dni = $_POST['NroDni'];
-        $mensaje .= "Modificacion exitosa";
+        $mensaje .= "<h2>Modificación exitosa</h2>";
         $seModifico = true;
     } else {
-        $mensaje .= "No se puede realizar las modificaciones";
+        $mensaje .= "<h2>No se pudieron realizar las modificaciones</h2>";
     }
     if ($seModifico) {
         $arrayPersonas = $personas->buscar(null);
@@ -27,9 +26,8 @@ if ($_POST) {
         if ($encontroPersona) {
             //Cuando se encuentra una persona
             $mensaje .=
-                "<div class=contenedor>
-                    <h2>Estos son los datos de la Persona con el DNI N°" . $dni . ":</h2>
-                        <table border= solid 1px class='table'>
+                "<h2>Estos son los nuevos datos de la persona con el DNI N°" . $dni . ":</h2>
+                        <table border= solid 1px class='table' class='mt-5'>
                                 <thead class='table-dark' >
                                     <th>Nombre</th>
                                     <th>Apellido</th>
@@ -44,13 +42,10 @@ if ($_POST) {
                                     <td>" . $arrayPersonas[$i - 1]->getTelefono() . "</td>
                                     <td>" . $arrayPersonas[$i - 1]->getDomicilio() . "</td>
                                 </tr>" . "
-                        </table>
-                </div>";
+                        </table>";
         } else {
             $mensaje .= "<h3>No hay ninguna persona con el DNI N°" . $dniPersona . " en la base de datos.</h3>";
         }
-    } else {
-        $mensaje .=  "<h2>No se ha recibido ningún número de documento</h2>";
     }
 }
 else {
@@ -73,13 +68,11 @@ else {
 
 <body>
     <div class="contenedor">
+        <div class="d-flex" style="margin: auto; flex-wrap:wrap; flex-direction:column; align-items:center;text-align:center;">
         <?php
         echo $mensaje;
         ?>
-    </div>
-    <div class="p-2 d-flex justify-content-center align-items-center">
-        <a class="btn btn-primary" role="button" href="../Vista/listarPersonas.php">Ver lista de personas</a>
-    </div>
+        </div>
     </div>
 </body>
 

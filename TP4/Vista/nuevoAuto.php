@@ -71,11 +71,8 @@ include_once '../../navbar.php';
                         </div>
                     </div>
                 </div>
-
-
-
             </form>
-            <div class="text-left" id="error">
+            <div class="text-left mt-3" id="error">
                 <!-- Aca se muestran los mensajes de error del formulario -->
             </div>
         </div>

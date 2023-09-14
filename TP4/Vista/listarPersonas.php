@@ -23,7 +23,22 @@ $listaPersonas = $objPersona->buscar(null);
         <div class="w-100 d-flex" style="flex-wrap:wrap; flex-direction:column; align-items:center;text-align:center;">
             <?php
             if (count($listaPersonas) > 0) {
-                echo "<table class='table'><thead class='table-dark'><tr><th colspan=7 class='table-dark' style='text-align:center;'>Personas</th></tr><tr><th>#</th><th>Apellido</th><th>Nombre</th><th>Numero de DNI</th><th>Fecha de Nacimiento</th><th>Telefono</th><th>Domicilio</th></tr></thead>";
+                echo "
+                <table class='table'>
+                    <thead class='table-dark'>
+                        <tr>
+                            <th colspan=7 class='table-dark' style='text-align:center;'>Personas</th>
+                        </tr>
+                        <tr>
+                            <th>#</th>
+                            <th>Apellido</th>
+                            <th>Nombre</th>
+                            <th>Numero de DNI</th>
+                            <th>Fecha de Nacimiento</th>
+                            <th>Telefono</th>
+                            <th>Domicilio</th>
+                        </tr>
+                    </thead>";
                 $i = 1;
                 foreach ($listaPersonas as $persona) {
                     echo "<tr><td>" . $i . "</td><td>" . $persona->getApellido() . "</td> <td>" . $persona->getNombre() . "</td><td>" . $persona->getNroDni() . "</td><td>" . $persona->getFechaNac() . "</td><td>" .   $persona->getTelefono() . "</td><td>" . $persona->getDomicilio() ."</td></tr>";

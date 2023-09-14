@@ -23,7 +23,7 @@ if ($_GET) {
             
             <div class='col-md-4'>
                 <label for='Nombre' class='form-label'>Nombre</label>
-                <input type='text' class='form-control' id='Nombre' name='Nombre' value='". $arrayPersonas[$i-1]->getNombre() . "'required>
+                <input type='text' class='form-control' id='Nombre' placeholder='Su nombre' name='Nombre' value='". $arrayPersonas[$i-1]->getNombre() . "'required>
                 <div class='valid-feedback'>
                     Dato ingresado correctamente!
                 </div>
@@ -33,7 +33,7 @@ if ($_GET) {
             </div>
             <div class='col-md-4'>
                 <label for='Apellido' class='form-label'>Apellido</label>
-                <input type='text' class='form-control' id='Apellido' name='Apellido' value='". $arrayPersonas[$i-1]->getApellido() ."' required>
+                <input type='text' class='form-control' id='Apellido' placeholder='Su apellido' name='Apellido' value='". $arrayPersonas[$i-1]->getApellido() ."' required>
                 <div class='valid-feedback'>
                     Dato ingresado correctamente!
                 </div>
@@ -44,7 +44,7 @@ if ($_GET) {
             <input type='text' class='form-control' id='fechaNac' name='fechaNac' style='display: none;' value='".$arrayPersonas[$i-1]->getFechaNac()."'>
             <div class='col-md-4'>
                 <label for='Telefono' class='form-label'>Teléfono</label>
-                <input class='form-control' type='text' pattern='[0-9]+' maxlength='11' min='0' placeholder='299-1231234' name='Telefono' id='Telefono' value='". $arrayPersonas[$i-1]->getTelefono() ."' required>
+                <input class='form-control' type='text' pattern='[0-9]+' maxlength='11' min='0' placeholder='Ejemplo: 299-1231234' name='Telefono' id='Telefono' value='". $arrayPersonas[$i-1]->getTelefono() ."' required>
                 <div class='valid-feedback'>
                     Dato ingresado correctamente!
                 </div>
@@ -52,26 +52,31 @@ if ($_GET) {
                     Ingrese un teléfono válido
                 </div>
             </div>
-
-            <div class='col-md-4'>
-                <label for='Domicilio' class='form-label'>Dirección</label>
-                <input type='text' class='form-control' placeholder='Ingrese su dirección' id='Domicilio' name='Domicilio' value='". $arrayPersonas[$i-1]->getDomicilio() ."' required>
-                <div class='valid-feedback'>
-                    Dato ingresado correctamente!
-                </div>
-                <div class='invalid-feedback'>
-                    Ingrese una dirección válida
+            <div class='row justify-content-center text-center mt-2' style='margin: auto;'>
+                <div class='col-md-6'>
+                    <label for='Domicilio' class='form-label'>Dirección</label>
+                    <input type='text' class='form-control' placeholder='Ingrese su dirección' id='Domicilio' name='Domicilio' value='". $arrayPersonas[$i-1]->getDomicilio() ."' required>
+                    <div class='valid-feedback'>
+                        Dato ingresado correctamente!
+                    </div>
+                    <div class='invalid-feedback'>
+                        Ingrese una dirección válida
+                    </div>
                 </div>
             </div>
             <div class='d-flex align-content justify-content-center'>
+                <button class='btn btn-primary' style='padding: 5px; font-size:1.1em; margin-top:15px; margin-right:20px;'><a href='../buscarPersona.php' class='link-light' style='padding: 5px; text-decoration:none;'>Volver atrás</a></button>
                 <button type='submit' class='btn btn-primary btn-sm' style='margin-top:15px; font-size:1.1em;'>Enviar</button>
             </div>
-        </form>";
+        </form>
+        <div class='mt-3 w-100' id='error' style='text-align:left;'>
+            <!-- Aca se muestran los mensajes de error del formulario -->
+        </div>";
     } else {
         $mensaje = "<h3>No hay ninguna persona con el DNI N°" . $dniPersona . " en la base de datos.</h3>";
     }
 } else {
-    $mensaje = "<h2>No se ha recibido ningún número de documento</h2>";
+    $mensaje = "<h2>No se ha recibido ningún número de documento.</h2>";
 }
 ?>
 <!DOCTYPE html>
@@ -82,16 +87,16 @@ if ($_GET) {
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Ver auto</title>
+    <script src="../js/scriptAccionBuscarPersona.js"></script>
 </head>
 <body>
     <div class="contenedor">
-        <div class="d-flex" style="margin: auto; flex-wrap:wrap; flex-direction:column; align-items:center;text-align:center;">
+        <div class="d-flex" style="margin: auto; flex-wrap:wrap; flex-direction:column; align-items:center; text-align:center;">
             <?php
             echo $mensaje;
             ?>
-            <button class="btn btn-primary" style="padding: 0;"><a href='../autosPersona.php' class="link-light" style="padding: 12px; font-size:1.2em;">Volver atrás</a></button>
-
         </div>
     </div>
 </body>

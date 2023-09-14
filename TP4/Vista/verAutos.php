@@ -22,7 +22,21 @@ $listaAutos = $objAuto->buscar(null);
         <div class="w-75" style="min-width:450px;">
         <?php
             if (count($listaAutos) > 0){
-                echo "<table class=table><thead class='table-dark'><tr><th colspan=6 style=text-align:center>Autos</th></tr><tr><th>#</th><th>Patente</th><th>Marca</th><th>Modelo</th><th>Nombre</th><th>Apellido</th></tr></thead>";
+                echo "
+                <table class=table>
+                    <thead class='table-dark'>
+                        <tr>
+                            <th colspan=6 style=text-align:center>Autos</th>
+                        </tr>
+                        <tr>
+                            <th>#</th>
+                            <th>Patente</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                        </tr>
+                    </thead>";
                 $i = 1;
                 foreach ($listaAutos as $auto){
                     $objDuenio = $auto->getObjDuenio();
@@ -31,7 +45,7 @@ $listaAutos = $objAuto->buscar(null);
                 }
                 echo "</table>";
             } else {
-                echo "<h3>No hay autos registrados</h3>";
+                echo "<h3>No hay autos registrados.</h3>";
             }
             ?>
         </div>

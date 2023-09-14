@@ -117,7 +117,7 @@ class Persona {
                          Apellido='" . $this->getApellido() . "',
                          Nombre='" . $this->getNombre() . "',
                          fechaNac='" . $this->getFechaNac() . "',
-                         Telefono=" . $this->getTelefono() . ",
+                         Telefono='" . $this->getTelefono() . "',
                          Domicilio='" . $this->getDomicilio() . "'
         WHERE NroDni=" . $this->getNroDni();
 
