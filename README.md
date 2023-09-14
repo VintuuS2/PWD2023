@@ -1,6 +1,11 @@
 # Grupo 1 PWD 2023
 
-Aquí irán todos los trabajos prácticos hechos en la materia cursada en la carrera de TUDW de 2do año.
+Aquí van a ir todos los trabajos prácticos hechos en la materia cursada en la carrera de TUDW de 2do año.
+
+## ¡IMPORTANTE!
+Los archivos no se van a mostrar correctamente si no están en la carpeta de `XAMPP/htdocs`.
+
+Solo y únicamente con XAMPP funciona este repositorio.
 
 ## Integrantes
 | Nombre           | Legajo   | Email                                 | Github                                                                                                                              |
