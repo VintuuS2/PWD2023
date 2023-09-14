@@ -1,4 +1,5 @@
 <?php
+include_once '../../../TP4/configuracion.php';
 include_once '../../../menu-paginas.php';
     include_once '../../Control/Control-EJ6/persona6.php';
     if ($_POST) {

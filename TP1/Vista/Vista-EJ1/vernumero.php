@@ -1,6 +1,6 @@
 <?php
+    include_once '../../../TP4/configuracion.php';
     include_once '../../../menu-paginas.php';
-
     include_once '../../Control/Control-EJ1/numero.php';
     if ($_GET) {
         $numero = $_GET['numero_form'];

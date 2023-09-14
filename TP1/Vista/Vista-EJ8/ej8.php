@@ -1,4 +1,5 @@
 <?php
+include_once '../../../TP4/configuracion.php';
 include_once '../../../navbar.php';
 ?>
 <!DOCTYPE html>
