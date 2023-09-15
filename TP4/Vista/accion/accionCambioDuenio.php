@@ -32,7 +32,8 @@ if ($_GET) {
     }
     // Si todo es correcto, muestra los datos actuales del vehiculo, modifica el dueño del vehiculo y vuelve a mostrar los datos del vehículo pero actualizados
     if ($encontroPatente && $encontroPersona) {
-        $mensaje = "<h2>Estos son los datos del vehiculo con la patente que ha ingresado:</h2>
+        $mensaje = "<h2>Modificación exitosa</h2>
+                <h3>Estos son los datos del vehiculo con la patente que ha ingresado:</h3>
                     <table border= solid 1px class='table'>
                             <thead class='thead-dark table-dark' >
                                 <th>Patente</th>
@@ -50,7 +51,7 @@ if ($_GET) {
             $AutoElegido->setObjDuenio($arrayPersonas[$j-1]);
             $AutoElegido->modificar();
             $controlAuto->alta($_GET);
-            $mensaje .= "<h2>Estos son los datos del vehiculo con la patente que ha ingresado pero con el dueño actualizado:</h2>
+            $mensaje .= "<h3>Estos son los datos del vehiculo con la patente que ha ingresado pero con el dueño actualizado:</h3>
                         <table border= solid 1px class='table'>
                                 <thead class='thead-dark table-dark' >
                                     <th>Patente</th>

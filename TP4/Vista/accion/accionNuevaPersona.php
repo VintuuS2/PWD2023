@@ -16,7 +16,7 @@ if ($_POST){
         $i++;
     }
     if ($existe){
-        $mensaje = "Ya hay una persona cargada con este número de documento";
+        $mensaje = "Ya hay una persona cargada con el documento N°" . $dni;
     } else {
         $respuesta = $personas->alta($_POST);
         if ($respuesta){
@@ -53,7 +53,7 @@ if ($_POST){
                         <div class="col-md-8">
                             <div class="d-flex  align-content justify-content-around">
                                 <a class="btn btn-primary" role="button" href="../nuevaPersona.php">Volver</a>
-                                <a class="btn btn-primary" role="button" href="../listarPersonas.php">Ver lista de autos</a>
+                                <a class="btn btn-primary" role="button" href="../listarPersonas.php">Ver lista de personas</a>
                             </div>
                         </div>
                     </div>

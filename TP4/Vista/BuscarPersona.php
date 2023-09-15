@@ -30,7 +30,7 @@ include_once '../../navbar.php';
                     <div class="invalid-feedback caracteresCorrectosDNI" style="font-size: 1.2em; margin-bottom:-13px;">Deben ser máximo 8 digitos.</div>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary" style="padding: 5px; font-size:1.1em; margin-top:15px; margin-right:5px;"><a href="listarPersonas.php" target="_blank" class="link-light" style="padding: 5px; text-decoration:none;">Ver las personas guardadas</a></button>
+                    <a href="listarPersonas.php" target="_blank" class="btn btn-primary link-light" style="padding: 5px 10px; font-size:1.1em; margin-top:15px; margin-right:5px;">Ver las personas guardadas</a>
                     <button type="submit" class="btn btn-primary btn-sm" style="margin-top:15px; font-size:1.1em;">Enviar</button> 
                 </div>
             </div>

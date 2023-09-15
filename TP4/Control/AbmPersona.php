@@ -41,7 +41,6 @@ class AbmPersona{
         $resp = false;
         //$param['NroDni'] = null; ---Si no está en comentarios no funciona el código
         $elObjPersona = $this->cargarObjeto($param);
-        print_r($elObjPersona);
         //verEstructura($elObjtTabla);
         if ($elObjPersona!=null and $elObjPersona->insertar()){
             $resp = true;

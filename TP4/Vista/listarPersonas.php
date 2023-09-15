@@ -50,7 +50,7 @@ $listaPersonas = $objPersona->buscar(null);
                 echo "<h3>No hay Personas registradas</h3>";
             }
             ?>
-            <button class="btn btn-primary" style="padding: 5px 0px;"><a href="autosPersona.php" class="link-light" style="padding: 10px 10px; font-size:1.2em;">Buscar los autos de determinada persona</a></button>
+            <a href="autosPersona.php" class=" btn btn-primary link-light" style="padding: 10px 10px; font-size:1.2em;">Buscar los autos de determinada persona</a>
         </div>
     </div>
 </body>
