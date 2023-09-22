@@ -18,7 +18,7 @@ include_once '../../navbar.php';
 
 <body>
     <div class="contenedor">
-        <form action="./accion/accionBuscarPersona.php" method="get" class="d-flex text-center" >
+        <form action="./accion/accionBuscarPersona.php" method="post" class="d-flex text-center" >
             <div class="d-flex  align-items-lg-end flex-column bg-dark" style="padding: 20px; border-radius: 10px; width:350px;">
                 <div class="form-group">
                     <label for="dni-modificar" class="text-primary fs-4" style="margin: 0 5px 15px 5px;">¿Cuál es el DNI de la persona de la cual desea modificar sus datos?</label>

@@ -16,7 +16,7 @@ include_once '../../navbar.php';
 </head>
 <body>
     <div class="contenedor">
-        <form action="accion/accionBuscarAutosPersona.php" method="get" class="d-flex justify-content-center align-items-center">
+        <form action="accion/accionBuscarAutosPersona.php" method="post" class="d-flex justify-content-center align-items-center">
             <div class="d-flex align-items-lg-end flex-column bg-dark p-10" style="padding: 20px; border-radius: 10px; max-width:45%; min-width: 300px;">
                 <div class="form-group" style="text-align:center;">
                     <label for="dni-duenio" class="text-primary fs-4" style="margin-bottom:10px;">¿Cuál es el dni de la persona de la que desea ver sus vehículos?</label>
