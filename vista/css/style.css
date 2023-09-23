@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Chakma&family=Roboto:ital@1&display=swap');
+
+.navbar {
+    font-family: 'Noto Sans Chakma', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+.bg-grupo1 {
+    background: linear-gradient(135deg, rgba(85,68,173,0.75) 5%, rgba(72,57,161,0.75) 62%, rgba(110,90,199,0.75) 95%);
+}

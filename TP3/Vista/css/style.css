@@ -1,0 +1,23 @@
+.contenedor {
+    margin: auto;
+    width: 50%;
+    background-color:#eee;
+    height:100vh;
+    border-left: 1px solid #444;
+    border-right: 1px solid #444;
+    padding: 0 25px 56px 25px;
+    min-width: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#contenedor {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.titulo {
+    background-color: #ddd;
+    margin-bottom: 20px;
+    color: rgb(49, 126, 172)
+}

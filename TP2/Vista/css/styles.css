@@ -1,0 +1,58 @@
+.div-input {
+    display: flex;
+    margin: 15px 0px;
+}
+label {
+    margin-right: 5px;
+}
+
+.contenedor {
+    margin: auto;
+    width: 50%;
+    background-color:#eee;
+    height:94vh;
+    border-left: 1px solid #444;
+    border-right: 1px solid #444;
+    padding: 0 25px 56px 25px;
+    min-width: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.body8 {
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contenedor-form {
+    margin: 5px auto;
+    padding: 15px;
+    background-color: #ddd;
+    outline: dashed 1px black;
+    text-align: center;
+    align-items: center;
+}
+
+.h28 {
+    display: block;
+}
+
+.div-mensaje {
+    margin: 200px auto;
+    padding: 20px;
+    background-color: #ddd;
+    outline: dashed 1px black;
+    text-align: center;
+    align-items: center;
+}
+
+#contenedor {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.titulo {
+    background-color: #ddd;
+    margin-bottom: 20px;
+    color: rgb(49, 126, 172)
+}

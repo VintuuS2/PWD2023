@@ -1,32 +1,19 @@
 <?php
 include_once '../configuracion.php';
-include_once '../../navbar.php';
+include_once './estructura/header.php';
 $objAuto = new AbmAuto();
 
 $listaAutos = $objAuto->buscar(null);
 ?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ver Autos</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/script.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
-    <div class="contenedor" >
-        <div class="w-75" style="min-width:450px;">
+<div class="vh-100 row w-100 align-items-center justify-content-center">
+    <div class="d-flex row w-50 col-md-8">
         <?php
-            if (count($listaAutos) > 0){
-                echo "
-                <table class=table>
+        if (count($listaAutos) > 0) {
+            echo "
+                <table class='table'>
                     <thead class='table-dark'>
                         <tr>
-                            <th colspan=6 style=text-align:center>Autos</th>
+                            <th class='text-center fs-4' colspan=6>Autos</th>
                         </tr>
                         <tr>
                             <th>#</th>
@@ -37,18 +24,17 @@ $listaAutos = $objAuto->buscar(null);
                             <th>Apellido</th>
                         </tr>
                     </thead>";
-                $i = 1;
-                foreach ($listaAutos as $auto){
-                    $objDuenio = $auto->getObjDuenio();
-                    echo "<tr><td>".$i."</td><td>".$auto->getPatente()."</td><td>".$auto->getMarca()."</td><td>".$auto->getModelo()."</td><td>".$objDuenio->getNombre()."</td><td>".   $objDuenio->getApellido()."</td></tr>";
-                    $i++;
-                }
-                echo "</table>";
-            } else {
-                echo "<h3>No hay autos registrados.</h3>";
+            $i = 1;
+            foreach ($listaAutos as $auto) {
+                $objDuenio = $auto->getObjDuenio();
+                echo "<tr><td>" . $i . "</td><td>" . $auto->getPatente() . "</td><td>" . $auto->getMarca() . "</td><td>" . $auto->getModelo() . "</td><td>" . $objDuenio->getNombre() . "</td><td>" .   $objDuenio->getApellido() . "</td></tr>";
+                $i++;
             }
-            ?>
-        </div>
+            echo "</table>";
+        } else {
+            echo "<h3>No hay autos registrados.</h3>";
+        }
+        ?>
     </div>
-</body>
-</html>
+</div>
+<?php include_once './estructura/footer.php'; ?>

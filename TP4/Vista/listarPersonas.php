@@ -1,33 +1,19 @@
 <?php
 include_once '../configuracion.php';
-include_once '../../navbar.php';
+include_once './estructura/header.php';
 $objPersona = new AbmPersona();
 
 $listaPersonas = $objPersona->buscar(null);
 ?>
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ver Personas</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="./js/script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
-    <div class="contenedor" style="min-width: 802px;">
-        <div class="w-100 d-flex" style="flex-wrap:wrap; flex-direction:column; align-items:center;text-align:center;">
-            <?php
-            if (count($listaPersonas) > 0) {
-                echo "
+<div class="vh-100 row w-100 align-items-center justify-content-center">
+    <div class="d-flex row w-50 col-md-8">
+        <?php
+        if (count($listaPersonas) > 0) {
+            echo "
                 <table class='table'>
                     <thead class='table-dark'>
                         <tr>
-                            <th colspan=7 class='table-dark' style='text-align:center;'>Personas</th>
+                            <th colspan=7 class='table-dark text-center fs-4'>Personas</th>
                         </tr>
                         <tr>
                             <th>#</th>
@@ -39,19 +25,19 @@ $listaPersonas = $objPersona->buscar(null);
                             <th>Domicilio</th>
                         </tr>
                     </thead>";
-                $i = 1;
-                foreach ($listaPersonas as $persona) {
-                    echo "<tr><td>" . $i . "</td><td>" . $persona->getApellido() . "</td> <td>" . $persona->getNombre() . "</td><td>" . $persona->getNroDni() . "</td><td>" . $persona->getFechaNac() . "</td><td>" .   $persona->getTelefono() . "</td><td>" . $persona->getDomicilio() ."</td></tr>";
-                    $i++;
-                }
-                echo "</table>";
+            $i = 1;
+            foreach ($listaPersonas as $persona) {
+                echo "<tr><td>" . $i . "</td><td>" . $persona->getApellido() . "</td> <td>" . $persona->getNombre() . "</td><td>" . $persona->getNroDni() . "</td><td>" . $persona->getFechaNac() . "</td><td>" .   $persona->getTelefono() . "</td><td>" . $persona->getDomicilio() . "</td></tr>";
+                $i++;
             }
-            else {
-                echo "<h3>No hay Personas registradas</h3>";
-            }
-            ?>
-            <a href="autosPersona.php" class=" btn btn-primary link-light" style="padding: 10px 10px; font-size:1.2em;">Buscar los autos de determinada persona</a>
+            echo "</table>";
+        } else {
+            echo "<h3>No hay Personas registradas</h3>";
+        }
+        ?>
+        <div class="container d-flex justify-content-center">
+            <a href="autosPersona.php" class="btn btn-primary link-light w-75">Buscar los autos de determinada persona</a>  
         </div>
     </div>
-</body>
-</html>
+</div>
+<?php include_once './estructura/footer.php';?>
