@@ -1,6 +1,6 @@
 <?php
 include_once '../../configuracion.php';
-include_once '../../../navbar.php';
+include_once '../estructura/header.php';
 $mensaje = "";
 if ($_POST) {
     $personas = new AbmPersona();
@@ -53,27 +53,11 @@ else {
 }
 
 ?>
-
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="../css/style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Añadir persona</title>
-</head>
-
-<body>
-    <div class="contenedor">
-        <div class="d-flex" style="margin: auto; flex-wrap:wrap; flex-direction:column; align-items:center;text-align:center;">
+    <div class="vh-100 w-100 row">
+        <div class="d-flex m-auto align-items-center justify-content-center text-center">
         <?php
         echo $mensaje;
         ?>
         </div>
     </div>
-</body>
-
-</html>
+<?php include_once '../estructura/footer.php'; ?>

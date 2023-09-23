@@ -8,7 +8,7 @@ include_once './estructura/header.php';
                 <div class="form-group text-center">
                     <label for="patente-auto" class="text-primary fs-4 mb-3">¿Cuál es la patente del vehículo del que desea ver los datos?</label>
                     <div class="input-group-text w-10" id="input-patente-auto">
-                        <i class="fa fa-car mr-2"></i>
+                        <i class="fa fa-car mx-2"></i>
                         <input type="text" class="form-control" maxlength="7" id="patente-auto" name="patente-auto" placeholder="Ejemplo: KJL 357">
                     </div>
                     <div class="invalid-feedback formatoCorrecto" style="font-size: 1.2em; margin-bottom:-10px;">El formato debe ser "ABC 123".</div>
@@ -20,4 +20,5 @@ include_once './estructura/header.php';
             </div>
         </form>
     </div>
+    <script src="./js/scriptBuscarAuto.js"></script>
 <?php include_once './estructura/footer.php'; ?>

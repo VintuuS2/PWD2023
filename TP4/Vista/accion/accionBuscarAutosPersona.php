@@ -1,6 +1,6 @@
 <?php
 include_once '../../configuracion.php';
-include_once '../../../navbar.php';
+include_once '../estructura/header.php';
 if ($_GET) {
     $dniDuenio = $_GET['dni-duenio'];
     $controlPersona = new AbmPersona();
@@ -74,18 +74,7 @@ if ($_GET) {
     $mensaje = "<h2>No se ha recibido ningún número de documento</h2>";
 }
 ?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    <title>Ver auto</title>
-</head>
-<body>
-    <div class="contenedor">
+    <div class="vh-100 w-100 row">
         <div class="d-flex" style="margin: auto; flex-wrap:wrap; flex-direction:column; align-items:center;text-align:center;">
             <?php
             echo $mensaje;
@@ -93,5 +82,4 @@ if ($_GET) {
             <button class="btn btn-primary" style="padding: 0;"><a href='../autosPersona.php' class="link-light" style="padding: 12px; font-size:1.2em;">Volver atrás</a></button>
         </div>
     </div>
-</body>
-</html>
+<?php include_once '../estructura/footer.php'; ?>
