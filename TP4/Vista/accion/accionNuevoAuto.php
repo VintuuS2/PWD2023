@@ -2,9 +2,9 @@
 include_once '../../configuracion.php';
 include_once '../estructura/header.php';
 $mensaje = "No se recibieron datos";
-if ($_POST) {
-    $dni = $_POST['DniDuenio'];
-
+$datos = data_submitted();
+    if (isset($datos)){
+    $dni = $datos['DniDuenio'];
     $personas = new AbmPersona();
     $listaPersonas = $personas->buscar(null);
     $existePersona = false;
@@ -16,7 +16,7 @@ if ($_POST) {
         $i++;
     }
     if ($existePersona) {
-        $patente = strtoupper($_POST['Patente']);
+        $patente = strtoupper($datos['Patente']);
         $autos = new AbmAuto();
         $listaAutos = $autos->buscar(null);
         $existeAuto = false;
@@ -30,7 +30,7 @@ if ($_POST) {
         if ($existeAuto) {
             $mensaje = "Ya hay un vehículo con la patente " . $patente;
         } else {
-            $respuesta = $autos->alta($_POST);
+            $respuesta = $autos->alta($datos);
             if ($respuesta) {
                 $mensaje = "El auto se cargó con éxito";
             } else {

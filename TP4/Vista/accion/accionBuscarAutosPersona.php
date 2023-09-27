@@ -1,8 +1,9 @@
 <?php
 include_once '../../configuracion.php';
 include_once '../estructura/header.php';
-if ($_POST) {
-    $dniDuenio = $_GET['dni-duenio'];
+$datos = data_submitted();
+    if (isset($datos)){
+    $dniDuenio = $datos['dni-duenio'];
     $controlPersona = new AbmPersona();
     $arrayPersonas = $controlPersona->buscar(null);
     $i = 0;

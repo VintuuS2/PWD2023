@@ -2,9 +2,9 @@
 include_once '../../configuracion.php';
 include_once '../estructura/header.php';
 $mensaje = "No se recibieron datos";
-if ($_POST){
-    $dni = $_POST['NroDni'];
-
+$datos = data_submitted();
+    if (isset($datos)){
+    $dni = $datos['NroDni'];
     $personas = new AbmPersona();
     $listaPersonas = $personas->buscar(null);
     $existe = false;
@@ -18,7 +18,7 @@ if ($_POST){
     if ($existe){
         $mensaje = "Ya hay una persona cargada con el documento N°" . $dni;
     } else {
-        $respuesta = $personas->alta($_POST);
+        $respuesta = $personas->alta($datos);
         if ($respuesta){
             $mensaje = "Se cargó exitosamente";
         } else {
