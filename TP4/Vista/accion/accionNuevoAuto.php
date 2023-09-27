@@ -2,8 +2,9 @@
 include_once '../../configuracion.php';
 include_once '../estructura/header.php';
 $mensaje = "No se recibieron datos";
-if ($_POST) {
-    $dni = $_POST['DniDuenio'];
+$datos = data_submitted();
+    if (isset($datos)){
+    $dni = $datos['DniDuenio'];
 
     $personas = new AbmPersona();
     $listaPersonas = $personas->buscar(null);

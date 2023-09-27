@@ -2,11 +2,12 @@
 include_once '../../configuracion.php';
 include_once '../estructura/header.php';
 $mensaje = "";
-if ($_POST) {
+$datos = data_submitted();
+    if (isset($datos)){
     $personas = new AbmPersona();
     $seModifico = false;
-    if ($personas->modificacion($_POST)) {
-        $dni = $_POST['NroDni'];
+    if ($personas->modificacion($datos)) {
+        $dni = $datos['NroDni'];
         $mensaje .= "<h2>Modificación exitosa</h2>";
         $seModifico = true;
     } else {
