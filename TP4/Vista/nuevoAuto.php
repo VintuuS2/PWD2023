@@ -57,9 +57,6 @@ include_once './estructura/header.php';
                     </div>
                 </div>
             </form>
-            <div class="text-left mt-3" id="error">
-                <!-- Aca se muestran los mensajes de error del formulario -->
-            </div>
         </div>
     </div>
     <script src="./js/scriptNuevoAuto.js"></script>

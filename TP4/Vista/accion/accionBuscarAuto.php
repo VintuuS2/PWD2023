@@ -1,7 +1,7 @@
 <?php
 include_once '../../configuracion.php';
 include_once '../estructura/header.php';
-if ($_GET) {
+if ($_POST) {
     $patente = strtoupper($_GET['patente-auto']);
     $controlAuto = new AbmAuto();
     $arrayAutos = $controlAuto->buscar(null);

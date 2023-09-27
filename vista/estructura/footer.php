@@ -5,27 +5,12 @@
             <section class="d-flex justify-content-between p-4 text-white bg-grupo1">
                 <!-- Left -->
                 <div class="me-5">
-                    <span>Get connected with us on social networks:</span>
+                    <span>Entra en nuestro github:</span>
                 </div>
                 <!-- Left -->
 
                 <!-- Right -->
                 <div>
-                    <a href="" class="text-white me-4">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="" class="text-white me-4">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="" class="text-white me-4">
-                        <i class="fab fa-google"></i>
-                    </a>
-                    <a href="" class="text-white me-4">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="" class="text-white me-4">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
                     <a href="https://github.com/Vintuwu/PWD2023" target="_blank" class="text-white me-4">
                         <i class="fab fa-github"></i>
                     </a>
@@ -44,26 +29,26 @@
                             <!-- Content -->
                             <h6 class="text-uppercase fw-bold">Grupo 1</h6>
                             <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
-                            <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <p>Bienvenidos, este es el grupo 1 de la materia Programación Web Estática, aquí van todos los TPs que hagamos hasta terminar la materia</p>
                         </div>
                         <!-- Grid column -->
 
                         <!-- Grid column -->
                         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                             <!-- Links -->
-                            <h6 class="text-uppercase fw-bold">Products</h6>
+                            <h6 class="text-uppercase fw-bold">Algo va acá</h6>
                             <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
                             <p>
-                                <a href="#!" class="text-light">MDBootstrap</a>
+                                <a href="#!" class="text-light">Algo1</a>
                             </p>
                             <p>
-                                <a href="#!" class="text-light">MDWordPress</a>
+                                <a href="#!" class="text-light">Algo2</a>
                             </p>
                             <p>
-                                <a href="#!" class="text-light">BrandFlow</a>
+                                <a href="#!" class="text-light">Algo3</a>
                             </p>
                             <p>
-                                <a href="#!" class="text-light">Bootstrap Angular</a>
+                                <a href="#!" class="text-light">Algo4</a>
                             </p>
                         </div>
                         <!-- Grid column -->

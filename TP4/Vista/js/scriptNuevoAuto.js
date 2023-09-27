@@ -37,6 +37,8 @@ $(document).ready(function(){
 
     $('#form').submit(function(event){
         event.preventDefault();
+        var forms = $(".needs-validation");
+        console.log(forms);
         var formValido = true;
         var mensaje = "";
 
@@ -44,6 +46,16 @@ $(document).ready(function(){
         var marca = $('#Marca').val();
         var modelo = $('#Modelo').val();
         var dni = $('#DniDuenio').val();
+
+        forms.each(function(form){
+            $(forms).on('submit', function (event){
+                if (!$(forms).validate()){
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                $(form).addClass('was-validated')
+            })
+        })
         
         if (validarPatente(patente.toUpperCase())){
             $('#Patente').addClass("is-valid").removeClass("is-invalid");
@@ -51,7 +63,6 @@ $(document).ready(function(){
             $('#Patente').addClass("is-invalid").removeClass("is-valid");
             formValido = false;
             mensaje += "<li class=text-danger>El formato debe ser 3 letras, un espacio y 3 números</li>"
-            console.log(patente.length)
             if (patente.length<7){
                 mensaje += "<li class=text-danger>La patente tiene que tener 7 dígitos</li>"
             }

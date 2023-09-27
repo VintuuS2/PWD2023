@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="<?php echo $PROYECTOROOT ?>vista/css/bootstrap.min.css">
     <script src="<?php echo $PROYECTOROOT ?>vista/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/3f0f040aa7.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="<?php echo $PROYECTOROOT ?>TP2/vista/css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>TP4</title>
 </head>
 
 <body>
     <div class="container-fluid bg-dark p-0" data-bs-theme="dark">
-        <nav class="navbar navbar-expand-sm justify-content-center shadow bg-grupo1">
+        <nav class="navbar navbar-expand-sm justify-content-center bg-grupo1">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
