@@ -56,7 +56,7 @@ $(document).ready(function(){
         }
 
         if (mensajeError != ""){
-            input.siblings(".invalid-feedback").html(mensajeError);
+            input.siblings(".invalid-feedback").text(mensajeError);
         } else {
             input.siblings(".invalid-feedback").html("");
         }
