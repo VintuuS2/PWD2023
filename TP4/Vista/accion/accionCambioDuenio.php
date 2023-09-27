@@ -4,7 +4,6 @@ include_once '../estructura/header.php';
 $mensaje = "";
 $datos = data_submitted();
     if (isset($datos)){
-
     $patente = strtoupper($datos['patente-cambio']);
     $controlAuto = new AbmAuto();
     $arrayAutos = $controlAuto->buscar(null);
@@ -19,7 +18,7 @@ $datos = data_submitted();
         $i++;
     }
 
-    $dniDuenio = $_GET['dni-cambio'];
+    $dniDuenio = $datos['dni-cambio'];
     $controlPersona = new AbmPersona();
     $arrayPersonas = $controlPersona->buscar(null);
     $j = 0;
@@ -51,7 +50,7 @@ $datos = data_submitted();
                     </table>";
             $AutoElegido->setObjDuenio($arrayPersonas[$j-1]);
             $AutoElegido->modificar();
-            $controlAuto->alta($_GET);
+            $controlAuto->alta($datos);
             $mensaje .= "<h3>Estos son los datos del vehiculo con la patente que ha ingresado pero con el dueño actualizado:</h3>
                         <table border= solid 1px class='table'>
                                 <thead class='thead-dark table-dark' >

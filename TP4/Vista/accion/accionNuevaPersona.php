@@ -18,7 +18,7 @@ $datos = data_submitted();
     if ($existe){
         $mensaje = "Ya hay una persona cargada con el documento N°" . $dni;
     } else {
-        $respuesta = $personas->alta($_POST);
+        $respuesta = $personas->alta($datos);
         if ($respuesta){
             $mensaje = "Se cargó exitosamente";
         } else {

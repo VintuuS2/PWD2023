@@ -5,7 +5,6 @@ $mensaje = "No se recibieron datos";
 $datos = data_submitted();
     if (isset($datos)){
     $dni = $datos['DniDuenio'];
-
     $personas = new AbmPersona();
     $listaPersonas = $personas->buscar(null);
     $existePersona = false;
@@ -17,7 +16,7 @@ $datos = data_submitted();
         $i++;
     }
     if ($existePersona) {
-        $patente = strtoupper($_POST['Patente']);
+        $patente = strtoupper($datos['Patente']);
         $autos = new AbmAuto();
         $listaAutos = $autos->buscar(null);
         $existeAuto = false;
@@ -31,7 +30,7 @@ $datos = data_submitted();
         if ($existeAuto) {
             $mensaje = "Ya hay un vehículo con la patente " . $patente;
         } else {
-            $respuesta = $autos->alta($_POST);
+            $respuesta = $autos->alta($datos);
             if ($respuesta) {
                 $mensaje = "El auto se cargó con éxito";
             } else {

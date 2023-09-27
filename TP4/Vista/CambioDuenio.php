@@ -4,7 +4,7 @@ include_once './estructura/header.php';
 ?>
     <div class="vh-100 w-100 row m-auto">
         <div class="d-flex justify-content-center align-items-center">
-            <form id="form" method="post" name="form" action="./accion/accionNuevoAuto.php" class="w-50 row g-3 needs-validation bg-dark p-4 rounded">
+            <form id="form" method="post" name="form" action="./accion/accionCambioDuenio.php" class="w-50 row g-3 needs-validation bg-dark p-4 rounded">
                 <h2 class="text-center text-primary">Cambiar el dueño de un vehículo</h2>
                 <div class="row justify-content-center mt-2 m-auto">
                     <div class="col-md-8">
