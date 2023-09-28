@@ -90,9 +90,13 @@ if (isset($datos['patente-cambio'])) {
             <?php
             echo $mensaje;
             ?>
+<<<<<<< Updated upstream
             <div class="container d-flex justify-content-center">
                 <a href='../CambioDuenio.php' class="btn btn-primary link-light fs-5 px-3 mt-3">Volver atrás</a>
             </div>
+=======
+            <a href='../CambioDuenio.php' class="link-light btn btn-primary" style="padding: 12px; font-size:1.3em;">Volver atrás</a>
+>>>>>>> Stashed changes
         </div>
     </div>
 </div>
