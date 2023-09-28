@@ -90,7 +90,7 @@ $datos = data_submitted();
             <?php
             echo $mensaje;
             ?>
-            <button class="btn btn-primary" style="padding: 0;"><a href='../CambioDuenio.php' class="link-light" style="padding: 12px; font-size:1.3em;">Volver atrás</a></button>
+            <a href='../CambioDuenio.php' class="btn btn-primary link-light fs-5 px-3">Volver atrás</a>
         </div>
     </div>
 <?php include_once '../estructura/footer.php'; ?>
