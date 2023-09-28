@@ -11,11 +11,10 @@ include_once './estructura/header.php';
                         <i class="fa fa-user mx-2"></i>
                         <input type="text" maxlength="8" class="form-control" id="dni-duenio" name="dni-duenio" placeholder="Ejemplo: 44041670" required pattern="[0-9]{8}" errorVacio="Este campo no puede estar vacío" errorPatron="El campo solo acepta caracteres numéricos">
                     </div>
-                    <div class="invalid-feedback">Solo números (sin puntos).</div>
-                    
+                    <div class="invalid-feedback">Solo números (sin puntos).</div> 
                 </div>
                 <div class="container justify-content-center d-flex">
-                    <button type="submit" class="btn btn-primary btn-sm w-75 mt-3">Enviar</button>
+                    <button type="submit" class="btn btn-primary btn-sm w-25 mt-3">Enviar</button>
                 </div>
             </div>
         </form>

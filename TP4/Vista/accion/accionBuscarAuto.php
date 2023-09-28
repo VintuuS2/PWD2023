@@ -11,12 +11,12 @@ include_once '../estructura/header.php';
     while ($i < count($arrayAutos) && !$encontro) {
         if ($arrayAutos[$i]->getPatente() == $patente) {
             $mensaje = "<h2>Estos son los datos del vehiculo con la patente que ha ingresado:</h2>
-                    <table border= solid 1px class='table'>
+                    <table border= solid 1px class='table text-center'>
                             <thead class='thead-dark table-dark' >
                                 <th>Patente</th>
                                 <th>Marca</th>
                                 <th>Modelo</th>
-                                <th>Dni del dueño</th>
+                                <th>Documento del dueño</th>
                             </thead>
                             <tr>
                                 <td>".$arrayAutos[$i]->getPatente()."</td>
@@ -36,12 +36,12 @@ include_once '../estructura/header.php';
     $mensaje = "<h2>No se ha recibido ninguna patente.</h2>";
 }
 ?>
-    <div class="vh-100 w-100 row">
-        <div class="d-flex" style="margin: auto; flex-wrap:wrap; flex-direction:column; align-items:center;text-align:center;">
+    <div class="vh-100 w-100 d-flex">
+        <div class="d-flex m-auto flex-wrap flex-sm-column align-items-center w-75">
             <?php
             echo $mensaje;
             ?>
-            <button class="btn btn-primary" style="padding: 0;"><a href='../buscarAuto.php' class="link-light" style="padding: 12px; font-size:1.2em;">Volver atrás</a></button>
+            <a href='../buscarAuto.php' class="btn btn-primary link-light px-3">Volver atrás</a>
         </div>
     </div>
 <?php include_once '../estructura/footer.php'; ?>

@@ -1,28 +1,30 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.querySelector('form');
-    const patenteInput = document.getElementById('patente-auto');
-    const invalidFormato = document.querySelector('.formatoCorrecto');
-    const invalidCaracteres = document.querySelector('.caracteresCorrectos');
 
-    form.addEventListener('submit', function (event) {
-        const patenteValue = patenteInput.value.toUpperCase();
-        const formatoValido = /^[A-Z]{3}\s\d{3}$/;
+$(document).ready(function(){
+    var forms = $(".needs-validation");
 
-        if (!formatoValido.test(patenteValue)) {
-            invalidFormato.style.display = 'block';
-        } else {
-            invalidFormato.style.display = 'none';
+    forms.on('submit',function(event){
+        var formulario = this;
+
+        if (!formulario.checkValidity()){
+            event.preventDefault();
+            event.stopPropagation();
         }
-        if (patenteValue.length != 7) {
-            invalidCaracteres.style.display = 'block';
-        } else {
-            invalidCaracteres.style.display = 'none';
+
+        $(formulario).addClass("was-validated");
+    });
+    $(".needs-validation input[pattern]").on("input", function(){
+        var input = $(this);
+        var mensajeError = "";
+
+        if (input.prop("required") && input.val() === ""){
+            mensajeError = input.attr("errorVacio");
+        } else if (input.prop("pattern") && !input[0].checkValidity()){
+            mensajeError = input.attr("errorPatron");
         }
-        if (!formatoValido.test(patenteValue) || patenteValue.length != 7) {
-            event.preventDefault(); // Evita que el formulario se envíe
-            patenteInput.style.border = '1px solid red';
+        if (mensajeError != ""){
+            $(".text-danger").text(mensajeError);
         } else {
-            patenteInput.style.border = '1px solid green';
+            $(".text-danger").html("");
         }
     });
-});
+})

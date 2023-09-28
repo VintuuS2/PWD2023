@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
             patenteInput.style.border = '1px solid green';
         }
         // Verifica el documento
-        const dniValue = documentoInput.value.toUpperCase();
+        const dniValue = documentoInput.value;
         const formatoValidoDNI = /^\d{1,8}$/;
         if (!formatoValidoDNI.test(dniValue)) {
             textoFormatoDocumento.style.display = 'block';
