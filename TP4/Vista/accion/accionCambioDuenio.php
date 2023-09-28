@@ -32,7 +32,8 @@ $datos = data_submitted();
     }
     // Si todo es correcto, muestra los datos actuales del vehiculo, modifica el dueño del vehiculo y vuelve a mostrar los datos del vehículo pero actualizados
     if ($encontroPatente && $encontroPersona) {
-        $mensaje = "<h2>Modificación exitosa</h2>
+        if ($datos['dni-cambio']!=$AutoElegido->getObjDuenio()->getNroDni()){
+            $mensaje = "<h2>Modificación exitosa</h2>
                 <h3>Estos son los datos del vehiculo con la patente que ha ingresado:</h3>
                     <table border= solid 1px class='table'>
                             <thead class='thead-dark table-dark' >
@@ -66,6 +67,10 @@ $datos = data_submitted();
                                     <td>".$AutoElegido->getObjDuenio()->getNroDni()."</td>
                                 </tr>"."
                         </table>";
+        }
+        else {
+            $mensaje = "<h2>No puedes modificar el dni del duenio con el mismo dni</h2>";
+        }
     } else {
         $mensaje = "<h2>No se pudo realizar la operación</h2>";
         // Muestra los mensajes de porqué no se pudo realizar la operación
