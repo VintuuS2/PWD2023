@@ -8,7 +8,7 @@ include_once './estructura/header.php';
             <h2 class="text-center text-primary">Añadir persona a la base de datos</h2>
             <div class="col-md-4">
                 <label for="NroDni" class="form-label text-light">DNI</label>
-                <input class="form-control" type="text" pattern="[0-9]" min="0" maxlength="8" placeholder="12345678" id="NroDni" name="NroDni" required />
+                <input class="form-control" type="text" pattern="[0-9]" maxlength="8" placeholder="12345678" id="NroDni" name="NroDni" required pattern="[0-9]{8}" errorVacio="El campo no puede estar vacío" errorPatron="Solo admite Nº DNI de 8 dígitos" />
                 <div class="valid-feedback">
                     Dato ingresado correctamente!
                 </div>
@@ -18,7 +18,7 @@ include_once './estructura/header.php';
             </div>
             <div class="col-md-4">
                 <label for="Nombre" class="form-label text-light">Nombre</label>
-                <input type="text" class="form-control" id="Nombre" name="Nombre" required>
+                <input type="text" class="form-control" id="Nombre" name="Nombre" required pattern="[a-zA-ZÑñ]+" errorVacio="El campo no puede estar vacío" errorPatron="El nombre solo admite carácteres alfabéticos">
                 <div class="valid-feedback">
                     Dato ingresado correctamente!
                 </div>
@@ -28,7 +28,7 @@ include_once './estructura/header.php';
             </div>
             <div class="col-md-4">
                 <label for="Apellido" class="form-label text-light">Apellido</label>
-                <input type="text" class="form-control" id="Apellido" name="Apellido" required>
+                <input type="text" class="form-control" id="Apellido" name="Apellido" required pattern="[a-zA-ZÑñ]+" errorVacio="El campo no puede estar vacío" errorPatron="El nombre solo admite carácteres alfabéticos">
                 <div class="valid-feedback">
                     Dato ingresado correctamente!
                 </div>
@@ -48,7 +48,7 @@ include_once './estructura/header.php';
             </div>
             <div class="col-md-4">
                 <label for="Telefono" class="form-label text-light">Teléfono</label>
-                <input class="form-control" type="text" pattern="[0-9]+" maxlength="11" min="0" placeholder="299-1231234" name="Telefono" id="Telefono" required>
+                <input class="form-control" type="text" pattern="[0-9]+" maxlength="11" min="0" placeholder="299-1231234" name="Telefono" id="Telefono" required pattern="[0-9]+" errorVacio="Este campo no puede estar vacío" errorPatron="El NºTeléfono solo puede tener carácteres numéricos" >
                 <div class="valid-feedback">
                     Dato ingresado correctamente!
                 </div>
@@ -58,7 +58,7 @@ include_once './estructura/header.php';
             </div>
             <div class="col-md-4">
                 <label for="Domicilio" class="form-label text-light">Dirección</label>
-                <input type="text" class="form-control" placeholder="Ingrese su dirección" id="Domicilio" name="Domicilio" required>
+                <input type="text" class="form-control" placeholder="Ingrese su dirección" id="Domicilio" name="Domicilio" required pattern="[a-zA-ZñÑ0-9]+" errorVacio="Este campo no está vacío" errorPatron="El campo no admite carácteres especiales">
                 <div class="valid-feedback">
                     Dato ingresado correctamente!
                 </div>
@@ -70,9 +70,6 @@ include_once './estructura/header.php';
                 <button type="submit" class="btn btn-primary btn-sm" style="margin-top:15px; font-size:1.1em;">Enviar</button>
             </div>
         </form>
-        <div class="text-left mt-3" id="error">
-            <!-- Aca se muestran los mensajes de error del formulario -->
-        </div>
     </div>
 </div>
 <script src="./js/scriptNuevaPersona.js"></script>

@@ -47,8 +47,6 @@ $(document).ready(function(){
         var input = $(this);
         var mensajeError = "";
 
-        console.log(input);
-
         if (input.prop("required") && input.val() === ""){
             mensajeError = input.attr("errorVacio");
         } else if (input.prop("pattern") && !input[0].checkValidity()){
@@ -56,9 +54,9 @@ $(document).ready(function(){
         }
 
         if (mensajeError != ""){
-            input.siblings(".invalid-feedback").text(mensajeError);
+            $(".text-danger").text(mensajeError);
         } else {
-            input.siblings(".invalid-feedback").html("");
+            $(".text-danger").html("");
         }
     });
 })
