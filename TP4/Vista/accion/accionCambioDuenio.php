@@ -3,7 +3,7 @@ include_once '../../configuracion.php';
 include_once '../estructura/header.php';
 $mensaje = "";
 $datos = data_submitted();
-    if (isset($datos)){
+if (isset($datos['patente-cambio'])) {
     $patente = strtoupper($datos['patente-cambio']);
     $controlAuto = new AbmAuto();
     $arrayAutos = $controlAuto->buscar(null);
@@ -32,7 +32,8 @@ $datos = data_submitted();
     }
     // Si todo es correcto, muestra los datos actuales del vehiculo, modifica el dueño del vehiculo y vuelve a mostrar los datos del vehículo pero actualizados
     if ($encontroPatente && $encontroPersona) {
-        $mensaje = "<h2>Modificación exitosa</h2>
+        if ($datos['dni-cambio'] != $AutoElegido->getObjDuenio()->getNroDni()) {
+            $mensaje = "<h2>Modificación exitosa</h2>
                 <h3>Estos son los datos del vehiculo con la patente que ha ingresado:</h3>
                     <table border= solid 1px class='table'>
                             <thead class='thead-dark table-dark' >
@@ -42,13 +43,13 @@ $datos = data_submitted();
                                 <th>Dni del dueño</th>
                             </thead>
                             <tr>
-                                <td>".$AutoElegido->getPatente()."</td>
-                                <td>".$AutoElegido->getMarca()."</td>
-                                <td>".$AutoElegido->getModelo()."</td>
-                                <td>".$AutoElegido->getObjDuenio()->getNroDni()."</td>
-                            </tr>"."
+                                <td>" . $AutoElegido->getPatente() . "</td>
+                                <td>" . $AutoElegido->getMarca() . "</td>
+                                <td>" . $AutoElegido->getModelo() . "</td>
+                                <td>" . $AutoElegido->getObjDuenio()->getNroDni() . "</td>
+                            </tr>" . "
                     </table>";
-            $AutoElegido->setObjDuenio($arrayPersonas[$j-1]);
+            $AutoElegido->setObjDuenio($arrayPersonas[$j - 1]);
             $AutoElegido->modificar();
             $controlAuto->alta($datos);
             $mensaje .= "<h3>Estos son los datos del vehiculo con la patente que ha ingresado pero con el dueño actualizado:</h3>
@@ -60,12 +61,15 @@ $datos = data_submitted();
                                     <th>Dni del dueño</th>
                                 </thead>
                                 <tr>
-                                    <td>".$AutoElegido->getPatente()."</td>
-                                    <td>".$AutoElegido->getMarca()."</td>
-                                    <td>".$AutoElegido->getModelo()."</td>
-                                    <td>".$AutoElegido->getObjDuenio()->getNroDni()."</td>
-                                </tr>"."
+                                    <td>" . $AutoElegido->getPatente() . "</td>
+                                    <td>" . $AutoElegido->getMarca() . "</td>
+                                    <td>" . $AutoElegido->getModelo() . "</td>
+                                    <td>" . $AutoElegido->getObjDuenio()->getNroDni() . "</td>
+                                </tr>" . "
                         </table>";
+        } else {
+            $mensaje = "<h2>No puedes modificar el dni del duenio con el mismo dni</h2>";
+        }
     } else {
         $mensaje = "<h2>No se pudo realizar la operación</h2>";
         // Muestra los mensajes de porqué no se pudo realizar la operación
@@ -77,15 +81,19 @@ $datos = data_submitted();
         }
     }
 } else {
-    $mensaje = "<h2>No se ha recibido ningún dato</h2>";
+    $mensaje = "<h2 class='text-center'>No se ha recibido ningún dato</h2>";
 }
 ?>
-    <div class="vh-100 w-100 row">
-        <div class="d-flex" style="margin: auto; flex-wrap:wrap; flex-direction:column; align-items:center;text-align:center;">
+<div class="vh-100 row w-100 align-items-center justify-content-center">
+    <div class="d-flex align-items-center justify-content-center w-50 vh-100 bg-gris ">
+        <div class="col-md-12">
             <?php
             echo $mensaje;
             ?>
-            <button class="btn btn-primary" style="padding: 0;"><a href='../CambioDuenio.php' class="link-light" style="padding: 12px; font-size:1.3em;">Volver atrás</a></button>
+            <div class="container d-flex justify-content-center">
+                <a href='../CambioDuenio.php' class="btn btn-primary link-light fs-5 px-3 mt-3">Volver atrás</a>
+            </div>
         </div>
     </div>
+</div>
 <?php include_once '../estructura/footer.php'; ?>

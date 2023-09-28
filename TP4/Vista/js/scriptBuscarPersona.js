@@ -1,28 +1,30 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.querySelector('form');
-    const dniDuenioInput = document.getElementById('dni-modificar');
-    const invalidFormato = document.querySelector('.formatoCorrectoDNI');
-    const invalidCaracteres = document.querySelector('.caracteresCorrectosDNI');
 
-    form.addEventListener('submit', function (event) {
-        const dniValue = dniDuenioInput.value.toUpperCase();
-        const formatoValido = /^\d{1,8}$/;
+$(document).ready(function () {
+    var forms = $(".needs-validation");
 
-        if (!formatoValido.test(dniValue)) {
-            invalidFormato.style.display = 'block';
-        } else {
-            invalidFormato.style.display = 'none';
+    forms.on('submit', function (event) {
+        var formulario = this;
+
+        if (!formulario.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
         }
-        if (dniValue.length > 8) {
-            invalidCaracteres.style.display = 'block';
-        } else {
-            invalidCaracteres.style.display = 'none';
+
+        $(formulario).addClass("was-validated");
+    });
+    $(".needs-validation input[pattern]").on("input", function () {
+        var input = $(this);
+        var mensajeError = "";
+
+        if (input.prop("required") && input.val() === "") {
+            mensajeError = input.attr("errorVacio");
+        } else if (input.prop("pattern") && !input[0].checkValidity()) {
+            mensajeError = input.attr("errorPatron");
         }
-        if (!formatoValido.test(dniValue) || dniValue.length > 8) {
-            event.preventDefault(); // Evita que el formulario se envíe
-            dniDuenioInput.style.border = '1px solid red';
+        if (mensajeError != "") {
+            $(".text-danger").text(mensajeError);
         } else {
-            dniDuenioInput.style.border = '1px solid green';
+            $(".text-danger").html("");
         }
     });
-});
+})

@@ -2,7 +2,7 @@
 include_once '../../TP4/configuracion.php';
 include_once './estructura/header.php';
 ?>
-    <div class="contenedor">
+    <div class="contenedor vh-100">
         <div class="d-flex" style="margin: auto; flex-wrap:wrap; flex-direction:column; align-items:center;text-align:center;">
             <div class="container mt-5">
                 <div class="row justify-content-center" id="contenedor">

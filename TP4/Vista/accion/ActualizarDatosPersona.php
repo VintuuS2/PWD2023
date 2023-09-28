@@ -3,7 +3,7 @@ include_once '../../configuracion.php';
 include_once '../estructura/header.php';
 $mensaje = "";
 $datos = data_submitted();
-    if (isset($datos)){
+if (isset($datos['NroDni'])) {
     $personas = new AbmPersona();
     $seModifico = false;
     if ($personas->modificacion($datos)) {
@@ -48,17 +48,18 @@ $datos = data_submitted();
             $mensaje .= "<h3>No hay ninguna persona con el DNI N°" . $dniPersona . " en la base de datos.</h3>";
         }
     }
-}
-else {
-    $mensaje .= "<h2>No se han recibido datos</h2>";
+} else {
+    $mensaje .= "<h2 class='text-center'>No se han recibido datos</h2>";
 }
 
 ?>
-    <div class="vh-100 w-100 row">
-        <div class="d-flex m-auto align-items-center justify-content-center text-center">
-        <?php
-        echo $mensaje;
-        ?>
+<div class="vh-100 row w-100 align-items-center justify-content-center text-center">
+    <div class="d-flex align-items-center justify-content-center w-50 vh-100 bg-gris ">
+        <div class="col-md-12">
+            <?php
+            echo $mensaje;
+            ?>
         </div>
     </div>
+</div>
 <?php include_once '../estructura/footer.php'; ?>
