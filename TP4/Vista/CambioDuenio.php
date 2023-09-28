@@ -33,7 +33,7 @@ include_once './estructura/header.php';
                 <div class="row justify-content-center text-center mt-3 m-auto">
                     <div class="col-md-8">
                         <div class="d-flex  align-content justify-content-around">
-                            <button type="submit" class="btn btn-primary btn-sm" style="font-size:1.1em;">Enviar</button>
+                            <button type="submit" class="btn btn-primary btn-sm fs-6">Enviar</button>
                             <a class="btn btn-primary" role="button" href="listarPersonas.php">Ver lista de autos</a>
                         </div>
                     </div>

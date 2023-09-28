@@ -173,9 +173,9 @@ $(document).ready(function () {
       }
   
       if (mensajeError != "") {
-        campo.siblings(".invalid-feedback").text(mensajeError);
+        campo.siblings(".invalid-feedback").html(mensajeError);
       } else {
-        campo.siblings(".invalid-feedback").text("");
+        campo.siblings(".invalid-feedback").hmtl("");
       }
     });
   });

@@ -8,7 +8,7 @@ include_once './estructura/header.php';
             <h2 class="text-center text-primary">Añadir persona a la base de datos</h2>
             <div class="col-md-4">
                 <label for="NroDni" class="form-label text-light">DNI</label>
-                <input class="form-control" type="text" pattern="[0-9]" maxlength="8" placeholder="12345678" id="NroDni" name="NroDni" required pattern="[0-9]{8}" errorVacio="El campo no puede estar vacío" errorPatron="Solo admite Nº DNI de 8 dígitos" />
+                <input class="form-control" type="text" maxlength="8" placeholder="12345678" id="NroDni" name="NroDni" required pattern="[0-9]{8}" errorVacio="El campo no puede estar vacío" errorPatron="Solo admite Nº DNI de 8 dígitos" />
                 <div class="valid-feedback">
                     Dato ingresado correctamente!
                 </div>
@@ -67,7 +67,7 @@ include_once './estructura/header.php';
                 </div>
             </div>
             <div class="d-flex align-content justify-content-center">
-                <button type="submit" class="btn btn-primary btn-sm" style="margin-top:15px; font-size:1.1em;">Enviar</button>
+                <button type="submit" class="btn btn-primary btn-sm fs-6">Enviar</button>
             </div>
         </form>
     </div>
