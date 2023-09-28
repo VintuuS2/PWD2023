@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="<?php echo $PROYECTOROOT ?>vista/css/bootstrap.min.css">
     <script src="<?php echo $PROYECTOROOT ?>vista/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/3f0f040aa7.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="<?php echo $PROYECTOROOT ?>TP4/vista/css/style.css">
     <title>TP4</title>
 </head>
 

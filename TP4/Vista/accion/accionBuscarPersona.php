@@ -2,7 +2,7 @@
 include_once '../../configuracion.php';
 include_once '../estructura/header.php';
 $datos = data_submitted();
-    if (isset($datos)){
+if (isset($datos['dni-modificar'])) {
     $dniPersona = $datos['dni-modificar'];
     $controlPersona = new AbmPersona();
     $arrayPersonas = $controlPersona->buscar(null);
@@ -16,15 +16,15 @@ $datos = data_submitted();
         $i++;
     }
     if ($encontroPersona) {
-            //Cuando se encuentra una persona
-            $mensaje = "
+        //Cuando se encuentra una persona
+        $mensaje = "
             <form id='form' action='./ActualizarDatosPersona.php' method='post' class='row g-3 needs-validation' novalidate>
             <h2 style='text-align: center;' class='w-100'>Modificar Persona DNI N°" . $dniPersona . " en la Base de Datos</h2>
             <input type='text' class='form-control' id='NroDni' name='NroDni' style='display: none;' value='$dniPersona'>
             
             <div class='col-md-4'>
                 <label for='Nombre' class='form-label'>Nombre</label>
-                <input type='text' class='form-control' id='Nombre' placeholder='Su nombre' name='Nombre' value='". $arrayPersonas[$i-1]->getNombre() . "'required>
+                <input type='text' class='form-control' id='Nombre' placeholder='Su nombre' name='Nombre' value='" . $arrayPersonas[$i - 1]->getNombre() . "'required>
                 <div class='valid-feedback'>
                     Dato ingresado correctamente!
                 </div>
@@ -34,7 +34,7 @@ $datos = data_submitted();
             </div>
             <div class='col-md-4'>
                 <label for='Apellido' class='form-label'>Apellido</label>
-                <input type='text' class='form-control' id='Apellido' placeholder='Su apellido' name='Apellido' value='". $arrayPersonas[$i-1]->getApellido() ."' required>
+                <input type='text' class='form-control' id='Apellido' placeholder='Su apellido' name='Apellido' value='" . $arrayPersonas[$i - 1]->getApellido() . "' required>
                 <div class='valid-feedback'>
                     Dato ingresado correctamente!
                 </div>
@@ -42,10 +42,10 @@ $datos = data_submitted();
                     Ingrese un apellido válido
                 </div>
             </div>
-            <input type='text' class='form-control' id='fechaNac' name='fechaNac' style='display: none;' value='".$arrayPersonas[$i-1]->getFechaNac()."'>
+            <input type='text' class='form-control' id='fechaNac' name='fechaNac' style='display: none;' value='" . $arrayPersonas[$i - 1]->getFechaNac() . "'>
             <div class='col-md-4'>
                 <label for='Telefono' class='form-label'>Teléfono</label>
-                <input class='form-control' type='text' pattern='[0-9]+' maxlength='11' min='0' placeholder='Ejemplo: 299-1231234' name='Telefono' id='Telefono' value='". $arrayPersonas[$i-1]->getTelefono() ."' required>
+                <input class='form-control' type='text' pattern='[0-9]+' maxlength='11' min='0' placeholder='Ejemplo: 299-1231234' name='Telefono' id='Telefono' value='" . $arrayPersonas[$i - 1]->getTelefono() . "' required>
                 <div class='valid-feedback'>
                     Dato ingresado correctamente!
                 </div>
@@ -56,7 +56,7 @@ $datos = data_submitted();
             <div class='row justify-content-center text-center mt-2' style='margin: auto;'>
                 <div class='col-md-6'>
                     <label for='Domicilio' class='form-label'>Dirección</label>
-                    <input type='text' class='form-control' placeholder='Ingrese su dirección' id='Domicilio' name='Domicilio' value='". $arrayPersonas[$i-1]->getDomicilio() ."' required>
+                    <input type='text' class='form-control' placeholder='Ingrese su dirección' id='Domicilio' name='Domicilio' value='" . $arrayPersonas[$i - 1]->getDomicilio() . "' required>
                     <div class='valid-feedback'>
                         Dato ingresado correctamente!
                     </div>
@@ -77,15 +77,17 @@ $datos = data_submitted();
         $mensaje = "<h3>No hay ninguna persona con el DNI N°" . $dniPersona . " en la base de datos.</h3>";
     }
 } else {
-    $mensaje = "<h2>No se ha recibido ningún número de documento.</h2>";
+    $mensaje = "<h2 class='text-center'>No se ha recibido ningún número de documento.</h2>";
 }
 ?>
-    <div class="vh-100 w-100 row">
-        <div class="d-flex" style="margin: auto; flex-wrap:wrap; flex-direction:column; align-items:center; text-align:center;">
+<div class="vh-100 row w-100 align-items-center justify-content-center">
+    <div class="d-flex align-items-center justify-content-center w-50 vh-100 bg-gris ">
+        <div class="col-md-12">
             <?php
             echo $mensaje;
             ?>
         </div>
     </div>
-    <script src="../js/scriptAccionBuscarPersona.js"></script>
+</div>
+<script src="../js/scriptAccionBuscarPersona.js"></script>
 <?php include_once '../estructura/footer.php'; ?>

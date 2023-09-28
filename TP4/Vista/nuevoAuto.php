@@ -2,9 +2,10 @@
 include_once '../configuracion.php';
 include_once './estructura/header.php';
 ?>
-    <div class="vh-100 w-100 row m-auto">
-        <div class="d-flex justify-content-center align-items-center">
-            <form id="form" method="post" name="form" action="./accion/accionNuevoAuto.php" class="w-50 row g-3 needs-validation bg-dark p-4 rounded" novalidate>
+<div class="vh-100 row w-100 align-items-center justify-content-center">
+    <div class="d-flex align-items-center justify-content-center w-50 vh-100 bg-gris ">
+        <div class="col-md-12">
+            <form id="form" method="post" name="form" action="./accion/accionNuevoAuto.php" class="row g-3 needs-validation bg-dark p-4 rounded" novalidate>
                 <h2 class="text-center text-primary">Añadir nuevo vehículo a la base de datos</h2>
                 <div class="col-md-4">
                     <label for="Patente" class="form-label text-light">Patente</label>
@@ -59,5 +60,6 @@ include_once './estructura/header.php';
             </form>
         </div>
     </div>
-    <script src="./js/scriptNuevoAuto.js"></script>
+</div>
+<script src="./js/scriptNuevoAuto.js"></script>
 <?php include_once './estructura/footer.php'; ?>

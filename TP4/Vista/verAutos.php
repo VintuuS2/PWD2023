@@ -6,7 +6,7 @@ $objAuto = new AbmAuto();
 $listaAutos = $objAuto->buscar(null);
 ?>
     <div class="vh-100 row w-100 align-items-center justify-content-center">
-        <div class="d-flex align-items-center justify-content-center w-50 vh-100 bg-gris shadow">
+        <div class="d-flex align-items-center justify-content-center w-50 vh-100 bg-gris ">
             <div class="col-md-8">
                 <?php
                 if (count($listaAutos) > 0) {
