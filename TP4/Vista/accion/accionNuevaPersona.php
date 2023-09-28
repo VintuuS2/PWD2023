@@ -36,7 +36,7 @@ if (isset($datos['NroDni'])) {
                 ?>
             </div>
             <div class="w-100"></div>
-            <div class="row justify-content-center text-center mt-3" style="margin: auto;">
+            <div class="row justify-content-center text-center m-auto mt-3">
                 <div class="col-md-8">
                     <div class="d-flex  align-content justify-content-center">
                         <a class="btn btn-primary mx-3 fs-5" role="button" href="../nuevaPersona.php">Volver</a>

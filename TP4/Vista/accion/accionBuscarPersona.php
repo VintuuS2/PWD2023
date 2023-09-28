@@ -19,8 +19,8 @@ if (isset($datos['dni-modificar'])) {
         //Cuando se encuentra una persona
         $mensaje = "
             <form id='form' action='./ActualizarDatosPersona.php' method='post' class='row g-3 needs-validation' novalidate>
-            <h2 style='text-align: center;' class='w-100'>Modificar Persona DNI N°" . $dniPersona . " en la Base de Datos</h2>
-            <input type='text' class='form-control' id='NroDni' name='NroDni' style='display: none;' value='$dniPersona'>
+            <h2 class='w-100 text-center'>Modificar Persona DNI N°" . $dniPersona . " en la Base de Datos</h2>
+            <input type='text' class='form-control d-none' id='NroDni' name='NroDni' value='$dniPersona'>
             
             <div class='col-md-4'>
                 <label for='Nombre' class='form-label'>Nombre</label>
@@ -42,7 +42,7 @@ if (isset($datos['dni-modificar'])) {
                     Ingrese un apellido válido
                 </div>
             </div>
-            <input type='text' class='form-control' id='fechaNac' name='fechaNac' style='display: none;' value='" . $arrayPersonas[$i - 1]->getFechaNac() . "'>
+            <input type='text' class='form-control d-none' id='fechaNac' name='fechaNac' value='" . $arrayPersonas[$i - 1]->getFechaNac() . "'>
             <div class='col-md-4'>
                 <label for='Telefono' class='form-label'>Teléfono</label>
                 <input class='form-control' type='text' pattern='[0-9]+' maxlength='11' min='0' placeholder='Ejemplo: 299-1231234' name='Telefono' id='Telefono' value='" . $arrayPersonas[$i - 1]->getTelefono() . "' required>
@@ -53,7 +53,7 @@ if (isset($datos['dni-modificar'])) {
                     Ingrese un teléfono válido
                 </div>
             </div>
-            <div class='row justify-content-center text-center mt-2' style='margin: auto;'>
+            <div class='row justify-content-center text-center m-auto mt-2'>
                 <div class='col-md-6'>
                     <label for='Domicilio' class='form-label'>Dirección</label>
                     <input type='text' class='form-control' placeholder='Ingrese su dirección' id='Domicilio' name='Domicilio' value='" . $arrayPersonas[$i - 1]->getDomicilio() . "' required>
@@ -66,11 +66,11 @@ if (isset($datos['dni-modificar'])) {
                 </div>
             </div>
             <div class='d-flex align-content justify-content-center'>
-                <button class='btn btn-primary' style='padding: 5px; font-size:1.1em; margin-top:15px; margin-right:20px;'><a href='../buscarPersona.php' class='link-light' style='padding: 5px; text-decoration:none;'>Volver atrás</a></button>
-                <button type='submit' class='btn btn-primary btn-sm' style='margin-top:15px; font-size:1.1em;'>Enviar</button>
+                <a href='../buscarPersona.php' class='btn btn-primary link-light px-3 mx-5 fs-5'>Volver atrás</a>
+                <button type='submit' class='btn btn-primary btn-sm mx-5 px-3 fs-5'>Enviar</button>
             </div>
         </form>
-        <div class='mt-3 w-100' id='error' style='text-align:left;'>
+        <div class='mt-3 w-100 text-left' id='error'>
             <!-- Aca se muestran los mensajes de error del formulario -->
         </div>";
     } else {

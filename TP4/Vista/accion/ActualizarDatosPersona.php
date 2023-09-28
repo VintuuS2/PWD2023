@@ -53,7 +53,7 @@ if (isset($datos['NroDni'])) {
 }
 
 ?>
-<div class="vh-100 row w-100 align-items-center justify-content-center">
+<div class="vh-100 row w-100 align-items-center justify-content-center text-center">
     <div class="d-flex align-items-center justify-content-center w-50 vh-100 bg-gris ">
         <div class="col-md-12">
             <?php
