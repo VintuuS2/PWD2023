@@ -1,0 +1,13 @@
+{
+    "name": "tp5/integracion-php",
+    "authors": [
+        {
+            "name": "LautaroGonzalez-FAI2950",
+            "email": "lautarofglez@gmail.com"
+        }
+    ],
+    "require": {
+        "uala-bis/ualabis-php": "^1.0",
+        "nutgram/nutgram": "^4.10"
+    }
+}
