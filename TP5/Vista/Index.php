@@ -3,7 +3,7 @@ include_once '../../TP4/configuracion.php';
 include_once './Estructura/header.php';
 ?>
 
-    <div class="vh-100 w-100 row justify-content-center">
+    <div class="vh-100 d-flex justify-content-center">
         <div class="d-flex justify-content-center align-items-center col-12 col-md-10 col-xl-8 h-100 bg-gris">
             <form action="./Accion/translate.php" name="form" id="form" method="post" class="d-flex needs-validation row align-items-center col-10 col-md-8 col-xl-6 bg-black p-5 rounded" novalidate>
                 <div class="form-group">
@@ -16,7 +16,7 @@ include_once './Estructura/header.php';
                         Parece bien!
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-5">
                     <label for="src" class="form-label mt-3 text-light">Idioma origen</label>
                     <select name="src" id="src" class="form-select" required>
                         <option value="" selected hidden>Traducir del</option>
@@ -38,7 +38,10 @@ include_once './Estructura/header.php';
                         Parece bien!
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="col-2 d-flex justify-content-center">
+                    <button type="button" id="btn-itercambiar-idiomas" class="btn btn-light mt-5 px-4"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+                </div>
+                <div class="form-group col-5">
                     <label for="tgt" class="form-label mt-3 text-light">Idioma destino</label>
                     <select name="tgt" id="tgt" class="form-select" required>
                         <option value="" selected hidden>Traducir al</option>
@@ -67,7 +70,7 @@ include_once './Estructura/header.php';
         </div>
     </div>
     <script src="./JS/validador.js"></script>
-
+    <script src="./JS/intercambiarIdiomas.js"></script>
 <?php
 include_once './Estructura/footer.php';
 ?>
