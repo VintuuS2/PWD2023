@@ -3,17 +3,17 @@ include_once '../../TP4/configuracion.php';
 include_once './Estructura/header.php';
 ?>
 
-    <div class="vh-100 d-flex justify-content-center">
-        <div class="d-flex justify-content-center align-items-center h-100 bg-gris">
-            <form action="./Accion/translate.php" name="form" id="form" method="post" class="d-flex needs-validation row align-items-center col-md-6 bg-black p-5 rounded" novalidate>
+    <div class="vh-100 w-100 row justify-content-center">
+        <div class="d-flex justify-content-center align-items-center col-12 col-md-10 col-xl-8 h-100 bg-gris">
+            <form action="./Accion/translate.php" name="form" id="form" method="post" class="d-flex needs-validation row align-items-center col-10 col-md-8 col-xl-6 bg-black p-5 rounded" novalidate>
                 <div class="form-group">
                     <label for="txt" class="form-label mt-3 text-light">Ingrese lo que quiera traducir</label>
-                    <input type="text" class="form-control" maxlength="100" required pattern="[a-zA-ZñÑ0-9 ¡!¿?]+" name="txt" id="txt" placeholder="Ingrese una palabra a traducir" errorVacio="El campo no puede estar vacío" errorPatron="La traducción no admite carácteres especiales">
+                    <input type="text" class="form-control" maxlength="100" required pattern="[a-zA-ZñÑÁÉÍÓÚáéíóú0-9 ¡!¿?,.@$]+" name="txt" id="txt" placeholder="Ingrese una palabra a traducir" errorVacio="El campo no puede estar vacío" errorPatron="La traducción no admite carácteres especiales">
                     <div class="invalid-feedback">
                         El campo no puede estar vacío
                     </div>
                     <div class="valid-feedback">
-                        Se ve bien!
+                        Parece bien!
                     </div>
                 </div>
                 <div class="form-group">
@@ -34,6 +34,9 @@ include_once './Estructura/header.php';
                     <div class="invalid-feedback">
                         Ingrese un idioma
                     </div>
+                    <div class="valid-feedback">
+                        Parece bien!
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="tgt" class="form-label mt-3 text-light">Idioma destino</label>
@@ -53,9 +56,12 @@ include_once './Estructura/header.php';
                     <div class="invalid-feedback">
                         Ingrese un idioma
                     </div>
+                    <div class="valid-feedback">
+                        Parece bien!
+                    </div>
                 </div>
-                <div class="form-group d-flex justify-content-center">
-                    <input type="submit" class="btn btn-primary mt-3" value="Tonto wn">
+                <div class="form-group d-flex col-12 justify-content-center">
+                    <input type="submit" class="btn btn-primary mt-3" value="Enviar">
                 </div>
             </form>
         </div>

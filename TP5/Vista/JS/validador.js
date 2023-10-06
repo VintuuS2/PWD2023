@@ -28,28 +28,28 @@ $(document).ready(function () {
         }
 
         if (mensajeError != "") {
-            campo.siblings(".invalid-feedback").html(mensajeError);
+            campo.siblings(".invalid-feedback").text(mensajeError);
         } else {
-            campo.siblings(".invalid-feedback").hmtl("");
+            campo.siblings(".invalid-feedback").text("");
         }
     });
 
     $("#src").on("change", function () {
-        var srcValue = $(this).val();
-        var tgtValue = $("#tgt").val();
+        var source = $(this).val();
+        var target = $("#tgt").val();
     
-        if (srcValue === tgtValue) {
-            // Intercambia los valores directamente
+        if (source === target) {
+            // Selecciona el valor default
             $("#tgt").val("");
         }
     });
     
     $("#tgt").on("change", function () {
-        var tgtValue = $(this).val();
-        var srcValue = $("#src").val();
+        var target = $(this).val();
+        var source = $("#src").val();
     
-        if (tgtValue === srcValue) {
-            // Intercambia los valores directamente
+        if (target === source) {
+            // Selecciona el valor default
             $("#src").val("");
         }
     });
