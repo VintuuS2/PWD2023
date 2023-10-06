@@ -1,3 +1,8 @@
 .bg-gris{
     background-color: #eee;
-}
+    width: 50%;
+    min-width: 412px;
+}/*
+#form {
+    min-width: 410px;
+}*/

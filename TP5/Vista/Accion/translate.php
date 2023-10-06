@@ -32,6 +32,38 @@ switch ($tgt) {
         $idioma2 = "-br";
         $voice = "Ligia";
         break;
+    case 'zh':
+        $idioma2 = "-cn";
+        $voice = "Luli";
+        break;
+    case 'fr':
+        $idioma2 = "-fr";
+        $voice = "Theo";
+        break;
+    case 'de':
+        $idioma2 = "-de";
+        $voice = "Hanna";
+        break;
+    case 'it':
+        $idioma2 = "-it";
+        $voice = "Bria";
+        break;
+    case 'ja':
+        $idioma2 = "-jp";
+        $voice = "Hina";
+        break;
+    case 'ko':
+        $idioma2 = "-kr";
+        $voice = "Nari";
+        break;
+    case 'ru':
+        $idioma2 = "-ru";
+        $voice = "Olga";
+        break;
+    default: 
+        $idioma2 = "-us";
+        $voice = "Amy";
+        break;
 }
 
 $lang = $tgt.$idioma2;
