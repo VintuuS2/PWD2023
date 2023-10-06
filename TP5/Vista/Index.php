@@ -1,40 +1,52 @@
 <?php
-require_once '../Util/vendor/autoload.php';
-
-$token = "6608994184:AAH87Kkb8YISTvYxR4fxZoFANP2ykBkweyY";
-
-use SergiX44\Nutgram\Nutgram;
-use SergiX44\Nutgram\RunningMode\Webhook;
-
-$bot = new Nutgram($token);
-echo ($bot->setRunningMode(Webhook::class));
-
-$bot->onMessage(function(Nutgram $bot){
-    $bot->sendMessage('Que querés wn?');
-});
-
-$bot->run();
-
-use Uala\SDK;
-
-//El true es para poner el isDev en true kappa
-$sdk = new SDK("new_user_1631906477", "5qqGKGm4EaawnAH0J6xluc6AWdQBvLW3", "cVp1iGEB-DE6KtL4Hi7tocdopP2pZxzaEVciACApWH92e8_Hloe8CD5ilM63NppG", true);
-
-//$orden = $sdk->createOrder(2000.00, "Hola mundo! 2", "http://localhost/PWD2023/", "http://localhost/PWD2023/", "http://localhost/PWD2023/");
-
-$order = $sdk->createOrder(10, 'UNA SANDIA varata', 'https://www.google.com/', 'https://www.google.com/');
-
 include_once '../../TP4/configuracion.php';
 include_once './Estructura/header.php';
 ?>
 
     <div class="vh-100 w-100 row justify-content-center">
         <div class="d-flex justify-content-center align-items-center w-50 h-100 bg-gris">
-            <h2>Hola mundo!</h2>
-            <br>
-            <a href="<?php echo $checkoutLink ?>" target="_blank" class="btn btn-primary">Ir a pagar</a>
+            <form action="./Accion/translate.php" name="form" id="form" method="post" class="d-flex needs-validation row align-items-center w-50 bg-black p-5 rounded" novalidate>
+                <div class="form-group">
+                    <label for="txt" class="form-label mt-3 text-light">Ingrese lo que quiera traducir</label>
+                    <input type="text" class="form-control" maxlength="100" required pattern="[a-zA-ZñÑ0-9 ¡!¿?]+" name="txt" id="txt" placeholder="Ingrese una palabra a traducir" errorVacio="El campo no puede estar vacío" errorPatron="La traducción no admite carácteres especiales">
+                    <div class="invalid-feedback">
+                        El campo no puede estar vacío
+                    </div>
+                    <div class="valid-feedback">
+                        Se ve bien!
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="src" class="form-label mt-3 text-light">Idioma origen</label>
+                    <select name="src" id="src" class="form-select" required>
+                        <option value="" selected hidden>Traducir del</option>
+                        <option value="en">Inglés</option>
+                        <option value="es">Español</option>
+                        <option value="pt">Portugués</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Ingrese un idioma
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="tgt" class="form-label mt-3 text-light">Idioma destino</label>
+                    <select name="tgt" id="tgt" class="form-select" required>
+                        <option value="" selected hidden>Traducir al</option>
+                        <option value="en">Inglés</option>
+                        <option value="es">Español</option>
+                        <option value="pt">Portugués</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Ingrese un idioma
+                    </div>
+                </div>
+                <div class="form-group d-flex justify-content-center">
+                    <input type="submit" class="btn btn-primary mt-3" value="Tonto wn">
+                </div>
+            </form>
         </div>
     </div>
+    <script src="./JS/validador.js"></script>
 
 <?php
 include_once './Estructura/footer.php';

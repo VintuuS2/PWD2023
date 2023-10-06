@@ -1,14 +1,9 @@
 {
-    "_readme": [
-        "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
-        "This file is @generated automatically"
-    ],
-    "content-hash": "80a11511a13f07664956f94e3c6cc549",
     "packages": [
         {
             "name": "statickidz/php-google-translate-free",
             "version": "1.2.1",
+            "version_normalized": "1.2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/statickidz/php-google-translate-free.git",
@@ -28,7 +23,9 @@
                 "phpunit/phpunit": ">=4.8",
                 "squizlabs/php_codesniffer": "^2.3"
             },
+            "time": "2021-04-12T14:59:49+00:00",
             "type": "library",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "Statickidz\\": "src/"
@@ -73,16 +70,9 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-04-12T14:59:49+00:00"
+            "install-path": "../statickidz/php-google-translate-free"
         }
     ],
-    "packages-dev": [],
-    "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
-    "prefer-stable": false,
-    "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "dev": true,
+    "dev-package-names": []
 }

@@ -8,7 +8,6 @@
         }
     ],
     "require": {
-        "uala-bis/ualabis-php": "^1.0",
-        "nutgram/nutgram": "^4.10"
+        "statickidz/php-google-translate-free": "^1.2"
     }
 }
