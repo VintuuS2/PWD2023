@@ -1,0 +1,2 @@
+# Ignora vendor para instalar las dependencias desde Composer
+vendor/
