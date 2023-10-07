@@ -1,3 +1,6 @@
 .bg-gris{
     background-color: #eee;
 }
+#txt {
+    resize: none;
+}

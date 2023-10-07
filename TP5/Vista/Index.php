@@ -8,7 +8,7 @@ include_once './Estructura/header.php';
             <form action="./Accion/translate.php" name="form" id="form" method="post" class="d-flex needs-validation row align-items-center col-10 col-md-8 col-xl-6 bg-black p-5 rounded" novalidate>
                 <div class="form-group">
                     <label for="txt" class="form-label mt-3 text-light">Ingrese lo que quiera traducir</label>
-                    <input type="text" class="form-control" maxlength="100" required pattern="[a-zA-ZñÑÁÉÍÓÚáéíóú0-9 ¡!¿?,.@$]+" name="txt" id="txt" placeholder="Ingrese una palabra a traducir" errorVacio="El campo no puede estar vacío" errorPatron="La traducción no admite carácteres especiales">
+                    <textarea rows="3" class="form-control" maxlength="200" required pattern="[a-zA-ZñÑÁÉÍÓÚáéíóú0-9 ¡!¿?,.@$]+" name="txt" id="txt" placeholder="Texto a traducir" errorVacio="El campo no puede estar vacío" errorPatron="La traducción no admite carácteres especiales"></textarea>
                     <div class="invalid-feedback">
                         El campo no puede estar vacío
                     </div>
@@ -16,7 +16,7 @@ include_once './Estructura/header.php';
                         Parece bien!
                     </div>
                 </div>
-                <div class="form-group col-5">
+                <div class="form-group col-12 col-md-5">
                     <label for="src" class="form-label mt-3 text-light">Idioma origen</label>
                     <select name="src" id="src" class="form-select" required>
                         <option value="" selected hidden>Traducir del</option>
@@ -38,10 +38,10 @@ include_once './Estructura/header.php';
                         Parece bien!
                     </div>
                 </div>
-                <div class="col-2 d-flex justify-content-center">
+                <div class="col-12 col-md-2 d-flex justify-content-center">
                     <button type="button" id="btn-itercambiar-idiomas" class="btn btn-light mt-5 px-4"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
                 </div>
-                <div class="form-group col-5">
+                <div class="form-group col-12 col-md-5">
                     <label for="tgt" class="form-label mt-3 text-light">Idioma destino</label>
                     <select name="tgt" id="tgt" class="form-select" required>
                         <option value="" selected hidden>Traducir al</option>
