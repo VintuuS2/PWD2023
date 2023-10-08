@@ -5,9 +5,10 @@ require_once '../../Util/vendor/autoload.php';
 require_once '../../Util/voicerss_tts.php';
 
 $datos = data_submitted();
+
 use Statickidz\GoogleTranslate;
 
-if (isset($datos['txt']) && isset($datos['src']) && isset($datos['tgt'])){
+if (isset($datos['txt']) && isset($datos['src']) && isset($datos['tgt'])) {
     $src = $datos['src'];
     $tgt = $datos['tgt'];
     $txt = $datos['txt'];
@@ -60,13 +61,13 @@ switch ($tgt) {
         $idioma2 = "-ru";
         $voice = "Olga";
         break;
-    default: 
+    default:
         $idioma2 = "-us";
         $voice = "Amy";
         break;
 }
 
-$lang = $tgt.$idioma2;
+$lang = $tgt . $idioma2;
 
 $tts = new VoiceRSS();
 $voice = $tts->speech([
@@ -82,17 +83,22 @@ $voice = $tts->speech([
 ]);
 ?>
 
-    <div class="w-100 vh-100 row justify-content-center">
-        <div class="d-flex bg-gris w-50 vh-100 justify-content-center align-items-center">
-            <p> <?php echo $translate?> </p>
-            <audio hidden id="m" src="<?php echo $voice['response'] ?>" controls=""></audio>
-            <br>
-            <label class="form-label" for="m">Escuchar</label>
-            <button id="btnAudio" class="btn btn-primary t-2"><i class="fa-solid fa-volume-high"></i></button>
+<div class="container-fluid vh-100 d-flex justify-content-center align-items-center">
+    <div class="p-3 bg-light w-50">
+        <div class="text-center">
+            <p class=""><?php echo "<h2>El texto traducido es: </h2>" . "<br>" . ". <h3>".$translate?></h3></p>
         </div>
+        <div class="text-center">
+        <audio hidden id="m" src="<?php echo $voice['response'] ?>" controls=""></audio>
+            <button id="btnAudio" class="btn btn-primary mt-3"><i class="fas fa-volume-high"></i></button>
+        </div>
+        <a class="btn btn-primary mt-3" role="button" href="../Index.php">Volver</a>
     </div>
+</div>
 
-    <script src="../JS/validador.js"></script>
+
+
+<script src="../JS/validador.js"></script>
 <?php
 include_once '../Estructura/footer.php';
 ?>
