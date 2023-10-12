@@ -92,7 +92,7 @@ $invalidFeedbackLang = [
                 ?>
             </select>
         </div>
-        <div class="resultado">
+        <div class="d-flex justify-content-center resultado">
             <?php 
             if (isset($datos['txt']) && isset($datos['src']) && isset($datos['tgt'])){
                 $txt = $datos['txt'];
@@ -194,10 +194,10 @@ $invalidFeedbackLang = [
     var resultado = $('.resultado');
     console.log(resultado.innerHTML);
     var form = $('#form');
-    if (resultado.innerHTML === undefined){
+    if (resultado.is(':empty')){
         form.css("margin-top", "-400px");
     } else {
-        form.css("margin-top", "-120px");
+        form.css("margin-top", "100px");
     }
 </script>
 <?php
