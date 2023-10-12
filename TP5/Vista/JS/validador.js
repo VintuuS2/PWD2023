@@ -16,7 +16,6 @@ $(document).ready(function () {
 
     $(".needs-validation input[pattern]").on("input", function () {
         var campo = $(this);
-        console.log(campo);
         var mensajeError = "";
 
         if (campo.prop("required") && campo.val() === "") {
