@@ -89,7 +89,7 @@ $voice = $tts->speech([
             <p class=""><?php echo "<h2>El texto traducido es: </h2>" . "<br>" . ". <h3>".$translate?></h3></p>
         </div>
         <div class="text-center">
-        <audio hidden id="m" src="<?php echo $voice['response'] ?>" controls=""></audio>
+            <audio hidden id="m" src="<?php echo $voice['response'] ?>" controls=""></audio>
             <button id="btnAudio" class="btn btn-primary mt-3"><i class="fas fa-volume-high"></i></button>
         </div>
         <a class="btn btn-primary mt-3" role="button" href="../Index.php">Volver</a>
@@ -98,7 +98,7 @@ $voice = $tts->speech([
 
 
 
-<script src="../JS/validador.js"></script>
+<script src="../JS/funciones.js"></script>
 <?php
 include_once '../Estructura/footer.php';
 ?>

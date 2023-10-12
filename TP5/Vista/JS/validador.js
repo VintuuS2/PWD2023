@@ -1,9 +1,5 @@
 $(document).ready(function () {
-
-    $('#btnAudio').click(function(){
-        $('#m')[0].play();
-    });
-
+    
     var forms = $(".needs-validation");
     forms.on("submit", function (event) {
         $('#btn-itercambiar-idiomas').addClass('mt-4');

@@ -8,6 +8,7 @@
         }
     ],
     "require": {
-        "statickidz/php-google-translate-free": "^1.2"
+        "statickidz/php-google-translate-free": "^1.2",
+        "duncan3dc/speaker": "^1.4"
     }
 }
