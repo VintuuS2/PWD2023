@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    var select = $('#language-select')
+
     $('#btnAudio').click(function () {
         $('#m')[0].play();
     });
@@ -20,5 +22,11 @@ $(document).ready(function () {
             $("#tgt").val(source);
         }
     });
+
+    select.on('change', function(){
+        var selectedLanguage = select.val();
+        document.cookie = "selectedLanguage=" + selectedLanguage
+        location.reload();
+    })
 
 });
