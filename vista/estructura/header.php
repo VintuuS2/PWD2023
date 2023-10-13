@@ -1,6 +1,3 @@
-<?php
-include_once './TP4/configuracion.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,6 +68,7 @@ include_once './TP4/configuracion.php';
                             <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">TP5</a>
                             <ul class="dropdown-menu" style="background: linear-gradient(135deg, rgba(85,68,173,0.75) 5%, rgba(72,57,161,0.75) 62%, rgba(110,90,199,0.75) 95%);">
                                 <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP5/Vista">Index</a></li>
+                                <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP5/Vista/pruebaIndex.php">Index con PHP_SELF</a></li>
                             </ul>
                         </li>
                     </ul>

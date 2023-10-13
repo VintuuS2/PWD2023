@@ -11,10 +11,7 @@ $PROYECTO ='PWD2023/TP4';
 //variable que almacena el directorio del proyecto
 $ROOT =$_SERVER['DOCUMENT_ROOT']."/$PROYECTO/";
 
-$PROYECTOROOT = "http://".$_SERVER['HTTP_HOST']."/PWD2023/";
-
 include_once($ROOT.'./util/funciones.php');
-
 
 // Variable que define la pagina de autenticacion del proyecto
 $INICIO = "Location:http://".$_SERVER['HTTP_HOST']."/$PROYECTO/vista/login/login.php";

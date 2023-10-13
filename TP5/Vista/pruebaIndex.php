@@ -1,5 +1,6 @@
 <?php
-include_once '../../TP4/configuracion.php';
+include_once '../../configuracionProyecto.php';
+include_once '../Util/funciones.php';
 include_once './Estructura/header.php';
 require_once '../Util/vendor/autoload.php';
 
@@ -73,59 +74,76 @@ $invalidFeedbackLang = [
     'es' => "Seleccione un idioma",
     'en' => "Select a language"
 ];
+
+$translation = [
+    'es' => "Traducción",
+    'en' => "Translation"
+];
+
 ?>
 
 <div class="vh-100 d-flex justify-content-center">
-    <div class="d-flex justify-content-center col-12 col-md-10 col-xl-8 h-100 bg-gris row align-items-start">
+    <div class="d-flex justify-content-center bg-gris col-12 col-md-10 col-xl-8 h-100 row align-items-start">
         <div class="col-12 d-flex mt-3">
-            <label class="col-xl-10 col-md-10 col-8 d-flex justify-content-end mx-2" for="language-select"><img id="bandera-idioma" src="./../Imagenes/bandera-<?php echo isset($_COOKIE['selectedLanguage']) && $_COOKIE['selectedLanguage'] == 'en' ? 'gran-bretania.png' : 'argentina.png' ?>"></label>
+            <label class="col-xl-10 col-md-10 col-8 d-flex justify-content-end mx-2" for="language-select"><img id="bandera-idioma" src="./Imagenes/bandera-<?php echo isset($_COOKIE['selectedLanguage']) && $_COOKIE['selectedLanguage'] == 'en' ? 'gran-bretania.png' : 'argentina.png' ?>"></label>
             <select class="form-select " id="language-select">
                 <?php
                 if (isset($_COOKIE['selectedLanguage']) && $_COOKIE['selectedLanguage'] == 'en') {
-                    echo '<label class="col-xl-10 col-md-10 col-8 d-flex justify-content-end" for="language-select"><img id="bandera-idioma" class="mx-2" src="./../Imagenes/bandera-gran-bretania.png"></label>
-                    <option value="es">Español</option>
+                    echo '<option value="es">Español</option>
                     <option value="en" selected>English</option>';
                 } else {
-                    echo '<label class="col-xl-10 col-md-10 col-8 d-flex justify-content-end" for="language-select"><img id="bandera-idioma" class="mx-2" src="./../Imagenes/bandera-argentina.png"></label>
-                    <option value="es" selected>Español</option>
+                    echo '<option value="es" selected>Español</option>
                     <option value="en">English</option>';
                 }
                 ?>
             </select>
         </div>
-        <div class="d-flex justify-content-center resultado">
+        <div class="d-flex justify-content-center col-10 col-md-8 col-xl-6 resultado">
             <?php
             if (isset($datos['txt']) && isset($datos['src']) && isset($datos['tgt'])) {
                 $txt = $datos['txt'];
                 $tgt = $datos['tgt'];
-                $src = $datos['src'];
-
+                $src = $datos['src'];   
+            
                 $web = "http://translate.google.com/translate_tts";
                 $base64 = "data:audio/wav;base64,";
-
+            
                 $translator = new GoogleTranslate();
-
+            
                 $translate = $translator->translate($src, $tgt, $txt);
-
+            
                 $url = $web . "?" . http_build_query([
                     'ie' => 'UTF-8',
                     'client' => 'gtx',
                     'q' => $translate,
                     'tl' => $tgt
                 ]);
-
+            
                 $file = file_get_contents($url);
-
+            
                 $audio = $base64 . base64_encode($file);
-
-                $msg = "<audio id='m' src='" . $audio . "'></audio>\n<button id='btnAudio' class='btn btn-primary mt-3'><i class='fas fa-volume-high'></i></button>";
-                echo $msg;
-            } else {
-                echo "";
+                $audioOutput = "<audio id='m' src='" . $audio . "'></audio>\n<button id='btnAudio' class='btn btn-primary mt-3'><i class='fas fa-volume-high'></i></button>";
+                echo '<div class="modal-dialog" role="document">
+                        <div class="modal-content rounded-4 shadow bg-black">
+                            <div class="modal-body p-5">
+                                <h2 class="text-light fw-bold mb-0">'.$translation[$lang].':</h2>
+                                <ul class="d-grid gap-4 my-5 list-unstyled small">
+                                    <li class="text-center">
+                                        <p class="text-light">'.$translate.'</p>
+                                    </li>
+                                    <li class="text-center">'.
+                                        $audioOutput.
+                                    '</li>
+                                </ul>
+                                <button type="button" class="btn btn-lg btn-primary mt-1 w-100" data-bs-dismiss="modal">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>';
             }
             ?>
         </div>
-        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" name="form" id="form" method="post" class="d-flex needs-validation row align-items-center col-10 col-md-8 col-xl-6 bg-black p-5 rounded" novalidate>
+        <div class="w-100"></div>
+        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" name="form" id="form2" method="post" class="d-flex needs-validation row align-items-center col-10 col-md-8 col-xl-6 bg-black p-5 rounded-5" novalidate>
             <div class="form-group">
                 <label for="txt" class="form-label mt-3 text-light"><?php echo $labelTxt[$lang] ?></label>
                 <textarea rows="3" class="form-control" maxlength="200" required pattern="[a-z]+" name="txt" id="txt" placeholder="<?php echo $labelAreaPlaceHolder[$lang] ?>" errorVacio="<?php echo $txtAreaErrorVacio[$lang] ?>" errorPatron="<?php echo $txtAreaErrorPatron[$lang] ?>"></textarea> <!-- FALTA ARREGLAR EL PATTERN -->
@@ -191,16 +209,6 @@ $invalidFeedbackLang = [
 </div>
 <script src="./JS/validador.js"></script>
 <script src="./JS/funciones.js"></script>
-<script>
-    var resultado = $('.resultado');
-    var form = $('#form');
-    console.log(resultado.text().trim()); // Esto mostrará el contenido de texto en la consola
-    if (resultado.text().trim() === '') {
-        form.css("margin-top", "-400px");
-    } else {
-        form.css("margin-top", "20px");
-    }
-</script>
 <?php
 include_once './Estructura/footer.php';
 ?>

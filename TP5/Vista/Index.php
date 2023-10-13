@@ -1,5 +1,5 @@
 <?php
-include_once '../../TP4/configuracion.php';
+include_once '../../configuracionProyecto.php';
 include_once './Estructura/header.php';
 require_once '../Util/vendor/autoload.php';
 
@@ -74,7 +74,7 @@ $invalidFeedbackLang = [
 <div class="vh-100 d-flex justify-content-center">
     <div class="d-flex justify-content-center col-12 col-md-10 col-xl-8 h-100 bg-gris row align-items-start">
         <div class="col-12 d-flex mt-3">
-            <label class="col-xl-10 col-md-10 col-8 d-flex justify-content-end mx-2" for="language-select"><img id="bandera-idioma" src="./../Imagenes/bandera-<?php echo isset($_COOKIE['selectedLanguage']) && $_COOKIE['selectedLanguage']== 'en' ? 'gran-bretania.png' : 'argentina.png'?>"></label>
+            <label class="col-xl-10 col-md-10 col-8 d-flex justify-content-end mx-2" for="language-select"><img id="bandera-idioma" src="./Imagenes/bandera-<?php echo isset($_COOKIE['selectedLanguage']) && $_COOKIE['selectedLanguage']== 'en' ? 'gran-bretania.png' : 'argentina.png'?>"></label>
             <select class="form-select " id="language-select">
                 <?php
                 if (isset($_COOKIE['selectedLanguage']) && $_COOKIE['selectedLanguage']== 'en') {

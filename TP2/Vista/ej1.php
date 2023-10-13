@@ -1,5 +1,5 @@
 <?php
-include_once '../../TP4/configuracion.php';
+include_once '../../configuracionProyecto.php';
 include_once './estructura/header.php';
 ?>
     <div class="contenedor vh-100 w-100">

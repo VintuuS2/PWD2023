@@ -1,5 +1,6 @@
 <?php
 include_once '../configuracion.php';
+include_once '../../configuracionProyecto.php';
 include_once './estructura/header.php';
 ?>
 <form class="row g-3 needs-validation" id="form" novalidate>

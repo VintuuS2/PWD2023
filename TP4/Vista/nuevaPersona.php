@@ -1,5 +1,6 @@
 <?php
 include_once '../configuracion.php';
+include_once '../../configuracionProyecto.php';
 include_once './estructura/header.php';
 ?>
 <div class="vh-100 row w-100 align-items-center justify-content-center">

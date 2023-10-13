@@ -1,5 +1,13 @@
 $(document).ready(function () {
     var select = $('#language-select')
+    var resultado = $('.resultado');
+    var form = $('#form2');
+
+    if (resultado.children().length < 1) {
+        form.css("margin-top", "-400px");
+    } else {
+        form.css("margin-top", "20px");
+    }
 
     $('#btnAudio').click(function () {
         $('#m')[0].play();

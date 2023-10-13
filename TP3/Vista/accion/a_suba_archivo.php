@@ -1,6 +1,6 @@
 <?php
 include_once '../../../Control/Ej1/ArchiveManager.php';
-include_once '../../../../TP4/configuracion.php';
+include_once '../../../configuracionProyecto.php';
 include_once '../../../../navbar.php';
 $mensaje = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
