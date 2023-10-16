@@ -1,8 +1,10 @@
 <?php
 
-include_once '../../../TP4/configuracion.php';
+include_once '../../../configuracionProyecto.php';
+include_once '../../Util/funciones.php';
 include_once '../Estructura/header.php';
 require_once '../../Util/vendor/autoload.php';
+
 
 $datos = data_submitted();
 
