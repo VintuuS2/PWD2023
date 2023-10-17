@@ -10,6 +10,24 @@ $(document).ready(function () {
         form2.css("margin-top", "20px");
     }
 
+    $('#borrar').on('click',function(){
+        $('.resultado').remove();
+        if ($('.res1').children().length < 1) {
+            form.css("margin-top", "-400px");
+        } else {
+            form.css("margin-top", "20px");
+        }
+    });
+
+    $('#borrar').click(function(){
+        $('.modal-dialog').remove();
+        if ($('.resultado').children().length < 1) {
+            form.css("margin-top", "-400px");
+        } else {
+            form.css("margin-top", "20px");
+        }
+    });
+
     $('#btnAudio').click(function () {
         $('#m')[0].play();
     });
@@ -35,7 +53,7 @@ $(document).ready(function () {
     select.on('change', function(){
         var selectedLanguage = select.val();
         document.cookie = "selectedLanguage=" + selectedLanguage
-        location.reload();
+        window.location = $(document).val();
     })
 
 });
