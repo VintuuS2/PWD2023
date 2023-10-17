@@ -149,6 +149,10 @@ $invalidFeedbackLang = [
             </div>
             <div class="form-group d-flex col-12 justify-content-center">
                 <input type="submit" id="submit" class="btn btn-primary mt-3" value="<?php echo $txtSubmit[$lang] ?>">
+                <div class="loader-container" id="loader-container" style="display: none;">
+                    <div class="loader"></div>
+                    <div class="loader2"></div>
+                </div>
             </div>
         </form>
     </div>
