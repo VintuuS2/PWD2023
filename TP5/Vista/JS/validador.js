@@ -9,6 +9,11 @@ $(document).ready(function () {
 
         if (!formulario.checkValidity()) {
             event.preventDefault();
+        } else {      
+            $('#submit').css('display', 'none');
+            $('#loader-container').css('display', '');
+            setTimeout(10000)
+            forms[0].submit();
         }
         $(formulario).addClass('was-validated');
         
@@ -30,7 +35,7 @@ $(document).ready(function () {
             campo.siblings(".invalid-feedback").text("");
         }
     });
-
+        
     $("#src").on("change", function () {
         var source = $(this).val();
         var target = $("#tgt").val();
