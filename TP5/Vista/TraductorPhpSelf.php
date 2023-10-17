@@ -143,7 +143,7 @@ $translation = [
             ?>
         </div>
         <div class="w-100"></div>
-        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" name="form" id="form2" method="post" class="d-flex needs-validation row align-items-center col-10 col-md-8 col-xl-6 bg-black p-5 rounded-5" novalidate>
+        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" name="form" id="form3" method="post" class="d-flex needs-validation row align-items-center col-10 col-md-8 col-xl-6 bg-black p-5 rounded-5" novalidate>
             <div class="form-group">
                 <label for="txt" class="form-label mt-3 text-light"><?php echo $labelTxt[$lang] ?></label>
                 <textarea rows="3" class="form-control" maxlength="200" required pattern="[a-z]+" name="txt" id="txt" placeholder="<?php echo $labelAreaPlaceHolder[$lang] ?>" errorVacio="<?php echo $txtAreaErrorVacio[$lang] ?>" errorPatron="<?php echo $txtAreaErrorPatron[$lang] ?>"></textarea> <!-- FALTA ARREGLAR EL PATTERN -->
