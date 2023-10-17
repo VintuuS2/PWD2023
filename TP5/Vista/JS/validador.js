@@ -9,13 +9,14 @@ $(document).ready(function () {
 
         if (!formulario.checkValidity()) {
             event.preventDefault();
-        } else {      
+        } else {
             $('#submit').css('display', 'none');
             $('#loader-container').css('display', '');
             setTimeout(10000)
             forms[0].submit();
         }
         $(formulario).addClass('was-validated');
+        document.cookie = "wasValidated="+true;
         
     });
 
