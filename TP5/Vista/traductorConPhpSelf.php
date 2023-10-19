@@ -157,7 +157,7 @@ $translation = [
             <form action="<?php echo $_SERVER['PHP_SELF'] ?>" name="form" id="form" method="post" class="form-php-self d-flex needs-validation row align-items-center col-10 col-md-8 col-xl-6 bg-black p-5 rounded-5" novalidate>
                 <div class="form-group">
                     <label for="txt" class="form-label mt-3 text-light"><?php echo $labelTxt[$lang] ?></label>
-                    <textarea rows="3" class="form-control" maxlength="200" required pattern="[a-zA-ZáéíóúÁÉÍÓÚ @¡!¿?" ]+" name="txt" id="txt" placeholder="<?php echo $labelAreaPlaceHolder[$lang] ?>" errorVacio="<?php echo $txtAreaErrorVacio[$lang] ?>" errorPatron="<?php echo $txtAreaErrorPatron[$lang] ?>"></textarea> 
+                    <textarea rows="3" class="form-control" maxlength="200" required name="txt" id="txt" placeholder="<?php echo $labelAreaPlaceHolder[$lang] ?>" errorVacio="<?php echo $txtAreaErrorVacio[$lang] ?>" errorPatron="<?php echo $txtAreaErrorPatron[$lang] ?>"></textarea> 
                     <div class="invalid-feedback">
                         <?php echo $invalidFeedbackTxt[$lang] ?>
                     </div>
@@ -214,6 +214,10 @@ $translation = [
                 </div>
                 <div class="form-group d-flex col-12 justify-content-center">
                     <input type="submit" id="submit" class="btn btn-primary mt-3" value="<?php echo $txtSubmit[$lang] ?>">
+                    <div class="loader-container" id="loader-container">
+                        <div class="loader"></div>
+                        <div class="loader2"></div>
+                    </div>
                 </div>
             </form>
         </div>

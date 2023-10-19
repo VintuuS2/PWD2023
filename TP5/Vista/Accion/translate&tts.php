@@ -54,7 +54,7 @@ if (isset($datos['txt']) && isset($datos['tgt']) && isset($datos['src'])) {
             </div>";
             }
             ?>
-            <a class="btn btn-primary mt-3 float-end" role="button" href="../Traductor.php">Volver al traductor</a>
+            <a class="btn btn-primary mt-3 float-end" id="btnVolver" role="button" href="../Traductor.php">Volver al traductor</a>
         </div>
     </div>
 </div>

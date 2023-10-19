@@ -2,7 +2,7 @@
         <!-- Footer -->
         <footer class="text-center text-lg-start text-light">
             <!-- Section: Social media -->
-            <section class="d-flex justify-content-between p-4 text-white bg-grupo1">
+            <section class="d-flex justify-content-around p-4 text-white bg-grupo1">
                 <!-- Left -->
                 <div class="me-5">
                     <span>Entra en nuestro github:</span>

@@ -11,7 +11,8 @@ $(document).ready(function () {
             event.preventDefault();
         } else {
             $('#submit').css('display', 'none');
-            $('#loader-container').css('display', '');
+            $('#loader-container').css('display', 'block');
+            document.cookie = "wasValidated="+false;
             setTimeout(10000)
             forms[0].submit();
         }
