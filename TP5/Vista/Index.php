@@ -5,17 +5,39 @@ include_once './Estructura/header.php';
 require_once '../Util/vendor/autoload.php';
 ?>
 
-<div class="vh-100 d-flex justify-content-center">
-    <div class="bg-gris col-md-10 col-xl-8 align-items-center">
-        <div class="p-2 my-3 w-100 "><h1>Trabajo de Librerias</h1></div>
-        <div class="p-2"><h2>Grupo 1</h2></div>
-        <div class="p-2"><h3>En este trabajo decidimos utilizar las siguientes librerias/apis:<br>
-        <a href="https://github.com/statickidz/php-google-translate-free">Php Google Translate Free <br>
-        Google Text to Speech(gTTS Module)
-        </h3></div>
-        
+<?php
+include_once '../../configuracionProyecto.php';
+include_once '../Util/funciones.php';
+include_once './Estructura/header.php';
+require_once '../Util/vendor/autoload.php';
+?>
+
+<div class="vh-100 w-100 row bg-dark m-auto">
+    <div class="d-flex row justify-content-center align-items-center">
+        <div class="text-center">
+            <h1 class="text-light">Trabajo de Librerias</h1>
+            <h4 class="text-light" style="text-align: justify;"><p>Para la realización de este trabajo, utilizamos las herramientas de gestión de depencias y bibliotecas para proyectos PHP llamada "Composer". A este lo utilizamos para incluir un SDK de Google Translate para traducir texto de <a href="https://github.com/statickidz">Statickidz</a> que funciona mandando un texto con un idioma target y un idioma source.</p> <br>
+                <p>Al mismo tiempo, utilizamos la API de Google para demostrar que no hace falta siempre instalar una biblioteca desde composer para agregar funcionalidades extras a nuestros proyectos. La documentación la obtuvimos de la pagina <a href="https://www.etutorialspoint.com/index.php/341-how-to-convert-text-to-speech-using-php">eTutorialsPoint</a>.</p> <br>
+                <p>En la realización de este trabajo notamos las diferentes utilidades que tiene utilizar composer y a su vez entendimos el funcionamiento de un archivo .gitignore.
+                Para poder utilizar este proyecto correctamente, en visual studio code, abris una terminal en la carpeta del proyecto y escriba el siguiente comando:
+                "cd ./TP5/Util; composer update."</p></h4>
+                
+                <h3 class="text-light">Librerias/Api utilizadas: </h3>
+                <h3 class="text-light">-Php Google Translate Free</h3>
+                <h3 class="text-light">-Google Text to Speech(gTTS Module)</h3>
+                <h2 class="text-light">Integrantes del grupo 1</h2>
+                <ul class="list-unstyled">
+                    <li class="text-light">Lautaro Gonzalez FAI-2950</li>
+                    <li class="text-light">Emiliano Lopez FAI-3357</li>
+                    <li class="text-light">Valentin Camusso FAI-3208</li>
+                </ul>
+        </div>
     </div>
 </div>
+
+<?php
+include_once './Estructura/footer.php';
+?>
 
 <?php
 include_once './Estructura/footer.php';
