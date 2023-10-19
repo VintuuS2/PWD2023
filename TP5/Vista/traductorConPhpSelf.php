@@ -104,59 +104,59 @@ $translation = [
         </div>
         <div class="pt-5 res1 mt-5 justify-content-center d-flex">
             <div class="d-flex justify-content-center col-10 col-md-8 col-xl-6 resultado">
-            <?php
-            if (isset($datos['txt']) && isset($datos['src']) && isset($datos['tgt'])) {
-                $txt = $datos['txt'];
-                $tgt = $datos['tgt'];
-                $src = $datos['src'];   
-            
-                $web = "http://translate.google.com/translate_tts";
-                $base64 = "data:audio/wav;base64,";
-            
-                $translator = new GoogleTranslate();
-            
-                $translate = $translator->translate($src, $tgt, $txt);
-            
-                $url = $web . "?" . http_build_query([
-                    'ie' => 'UTF-8',
-                    'client' => 'gtx',
-                    'q' => $translate,
-                    'tl' => $tgt
-                ]);
-            
-                $file = file_get_contents($url);
-            
-                $audio = $base64 . base64_encode($file);
-                $audioOutput = "<audio id='m' src='" . $audio . "'></audio>\n<button id='btnAudio' class='btn btn-primary mt-3'><i class='fas fa-volume-high'></i></button>";
-                $resultado = '<div class="modal-dialog" role="document">
+                <?php
+                if (isset($datos['txt']) && isset($datos['src']) && isset($datos['tgt'])) {
+                    $txt = $datos['txt'];
+                    $tgt = $datos['tgt'];
+                    $src = $datos['src'];
+
+                    $web = "http://translate.google.com/translate_tts";
+                    $base64 = "data:audio/wav;base64,";
+
+                    $translator = new GoogleTranslate();
+
+                    $translate = $translator->translate($src, $tgt, $txt);
+
+                    $url = $web . "?" . http_build_query([
+                        'ie' => 'UTF-8',
+                        'client' => 'gtx',
+                        'q' => $translate,
+                        'tl' => $tgt
+                    ]);
+
+                    $file = file_get_contents($url);
+
+                    $audio = $base64 . base64_encode($file);
+                    $audioOutput = "<audio id='m' src='" . $audio . "'></audio>\n<button id='btnAudio' class='btn btn-primary mt-3'><i class='fas fa-volume-high'></i></button>";
+                    $resultado = '<div class="modal-dialog" role="document">
                         <div class="modal-content rounded-4 shadow bg-black">
                             <div class="end-0">
                                 <button id="borrar" type="button" class="btn mt-1 w-25 float-end"><i class="fa-solid fa-xmark text-light"></i></button>
                             </div>
                             <div class="modal-body pt-4 p-5">
-                                <h2 class="text-light fw-bold mb-0">'.$translation[$lang].':</h2>
+                                <h2 class="text-light fw-bold mb-0">' . $translation[$lang] . ':</h2>
                                 <ul class="d-grid gap-2 my-5 list-unstyled small">
                                     <li class="text-center">
-                                        <p class="text-light">'.$translate.'</p>
+                                        <p class="text-light">' . $translate . '</p>
                                     </li>
-                                    <li class="text-center">'.
-                                        $audioOutput.
-                                    '</li>
+                                    <li class="text-center">' .
+                        $audioOutput .
+                        '</li>
                                 </ul>
                             </div>
                         </div>
                     </div>';
-                echo $resultado;
-            }
-            ?>
+                    echo $resultado;
+                }
+                ?>
             </div>
         </div>
         <div class="w-100"></div>
         <div class="mb-5 d-flex justify-content-center">
-            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" name="form" id="form2" method="post" class="d-flex needs-validation row align-items-center col-10 col-md-8 col-xl-6 bg-black p-5 rounded-5" novalidate>
+            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" name="form" id="form" method="post" class="form-php-self d-flex needs-validation row align-items-center col-10 col-md-8 col-xl-6 bg-black p-5 rounded-5" novalidate>
                 <div class="form-group">
                     <label for="txt" class="form-label mt-3 text-light"><?php echo $labelTxt[$lang] ?></label>
-                    <textarea rows="3" class="form-control" maxlength="200" required pattern="[a-zA-ZáéíóúÁÉÍÓÚ @¡!¿?"]+" name="txt" id="txt" placeholder="<?php echo $labelAreaPlaceHolder[$lang] ?>" errorVacio="<?php echo $txtAreaErrorVacio[$lang] ?>" errorPatron="<?php echo $txtAreaErrorPatron[$lang] ?>"></textarea> <!-- FALTA ARREGLAR EL PATTERN -->
+                    <textarea rows="3" class="form-control" maxlength="200" required pattern="[a-zA-ZáéíóúÁÉÍÓÚ @¡!¿?" ]+" name="txt" id="txt" placeholder="<?php echo $labelAreaPlaceHolder[$lang] ?>" errorVacio="<?php echo $txtAreaErrorVacio[$lang] ?>" errorPatron="<?php echo $txtAreaErrorPatron[$lang] ?>"></textarea> 
                     <div class="invalid-feedback">
                         <?php echo $invalidFeedbackTxt[$lang] ?>
                     </div>

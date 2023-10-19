@@ -1,39 +1,34 @@
 $(document).ready(function () {
     var select = $('#language-select')
     var resultado = $('.resultado');
-    var form2 = $('#form2');
+    var form = $('#form');
 
-    if (document.cookie.includes('wasValidated=true')){
-        form2.addClass('was-validated');
+    if (document.cookie.includes('wasValidated=true')) {
+        form.addClass('was-validated');
         $('#btn-itercambiar-idiomas').addClass('mt-4');
         $('#btn-itercambiar-idiomas').removeClass('mt-5');
     }
 
-    document.cookie = "wasValidated="+false;
+    document.cookie = "wasValidated=" + false;
 
-    if (resultado.children().length < 1) {
-        form2.css("margin-top", "-400px");
-    } else {
-        form2.css("margin-top", "20px");
-    }
-
-    $('#borrar').on('click',function(){
-        resultado.remove();
-        if ($('.res1').children().length < 1) {
-            form2.css("margin-top", "-400px");
-        } else {
-            form2.css("margin-top", "20px");
-        }
-    });
-
-    $('#borrar').click(function(){
-        $('.modal-dialog').remove();
-        if ($('.resultado').children().length < 1) {
+    if (form.hasClass("form-php-self")) {
+        if (resultado.children().length < 1) {
             form.css("margin-top", "-400px");
         } else {
             form.css("margin-top", "20px");
         }
-    });
+    }
+
+    if (form.hasClass("form-php-self")) {
+        $('#borrar').on('click', function () {
+            resultado.remove();
+            if ($('.res1').children().length < 1) {
+                form.css("margin-top", "-400px");
+            } else {
+                form.css("margin-top", "20px");
+            }
+        });
+    }
 
     $('#btnAudio').click(function () {
         $('#m')[0].play();
@@ -57,20 +52,29 @@ $(document).ready(function () {
         }
     });
 
-    select.on('change', function(){
+    select.on('change', function () {
         var selectedLanguage = select.val();
         document.cookie = "selectedLanguage=" + selectedLanguage
-        if ($('.res1').children().length < 1){
-            window.location = $(document).val();
+        if (form.hasClass("form-php-self")) {
+            if ($('.res1').children().length < 1) {
+                window.location = $(document).val();
+            } else {
+                location.reload();
+            }
+            if (form.hasClass('was-validated')) {
+                document.cookie = "wasValidated=" + true;
+            } else {
+                document.cookie = "wasValidated=" + false;
+            }
         } else {
+            if (form.hasClass('was-validated')) {
+                document.cookie = "wasValidated=" + true;
+            } else {
+                document.cookie = "wasValidated=" + false;
+            }
             location.reload();
         }
         
-        if (form2.hasClass('was-validated')){
-            document.cookie="wasValidated="+true;
-        } else {
-            document.cookie="wasValidated="+false;
-        }
     })
 
 });

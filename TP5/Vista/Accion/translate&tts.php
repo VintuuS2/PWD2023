@@ -39,16 +39,23 @@ if (isset($datos['txt']) && isset($datos['tgt']) && isset($datos['src'])) {
 
 ?>
 <div class="vh-100 d-flex justify-content-center align-items-center">
-    <div class="p-4 bg-black col-12 col-md-8 col-xl-6 text-light rounded-4">
-        <div>
-            <p class=""><?php echo "<h2>El texto '" . $txt . "' traducido es: </h2><br>" . "<h3>" . $translate ?></h3>
-            </p>
+    <div class="d-flex justify-content-center bg-gris col-12 col-md-10 col-xl-8 h-100 align-items-center">
+        <div class="p-4 bg-black col-12 col-md-8 col-xl-6 text-light rounded-4 ">
+            <?php
+            if ($msg == "<h2>No se ingresaron datos. Por favor rellene el formulario</h2>") {
+                echo $msg;
+            } else {
+                echo "
+            <div>
+                <p><h2>El texto '" . $txt . "' traducido es: </h2><br><h3> $translate </h3></p>
+            </div>
+            <div>
+                $msg
+            </div>";
+            }
+            ?>
+            <a class="btn btn-primary mt-3 float-end" role="button" href="../Traductor.php">Volver al traductor</a>
         </div>
-        <div>
-            <audio hidden id="m" src="<?php echo $voice['response'] ?>" controls=""></audio>
-            <button id="btnAudio" class="btn btn-primary mt-3"><i class="fas fa-volume-high"></i></button>
-        </div>
-        <a class="btn btn-primary mt-3 float-end" role="button" href="../Traductor.php">Volver al traductor</a>
     </div>
 </div>
 <script src="../JS/funciones.js"></script>
