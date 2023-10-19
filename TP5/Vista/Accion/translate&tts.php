@@ -32,10 +32,48 @@ if (isset($datos['txt']) && isset($datos['tgt']) && isset($datos['src'])) {
 
     $audio = $base64 . base64_encode($file);
 
+    switch ($tgt) {
+        case 'en':
+            $idioma = "inglés";
+            break;
+        case 'es':
+            $idioma = "español";
+            break;
+        case 'de':
+            $idioma = "alemán";
+            break;
+        case 'zh':
+            $idioma = "chino";
+            break;
+        case 'ko':
+            $idioma = "coreano";
+            break;
+        case 'fr':
+            $idioma = "francés";
+            break;
+        case 'it':
+            $idioma = "italiano";
+            break;
+        case 'ja':
+            $idioma = "japonés";
+            break;
+        case 'pt':
+            $idioma = "portugués";
+            break;
+        case 'ru':
+            $idioma = "ruso";
+            break;
+
+        default:
+            $idioma = 'error';
+            break;
+    }
+
     $msg = "<audio id='m' src='" . $audio . "'></audio>\n<button id='btnAudio' class='btn btn-primary mt-3'><i class='fas fa-volume-high'></i></button>";
 } else {
     $msg = "<h2>No se ingresaron datos. Por favor rellene el formulario</h2>";
 }
+
 
 ?>
 <div class="vh-100 d-flex justify-content-center align-items-center">
@@ -47,7 +85,7 @@ if (isset($datos['txt']) && isset($datos['tgt']) && isset($datos['src'])) {
             } else {
                 echo "
             <div>
-                <p><h2>El texto '" . $txt . "' traducido es: </h2><br><h3> $translate </h3></p>
+                <p><h2>El texto '" . $txt . "' traducido al " . $idioma . " es: </h2><br><h3> $translate </h3></p>
             </div>
             <div>
                 $msg
