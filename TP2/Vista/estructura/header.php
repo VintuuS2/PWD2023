@@ -10,7 +10,7 @@
     <script src="<?php echo $PROYECTOROOT ?>vista/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/3f0f040aa7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<?php echo $PROYECTOROOT ?>TP2/vista/css/style.css">
-    <title>TP2</title>
+    <title><?php echo $tituloPagina ?></title>
 </head>
 
 <body>

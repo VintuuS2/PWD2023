@@ -1,4 +1,5 @@
 <?php
+$tituloPagina = "TP3-Añadir pelicula";
 include_once '../../configuracionProyecto.php';
 include_once './estructura/header.php';
 ?>

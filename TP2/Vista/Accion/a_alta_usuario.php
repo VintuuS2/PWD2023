@@ -1,4 +1,5 @@
 <?php
+$tituloPagina = "TP2-Acceso";
 include_once '../../../configuracionProyecto.php';
 include_once "../../../Control/Ej3/Usuarios.php";
 include_once '../../../../navbar.php';

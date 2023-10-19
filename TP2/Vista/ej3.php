@@ -1,4 +1,5 @@
 <?php
+$tituloPagina = "TP2-Login";
 include_once '../../configuracionProyecto.php';
 include_once './estructura/header.php';
 ?>

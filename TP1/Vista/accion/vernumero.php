@@ -1,4 +1,5 @@
 <?php
+$tituloPagina = "TP1-Positivo o negativo";
 include_once '../../../TP4/configuracion.php';
 include_once '../estructura/header.php';
 include_once '../../Control/numero.php';

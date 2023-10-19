@@ -1,19 +1,9 @@
 <?php
+$tituloPagina = "TP3-Pelicula subida";
 include_once '../../../configuracionProyecto.php';
-include_once '../../../../navbar.php';
+include_once '../estructura/header.php';
 include_once '../../../Control/EJ3/cargar.php';
-?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datos de la pelicula</title>
-    <link rel="stylesheet" href="../../../../TP4/Vista/css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    <style>
+?><style>
         #datos-pelicula {
             background-color: rgb(223, 240, 216);
             width: 50%;
@@ -35,9 +25,6 @@ include_once '../../../Control/EJ3/cargar.php';
             color: rgb(101, 158, 102);
         }
     </style>
-</head>
-
-<body>
     <div class="contenedor">
         <div class="d-flex" style="margin: auto; flex-wrap:wrap; flex-direction:column; align-items:center;text-align:center;">
             <div class='content rounded-1' id="datos-pelicula">
@@ -76,7 +63,4 @@ include_once '../../../Control/EJ3/cargar.php';
             </div>
         </div>
     </div>
-
-</body>
-
-</html>
+<?php include_once '../estructura/footer.php'; ?>

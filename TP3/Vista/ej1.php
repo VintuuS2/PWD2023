@@ -1,4 +1,5 @@
 <?php
+$tituloPagina = "TP3-Subir archivo";
 include_once '../../configuracionProyecto.php';
 include_once './estructura/header.php';
 ?>

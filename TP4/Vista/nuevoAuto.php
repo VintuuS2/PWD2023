@@ -1,4 +1,5 @@
 <?php
+$tituloPagina = "TP4-Añadir vehiculo";
 include_once '../configuracion.php';
 include_once '../../configuracionProyecto.php';
 include_once './estructura/header.php';

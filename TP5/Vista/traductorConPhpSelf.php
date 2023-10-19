@@ -1,4 +1,5 @@
 <?php
+$tituloPagina = "TP5-Traductor con PHP_SELF";
 include_once '../../configuracionProyecto.php';
 include_once '../Util/funciones.php';
 include_once './Estructura/header.php';
