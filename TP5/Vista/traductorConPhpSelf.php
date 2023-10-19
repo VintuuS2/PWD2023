@@ -135,7 +135,7 @@ $translation = [
                             </div>
                             <div class="modal-body pt-4 p-5">
                                 <h2 class="text-light fw-bold mb-0">'.$translation[$lang].':</h2>
-                                <ul class="d-grid gap-4 my-5 list-unstyled small">
+                                <ul class="d-grid gap-2 my-5 list-unstyled small">
                                     <li class="text-center">
                                         <p class="text-light">'.$translate.'</p>
                                     </li>
@@ -156,7 +156,7 @@ $translation = [
             <form action="<?php echo $_SERVER['PHP_SELF'] ?>" name="form" id="form2" method="post" class="d-flex needs-validation row align-items-center col-10 col-md-8 col-xl-6 bg-black p-5 rounded-5" novalidate>
                 <div class="form-group">
                     <label for="txt" class="form-label mt-3 text-light"><?php echo $labelTxt[$lang] ?></label>
-                    <textarea rows="3" class="form-control" maxlength="200" required pattern="[a-z]+" name="txt" id="txt" placeholder="<?php echo $labelAreaPlaceHolder[$lang] ?>" errorVacio="<?php echo $txtAreaErrorVacio[$lang] ?>" errorPatron="<?php echo $txtAreaErrorPatron[$lang] ?>"></textarea> <!-- FALTA ARREGLAR EL PATTERN -->
+                    <textarea rows="3" class="form-control" maxlength="200" required pattern="[a-zA-ZáéíóúÁÉÍÓÚ @¡!¿?"]+" name="txt" id="txt" placeholder="<?php echo $labelAreaPlaceHolder[$lang] ?>" errorVacio="<?php echo $txtAreaErrorVacio[$lang] ?>" errorPatron="<?php echo $txtAreaErrorPatron[$lang] ?>"></textarea> <!-- FALTA ARREGLAR EL PATTERN -->
                     <div class="invalid-feedback">
                         <?php echo $invalidFeedbackTxt[$lang] ?>
                     </div>

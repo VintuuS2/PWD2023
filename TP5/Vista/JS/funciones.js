@@ -2,7 +2,14 @@ $(document).ready(function () {
     var select = $('#language-select')
     var resultado = $('.resultado');
     var form2 = $('#form2');
-    var form = $('#form');
+
+    if (document.cookie.includes('wasValidated=true')){
+        form2.addClass('was-validated');
+        $('#btn-itercambiar-idiomas').addClass('mt-4');
+        $('#btn-itercambiar-idiomas').removeClass('mt-5');
+    }
+
+    document.cookie = "wasValidated="+false;
 
     if (resultado.children().length < 1) {
         form2.css("margin-top", "-400px");
@@ -11,11 +18,11 @@ $(document).ready(function () {
     }
 
     $('#borrar').on('click',function(){
-        $('.resultado').remove();
+        resultado.remove();
         if ($('.res1').children().length < 1) {
-            form.css("margin-top", "-400px");
+            form2.css("margin-top", "-400px");
         } else {
-            form.css("margin-top", "20px");
+            form2.css("margin-top", "20px");
         }
     });
 
@@ -53,7 +60,17 @@ $(document).ready(function () {
     select.on('change', function(){
         var selectedLanguage = select.val();
         document.cookie = "selectedLanguage=" + selectedLanguage
-        window.location = $(document).val();
+        if ($('.res1').children().length < 1){
+            window.location = $(document).val();
+        } else {
+            location.reload();
+        }
+        
+        if (form2.hasClass('was-validated')){
+            document.cookie="wasValidated="+true;
+        } else {
+            document.cookie="wasValidated="+false;
+        }
     })
 
 });
