@@ -10,7 +10,7 @@
     <script src="<?php echo $PROYECTOROOT ?>vista/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/3f0f040aa7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<?php echo $PROYECTOROOT ?>TP3/vista/css/style.css">
-    <title>TP3</title>
+    <title><?php echo $tituloPagina ?></title>
 </head>
 
 <body>
@@ -63,6 +63,14 @@
                                 <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP4/Vista/nuevoAuto.php">Añadir un auto</a></li>
                                 <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP4/Vista/CambioDuenio.php">Cambiar de dueño</a></li>
                                 <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP4/Vista/BuscarPersona.php">Modificar una persona</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">TP5</a>
+                            <ul class="dropdown-menu" style="background: linear-gradient(135deg, rgba(85,68,173,0.75) 5%, rgba(72,57,161,0.75) 62%, rgba(110,90,199,0.75) 95%);">
+                                <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP5/Vista">Inicio</a></li>
+                                <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP5/Vista/Traductor.php">Traductor normal</a></li>
+                                <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP5/Vista/traductorConPhpSelf.php">Traductor con PHP_SELF</a></li>
                             </ul>
                         </li>
                     </ul>

@@ -1,5 +1,7 @@
 <?php
+$tituloPagina = "TP4-Dueño cambiado";
 include_once '../../configuracion.php';
+include_once '../../../configuracionProyecto.php';
 include_once '../estructura/header.php';
 $mensaje = "";
 $datos = data_submitted();

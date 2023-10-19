@@ -1,5 +1,6 @@
 <?php
-include_once '../../TP4/configuracion.php';
+$tituloPagina = "TP1-Ejercicio 2";
+include_once '../../configuracionProyecto.php';
 include_once './estructura/header.php';
 ?>
     <div class="contenedor">

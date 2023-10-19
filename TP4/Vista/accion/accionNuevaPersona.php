@@ -1,5 +1,7 @@
 <?php
+$tituloPagina = "TP4-Persona agregada";
 include_once '../../configuracion.php';
+include_once '../../../configuracionProyecto.php';
 include_once '../estructura/header.php';
 $mensaje = "No se recibieron datos";
 $datos = data_submitted();

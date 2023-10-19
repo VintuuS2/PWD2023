@@ -9,6 +9,10 @@ Aquí van a ir todos los trabajos prácticos hechos en la materia cursada en la 
 | Valentin Camusso | FAI 3208 | valentin.camusso@est.fi.uncoma.edu.ar | [![github](https://img.shields.io/badge/github-121013?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Camuss0) |
 | Emiliano Lopez   | FAI 3357 | emiliano.lopez@est.fi.uncoma.edu.ar   | [![github](https://img.shields.io/badge/github-121013?style=for-the-badge&logo=github&logoColor=white)](https://github.com/EmiMlz)  |
 
+## TP5
+El TP5 requiere utilizar la herramienta [Composer](https://getcomposer.org) para su correcto funcionamiento.
+Una vez instalado, abre una terminal en el Proyecto "PWD2023" y escriba el siguiente comando `cd ./TP5/Util; composer update`.
+
 ## Instalación
 Para poder ejecutar con éxito nuestro repositorio tendrás que hacer un par de cosas antes de empezar
 

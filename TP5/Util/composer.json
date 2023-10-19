@@ -1,0 +1,17 @@
+{
+    "name": "grupo1/tp5",
+    "description": "Este es archivo de configuracion de composer del tp5 del grupo 1",
+    "authors": [
+        {
+            "name": "LautaroGonzalez-FAI2950",
+            "email": "lautarofglez@gmail.com"
+        } , 
+        {
+            "name": "ValentinCamussoFAI-3208",
+            "email": "camussovalentin10@gmail.com"
+        }
+    ],
+    "require": {
+        "statickidz/php-google-translate-free": "^1.2"
+    }
+}

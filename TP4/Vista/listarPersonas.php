@@ -1,5 +1,7 @@
 <?php
+$tituloPagina = "TP4-Ver lista de personas";
 include_once '../configuracion.php';
+include_once '../../configuracionProyecto.php';
 include_once './estructura/header.php';
 $objPersona = new AbmPersona();
 

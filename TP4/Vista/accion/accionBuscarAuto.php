@@ -1,5 +1,7 @@
 <?php
+$tituloPagina = "TP4-Vehiculo buscado";
 include_once '../../configuracion.php';
+include_once '../../../configuracionProyecto.php';
 include_once '../estructura/header.php';
 $datos = data_submitted();
 if (isset($datos['patente-auto'])) {

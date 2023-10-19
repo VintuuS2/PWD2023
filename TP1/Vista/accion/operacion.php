@@ -1,4 +1,5 @@
 <?php
+$tituloPagina = "TP1-Resultado operación matemática";
 include_once '../../../TP4/configuracion.php';
 include_once '../estructura/header.php';
 include_once '../../Control/matematicas.php';

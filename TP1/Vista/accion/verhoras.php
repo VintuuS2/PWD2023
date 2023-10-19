@@ -1,4 +1,5 @@
 <?php
+$tituloPagina = "TP1-Ver horas totales";
 include_once '../../../TP4/configuracion.php';
 include_once '../estructura/header.php';
 include_once '../../Control/pwd.php';

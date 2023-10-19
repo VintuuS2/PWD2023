@@ -1,6 +1,3 @@
-<?php
-include_once './TP4/configuracion.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +9,7 @@ include_once './TP4/configuracion.php';
     <link rel="stylesheet" href="<?php echo $PROYECTOROOT ?>vista/css/bootstrap.min.css">
     <script src="<?php echo $PROYECTOROOT ?>vista/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/3f0f040aa7.js" crossorigin="anonymous"></script>
-    <title>TP4</title>
+    <title>Index</title>
 </head>
 
 <body>
@@ -65,6 +62,12 @@ include_once './TP4/configuracion.php';
                                 <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP4/Vista/nuevoAuto.php">Añadir un auto</a></li>
                                 <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP4/Vista/CambioDuenio.php">Cambiar de dueño</a></li>
                                 <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP4/Vista/BuscarPersona.php">Modificar una persona</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">TP5</a>
+                            <ul class="dropdown-menu" style="background: linear-gradient(135deg, rgba(85,68,173,0.75) 5%, rgba(72,57,161,0.75) 62%, rgba(110,90,199,0.75) 95%);">
+                                <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP5/Vista/">Index</a></li>
                             </ul>
                         </li>
                     </ul>
