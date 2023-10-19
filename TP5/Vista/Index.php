@@ -8,7 +8,7 @@ require_once '../Util/vendor/autoload.php';
 
 <div class="w-100 row bg-dark m-auto py-5">
     <div class="d-flex row justify-content-center align-items-center">
-        <div class="col-12 col-md-8 col-xl-6 text-light h4">
+        <div class="col-12 col-md-10 col-xl-8 text-light h4">
             <div>
                 <h1 class="text-center">Trabajo de Librerias</h1>
                 <p>Para la realización de este trabajo, utilizamos las herramientas de gestión de dependencias y bibliotecas para proyectos PHP llamada "Composer". Lo utilizamos para incluir un SDK de Google Translate para traducir texto de <a href="https://github.com/statickidz" target="_blank">Statickidz</a> que funciona mandando un texto con un idioma target y un idioma source.</p> <br>
