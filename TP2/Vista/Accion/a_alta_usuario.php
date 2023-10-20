@@ -1,8 +1,9 @@
 <?php
 $tituloPagina = "TP2-Acceso";
 include_once '../../../configuracionProyecto.php';
-include_once "../../Control/Ej3/Usuarios.php";
 include_once '../estructura/header.php';
+include_once "../../Control/Ej3/Usuarios.php";
+
 if ($_POST) {
     $datosLoggeo['usuario'] = $_POST['usuario'];
     $datosLoggeo['clave'] = $_POST['contra'];
@@ -23,5 +24,5 @@ if ($_POST) {
         </div>
     </div>
 <?php
-include_once '../estructura/footer.php';
+include_once './../../../vista/estructura/footer.php';
 ?>

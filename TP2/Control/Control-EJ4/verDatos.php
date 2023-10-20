@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datos de la pelicula</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<?php
+$tituloPagina = "TP2-VerDatos";
+include_once './../../../configuracionProyecto.php';
+include_once './../../Vista/estructura/header.php';
+include_once "../../Control/Ej3/Usuarios.php";
+?>
     <style>
         #datos-pelicula {
             background-color: rgb(223, 240, 216);
@@ -26,9 +23,6 @@
             color: rgb(101, 158, 102);
         }
     </style>
-</head>
-
-<body>
     <div class='content rounded-1' id="datos-pelicula">
         <div class="header border-bottom-0 align-items-right">
             <h1>La pelicula introducida es</h1>
@@ -48,6 +42,7 @@
             <span class='texto'>Sinopsis: </span><span class='descripcion'><?php echo $sinopsis = $_POST['sinopsis']; ?></span></br>
         </div>
     </div>
-</body>
+    <?php
+include_once './../../../vista/estructura/footer.php';
+?>
 
-</html>
