@@ -35,7 +35,7 @@ if ($_GET) {
             <div class="div-mensaje">
                 <?php
                 echo $salida;
-                echo "<a href='ej1.php'>Volver atras</a>";
+                echo "<a href='../ej1.php'>Volver atras</a>";
                 ?>
             </div>
         </div>
