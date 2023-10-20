@@ -50,4 +50,4 @@ include_once './estructura/header.php';
         </div>
     </div>
 
-<?php include_once './estructura/footer.php'; ?>
+    <?php include_once './../../vista/estructura/footer.php'; ?>

@@ -1,7 +1,7 @@
 <?php
 $tituloPagina = "TP1-Mensaje ejercicio 6";
-include_once '../../../TP4/configuracion.php';
-include_once '../estructura/header.php';
+include_once './../../../configuracionProyecto.php';
+include_once './../estructura/header.php';
 include_once '../../Control/persona6.php';
 if ($_POST) {
     $nombre = $_POST['nombre-usuario'];
@@ -32,5 +32,4 @@ if ($_POST) {
             ?>
         </div>
     </div>
-
-<?php include_once '../estructura/footer.php'; ?>
+    <?php include_once '../../../vista/estructura/footer.php'; ?>

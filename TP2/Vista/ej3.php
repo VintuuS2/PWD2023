@@ -8,7 +8,7 @@ include_once './estructura/header.php';
             <div class="d-flex align-items-center py-4 bg-body-tertiary">
                 <main class="form-signin w-100 m-auto">
                     <div class="container-centered">
-                        <form action="../../Vista/Ej3/Accion/a_alta_usuario.php" method="post" id="form">
+                        <form action="./Accion/a_alta_usuario.php" method="post" id="form">
                             <div class="container d-flex justify-content-center">
                                 <div class="bg-secondary m-4  d-flex justify-content-center align-items-center" style="height: 300px; width: 300px;">
                                     <div class="bg-light position-relative " style="height: 270px; width: 270px;">
@@ -39,4 +39,4 @@ include_once './estructura/header.php';
         </div>
     </div>
     <script src="./js/ej3.js"></script>
-<?php include_once './estructura/footer.php'; ?>
+    <?php include_once './../../vista/estructura/footer.php'; ?>

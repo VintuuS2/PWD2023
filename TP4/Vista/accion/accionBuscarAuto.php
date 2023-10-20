@@ -50,4 +50,4 @@ if (isset($datos['patente-auto'])) {
         </div>
     </div>
 </div>
-<?php include_once '../estructura/footer.php'; ?>
+<?php include_once './../../../vista/estructura/footer.php'; ?>

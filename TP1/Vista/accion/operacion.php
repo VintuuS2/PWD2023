@@ -1,7 +1,7 @@
 <?php
 $tituloPagina = "TP1-Resultado operación matemática";
-include_once '../../../TP4/configuracion.php';
-include_once '../estructura/header.php';
+include_once './../../../configuracionProyecto.php';
+include_once './../estructura/header.php';
 include_once '../../Control/matematicas.php';
 if ($_GET) {
     $primerNumero = $_GET['primer-numero'];
@@ -22,4 +22,4 @@ if ($_GET) {
         </div>
     </div>
 
-<?php include_once '../estructura/footer.php'; ?>
+    <?php include_once '../../../vista/estructura/footer.php'; ?>

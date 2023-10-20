@@ -92,4 +92,4 @@ if (isset($datos['dni-modificar'])) {
     </div>
 </div>
 <script src="../js/scriptAccionBuscarPersona.js"></script>
-<?php include_once '../estructura/footer.php'; ?>
+<?php include_once './../../../vista/estructura/footer.php'; ?>

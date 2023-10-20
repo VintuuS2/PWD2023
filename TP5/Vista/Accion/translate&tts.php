@@ -98,5 +98,5 @@ if (isset($datos['txt']) && isset($datos['tgt']) && isset($datos['src'])) {
 </div>
 <script src="../JS/funciones.js"></script>
 <?php
-include_once '../Estructura/footer.php';
+include_once './../../../vista/estructura/footer.php';
 ?>

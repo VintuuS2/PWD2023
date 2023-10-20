@@ -130,4 +130,4 @@ include_once './estructura/header.php';
         </div>
     </div>
     <script src="./js/ej3.js"></script>
-<?php include_once './estructura/footer.php'; ?>
+<?php include_once './../../vista/estructura/footer.php'; ?>

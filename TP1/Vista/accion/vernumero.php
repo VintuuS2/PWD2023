@@ -1,8 +1,11 @@
 <?php
 $tituloPagina = "TP1-Positivo o negativo";
-include_once '../../../TP4/configuracion.php';
-include_once '../estructura/header.php';
+
+include_once './../../../configuracionProyecto.php';
+include_once './../estructura/header.php';
 include_once '../../Control/numero.php';
+
+
 if ($_GET) {
     $numero = $_GET['numero_form'];
     if ($numero != "") {
@@ -38,4 +41,4 @@ if ($_GET) {
         </div>
     </div>
 
-<?php include_once '../estructura/footer.php'; ?>
+    <?php include_once '../../../vista/estructura/footer.php'; ?>

@@ -37,5 +37,5 @@ require_once '../Util/vendor/autoload.php';
 </div>
 
 <?php
-include_once './Estructura/footer.php';
+include_once './../../vista/estructura/footer.php';
 ?>

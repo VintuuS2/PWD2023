@@ -13,4 +13,4 @@ include_once './estructura/header.php';
             <a href="vernumero.php">Ver respuesta</a>
         </div>
     </div>
-<?php include_once './estructura/footer.php'; ?>
+<?php include_once './../../vista/estructura/footer.php'; ?>

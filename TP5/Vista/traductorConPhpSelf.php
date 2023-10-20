@@ -226,5 +226,5 @@ $translation = [
 <script src="./JS/validador.js"></script>
 <script src="./JS/funciones.js"></script>
 <?php
-include_once './Estructura/footer.php';
+include_once './../../vista/estructura/footer.php';
 ?>

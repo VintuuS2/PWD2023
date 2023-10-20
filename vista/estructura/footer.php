@@ -1,4 +1,4 @@
-    <div class="vh-25 bg-dark">
+<div class="vh-25 bg-dark">
         <!-- Footer -->
         <footer class="text-center text-lg-start text-light">
             <!-- Section: Social media -->
@@ -29,7 +29,7 @@
                             <!-- Content -->
                             <h6 class="text-uppercase fw-bold">Grupo 1</h6>
                             <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
-                            <p>Bienvenidos, este es el grupo 1 de la materia Programación Web Estática, aquí van todos los TPs que hagamos hasta terminar la materia</p>
+                            <p>Bienvenidos, este es el grupo 1 de la materia Programación Web Dinámica, aquí van todos los TPs que hagamos hasta terminar la materia.</p>
                         </div>
                         <!-- Grid column -->
 

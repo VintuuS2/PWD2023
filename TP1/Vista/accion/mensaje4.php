@@ -1,7 +1,7 @@
 <?php
 $tituloPagina = "TP1-Mensaje ejercicio 4";
-include_once '../../../TP4/configuracion.php';
-include_once '../estructura/header.php';
+include_once './../../../configuracionProyecto.php';
+include_once './../estructura/header.php';
 include_once '../../Control/persona4.php';
 if ($_GET) {
     $nombre = $_GET['nombre-usuario'];
@@ -22,4 +22,4 @@ if ($_GET) {
         </div>
     </div>
 
-<?php include_once '../estructura/footer.php'; ?>
+    <?php include_once '../../../vista/estructura/footer.php'; ?>
