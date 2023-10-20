@@ -47,9 +47,9 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">TP3</a>
                             <ul class="dropdown-menu" style="background: linear-gradient(135deg, rgba(85,68,173,0.75) 5%, rgba(72,57,161,0.75) 62%, rgba(110,90,199,0.75) 95%);">
-                                <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP3/Vista/Ej1/ej1.php">Ejercicio 1</a></li>
-                                <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP3/Vista/Ej2/ej2.php">Ejercicio 2</a></li>
-                                <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP3/Vista/EJ3/ej3.php">Ejercicio 3</a></li>
+                                <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP3/Vista/ej1.php">Ejercicio 1</a></li>
+                                <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP3/Vista/ej2.php">Ejercicio 2</a></li>
+                                <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP3/Vista/ej3.php">Ejercicio 3</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
