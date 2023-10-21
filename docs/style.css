@@ -1,0 +1,7 @@
+.bg-grupo1 {
+    background: linear-gradient(135deg, rgba(85,68,173,1) 5%, rgba(72,57,161,1) 62%, rgba(110,90,199,1) 95%);
+}
+
+#subTitulo {
+    text-wrap: balance;
+}

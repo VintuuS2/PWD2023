@@ -2,320 +2,315 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Documentación SDK/API</title>
-  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
-  <link href="../vista/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="../vista/js/bootstrap.bundle.min.js"></script>
-  <script src="../vista/js/jquery-3.7.1.min.js"></script>
-  <script src="https://kit.fontawesome.com/3f0f040aa7.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentación SDK/API</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link href="../vista/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css">
+    <script src="../vista/js/bootstrap.bundle.min.js"></script>
+    <script src="../vista/js/jquery-3.7.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/3f0f040aa7.js" crossorigin="anonymous"></script>
 </head>
 
 <body data-bs-theme="dark">
-  <div class="container">
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-        <svg class="bi me-2" width="40" height="32">
-          <use xlink:href="#bootstrap"></use>
-        </svg>
-        <span class="fs-4">Simple header</span>
-      </a>
-
-      <ul class="nav nav-pills">
-        <li class="nav-item">
-          <a href="#" class="nav-link active" aria-current="page">Home</a>
-        </li>
-        <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-      </ul>
-    </header>
-  </div>
-  <main>
-    <div class="px-4 py-5 my-5 text-center">
-      <img class="d-block mx-auto mb-4" src="./favicon.ico" alt="Icono de documentación" width="72" height="57" />
-      <h1 class="display-5 fw-bold text-body-emphasis">Grupo 1</h1>
-      <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4">
-          Esta es la documentación del TP5 para la materia de Programación Web
-          Dinámica utilizando SDKs/APIs explicando cada uno de los pasos a
-          seguir para hacer funcionar el TP
-        </p>
-      </div>
+    <div class="container-fluid fixed-top bg-grupo1 rounded-bottom-4">
+        <header class="container d-flex flex-wrap justify-content-center py-1">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+                <span class="fs-4">Grupo1 TP5</span>
+            </a>
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a href="#inicio" class="nav-link text-light" aria-current="page">Inicio</a>
+                </li>
+                <li class="nav-item"><a href="#herramientas" class="nav-link text-light">Herramientas</a></li>
+                <li class="nav-item"><a href="#composer" class="nav-link text-light">Composer</a></li>
+                <li class="nav-item"><a href="#gtranslate" class="nav-link text-light">SDK gTranslate</a></li>
+                <li class="nav-item"><a href="#gtts" class="nav-link text-light">API gTTS</a></li>
+            </ul>
+        </header>
     </div>
-    <div class="container px-4 py-5" id="featured-3">
-      <h2 class="pb-2 border-bottom">
-        Herramientas y bibliotecas utilizadas
-      </h2>
-      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-        <div class="feature col">
-          <div class="feature-icon d-inline-flex align-items-center justify-content-center text-primary fs-2 mb-3">
-            <i class="fa-solid fa-screwdriver-wrench"></i>
-          </div>
-          <h3 class="fs-2 text-body-emphasis">Composer</h3>
-          <p>Algo relacionado con Composer</p>
-          <a href="#" class="icon-link">
-            Saltar
-            <svg class="bi">
-              <use xlink:href="#chevron-right"></use>
-            </svg>
-          </a>
+    <main>
+        <div class="px-4 py-5 my-5 text-center" id="inicio">
+            <img class="d-block mx-auto mb-4" src="./favicon.ico" alt="Icono de documentación" width="72" height="57" />
+            <h1 class="display-5 fw-bold text-body-emphasis">Grupo 1</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4" id="subTitulo">
+                    Esta es la documentación del TP5 para la materia de Programación Web
+                    Dinámica utilizando SDKs/APIs explicando cada uno de los pasos a
+                    seguir para hacer funcionar el TP
+                </p>
+            </div>
         </div>
-        <div class="feature col">
-          <div class="feature-icon d-inline-flex align-items-center justify-content-center text-primary fs-2 mb-3">
-            <i class="fa-solid fa-language"></i>
-          </div>
-          <h3 class="fs-2 text-body-emphasis">PHP GoogleTranslate Free</h3>
-          <p>Una SDK para traducir texto de google</p>
-          <a href="#php-googletranslatefree" class="icon-link">
-            Saltar
-            <svg class="bi">
-              <use xlink:href="#chevron-right"></use>
-            </svg>
-          </a>
+        <div class="w-100" id="herramientas"></div>
+        <div class="container px-4 py-5" id="featured-3">
+            <h2 class="pb-2 border-bottom">
+                Herramientas y bibliotecas utilizadas
+            </h2>
+            <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                <div class="feature col">
+                    <div
+                        class="feature-icon d-inline-flex align-items-center justify-content-center text-primary fs-2 mb-3">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <h3 class="fs-2 text-body-emphasis">Composer</h3>
+                    <p>Composer es una herramienta para la gestión de dependencias en PHP.</p>
+                    <a href="#composer" class="icon-link">
+                        Ir a la documentación
+                        <svg class="bi">
+                            <use xlink:href="#chevron-right"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="feature col">
+                    <div
+                        class="feature-icon d-inline-flex align-items-center justify-content-center text-primary fs-2 mb-3">
+                        <i class="fa-solid fa-language"></i>
+                    </div>
+                    <h3 class="fs-2 text-body-emphasis">PHP GoogleTranslate Free</h3>
+                    <p>Una SDK para traducir texto de google</p>
+                    <a href="#php-googletranslatefree" class="icon-link">
+                        Ir a la documentación
+                        <svg class="bi">
+                            <use xlink:href="#chevron-right"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="feature col">
+                    <div
+                        class="feature-icon d-inline-flex align-items-center justify-content-center text-primary fs-2 mb-3">
+                        <i class="fa-solid fa-microphone"></i>
+                    </div>
+                    <h3 class="fs-2 text-body-emphasis">API gTTS Module</h3>
+                    <p>Explicar como funciona</p>
+                    <a href="#" class="icon-link">
+                        Ir a la documentación
+                        <svg class="bi">
+                            <use xlink:href="#chevron-right"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="feature col">
-          <div class="feature-icon d-inline-flex align-items-center justify-content-center text-primary fs-2 mb-3">
-            <i class="fa-solid fa-microphone"></i>
+        <div class="container px-4 py-5" id="composer">
+            <h2 class="pb-2 border-bottom">Composer</h2>
+        
+            <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
+              <div class="col d-flex flex-column align-items-start gap-2">
+                <h2 class="fw-bold text-body-emphasis">Un administrador de dependencias para PHP</h2>
+                <p class="text-body-secondary">Composer es una herramienta para la gestión de dependencias en PHP. Le permite declarar las bibliotecas de las que depende su proyecto y las administrará (instalará/actualizará) por usted.</p>
+                <a href="https://getcomposer.org/download/" target="_blank" class="btn btn-primary btn-lg">Descargar aquí</a>
+              </div>
+        
+              <div class="col">
+                <div class="row row-cols-1 row-cols-sm-2 g-4">
+                  <div class="col d-flex flex-column gap-2">
+                    <div class="feature-icon-small d-inline-flex align-items-center justify-content-center fs-4 rounded-3">
+                      <svg class="bi" width="1em" height="1em">
+                        <use xlink:href="#collection"></use>
+                      </svg>
+                    </div>
+                    <h4 class="fw-semibold mb-0 text-body-emphasis">Composer Init</h4>
+                    <p class="text-body-secondary">El comando <code>composer init</code> le pedirá de forma interactiva que complete los campos, mientras utiliza algunos valores predeterminados inteligentes para inicializar el proyecto.</p>
+                  </div>
+        
+                  <div class="col d-flex flex-column gap-2">
+                    <div class="feature-icon-small d-inline-flex align-items-center justify-content-center fs-4 rounded-3">
+                      <svg class="bi" width="1em" height="1em">
+                        <use xlink:href="#gear-fill"></use>
+                      </svg>
+                    </div>
+                    <h4 class="fw-semibold mb-0 text-body-emphasis">Composer require</h4>
+                    <p class="text-body-secondary">El comando <code>composer require</code> agrega nuevos paquetes al archivo <span class="font-monospace">compositor.json</span> desde el directorio actual. Si no existe ningún archivo, se creará uno sobre la marcha.</p>
+                  </div>
+        
+                  <div class="col d-flex flex-column gap-2">
+                    <div class="feature-icon-small d-inline-flex align-items-center justify-content-center fs-4 rounded-3">
+                      <svg class="bi" width="1em" height="1em">
+                        <use xlink:href="#speedometer"></use>
+                      </svg>
+                    </div>
+                    <h4 class="fw-semibold mb-0 text-body-emphasis">Composer install</h4>
+                    <p class="text-body-secondary">El comando <code>composer install</code> lee el archivo <span class="font-monospace">compositor.json</span> del directorio actual, resuelve las dependencias y las instala en la carpeta vendor.</p>
+                  </div>
+        
+                  <div class="col d-flex flex-column gap-2">
+                    <div class="feature-icon-small d-inline-flex align-items-center justify-content-center fs-4 rounded-3">
+                      <svg class="bi" width="1em" height="1em">
+                        <use xlink:href="#table"></use>
+                      </svg>
+                    </div>
+                    <h4 class="fw-semibold mb-0 text-body-emphasis">Composer remove</h4>
+                    <p class="text-body-secondary">El comando <code>composer remove</code> elimina paquetes del archivo compositor.json del directorio actual.
+                        <br>Después de eliminar los requisitos, se desinstalarán los requisitos modificados.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <h3 class="fs-2 text-body-emphasis">API gTTS Module</h3>
-          <p>Explicar como funciona</p>
-          <a href="#" class="icon-link">
-            Saltar
-            <svg class="bi">
-              <use xlink:href="#chevron-right"></use>
-            </svg>
-          </a>
-        </div>
-      </div>
+          <div class="container px-4 py-5" id="gtranslate">
+            <h2 class="pb-2 border-bottom" id="php-googletranslatefree">PHP GoogleTranslate Free</h2>
+        
+            <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
+              <div class="col d-flex flex-column align-items-start gap-2">
+                <h2 class="fw-bold text-body-emphasis">Traduce tu texto de un idioma a otro con esta increible SDK</h2>
+                <p class="text-body-secondary">SDK adaptada para php hecha por <a href="https://github.com/statickidz"
+                    target="_blank">statickidz</a>, la cual nos permite traducir un texto desde un idioma origen a un idioma
+                  destino!</p>
+                <a href="https://github.com/statickidz/php-google-translate-free" target="_blank" class="btn btn-primary btn-lg">Descargue aquí</a>
+              </div>
+        
+              <div class="col">
+                <div class="row row-cols-1 row-cols-sm-2 g-4">
+                  <div class="col d-flex flex-column gap-2">
+                    <div class="feature-icon-small d-inline-flex align-items-center justify-content-center fs-4 rounded-3">
+                      <svg class="bi" width="1em" height="1em">
+                        <use xlink:href="#collection"></use>
+                      </svg>
+                    </div>
+                    <h4 class="fw-semibold mb-0 text-body-emphasis">Instalación</h4>
+                    <p class="text-body-secondary">Instala este paquete vía Composer con el siguiente código:</p>
+                    <code>composer require statickidz/php-google-translate-free</code>
+                  </div>
+        
+                  <div class="col d-flex flex-column gap-2">
+                    <div class="feature-icon-small d-inline-flex align-items-center justify-content-center fs-4 rounded-3">
+                      <svg class="bi" width="1em" height="1em">
+                        <use xlink:href="#gear-fill"></use>
+                      </svg>
+                    </div>
+                    <p class="text-body-secondary">O edita tu composer.json de tu projecto para requerir <br>
+                        <code><em>statickidz/php-google-translate-free</em></code> y
+                        luego ejecute <code><em>composer install</em></code></p>
+                      <code><b class="text-warning">"require": {
+                          "statickidz/php-google-translate-free": "^1.2.1"}
+                      </b></code>
+                  </div>
+        
+                  <div class="col d-flex flex-column gap-2">
+                    <div class="feature-icon-small d-inline-flex align-items-center justify-content-center fs-4 rounded-3">
+                      <svg class="bi" width="1em" height="1em">
+                        <use xlink:href="#speedometer"></use>
+                      </svg>
+                    </div>
+                    <h4 class="fw-semibold mb-0 text-body-emphasis">Uso</h4>
+                    <p class="text-body-secondary">La integración se realiza mediante:</p>
+                    <code>require_once ('vendor/autoload.php');
+                      <br><br>
+                      use \Statickidz\GoogleTranslate;<br>
+                      $source = 'es';<br>
+                      $target = 'en';<br>
+                      $text = 'buenos días'; <br>
+                      
+                      $trans = new GoogleTranslate();<br>
+                      $result = $trans->translate($source, $target, $text);<br><br>
+                      // Good morning <br>
+                      echo $result;</code>
+                  </div>
+        
+                  <div class="col d-flex flex-column gap-2">
+                    <div class="feature-icon-small d-inline-flex align-items-center justify-content-center fs-4 rounded-3">
+                      <svg class="bi" width="1em" height="1em">
+                        <use xlink:href="#table"></use>
+                      </svg>
+                    </div>
+                    <p class="text-body-secondary">Variable <code>$source</code> string que almacena el idioma origen al modo de la <a href="https://es.wikipedia.org/wiki/ISO_639-1" target="_blank">ISO 639-1</a>, donde se puede encontrar como se abrevia cada lenguaje.
+                        Lo mismo con <code>$target</code> en el cual se escoge el idioma destino.
+                        En la variable <code>$text</code> se almacenará el texto a traducir.
+                    </p>
+                      <p class="text-body-secondary">Con <code>new GoogleTranslate</code> creamos el objeto que permitirá llamar a la funcion traducir, la cual es invocada con <br><code>$trans->translate($source, $target, $text);</code><br> En la cual se introduce en orden los parametros, la variable con el idioma origen, el idioma destino, y finalizalmente el texto a traducir. Esta función devuelve el texto traducido.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container px-4 py-5">
+            <h2 class="pb-2 border-bottom">API gTTS Module</h2>
+        
+            <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
+              <div class="col d-flex flex-column align-items-start gap-2">
+                <h2 class="fw-bold text-body-emphasis">Left-aligned title explaining these awesome features</h2>
+                <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+                <a href="#" class="btn btn-primary btn-lg">Primary button</a>
+              </div>
+        
+              <div class="col">
+                <div class="row row-cols-1 row-cols-sm-2 g-4">
+                  <div class="col d-flex flex-column gap-2">
+                    <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+                      <svg class="bi" width="1em" height="1em">
+                        <use xlink:href="#collection"></use>
+                      </svg>
+                    </div>
+                    <h4 class="fw-semibold mb-0 text-body-emphasis">Featured title</h4>
+                    <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading.</p>
+                  </div>
+        
+                  <div class="col d-flex flex-column gap-2">
+                    <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+                      <svg class="bi" width="1em" height="1em">
+                        <use xlink:href="#gear-fill"></use>
+                      </svg>
+                    </div>
+                    <h4 class="fw-semibold mb-0 text-body-emphasis">Featured title</h4>
+                    <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading.</p>
+                  </div>
+        
+                  <div class="col d-flex flex-column gap-2">
+                    <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+                      <svg class="bi" width="1em" height="1em">
+                        <use xlink:href="#speedometer"></use>
+                      </svg>
+                    </div>
+                    <h4 class="fw-semibold mb-0 text-body-emphasis">Featured title</h4>
+                    <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading.</p>
+                  </div>
+        
+                  <div class="col d-flex flex-column gap-2">
+                    <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+                      <svg class="bi" width="1em" height="1em">
+                        <use xlink:href="#table"></use>
+                      </svg>
+                    </div>
+                    <h4 class="fw-semibold mb-0 text-body-emphasis">Featured title</h4>
+                    <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </main>
+    <div class="container-fluid bg-grupo1 rounded-top-4">
+        <footer class="py-3 mt-4">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item">
+                    <a href="#inicio" class="nav-link px-2 text-body-secondary">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#herramientas" class="nav-link px-2 text-body-secondary">Herramientas utilizadas</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#composer" class="nav-link px-2 text-body-secondary">Composer</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#gtranslate" class="nav-link px-2 text-body-secondary">gTranslate SDK</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#gtts" class="nav-link px-2 text-body-secondary">gTTS API</a>
+                </li>
+            </ul>
+            <p class="text-center text-body-secondary">Grupo 1 PWD 2023</p>
+            <ul class="nav  justify-content-around text-body-secondary">
+                <li>Lautaro Gonzalez FAI-2950</li>
+                <li>Valentin Camusso FAI-3208</li>
+                <li>Emiliano Lopez FAI-3357</li>
+            </ul>
+        </footer>
     </div>
-    <div class="container px-4 py-5">
-      <h2 class="pb-2 border-bottom">Composer</h2>
-
-      <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
-        <div class="col d-flex flex-column align-items-start gap-2">
-          <h2 class="fw-bold text-body-emphasis">Un administrador de dependencias para PHP</h2>
-          <p class="text-body-secondary">Composer es una herramienta para la gestión de dependencias en PHP. Le permite
-            declarar las bibliotecas de las que depende su proyecto y las administrará (instalará/actualizará) por
-            usted.</p>
-          <a href="https://getcomposer.org/download/" class="btn btn-primary btn-lg">Descarga aquí</a>
-        </div>
-
-        <div class="col">
-          <div class="row row-cols-1 row-cols-sm-2 g-4">
-            <div class="col d-flex flex-column gap-2">
-              <div
-                class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
-                <svg class="bi" width="1em" height="1em">
-                  <use xlink:href="#collection"></use>
-                </svg>
-              </div>
-              <h4 class="fw-semibold mb-0 text-body-emphasis">Composer Init</h4>
-              <p class="text-body-secondary">El comando <code>composer init</code> permite al usuario inicializar un
-                archivo para </p>
-            </div>
-
-            <div class="col d-flex flex-column gap-2">
-              <div
-                class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
-                <svg class="bi" width="1em" height="1em">
-                  <use xlink:href="#gear-fill"></use>
-                </svg>
-              </div>
-              <h4 class="fw-semibold mb-0 text-body-emphasis">Featured title</h4>
-              <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading.</p>
-            </div>
-
-            <div class="col d-flex flex-column gap-2">
-              <div
-                class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
-                <svg class="bi" width="1em" height="1em">
-                  <use xlink:href="#speedometer"></use>
-                </svg>
-              </div>
-              <h4 class="fw-semibold mb-0 text-body-emphasis">Featured title</h4>
-              <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading.</p>
-            </div>
-
-            <div class="col d-flex flex-column gap-2">
-              <div
-                class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
-                <svg class="bi" width="1em" height="1em">
-                  <use xlink:href="#table"></use>
-                </svg>
-              </div>
-              <h4 class="fw-semibold mb-0 text-body-emphasis">Featured title</h4>
-              <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container px-4 py-5" id="gtranslate">
-      <h2 class="pb-2 border-bottom" id="php-googletranslatefree">PHP GoogleTranslate Free</h2>
-
-      <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
-        <div class="col d-flex flex-column align-items-start gap-2">
-          <h2 class="fw-bold text-body-emphasis">Traduce tu texto de un idioma a otro con esta increible SDK</h2>
-          <p class="text-body-secondary">SDK adaptada para php hecha por <a href="https://github.com/statickidz"
-              target="_blank">statickidz</a>, la cual nos permite traducir un texto desde un idioma origen a un idioma
-            destino!</p>
-          <a href="https://github.com/statickidz/php-google-translate-free" class="btn btn-primary btn-lg" target="_blank">Descargue aquí</a>
-        </div>
-
-        <div class="col">
-          <div class="row row-cols-1 row-cols-sm-2 g-4">
-            <div class="col d-flex flex-column gap-2">
-              <div
-                class="feature-icon-small d-inline-flex align-items-center justify-content-center fs-4 rounded-3">
-                <svg class="bi" width="1em" height="1em">
-                  <use xlink:href="#collection"></use>
-                </svg>
-              </div>
-              <h4 class="fw-semibold mb-0 text-body-emphasis">Instalación</h4>
-              <p class="text-body-secondary">Instala este paquete vía Composer con el siguiente código:</p>
-              <code>composer require statickidz/php-google-translate-free</code>
-            </div>
-
-            <div class="col d-flex flex-column gap-2">
-              <div
-                class="feature-icon-small d-inline-flex align-items-center justify-content-center fs-4 rounded-3">
-                <svg class="bi" width="1em" height="1em">
-                  <use xlink:href="#speedometer"></use>
-                </svg>
-              </div> 
-              <p class="text-body-secondary">O edita tu composer.json de tu projecto para requerir <br>
-                <code><em>statickidz/php-google-translate-free</em></code> y
-                luego ejecute <code><em>composer install</em></code></p>
-              <code><b class="text-warning">"require": {
-                  "statickidz/php-google-translate-free": "^1.2.1"}
-              </b></code>
-            </div>
-            <div class="col d-flex flex-column gap-2">
-              <div
-                class="feature-icon-small d-inline-flex align-items-center justify-content-center fs-4 rounded-3">
-                <svg class="bi" width="1em" height="1em">
-                  <use xlink:href="#gear-fill"></use>
-                </svg>
-              </div>
-              <h4 class="fw-semibold mb-0 text-body-emphasis">Uso</h4>
-              <p class="text-body-secondary">La integración se realiza mediante:</p>
-
-              <code>require_once ('vendor/autoload.php');
-                <br><br>
-                use \Statickidz\GoogleTranslate;<br>
-                $source = 'es';<br>
-                $target = 'en';<br>
-                $text = 'buenos días'; <br>
-                
-                $trans = new GoogleTranslate();<br>
-                $result = $trans->translate($source, $target, $text);<br><br>
-                // Good morning <br>
-                echo $result;</code>
-            </div>
-
-            <div class="col d-flex flex-column gap-2">
-              <div
-                class="feature-icon-small d-inline-flex align-items-center justify-content-center fs-4 rounded-3">
-                <svg class="bi" width="1em" height="1em">
-                  <use xlink:href="#table"></use>
-                </svg>
-              </div>
-              <p class="text-body-secondary">Variable <code>$source</code> string que almacena el idioma origen al modo de la <a href="https://es.wikipedia.org/wiki/ISO_639-1" target="_blank">ISO 639-1</a>, donde se puede encontrar como se abrevia cada lenguaje.
-              Lo mismo con <code>$target</code> en el cual se escoge el idioma destino.
-              En la variable <code>$text</code> se almacenará el texto a traducir.
-            </p>
-            <p class="text-body-secondary">Con <code>new GoogleTranslate</code> creamos el objeto que permitirá llamar a la funcion traducir, la cual es invocada con <br><code>$trans->translate($source, $target, $text);</code><br> En la cual se introduce en orden los parametros, la variable con el idioma origen, el idioma destino, y finalizalmente el texto a traducir. Esta función devuelve el texto traducido.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container px-4 py-5">
-      <h2 class="pb-2 border-bottom">API gTTS Module</h2>
-
-      <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
-        <div class="col d-flex flex-column align-items-start gap-2">
-          <h2 class="fw-bold text-body-emphasis">Left-aligned title explaining these awesome features</h2>
-          <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading. We'll add onto it
-            with another sentence and probably just keep going until we run out of words.</p>
-          <a href="#" class="btn btn-primary btn-lg">Primary button</a>
-        </div>
-
-        <div class="col">
-          <div class="row row-cols-1 row-cols-sm-2 g-4">
-            <div class="col d-flex flex-column gap-2">
-              <div
-                class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
-                <svg class="bi" width="1em" height="1em">
-                  <use xlink:href="#collection"></use>
-                </svg>
-              </div>
-              <h4 class="fw-semibold mb-0 text-body-emphasis">Featured title</h4>
-              <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading.</p>
-            </div>
-
-            <div class="col d-flex flex-column gap-2">
-              <div
-                class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
-                <svg class="bi" width="1em" height="1em">
-                  <use xlink:href="#gear-fill"></use>
-                </svg>
-              </div>
-              <h4 class="fw-semibold mb-0 text-body-emphasis">Featured title</h4>
-              <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading.</p>
-            </div>
-
-            <div class="col d-flex flex-column gap-2">
-              <div
-                class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
-                <svg class="bi" width="1em" height="1em">
-                  <use xlink:href="#speedometer"></use>
-                </svg>
-              </div>
-              <h4 class="fw-semibold mb-0 text-body-emphasis">Featured title</h4>
-              <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading.</p>
-            </div>
-
-            <div class="col d-flex flex-column gap-2">
-              <div
-                class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
-                <svg class="bi" width="1em" height="1em">
-                  <use xlink:href="#table"></use>
-                </svg>
-              </div>
-              <h4 class="fw-semibold mb-0 text-body-emphasis">Featured title</h4>
-              <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-  <div class="container">
-    <footer class="py-3 my-4">
-      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-body-secondary">Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-body-secondary">Features</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-body-secondary">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-body-secondary">FAQs</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-body-secondary">About</a>
-        </li>
-      </ul>
-      <p class="text-center text-body-secondary">© 2023 Company, Inc</p>
-    </footer>
-  </div>
 </body>
 
 </html>
