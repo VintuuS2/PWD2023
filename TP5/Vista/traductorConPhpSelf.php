@@ -127,7 +127,7 @@ $translation = [
 
                     $file = file_get_contents($url);
 
-                    $audio = $base64 . base64_encode($file);
+                    $audio = "data:audio/wav;base64," . base64_encode($file);
                     $audioOutput = "<audio id='m' src='" . $audio . "'></audio>\n<button id='btnAudio' class='btn btn-primary mt-3'><i class='fas fa-volume-high'></i></button>";
                     $resultado = '<div class="modal-dialog" role="document">
                         <div class="modal-content rounded-4 shadow bg-black">

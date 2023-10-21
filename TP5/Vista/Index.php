@@ -15,7 +15,7 @@ require_once '../Util/vendor/autoload.php';
                 <p>Al mismo tiempo, utilizamos la API gTTS Module(<i>Google Text-to-Speech</i>) para demostrar que no hace falta siempre instalar una biblioteca desde Composer para agregar funcionalidades extras a nuestros proyectos. La documentación la obtuvimos de la pagina <a href="https://www.etutorialspoint.com/index.php/341-how-to-convert-text-to-speech-using-php" target="_blank">eTutorialsPoint</a>.</p> <br>
                 <p>En la realización de este trabajo notamos los diferentes beneficios de utilizar composer y, al mismo tiempo, entendimos el funcionamiento del archivo .gitignore.</p>
                 <p><b class="text-danger">IMPORTANTE:</b> Para poder utilizar este proyecto correctamente, requiere utilizar la herramienta <a href="https://getcomposer.org/download/" target="_blank" rel="external">Composer</a>. Después de haberlo instalado, en <abbr title="Visual Studio Code">VSCode</abbr>, abra una terminal en la carpeta del proyecto "PWD2023" y escriba el siguiente comando:
-                <code><p class="font-monospace"><b class="text-warning">cd</b> ./TP5/Util; <b class="text-warning">composer</b> update</p></code></p>
+                <code><p class="font-monospace"><b class="text-warning">cd</b> ./TP5/Util; <b class="text-warning">composer</b> install</p></code></p>
             </div>
             <div>
                 <h1 class="text-center">Traductores</h1>
