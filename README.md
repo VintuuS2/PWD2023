@@ -12,6 +12,7 @@ Aquí van a ir todos los trabajos prácticos hechos en la materia cursada en la 
 ## TP5
 El TP5 requiere utilizar la herramienta [Composer](https://getcomposer.org) para su correcto funcionamiento.
 Una vez instalado, abre una terminal en el Proyecto "PWD2023" y escriba el siguiente comando `cd ./TP5/Util; composer update`.
+Para ver la documentación de las bibliotecas utilizadas y de la herramienta Composer entrá en [este link](https://vintuwu.github.io/PWD2023/).
 
 ## Instalación
 Para poder ejecutar con éxito nuestro repositorio tendrás que hacer un par de cosas antes de empezar
