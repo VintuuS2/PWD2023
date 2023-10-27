@@ -140,6 +140,22 @@ class Usuario{
         }
         return $resp;
     }
+
+    function deshabilitar(){
+        $resp = false;
+        $base = new BaseDatos();
+        $sql = "UPDATE usuario SET usdeshabilitado='". time() ."'";
+        if ($base->Iniciar()){
+            if ($base->Ejecutar($sql)){
+                $resp = true;
+            } else {
+                $this->setMensajeOperacion("Usuario->deshabilitar: ".$base->getError());
+            }
+        } else {
+            $this->setMensajeOperacion("Usuario->deshabilitar: " . $base->getError());
+        }
+        return $resp;
+    }
     
     public function listar($parametro=""){
         $arreglo = array();

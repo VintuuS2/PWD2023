@@ -95,7 +95,6 @@ class Rol{
         return $resp;
     }
 
-    //DUNNO SI USAR ESTE O CAMBIARLO A UPDATE TABLE
     public function eliminar(){
         $resp = false;
         $base=new BaseDatos();
