@@ -1,7 +1,7 @@
 <?php
 $tituloPagina = "TP5-Login";
 include_once "../../configuracionProyecto.php";
-include_once "../../TP5-Real/Vista/Estructura/header.php";
+include_once "../../TP5/Vista/Estructura/header.php";
 ?>
 <div class="d-flex justify-content-center align-items-center  vh-100">
     <div class="d-flex justify-content-center bg-gris row col-12 col-md-10  row position-relative h-100 align-items-center">
