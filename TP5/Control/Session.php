@@ -1,24 +1,17 @@
 <?php
 
 class Session{
-    private $user;
     private $nombreUsuario;
-    private $userRol;
     private $password;
-    private $active;
+    private $user;
+    private $userRol;
 
     //Método constructor
     /**
      * Este es el método constructor de la clase Session
-     * @param OBJ $obj
-     * @param STR $nombreUsuario
-     * @param INT $pass
      */
-    function __construct($obj, $nombreUsuario, $pass){
-        $this->user = $obj;
-        $this->nombreUsuario = $nombreUsuario;
-        $this->password = $pass;
-        $this->setActive(session_start());
+    function __construct(){
+        session_start();
     }
 
     //Métodos set
@@ -36,10 +29,6 @@ class Session{
 
     function setUserRol($userRol){
         $this->userRol = $userRol;
-    }
-
-    function setActive($activo){
-        $this->active = $activo;
     }
 
     //Métodos get
@@ -65,10 +54,6 @@ class Session{
             $this->setUserRol($consulta[0]['idrol']);
         }
         return $this->userRol;
-    }
-
-    function getActive(){
-        return $this->active;
     }
 
     //Funciones
@@ -106,7 +91,6 @@ class Session{
     }
 
     function cerrar(){
-        $this->setActive(false);
         session_destroy();
     }
 
