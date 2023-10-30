@@ -77,7 +77,7 @@ class Usuario{
     public function cargar(){
         $resp = false;
         $base = new BaseDatos();
-        $sql = "SELECT * FROM auto WHERE idusuario = " . $this->getId();
+        $sql = "SELECT * FROM usuario WHERE idusuario = " . $this->getId();
         if ($base->Iniciar()) {
             $res = $base->Ejecutar($sql);
             if($res>-1){
@@ -95,7 +95,7 @@ class Usuario{
     public function insertar(){
         $resp = false;
         $base = new BaseDatos();
-        $sql = "INSERT INTO usuario(usnombre, uspass, usmail, usdeshabilitado)  VALUES('".$this->getNombre()."','".$this->getPass()."','".$this->getMail()."',".$this->getHabilitado().");";
+        $sql = "INSERT INTO usuario(usnombre, uspass, usmail, usdeshabilitado)  VALUES('".$this->getNombre()."','".$this->getPass()."','".$this->getMail()."','".$this->getHabilitado()."');";
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;
@@ -111,7 +111,7 @@ class Usuario{
     public function modificar(){
         $resp = false;
         $base = new BaseDatos();
-        $sql = "UPDATE usuario SET usnombre ='".$this->getNombre()."',uspass='".$this->getPass()."',usmail='".$this->getMail()."',usdeshabilitado=".$this->getHabilitado()." WHERE idusuario='".$this->getId()."'";
+        $sql = "UPDATE usuario SET usnombre ='".$this->getNombre()."',uspass='".$this->getPass()."',usmail='".$this->getMail()."',usdeshabilitado='".$this->getHabilitado()."' WHERE idusuario='".$this->getId()."'";
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;
@@ -144,7 +144,9 @@ class Usuario{
     function deshabilitar(){
         $resp = false;
         $base = new BaseDatos();
-        $sql = "UPDATE usuario SET usdeshabilitado='". time() ."'";
+        date_default_timezone_set('America/Argentina/Buenos_Aires');
+        $fecha = date('Y-m-d H:i:s');
+        $sql = "UPDATE usuario SET usdeshabilitado='$fecha' WHERE idusuario=" . $this->getId();
         if ($base->Iniciar()){
             if ($base->Ejecutar($sql)){
                 $resp = true;
@@ -157,7 +159,7 @@ class Usuario{
         return $resp;
     }
     
-    public function listar($parametro=""){
+    public function listar($parametro){
         $arreglo = array();
         $base = new BaseDatos();
         $sql = "SELECT * FROM usuario ";
