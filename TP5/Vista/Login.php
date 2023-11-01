@@ -6,17 +6,17 @@ include_once "../../TP5/Vista/Estructura/header.php";
 <div class="d-flex justify-content-center align-items-center ">
     <div class="d-flex justify-content-center bg-gris row col-12 col-md-8 row position-relative h-100 align-items-center min-vh-100">
         <div class="bg-black p-5 rounded-5 text-white col-12 col-sm-8 col-md-8 col-lg-6 col-xl-4">
-            <form action="">
+            <form action="./Accion/verificarLogin.php" method="post">
                 <div class="text-center">
                     <h2>Login</h2>
                 </div>
                 <div class="form-group">
-                    <label for="InputUser">Nombre de Usuario</label>
-                    <input type="email" class="form-control" name="InputUser" id="InputUser" placeholder="Username">
+                    <label for="user-input">Nombre de Usuario</label>
+                    <input type="text" class="form-control" name="user-input" id="user-input" placeholder="Username" required>
                 </div>
                 <div class="form-group">
-                    <label for="InputPassword">Contraseña</label>
-                    <input type="password" class="form-control" id="InputPassword" placeholder="Password">
+                    <label for="password-input">Contraseña</label>
+                    <input type="password" class="form-control" name="password-input" id="password-input" placeholder="Password" required>
                 </div>
                 <br>
                 <div class="text-center">
