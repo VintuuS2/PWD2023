@@ -1,7 +1,7 @@
 <?php
 $tituloPagina = "TP5-Eliminar login";
 include_once "../../../configuracionProyecto.php";
-include_once('../../configuracion.php');
+include_once "../../configuracion.php";
 include_once "../Estructura/header.php";
 
 $datos = data_submitted();
@@ -18,7 +18,7 @@ if (isset($datos['idusuario'])) {
 ?>
 <div class="row align-items-center justify-content-center">
     <div class="d-flex align-items-center justify-content-center col-12 col-md-8  min-vh-100 bg-gris ">
-        <div class="text-center h3" style="text-wrap: balance;">
+        <div class="text-center h3 mensaje">
             <?php
             echo $mensaje;
             ?>

@@ -15,7 +15,7 @@ class Usuario{
         $this->usNombre = "";
         $this->usPass = "";
         $this->usMail = "";
-        $this->usDeshabilitado = null;
+        $this->usDeshabilitado = NULL;
         $this->mensajeOperacion = "";
     }
 
@@ -111,7 +111,10 @@ class Usuario{
     public function modificar(){
         $resp = false;
         $base = new BaseDatos();
-        $sql = "UPDATE usuario SET usnombre ='".$this->getNombre()."',uspass='".$this->getPass()."',usmail='".$this->getMail()."',usdeshabilitado='".$this->getHabilitado()."' WHERE idusuario='".$this->getId()."'";
+        $habilitado = $this->getHabilitado();
+        $habilitadoSql = ($habilitado == 'null' || $habilitado == null) ? "NULL" : "'$habilitado'";
+        $sql = "UPDATE usuario SET usnombre = '".$this->getNombre()."', uspass = '".$this->getPass()."', usmail = '".$this->getMail()."', usdeshabilitado = $habilitadoSql WHERE idusuario = '".$this->getId()."'";
+        
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;
@@ -124,7 +127,6 @@ class Usuario{
         return $resp;
     }
     
-    //DUNNO SI USAR ESTE O CAMBIARLO A UPDATE TABLE
     public function eliminar(){
         $resp = false;
         $base = new BaseDatos();

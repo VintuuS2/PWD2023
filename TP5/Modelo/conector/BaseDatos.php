@@ -92,7 +92,7 @@ class BaseDatos extends PDO {
     public function Ejecutar($sql){
         $this->setError("");
         $this->setSQL($sql);
-        if ( stristr($sql,"insert") ){ // se desea NSERT ? 
+        if ( stristr($sql,"insert") ){ // se desea INSERT ? 
                 $resp =  $this->EjecutarInsert($sql);
         }
         // se desea UPDATE o DELETE ? 
@@ -138,8 +138,7 @@ class BaseDatos extends PDO {
        if(!$resultado){
            $this->analizarDebug();
        }else{
-           $cantFilas =  $resultado->rowCount();
-           
+           $cantFilas = $resultado->rowCount();
        }
        return $cantFilas;
        
