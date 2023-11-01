@@ -12,10 +12,11 @@ class Session{
      */
     function __construct(){
         if (session_start()){
+            $_SESSION['ROOT'] = $_SERVER['DOCUMENT_ROOT'] . '/PWD2023/TP5/';
             $this->nombreUsuario = "";
             $this->password = "";
             $this->user = null;
-            $this->userRol = "";
+            $this->userRol = null;
         }
     }
 
@@ -38,6 +39,7 @@ class Session{
 
     //Métodos get
     function getUser(){
+        $unUsuario = null;
         if ($this->activa()){
             $unUsuario = $this->user;
         }
@@ -55,9 +57,12 @@ class Session{
     function getUserRol(){
         if (!is_null($this->getUser())){
             $unUsuarioRol = new AbmUsuarioRol();
-            $consulta = $unUsuarioRol->buscar($_SESSION['iduser']);
-            $this->setUserRol($consulta[0]['idrol']);
-            $_SESSION['idrol'] = $this->getUserRol();
+            //$usuario['idrol'] = $consulta[0]['idrol'];
+            $usuario['idusuario'] = $this->getUser()->getId();
+            $consulta = $unUsuarioRol->buscar($usuario);
+            $this->setUserRol($consulta[0]->getIdRol());
+            /*$this->setUserRol($consulta[0]['idrol']);
+            $_SESSION['idrol'] = $this->getUserRol();*/
         }
         return $this->userRol;
     }
@@ -69,15 +74,13 @@ class Session{
      * @param STR $contrasenia
      * @return BOOL
      */
-    function iniciar($usuario, $contrasenia){
+    function iniciar($usuario, $psw){
         //SETEA ATRIBUTOS USUARIO Y CONTRASEÑA
         $ok = false;
         $this->setNombreUsuario($usuario);
-        $this->setPassword($contrasenia);
-        if (!$this->activa() && $this->validar()){
-            $_SESSION['iduser'] = $this->getUser()->getId();
-            $ok = true;
-        } else if ($this->activa()){
+        $this->setPassword($psw);
+        if ($this->validar()){
+            $_SESSION['idusuario'] = $this->getUser()->getId();
             $ok = true;
         }
         return $ok;
@@ -85,16 +88,19 @@ class Session{
 
     function validar(){
         $resp = false;
-        if (isset($usuario) && isset($contrasenia)){
-            $login['usnombre'] = $usuario;
-            $login['uspass'] = $contrasenia;
-            $unUser = new AbmUsuario();
-            $unUsuario = $unUser->buscar($login);
-            if (count($unUsuario)>0){
-                $resp = true;
-                $this->setUser($unUsuario[0]);
-            }
+        $login['usnombre'] = $this->getNombreUsuario();
+        $login['uspass'] = $this->getPassword();
+        $unUser = new AbmUsuario();
+        $unUsuario = $unUser->buscar($login);
+        echo "<br>";
+        print_r($unUsuario);
+        if (count($unUsuario)>0){
+            $resp = true;
+            $this->setUser($unUsuario[0]);
         }
+        echo "<br>";
+        print_r($this->getUser());
+        echo "<br>";
         return $resp;
     }
 

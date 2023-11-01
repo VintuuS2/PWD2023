@@ -34,7 +34,7 @@ $listaUsuarios = $objUsuario->buscar(null);
                 echo "<td><input  disabled name='usnombre' class='cursor-text bg-white border border-0 text-center rounded-5' id='inputnombre" . $usuario->getId() . "' type='text' value='" . $usuario->getNombre() . "'></td>";
                 echo "<td><input  disabled name='usmail' class='cursor-text bg-white border border-0 text-center rounded-5' id='inputmail" . $usuario->getId() . "' type='email' value='" . $usuario->getMail() . "'></td>";
                 $estaHabilitado = is_null($usuario->getHabilitado());
-                echo "<td>" . ($estaHabilitado ? 'Activo' : 'Deshabilitado desde: ' . $usuario->getHabilitado()) . "<input type='hidden' name='usdeshabilitado' value='" . $usuario->getHabilitado() . "'></td>";
+                echo "<td class='col-2'>" . ($estaHabilitado ? 'Activo' : 'Deshabilitado desde: ' . $usuario->getHabilitado()) . "<input type='hidden' name='usdeshabilitado' value='" . $usuario->getHabilitado() . "'></td>";
                 // Boton para modificar
                 echo "<td><div class='d-flex h-100 justify-content-around' id='columnaBotones" . $usuario->getId() . "'><button type='submit' data-bs-toggle='tooltip' data-bs-placement='top' data-bs-title='Modificar los datos' data-bs-custom-class='custom-tooltip' class='btn btn-primary btn-modificar' id='btn-modificar-" . $usuario->getId() . "'>Modificar</button></div></td>";
                 echo "</form>";
