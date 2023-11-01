@@ -62,7 +62,21 @@ class AbmUsuario{
         }
         return $resp;
     }
-    
+
+    /** Permite deshabilitar un objeto 
+     * @param ARRAY $param
+     * @return BOOLEAN */
+    public function deshabilitar($param){
+        $resp = false;
+        if ($this->seteadosCamposClaves($param)){
+            $objUsuario = $this->cargarObjetoConClave($param);
+            if ($objUsuario!=null and $objUsuario->deshabilitar()){
+                $resp = true;
+            }
+        }
+        return $resp;
+    }
+
     /** Permite modificar un objeto
      * @param ARRAY $param
      * @return BOOLEAN */
@@ -91,11 +105,11 @@ class AbmUsuario{
             if  (isset($param['uspass']))
                 $where.=" and uspass ='".$param['uspass']."'";
             if  (isset($param['usmail']))
-                $where.=" and usmail =".$param['usmail'];
+                $where.=" and usmail ='".$param['usmail']."'";
             if  (isset($param['usdeshabilitado']))
-                $where.=" and usdeshabilitado =".$param['usdeshabilitado'];
+                $where.=" and usdeshabilitado ='".$param['usdeshabilitado']."'";
         }
-        $arreglo = $objUsuario->listar($where);  
+        $arreglo = $objUsuario->listar($where);
         return $arreglo;
     }
 }
