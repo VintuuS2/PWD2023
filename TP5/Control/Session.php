@@ -11,7 +11,12 @@ class Session{
      * Este es el método constructor de la clase Session
      */
     function __construct(){
-        session_start();
+        if (session_start()){
+            $this->nombreUsuario = "";
+            $this->password = "";
+            $this->user = null;
+            $this->userRol = "";
+        }
     }
 
     //Métodos set
@@ -52,18 +57,30 @@ class Session{
             $unUsuarioRol = new AbmUsuarioRol();
             $consulta = $unUsuarioRol->buscar($_SESSION['iduser']);
             $this->setUserRol($consulta[0]['idrol']);
+            $_SESSION['idrol'] = $this->getUserRol();
         }
         return $this->userRol;
     }
 
     //Funciones
+    /**
+     * Inicia y valida la sesión
+     * @param STR $usuario
+     * @param STR $contrasenia
+     * @return BOOL
+     */
     function iniciar($usuario, $contrasenia){
         //SETEA ATRIBUTOS USUARIO Y CONTRASEÑA
+        $ok = false;
         $this->setNombreUsuario($usuario);
         $this->setPassword($contrasenia);
-        if ($this->validar()){
+        if (!$this->activa() && $this->validar()){
             $_SESSION['iduser'] = $this->getUser()->getId();
+            $ok = true;
+        } else if ($this->activa()){
+            $ok = true;
         }
+        return $ok;
     }
 
     function validar(){

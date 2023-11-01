@@ -9,4 +9,6 @@ include_once($ROOT.'./util/funciones.php');
 
 $_SESSION['ROOT']=$ROOT;
 
+$urlRoot = "http://".$_SERVER['HTTP_HOST']."/PWD2023/TP5/";
+
 ?>
