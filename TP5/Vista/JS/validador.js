@@ -1,10 +1,7 @@
 $(document).ready(function () {
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     var forms = $(".needs-validation");
     var alertPlaceholder = $('#liveAlertPlaceholder');
     const alert = (message, type) => {
-        alertPlaceholder.empty();
 
         const wrapper = document.createElement('div');
         wrapper.innerHTML = [
@@ -24,7 +21,6 @@ $(document).ready(function () {
         var inputNombre = $('#inputnombre' + idUsuario);
         var inputMail = $('#inputmail' + idUsuario);
 
-        console.log(botonSubmit);
         // Si los inputs estan desactivados
         if (inputMail.prop('disabled') || inputNombre.prop('disabled')) {
             var tdBotones = $('#columnaBotones' + idUsuario);
@@ -79,12 +75,63 @@ $(document).ready(function () {
             // Se detiene el envio del formulario
             event.preventDefault();
         } else { // Si los inputs ya estan activados, valida su contenido y manda el formulario
-            // ACA FALTA HACER VALIDACIÓN DE NOMBRE DE USUARIO Y EMAIL CON BOOTSTRAP
-            nombreUsuarioNuevo = $(inputNombre).val();
-            mailUsuarioNuevo = $(inputMail).val();
+            var comienzoMensaje = "<i class='fas fa-exclamation-triangle pe-2'></i><b>Error</b>: ";
+            var nombreUsuarioNuevo = $(inputNombre).val();
+            var mailUsuarioNuevo = $(inputMail).val();
+            var usernameIncorrecto = false;
+            var emailIncorrecto = false;
+            // Si no se han cambiado los datos de los inputs
             if (nombreUsuarioAntiguo == nombreUsuarioNuevo && mailUsuarioAntiguo == mailUsuarioNuevo) {
-                alert('<i class="fas fa-exclamation-triangle pe-2"></i><b>Error</b>: No has modificado ningún dato.', 'danger');
+                alertPlaceholder.empty();
+                alert(comienzoMensaje + 'No has modificado ningún dato.', 'danger');
+                usernameIncorrecto = true;
+                emailIncorrecto = true;
+                botonSubmit.tooltip('dispose');
+                botonSubmit.tooltip();
+            } else {
+                alertPlaceholder.empty();
+                // Validación del nombre de usuario
+                if (nombreUsuarioNuevo === "") {
+                    usernameIncorrecto = true;
+                    alert(comienzoMensaje+"El campo 'Nombre de usuario' no puede estar vacío.", "danger");
+                } else if(nombreUsuarioNuevo.length > 50){
+                    usernameIncorrecto = true;
+                    alert(comienzoMensaje+"El campo 'Nombre de usuario' tiene un máximo de 50 carácteres.", "danger");
+                } else { usernameIncorrecto = false; }
+                
+                // Validación del mail
+                if (mailUsuarioNuevo === "") {
+                    emailIncorrecto = true;
+                    alert(comienzoMensaje+"El campo 'Email' no puede estar vacío.", "danger");
+                } else if (!(validarEmail(mailUsuarioNuevo))) {
+                    emailIncorrecto = true;
+                    alert(comienzoMensaje+"El campo 'Email' no cumple con el formato de email.", "danger");
+                } else if (mailUsuarioNuevo.length > 50) {
+                    emailIncorrecto = true;
+                    alert(comienzoMensaje+"El campo 'Email' tiene un máximo de 50 carácteres.", "danger");
+                } else { emailIncorrecto = false; }
+            }
+            if (usernameIncorrecto || emailIncorrecto) {
+                // detiene el envio del formulario
                 event.preventDefault();
+                if (usernameIncorrecto) {
+                    inputNombre.addClass('border-danger');
+                    inputNombre.addClass('is-invalid');
+                } else {
+                    inputNombre.removeClass('border-danger');
+                    inputNombre.removeClass('is-invalid');
+                    inputNombre.addClass('border-success');
+                    inputNombre.addClass('is-valid');
+                }
+                if (emailIncorrecto) {
+                    inputMail.addClass('border-danger');
+                    inputMail.addClass('is-invalid');
+                } else {
+                    inputMail.removeClass('border-danger');
+                    inputMail.removeClass('is-invalid');
+                    inputMail.addClass('border-success');
+                    inputMail.addClass('is-valid');
+                }
             }
         }
     });
@@ -106,12 +153,17 @@ $(document).ready(function () {
         inputMail.val(mailUsuarioAntiguo);
         inputMail.removeClass('bg-success-subtle');
         inputMail.removeClass('border-secondary');
+        inputMail.removeClass('border-danger');
         inputMail.addClass('bg-white');
         inputMail.addClass('border-0');
+        inputMail.removeClass('is-invalid');
+
+        inputNombre.removeClass('is-invalid');
         inputNombre.prop('disabled', true);
         inputNombre.val(nombreUsuarioAntiguo);
         inputNombre.removeClass('bg-success-subtle');
         inputNombre.removeClass('border-secondary');
+        inputNombre.removeClass('border-danger');
         inputNombre.addClass('bg-white');
         inputNombre.addClass('border-0');
         // Deshabilita todos los otros botones
@@ -119,13 +171,22 @@ $(document).ready(function () {
             $(this).prop('disabled', false);
         });
         // Modifica el botón para modificar los datos
-        botonSubmit.html('Modificar');
+        botonSubmit.html('Editar');
         botonSubmit.addClass('btn-primary');
         botonSubmit.removeClass('btn-success');
         botonSubmit.attr('data-bs-toggle', 'tooltip');
         botonSubmit.attr('data-bs-custom-class', 'custom-tooltip');
-        botonSubmit.attr('data-bs-title', 'Modificar datos');
+        botonSubmit.attr('data-bs-title', 'Cambiar datos');
         botonSubmit.tooltip('dispose');
         botonSubmit.tooltip();
     });
+
+    function validarEmail(email) {
+        var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        if (email.match(validRegex)) {
+            return true;
+        } else {
+            return false;
+        }
+      }
 });

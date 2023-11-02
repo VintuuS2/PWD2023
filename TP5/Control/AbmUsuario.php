@@ -77,6 +77,20 @@ class AbmUsuario{
         return $resp;
     }
 
+    /** Permite habilitar un objeto 
+     * @param ARRAY $param
+     * @return BOOLEAN */
+    public function habilitar($param){
+        $resp = false;
+        if ($this->seteadosCamposClaves($param)){
+            $objUsuario = $this->cargarObjetoConClave($param);
+            if ($objUsuario!=null and $objUsuario->habilitar()){
+                $resp = true;
+            }
+        }
+        return $resp;
+    }
+
     /** Permite modificar un objeto
      * @param ARRAY $param
      * @return BOOLEAN */

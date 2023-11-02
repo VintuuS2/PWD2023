@@ -160,6 +160,22 @@ class Usuario{
         }
         return $resp;
     }
+
+    function habilitar(){
+        $resp = false;
+        $base = new BaseDatos();
+        $sql = "UPDATE usuario SET usdeshabilitado=NULL WHERE idusuario=" . $this->getId();
+        if ($base->Iniciar()){
+            if ($base->Ejecutar($sql)){
+                $resp = true;
+            } else {
+                $this->setMensajeOperacion("Usuario->habilitar: ".$base->getError());
+            }
+        } else {
+            $this->setMensajeOperacion("Usuario->habilitar: " . $base->getError());
+        }
+        return $resp;
+    }
     
     public function listar($parametro){
         $arreglo = array();
