@@ -4,11 +4,23 @@ class AbmUsuarioRol{
      * @param ARRAY $param
      * @return UsuarioRol */
     private function cargarObjeto($param){
+
         $objUsuarioRol = null;
-        if (array_key_exists('idusuario',$param) && array_key_exists('idrol',$param) ) {
-            $objUsuarioRol = new UsuarioRol();
-            $objUsuarioRol->setear(strtoupper($param['idusuario']), $param['idrol']);
+        $objRol = null;
+        $objUsuario = null;
+
+        if (array_key_exists('idusuario',$param) && $param['idusuario']!=null ) {
+            $objUsuario= new Usuario();
+            $objUsuario->setear($param['idusuario'],null,null,null,null);
         }
+        if (array_key_exists('idrol',$param) && $param['idrol']!=null) {
+            $objRol = new Rol();
+            $objRol->setear($param['idrol'],null);
+        }
+        
+        $objUsuarioRol = new UsuarioRol();
+        $objUsuarioRol-> setear($objUsuario,$objRol);
+
         return $objUsuarioRol;
     }
     
@@ -17,9 +29,25 @@ class AbmUsuarioRol{
      * @return UsuarioRol */
     private function cargarObjetoConClave($param){
         $objUsuarioRol = null;
+        $objRol = null;
+        $objUsuario = null;
+
         if (isset($param['idusuario']) && isset($param['idrol']) ){
             $objUsuarioRol = new UsuarioRol();
-            $objUsuarioRol->setear($param['idusuario'], $param['idrol']);
+
+            $objUsuario = new Usuario();
+
+            if ($param['idusuario']!=null ) {
+                $objUsuario= new Usuario();
+                $objUsuario->setear($param['idusuario'],null,null,null,null);
+            }
+            if ($param['idrol']!=null) {
+                $objRol = new Rol();
+                $objRol->setear($param['idrol'],null);
+            }
+
+            $objUsuarioRol = new UsuarioRol();
+            $objUsuarioRol-> setear($objUsuario,$objRol);
         }
         return $objUsuarioRol;
     }

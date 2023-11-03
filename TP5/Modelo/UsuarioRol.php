@@ -1,37 +1,37 @@
 <?php
 
 class UsuarioRol{
-    private $idUsuario;
-    private $idRol;
+    private $objetoUsuario;
+    private $objetoRol;
     private $mensajeOperacion;
 
     function __construct(){
-        $this->idUsuario = "";
-        $this->idRol = "";
+        $this->objetoUsuario = null;
+        $this->objetoRol = null;
     }
 
     function setear($usuario, $rol){
-        $this->idUsuario = $usuario;
-        $this->idRol = $rol;
+        $this->setObjUsuario($usuario);
+        $this->setObjRol($rol);
     }
 
     //Métodos set
-    function setIdUsuario($usuario){
-        $this->idUsuario = $usuario;
+    function setObjUsuario($usuario){
+        $this->objetoUsuario = $usuario;
     }
-    function setIdRol($rol){
-        $this->idRol = $rol;
+    function setObjRol($rol){
+        $this->objetoRol = $rol;
     }
     function setMensajeOperacion($mensaje){
         $this->mensajeOperacion = $mensaje;
     }
 
     //Métodos get
-    function getIdUsuario(){
-        return $this->idUsuario;
+    function getObjUsuario(){
+        return $this->objetoUsuario;
     }
-    function getIdRol(){
-        return $this->idRol;
+    function getObjRol(){
+        return $this->objetoRol;
     }
     function getMensajeOperacion(){
         return $this->mensajeOperacion;
@@ -41,7 +41,9 @@ class UsuarioRol{
     public function cargar(){
         $resp = false;
         $base = new BaseDatos();
-        $sql = "SELECT * FROM usuariorol WHERE idusuario = " . $this->getIdUsuario() . "AND idrol=" . $this->getIdRol();
+        $objetoUsuario = new Usuario;
+        $objetoRol = new Rol;
+        $sql = "SELECT * FROM usuariorol WHERE idusuario = " . $objetoUsuario->getId() . "AND idrol=" . $objetoRol->getIdRol();
         if ($base->Iniciar()) {
             $res = $base->Ejecutar($sql);
             if($res>-1){
@@ -59,7 +61,9 @@ class UsuarioRol{
     public function insertar(){
         $resp = false;
         $base = new BaseDatos();
-        $sql = "INSERT INTO usuariorol(idusuario, idrol)  VALUES('".$this->getIdUsuario()."','".$this->getIdRol()."');";
+        $objetoUsuario = new Usuario;
+        $objetoRol = new Rol;
+        $sql = "INSERT INTO usuariorol(idusuario, idrol)  VALUES('".$objetoUsuario->getId()."','".$objetoRol->getIdRol()."');";
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;
@@ -75,7 +79,9 @@ class UsuarioRol{
     public function modificar(){
         $resp = false;
         $base = new BaseDatos();
-        $sql = "UPDATE usuariorol SET idusuario =" . $this->getIdUsuario() . ",idrol=" . $this->getIdRol();
+        $objetoUsuario = new Usuario;
+        $objetoRol = new Rol;
+        $sql = "UPDATE usuariorol SET idusuario =" . $objetoUsuario->getId() . ",idrol=" . $objetoRol->getIdRol();
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;
@@ -92,7 +98,9 @@ class UsuarioRol{
     public function eliminar(){
         $resp = false;
         $base = new BaseDatos();
-        $sql = "DELETE FROM usuariorol WHERE idusuario=" . $this->getIdUsuario() . "AND idrol=" . $this->getIdRol();
+        $objetoUsuario = new Usuario;
+        $objetoRol = new Rol;
+        $sql = "DELETE FROM usuariorol WHERE idusuario=" . $objetoUsuario->getId() . "AND idrol=" . $objetoRol->getIdRol();
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 return true;
