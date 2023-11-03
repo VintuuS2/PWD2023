@@ -115,7 +115,7 @@ class Menu{
     public function modificar(){
         $resp = false;
         $base=new BaseDatos();
-        $sql = "UPDATE menu SET menombre=" . $this->getMeNombre(). "medescripcion=" . $this->getMeDescripcion()."idpadre=" . $this->getIdPadre()."medeshabilitado=" . $this->getMeDeshabilitado() . "' WHERE idmenu=" . $this->getIdMenu();
+        $sql = "UPDATE menu SET menombre=" . $this->getMeNombre(). ",medescripcion=" . $this->getMeDescripcion().",idpadre=" . $this->getIdPadre().",medeshabilitado=" . $this->getMeDeshabilitado() . "' WHERE idmenu=" . $this->getIdMenu();
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;

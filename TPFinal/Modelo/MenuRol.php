@@ -3,6 +3,7 @@
 class MenuRol{
     private $objMenu;
     private $objRol;
+    private $mensajeOperacion;
     
     //Método constructor
     function __construct(){
@@ -10,33 +11,18 @@ class MenuRol{
         $this->objRol = null;
     }
 
-    function setear($idMenu,$meNombre,$meDescripcion,$idPadre,$meDeshabilitado){
-        $this->idMenu = $idMenu;
-        $this->meNombre = $meNombre;
-        $this->meDescripcion = $meDescripcion;
-        $this->idPadre = $idPadre;
-        $this->meDeshabilitado = $meDeshabilitado;
+    function setear($objMenu,$objRol){
+        $this->objMenu = $objMenu;
+        $this->objRol = $objRol;
     }
 
     //Métodos set
-    function setIdMenu($idMenu){
-        $this->idMenu = $idMenu;
+    function setObjMenu($objMenu){
+        $this->objMenu = $objMenu;
     }
 
-    function setMeNombre($meNombre){
-        $this->meNombre = $meNombre;
-    }
-
-    function setIdPadre($idPadre){
-        $this->idPadre = $idPadre;
-    }
-
-    function setMeDescripcion($meDescripcion){
-        $this->meDescripcion = $meDescripcion;
-    }
-
-    function setMeDeshabilitado($meDeshabilitado){
-        $this->meDeshabilitado = $meDeshabilitado;
+    function setObjRol($objRol){
+        $this->objRol = $objRol;
     }
 
     function setMensajeOperacion($mensaje){
@@ -45,24 +31,12 @@ class MenuRol{
     
     //Métodos get
 
-    function getIdMenu(){
-        return $this->idMenu;
+    function getObjMenu(){
+        return $this->objMenu;
     }
 
-    function getMeNombre(){
-        return $this->meNombre;
-    }
-
-    function getIdPadre(){
-       return $this->idPadre;
-    }
-
-    function getMeDescripcion(){
-        return $this->meDescripcion;
-    }
-
-    function getMeDeshabilitado(){
-        return $this->meDeshabilitado;
+    function getObjRol(){
+        return $this->objRol;
     }
 
     function getMensajeOperacion(){
@@ -73,17 +47,19 @@ class MenuRol{
     public function cargar(){
         $resp = false;
         $base = new BaseDatos();
-        $sql = "SELECT * FROM menu WHERE idmenu = ". $this->getIdMenu();
+        $objMenu = new Menu;
+        $objRol = new Rol;
+        $sql = "SELECT * FROM menurol WHERE idmenu = ". $objMenu->getIdMenu(). "AND idrol = " . $objRol->getIdRol();
         if ($base->Iniciar()) {
             $res = $base->Ejecutar($sql);
             if($res>-1){
                 if($res>0){
                     $row = $base->Registro();
-                    $this->setear($row['idmenu'], $row['menombre'],$row['medescripcion'], $row['idpadre'],$row['medeshabilitado']); 
+                    $this->setear($row['idmenu'], $row['idrol']); 
                 }
             }
         } else {
-            $this->setMensajeOperacion("Menu->cargar: ".$base->getError());
+            $this->setMensajeOperacion("MenuRol->cargar: ".$base->getError());
         }
         return $resp;
     }
@@ -91,31 +67,35 @@ class MenuRol{
     public function insertar(){
         $resp = false;
         $base=new BaseDatos();
-        $sql="INSERT INTO menu(menombre,medescripcion,idpadre,medeshabilitado) VALUES(".$this->getMeNombre().$this->getMeDescripcion().$this->getIdPadre().$this->getMeDeshabilitado().");";
+        $objMenu = new Menu;
+        $objRol = new Rol;
+        $sql="INSERT INTO menurol(idmenu,idrol) VALUES(". $objMenu->getIdMenu().$objRol->getIdRol().");";
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;
             } else {
-                $this->setMensajeOperacion("Menu->insertar: ".$base->getError());
+                $this->setMensajeOperacion("MenuRol->insertar: ".$base->getError());
             }
         } else {
-            $this->setMensajeOperacion("Menu->insertar: ".$base->getError());
+            $this->setMensajeOperacion("MenuRol->insertar: ".$base->getError());
         }
         return $resp;
     }
     
     public function modificar(){
         $resp = false;
-        $base=new BaseDatos();
-        $sql = "UPDATE menu SET menombre=" . $this->getMeNombre(). "medescripcion=" . $this->getMeDescripcion()."idpadre=" . $this->getIdPadre()."medeshabilitado=" . $this->getMeDeshabilitado() . "' WHERE idmenu=" . $this->getIdMenu();
+        $base = new BaseDatos();
+        $objMenu = new Menu;
+        $objRol = new Rol;
+        $sql = "UPDATE menurol SET idmenu=" . $objMenu->getIdMenu(). ",idrol=" . $objRol->getIdRol();
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;
             } else {
-                $this->setMensajeOperacion("Menu->modificar: ".$base->getError());
+                $this->setMensajeOperacion("MenuRol->modificar: ".$base->getError());
             }
         } else {
-            $this->setMensajeOperacion("Menu->modificar: ".$base->getError());
+            $this->setMensajeOperacion("MenuRol->modificar: ".$base->getError());
         }
         return $resp;
     }
@@ -123,15 +103,17 @@ class MenuRol{
     public function eliminar(){
         $resp = false;
         $base=new BaseDatos();
-        $sql="DELETE FROM menu WHERE idmenu=".$this->getIdMenu();
+        $objMenu = new Menu;
+        $objRol = new Rol;
+        $sql="DELETE FROM menurol WHERE idmenu=" . $objMenu->getIdMenu() . "AND idrol=" . $objRol->getIdRol();
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 return true;
             } else {
-                $this->setMensajeOperacion("Menu->eliminar: ".$base->getError());
+                $this->setMensajeOperacion("MenuRol->eliminar: ".$base->getError());
             }
         } else {
-            $this->setMensajeOperacion("Menu->eliminar: ".$base->getError());
+            $this->setMensajeOperacion("MenuRol->eliminar: ".$base->getError());
         }
         return $resp;
     }
@@ -139,7 +121,7 @@ class MenuRol{
     public function listar($parametro=""){
         $arreglo = array();
         $base=new BaseDatos();
-        $sql="SELECT * FROM menu ";
+        $sql="SELECT * FROM menurol ";
         if ($parametro!="") {
             $sql.='WHERE '.$parametro;
         }
@@ -147,13 +129,13 @@ class MenuRol{
         if($res>-1){
             if($res>0){    
                 while ($row = $base->Registro()){
-                    $obj= new Menu();
-                    $obj->setear($row['idmenu'], $row['menombre'], $row['medescripcion'], $row['idpadre'], $row['medeshabilitado']);
+                    $obj= new MenuRol();
+                    $obj->setear($row['idmenu'], $row['merol']);
                     array_push($arreglo, $obj);
                 }
             }     
         } else {
-            $this->setMensajeOperacion("Menu->listar: ".$base->getError());
+            $this->setMensajeOperacion("MenuRol->listar: ".$base->getError());
         }
         return $arreglo;
     }
