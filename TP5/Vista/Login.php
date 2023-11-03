@@ -2,10 +2,10 @@
 $tituloPagina = "TP5-Login";
 include_once "../../configuracionProyecto.php";
 include_once "../configuracion.php";
-/*$sesion = new Session();
-if ($sesion->activa()){
+$sesion = new Session();
+if ($sesion->validar()){
     header('Location: '.$urlRoot."Vista/paginaSegura.php");
-}*/
+}
 include_once "../../TP5/Vista/Estructura/header.php";
 ?>
 <div class="d-flex justify-content-center align-items-center ">
