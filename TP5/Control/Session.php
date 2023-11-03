@@ -55,59 +55,54 @@ class Session{
     }
 
     function getUserRol(){
-        if (!is_null($this->getUser())){
+        $listaRoles = array();
+        if ($this->validar()){
+            $param['idusuario'] = $_SESSION['idusuario'];
             $unUsuarioRol = new AbmUsuarioRol();
-            //$usuario['idrol'] = $consulta[0]['idrol'];
-            $usuario['idusuario'] = $this->getUser()->getId();
-            $consulta = $unUsuarioRol->buscar($usuario);
-            $this->setUserRol($consulta[0]->getIdRol());
-            /*$this->setUserRol($consulta[0]['idrol']);
-            $_SESSION['idrol'] = $this->getUserRol();*/
+            //$usuario['idusuario'] = $this->getUser()->getId();
+            $consulta = $unUsuarioRol->buscar($param);
+            if (count($consulta)>0){
+                $listaRoles = $consulta;
+            }
         }
-        return $this->userRol;
+        return $listaRoles;
     }
 
     //Funciones
-    /**
-     * Inicia y valida la sesión
+
+    /** Inicia y valida la sesión
      * @param STR $usuario
      * @param STR $contrasenia
      * @return BOOL
      */
     function iniciar($usuario, $psw){
-        //SETEA ATRIBUTOS USUARIO Y CONTRASEÑA
-        $ok = false;
-        $this->setNombreUsuario($usuario);
-        $this->setPassword($psw);
-        if ($this->validar()){
+        $resp = false;
+        $unUser = new AbmUsuario();
+        $login['usnombre'] = $usuario;
+        $login['uspass'] = $psw;
+        $unUsuario = $unUser->buscar($login);
+        if (count($unUsuario)>0 && is_null($unUsuario[0]->getHabilitado())){
+            $this->setUser($unUsuario[0]);
             $_SESSION['idusuario'] = $this->getUser()->getId();
-            $ok = true;
+            $resp = true;
+        } else {
+            $this->cerrar();
         }
-        return $ok;
+        return $resp;
     }
 
     function validar(){
         $resp = false;
-        $login['usnombre'] = $this->getNombreUsuario();
-        $login['uspass'] = $this->getPassword();
-        $unUser = new AbmUsuario();
-        $unUsuario = $unUser->buscar($login);
-        echo "<br>";
-        print_r($unUsuario);
-        if (count($unUsuario)>0){
+        if ($this->activa() && isset($_SESSION['idusuario'])){
             $resp = true;
-            $this->setUser($unUsuario[0]);
         }
-        echo "<br>";
-        print_r($this->getUser());
-        echo "<br>";
         return $resp;
     }
 
     function activa(){
         $resp = false;
         $isActive = session_status();
-        if ($isActive==2){
+        if ($isActive == 2){
             $resp = true;
         }
         return $resp;
