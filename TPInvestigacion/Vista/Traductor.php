@@ -1,5 +1,5 @@
 <?php
-$tituloPagina = "TP5-Traductor normal";
+$tituloPagina = "TPInvestigacion-Traductor normal";
 include_once '../../configuracionProyecto.php';
 include_once './Estructura/header.php';
 require_once '../Util/vendor/autoload.php';

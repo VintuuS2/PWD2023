@@ -1,5 +1,5 @@
 <?php
-$tituloPagina = "TP5-Inicio";
+$tituloPagina = "TPInvestigacion-Inicio";
 include_once '../../configuracionProyecto.php';
 include_once '../Util/funciones.php';
 include_once './Estructura/header.php';

@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?php echo $PROYECTOROOT ?>vista/css/style.css">
+    <link rel="stylesheet" href="<?php echo $PROYECTOROOT ?>Vista/css/style.css">
     <script src="<?php echo $PROYECTOROOT ?>vista/js/jquery-3.7.1.min.js"></script>
     <link rel="stylesheet" href="<?php echo $PROYECTOROOT ?>vista/css/bootstrap.min.css">
     <script src="<?php echo $PROYECTOROOT ?>vista/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/3f0f040aa7.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="<?php echo $PROYECTOROOT ?>TP3/vista/css/style.css">
+    <link rel="stylesheet" href="<?php echo $PROYECTOROOT ?>TPInvestigacion/Vista/CSS/style.css">
     <title><?php echo $tituloPagina ?></title>
 </head>
 

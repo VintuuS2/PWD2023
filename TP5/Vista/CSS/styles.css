@@ -1,0 +1,18 @@
+.bg-gris {
+    background-color: #EEE;
+}
+.custom-tooltip {
+    --bs-tooltip-bg: var(--bs-primary);
+}
+.custom-tooltip-danger {
+    --bs-tooltip-bg: var(--bs-danger);
+}
+.custom-tooltip-success {
+    --bs-tooltip-bg: var(--bs-success);
+}
+.mensaje {
+    text-wrap: balance;
+}
+.cursor-text {
+    cursor: text;
+}
