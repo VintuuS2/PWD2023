@@ -61,7 +61,7 @@ class Menu{
         return $this->meNombre;
     }
 
-    function getIdPadre(){
+    function getObjMenu(){
        return $this->idPadre;
     }
 

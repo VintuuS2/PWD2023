@@ -49,7 +49,25 @@ class UsuarioRol{
             if($res>-1){
                 if($res>0){
                     $row = $base->Registro();
-                    $this->setear($row['idusuario'], $row['idrol']); 
+                
+                    $objRol = null;
+                    $objUsuario = null;
+                    
+                    if ($row['idusuario']!=null){
+                        
+                        $objUsuario = new Usuario();
+                        $objUsuario->setId($row['idusuario']);
+                        $objUsuario->cargar();
+                    }
+
+                    if($row['idrol']!=null){
+                        $objRol = new Rol();
+                        $objRol->setIdRol($row['idrol']);
+                        $objRol->cargar();
+                    }
+                    
+                    
+                    $this->setear($objUsuario, $objRol); 
                 }
             }
         } else {
@@ -124,8 +142,23 @@ class UsuarioRol{
         if($res>-1){
             if($res>0){    
                 while ($row = $base->Registro()){
+                    $objUsuario =null;
+                    $objRol =null;
+
+                    if($row['idusuario']!=null){
+                        $objUsuario = new Usuario();
+                        $objUsuario->setId($row['idusuario']);
+                        $objUsuario->cargar();
+                    }
+
+                    if($row['idrol']!=null){
+                        $objRol = new Rol();
+                        $objRol->setIdrol($row['idrol']);
+                        $objRol->cargar();
+                    }
+
                     $obj = new UsuarioRol();
-                    $obj->setear($row['idusuario'], $row['idrol']);
+                    $obj->setear($objUsuario, $objRol);
                     array_push($arreglo, $obj);
                 }
             }     
