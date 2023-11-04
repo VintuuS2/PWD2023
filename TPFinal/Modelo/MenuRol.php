@@ -55,7 +55,25 @@ class MenuRol{
             if($res>-1){
                 if($res>0){
                     $row = $base->Registro();
-                    $this->setear($row['idmenu'], $row['idrol']); 
+                    
+                    $objMenu = null;
+                    $objRol = null;
+
+                    
+                    
+                    if($row['idmenu']!=null){
+                        $objMenu = new Menu();
+                        $objMenu->setIdMenu($row['idmenu']);
+                        $objMenu->cargar();
+                    }
+
+                    if($row['idrol']!=null){
+                        $objRol = new Rol();
+                        $objRol->setIdrol($row['idrol']);
+                        $objRol->cargar();
+                    }
+
+                $this->setear($objMenu, $objRol);
                 }
             }
         } else {
@@ -129,9 +147,24 @@ class MenuRol{
         if($res>-1){
             if($res>0){    
                 while ($row = $base->Registro()){
-                    $obj= new MenuRol();
-                    $obj->setear($row['idmenu'], $row['merol']);
-                    array_push($arreglo, $obj);
+                    $objMenu = null;
+                    $objRol = null;
+
+                    if($row['idmenu']!=null){
+                        $objMenu = new Menu();
+                        $objMenu->setIdMenu($row['idmenu']);
+                        $objMenu->cargar();
+                    }
+
+                    if($row['idrol']!=null){
+                        $objRol = new Rol();
+                        $objRol->setIdrol($row['idrol']);
+                        $objRol->cargar();
+                    }
+                    
+                $obj = new MenuRol();
+                $obj->setear($objMenu, $objRol);
+                array_push($arreglo, $obj);
                 }
             }     
         } else {
