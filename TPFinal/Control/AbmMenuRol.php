@@ -1,51 +1,53 @@
 <?php
-class AbmUsuarioRol{
+class AbmMenuRol {
     /** Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
      * @param ARRAY $param
-     * @return UsuarioRol */
+     * @return MenuRol */
     private function cargarObjeto($param){
-
-        $objUsuarioRol = null;
+        $objMenuRol = null;
         $objRol = null;
-        $objUsuario = null;
+        $objMenuRol = null;
 
-        if (array_key_exists('idusuario',$param) && $param['idusuario']!=null ) {
-            $objUsuario= new Usuario();
-            $objUsuario->setear($param['idusuario'],null,null,null,null);
+        if (array_key_exists('idmenu',$param) && $param['idmenu'] != null) {
+
+            $objMenu = new Menu();
+            $objMenu->setear($param['idmenu'],null,null,null,null);
         }
+
         if (array_key_exists('idrol',$param) && $param['idrol']!=null) {
             $objRol = new Rol();
             $objRol->setear($param['idrol'],null);
         }
-        
-        $objUsuarioRol = new UsuarioRol();
-        $objUsuarioRol-> setear($objUsuario,$objRol);
 
-        return $objUsuarioRol;
+        $objMenuRol = new MenuRol();
+        $objMenuRol->setear($objMenu,$objRol);
+        
+        return $objMenuRol;
     }
     
     /** Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto que son claves
      * @param ARRAY $param
-     * @return UsuarioRol */
-    private function cargarObjetoConClave($param){
-        $objUsuarioRol = null;
-        $objRol = null;
-        $objUsuario = null;
+     * @return MenuRol */
 
-        if (isset($param['idusuario']) && isset($param['idrol']) ){
-            if ($param['idusuario']!=null ) {
-                $objUsuario= new Usuario();
-                $objUsuario->setear($param['idusuario'],null,null,null,null);
+    private function cargarObjetoConClave($param){
+        $objMenuRol = null;
+        $objRol = null;
+        $objMenu = null;
+
+        if (isset($param['idmenu']) && isset($param['idrol']) ){
+            if ($param['idmenu']!=null ) {
+                $objMenu= new Menu();
+                $objMenu->setear($param['idmenu'],null,null,null,null);
             }
             if ($param['idrol']!=null) {
                 $objRol = new Rol();
                 $objRol->setear($param['idrol'],null);
             }
 
-            $objUsuarioRol = new UsuarioRol();
-            $objUsuarioRol-> setear($objUsuario,$objRol);
+            $objMenuRol = new MenuRol();
+            $objMenuRol-> setear($objMenu,$objRol);
         }
-        return $objUsuarioRol;
+        return $objMenuRol;
     }
     
     /** Corrobora que dentro del arreglo asociativo estan seteados los campos claves
@@ -53,7 +55,7 @@ class AbmUsuarioRol{
      * @return BOOLEAN */
     private function seteadosCamposClaves($param){
         $resp = false;
-        if (isset($param['idusuario']) && isset($param['idrol'])){
+        if (isset($param['idmenu']) && isset($param['idrol'])){
             $resp = true;
         return $resp;
     }
@@ -64,11 +66,11 @@ class AbmUsuarioRol{
      */
     public function alta($param){
         $resp = false;
-        // $param['idusuario'] = null;   ----Si no está en comentarios el código no funciona
-        // $param['idrol'] = null;   ----Si no está en comentarios el código no funciona
-        $objUsuarioRol = $this->cargarObjeto($param);
-        // verEstructura($objUsuarioRol);
-        if ($objUsuarioRol!=null and $objUsuarioRol->insertar()){
+        // $param['idmenu'] = null;   ----Si no está en comentarios el código no funciona
+        // $param['idmenu'] = null;   ----Si no está en comentarios el código no funciona
+        $objMenuRol = $this->cargarObjeto($param);
+        // verEstructura($objMenuRol);
+        if ($objMenuRol!=null and $objMenuRol->insertar()){
             $resp = true;
         }
         return $resp;
@@ -79,22 +81,22 @@ class AbmUsuarioRol{
     public function baja($param){
         $resp = false;
         if ($this->seteadosCamposClaves($param)){
-            $objUsuarioRol = $this->cargarObjetoConClave($param);
-            if ($objUsuarioRol!=null and $objUsuarioRol->eliminar()){
+            $objMenuRol = $this->cargarObjetoConClave($param);
+            if ($objMenuRol!=null and $objMenuRol->eliminar()){
                 $resp = true;
             }
         }
         return $resp;
     }
-    
+
     /** Permite modificar un objeto
      * @param ARRAY $param
      * @return BOOLEAN */
     public function modificacion($param){
         $resp = false;
         if ($this->seteadosCamposClaves($param)){
-            $objUsuarioRol = $this->cargarObjeto($param);
-            if($objUsuarioRol!=null and $objUsuarioRol->modificar()){
+            $objMenuRol = $this->cargarObjeto($param);
+            if($objMenuRol!=null and $objMenuRol->modificar()){
                 $resp = true;
             }
         }
@@ -106,16 +108,16 @@ class AbmUsuarioRol{
      * @return ARRAY */
     public function buscar($param){
         $where = " true ";
-        $objUsuarioRol = new UsuarioRol();
+        $objMenuRol = new MenuRol();
         if ($param<>NULL){
-            if  (isset($param['idusuario'])){
-                $where.=" and idusuario =".$param['idusuario'];
+            if  (isset($param['idmenu'])){
+                $where.=" and idmenu ='".$param['idmenu']."'";
             }
             if  (isset($param['idrol'])){
-                $where.=" and idrol =".$param['idrol'];
+                $where.=" and idrol ='".$param['idrol']."'";
             }
         }
-        $arreglo = $objUsuarioRol->listar($where);  
+        $arreglo = $objMenuRol->listar($where);
         return $arreglo;
     }
 }
