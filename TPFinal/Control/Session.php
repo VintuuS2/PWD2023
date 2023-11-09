@@ -8,6 +8,7 @@ class Session{
 
     function __construct(){
         if (session_start()){
+            $_SESSION['ROOT'] = $_SERVER['DOCUMENT_ROOT'] . '/PWD2023/TPFinal/';
             $this->usuario = "";
             $this->pass = "";
             $this->userObj = null;
@@ -56,7 +57,8 @@ class Session{
         $resp = false;
         $usuarioObj = new AbmUsuario();
         $listaUsuarios = $usuarioObj->buscar($login);
-        if (count($listaUsuarios[0])>0 && is_null($listaUsuarios[0]->getHabilitado())){
+        print_r($listaUsuarios);
+        if (count($listaUsuarios)>0 && is_null($listaUsuarios[0]->getHabilitado())){
             $this->setUserObj($listaUsuarios[0]);
             $_SESSION['idusuario'] = $this->getUserObj()->getId();
             $resp = true;

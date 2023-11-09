@@ -13,15 +13,22 @@
         </div>
         <div class="navbar-collapse justify-content-center collapse" id="collapsibleNavbar">
             <ul class="nav nav-pills justify-content-center gap-2">
-                <li class="nav-item"><a href="" class="nav-link text-light link-body-emphasis">Algo</a></li>
-                <li class="nav-item"><a href="" class="nav-link text-light link-body-emphasis">Algo1</a></li>
-                <li class="nav-item"><a href="" class="nav-link text-light link-body-emphasis">Algo2</a></li>
-                <li class="nav-item"><a href="" class="nav-link text-light link-body-emphasis">Algo3</a></li>
-                <li class="nav-item"><a href="" class="nav-link text-light link-body-emphasis">Algo4</a></li>
+                <li class="nav-item"><a href="<?php echo $PROYECTOROOT ?>TPFinal/Vista/index.php" class="nav-link text-light link-body-emphasis">Inicio</a></li>
+                <li class="nav-item"><a href="<?php echo $PROYECTOROOT ?>" class="nav-link text-light link-body-emphasis">Algo1</a></li>
+                <li class="nav-item"><a href="<?php echo $PROYECTOROOT ?>" class="nav-link text-light link-body-emphasis">Algo2</a></li>
+                <li class="nav-item"><a href="<?php echo $PROYECTOROOT ?>" class="nav-link text-light link-body-emphasis">Algo3</a></li>
+                <li class="nav-item"><a href="<?php echo $PROYECTOROOT ?>" class="nav-link text-light link-body-emphasis">Algo4</a></li>
             </ul>
         </div>
-        <div >
-            <i class="fa-solid fa-user"></i>
+        <div class="position-absolute end-0 me-5">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-target="menuUsuario">
+                <i class="fa-solid fa-user"></i>
+            </button>
+            <div class="dropdown-menu" id="menuUsuario">
+                <a href="./login.php" class="dropdown-item">Iniciar sesión</a>
+                <a href="" class="dropdown-item"></a>
+                <a href="" class="dropdown-item">Poto</a>
+            </div>
         </div>
     </navbar>
 </nav>
