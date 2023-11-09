@@ -1,3 +1,7 @@
 .bg-gris {
     background-color: #eee;
 }
+
+.bg-purple {
+    background-color: rgba(72,57,161, .75);
+}

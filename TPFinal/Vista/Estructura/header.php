@@ -10,12 +10,13 @@
     <script src="<?php echo $PROYECTOROOT ?>vista/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/3f0f040aa7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<?php echo $PROYECTOROOT?>TPFinal/Vista/CSS/style.css">
+    <!--<link rel="stylesheet" href="<?php echo $PROYECTOROOT?>TPFinal/Vista/CSS/sidebar.css">-->
     <title><?php echo $titulo ?></title>
 </head>
 
-<body>
-    <div class="container-fluid bg-dark p-0" data-bs-theme="dark">
-        <nav class="navbar navbar-expand-sm justify-content-center shadow bg-grupo1">
+<body data-bs-theme="dark">
+    <!--<div class="container-fluid bg-dark p-0" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-sm justify-content-center shadow bg-purple">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
@@ -39,4 +40,5 @@
                 </div>
             </div>
         </nav>
-    </div>
+    </div>-->
+    <main class="position-relative">
