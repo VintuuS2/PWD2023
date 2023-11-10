@@ -36,13 +36,14 @@ if (isset($datos['idproducto']) && isset($datos['pronombre']) && isset($datos['p
 <div class="d-flex justify-content-center align-items-center ">
     <div class="d-flex justify-content-center bg-gris row col-12 col-md-8 row position-relative h-100 align-items-center min-vh-100">
         <div class="bg-dark p-5 rounded-5 col-12 col-md-10 col-xl-8">
-            <div class="h3 text-center text-white">
+            <div class="h3 text-center text-white mb-5">
             <?php
             echo $mensaje
             ?>
             </div>
             <div class="d-flex align-content justify-content-center">
-                <a class="btn btn-primary mx-3 fs-5" role="button" href="../depositoAgregarProductos.php">Volver a agregar producto</a>
+                <a class="btn btn-primary mx-3 fs-5" role="button" href="../depositoAgregarProductos.php">Volver atrás</a>
+                <a class="btn btn-primary mx-3 fs-5" role="button" href="../depositoAdministrarProductos.php">Ver lista de productos</a>
             </div>
         </div>
     </div>

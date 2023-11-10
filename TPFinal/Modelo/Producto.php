@@ -124,7 +124,7 @@ class Producto {
     
     public function modificar(){
         $resp = false;
-        $base=new BaseDatos();
+        $base = new BaseDatos();
         $sql = "UPDATE producto SET pronombre ='".$this->getNombre()."',prodetalle='".$this->getDetalle()."',procantstock=".$this->getCantStock().",proprecio=".$this->getPrecio().",proimagen='".$this->getImagen()['name']."' WHERE idproducto=".$this->getIdProducto();
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
