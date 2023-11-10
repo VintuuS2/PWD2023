@@ -118,5 +118,23 @@ class AbmUsuarioRol{
         $arreglo = $objUsuarioRol->listar($where);  
         return $arreglo;
     }
+
+    /*public function listarRolesUsuarios(){
+        $controlUsuario = new AbmUsuario();
+        $listaUsuarios = $controlUsuario->buscar(null);
+        $usuarioRol = $this->buscar(null);
+        $roles = "";
+        print_r ($usuarioRol);
+        //$listaUsuariosConRol = $usuarioRol->listar(null);
+        //print_r ($listaUsuariosConRol);
+        if(count($listaUsuarios)>0){
+            foreach ($listaUsuarios as $usuario){
+                $roles .= $usuarioRol[];
+                print_r($roles);
+            }
+        }   
+        //porsi no hay usuarios
+        else{}
+    }*/
 }
 ?>

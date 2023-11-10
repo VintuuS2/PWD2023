@@ -126,5 +126,32 @@ class AbmUsuario{
         $arreglo = $objUsuario->listar($where);
         return $arreglo;
     }
+
+    public function listarUsuarioRol ($param){
+        $arrayDeIds = array();
+        $where = " true ";
+        if ($param<>NULL){
+            if (isset($param['idusuario']))
+            $where.= " and idusuario = ". $param['idusuario'];
+            if (isset($param['idrol']))
+            $where.= " and idrol = ". $param['idrol']."'";
+        }
+        $obj = new UsuarioRol();
+
+        $arreglo = $obj->listar($where);
+        foreach ($arreglo as $usuario) {
+            $idUsuarioActual = $usuario->getObjUsuario()->getId();
+            $idRolActual = $usuario->getObjRol()->getIdRol();
+        
+            // Verificamos si ya existe una entrada para este usuario
+            if (!array_key_exists($idUsuarioActual, $arrayDeIds)) {
+                $arrayDeIds[$idUsuarioActual] = array();
+            }
+        
+            // Agregamos el rol al usuario
+            $arrayDeIds[$idUsuarioActual][] = $idRolActual;
+        }
+        return $arrayDeIds;
+    }
 }
 ?>
