@@ -1,7 +1,14 @@
 <?php
 $titulo = "Game Galaxy";
 include_once "../../configuracionProyecto.php";
+include_once "../configuracion.php";
 include_once "./Estructura/header.php";
+$sesion = new Session();
+if ($sesion->validar()){
+  setcookie("login",1);
+} else {
+  setcookie("login",0);
+}
 //include_once "./Estructura/navbar.php";
 //include_once "./Estructura/otroNavbar.php";
 include_once "./Estructura/ultimoNav.php";
@@ -34,7 +41,6 @@ include_once "./Estructura/ultimoNav.php";
     <!-- </Catálogo de opciones recomendadas> --->
   </div>
 </div>
-
 <?php
 include_once "../../vista/estructura/footer.php"
 ?>
