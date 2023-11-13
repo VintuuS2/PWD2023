@@ -138,6 +138,22 @@ class Producto {
         return $resp;
     }
 
+    public function modificarStock(){
+        $resp = false;
+        $base = new BaseDatos();
+        $sql = "UPDATE producto SET procantstock=".$this->getCantStock()." WHERE idproducto=".$this->getIdProducto();
+        if ($base->Iniciar()) {
+            if ($base->Ejecutar($sql)) {
+                $resp = true;
+            } else {
+                $this->setMensajeOperacion("Producto->modificar stock: ".$base->getError());
+            }
+        } else {
+            $this->setMensajeOperacion("Producto->modificar stock: ".$base->getError());
+        }
+        return $resp;
+    }
+
     public function eliminar(){
         $resp = false;
         $base=new BaseDatos();
