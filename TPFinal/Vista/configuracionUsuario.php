@@ -42,6 +42,16 @@ include_once "./Estructura/ultimoNav.php";
                     </div>
                     <button class="btn btn-primary my-auto">Modificar</button>
                 </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">Deshablitar cuenta</div>
+                        <?php 
+                        $habilitado = $usuario->getHabilitado();
+                        echo is_null($habilitado) ? "Usuario habilitado" : "Usuario deshabilitado";
+                        ?>
+                    </div>
+                    <button class="btn btn-danger my-auto">Deshabilitar</button>
+                </li>
             </ul>
         </div>
     </div>
