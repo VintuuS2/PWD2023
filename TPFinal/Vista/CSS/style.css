@@ -5,3 +5,27 @@
 .bg-purple {
     background-color: rgba(72,57,161, .75);
 }
+.custom-tooltip,
+.custom-tooltip-danger,
+.custom-tooltip-success {
+    --bs-tooltip-bg: var(--bs-primary);
+    --bs-tooltip-color: var(--bs-white);
+}
+
+.custom-tooltip-danger {
+    --bs-tooltip-bg: var(--bs-danger);
+}
+
+.custom-tooltip-success {
+    --bs-tooltip-bg: var(--bs-success);
+}
+
+.imagen-redimensionada {
+    max-width: 300px;
+    max-height: 150px;
+    width: auto;
+    height: auto;
+    display: block;   
+    margin-left: auto;   
+    margin-right: auto;  
+}

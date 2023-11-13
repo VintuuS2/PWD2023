@@ -95,7 +95,9 @@ class Usuario{
     public function insertar(){
         $resp = false;
         $base = new BaseDatos();
-        $sql = "INSERT INTO usuario(usnombre, uspass, usmail, usdeshabilitado)  VALUES('".$this->getNombre()."','".$this->getPass()."','".$this->getMail()."','".$this->getHabilitado()."');";
+        $habilitado = $this->getHabilitado();
+        $habilitadoSql = ($habilitado == 'null' || $habilitado == null) ? "NULL" : "'$habilitado'";
+        $sql = "INSERT INTO usuario(usnombre, uspass, usmail, usdeshabilitado)  VALUES('".$this->getNombre()."','".$this->getPass()."','".$this->getMail()."',$habilitadoSql);";
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;

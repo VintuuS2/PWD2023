@@ -75,6 +75,21 @@ class AbmProducto {
         }
         return $resp;
     }
+
+    /** Permite cambiar stock de un objeto
+     * @param ARRAY $param
+     * @return BOOLEAN */
+    public function modificacionStock($param){
+        $resp = false;
+        if ($this->seteadosCamposClaves($param)){
+            $objProducto = $this->cargarObjetoConClave($param);
+            $objProducto->setCantStock($param['procantstock']);
+            if($objProducto!=null and $objProducto->modificarStock()){
+                $resp = true;
+            }
+        }
+        return $resp;
+    }
     
     /** Permite buscar un objeto
      * @param ARRAY $param

@@ -43,7 +43,15 @@ class Session{
     }
 
     function getUserObj(){
-        return $this->userObj;
+        if (isset($_SESSION['idusuario']) && is_null($this->userObj)){
+            $busqueda['idusuario'] = $_SESSION['idusuario'];
+            $usuario = new AbmUsuario;
+            $elUsuario = $usuario->buscar($busqueda);
+            $objUsuario = $elUsuario[0];
+        } else {
+            $objUsuario = $this->userObj;
+        }
+        return $objUsuario;
     }
 
     function getRoles(){
@@ -51,16 +59,15 @@ class Session{
     }
 
     //Funciones session
-    function iniciar($usuario, $psw){
-        $login['usnombre'] = $usuario;
+    function iniciar($email, $psw){
+        $login['usmail'] = $email;
         $login['uspass'] = $psw;
         $resp = false;
         $usuarioObj = new AbmUsuario();
         $listaUsuarios = $usuarioObj->buscar($login);
-        print_r($listaUsuarios);
         if (count($listaUsuarios)>0 && is_null($listaUsuarios[0]->getHabilitado())){
             $this->setUserObj($listaUsuarios[0]);
-            $_SESSION['idusuario'] = $this->getUserObj()->getId();
+            $_SESSION['idusuario'] = $listaUsuarios[0]->getId();
             $resp = true;
         } else {
             $this->cerrar();

@@ -1,7 +1,7 @@
 <?php
 $titulo = "Agregar productos";
 include_once "../../configuracionProyecto.php";
-include_once "./Estructura/header.php"; // hay que hacer la verificación de que el usuario loggeado tenga rol de 'deposito'
+include_once "./Estructura/ultimoNav.php"; // hay que hacer la verificación de que el usuario loggeado tenga rol de 'deposito'
 ?>
 <div class="d-flex justify-content-center align-items-center ">
   <div class="d-flex justify-content-center bg-gris col-12 col-md-8 row position-relative h-100 align-items-center min-vh-100">

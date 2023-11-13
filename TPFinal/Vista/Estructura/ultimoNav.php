@@ -31,7 +31,7 @@
                         <i class="fa-solid fa-user"></i>
                     </button>
                     <div class="dropdown-menu" id="menuUsuario">
-                        <a href="./login.php" class="dropdown-item is">Iniciar sesión</a>
+                        <a href="<?php echo $PROYECTOROOT ?>TPFinal/Vista/login.php" class="dropdown-item is">Iniciar sesión</a>
                         <a href="<?php echo $PROYECTOROOT ?>TPFinal/Vista/configuracionUsuario.php" class="dropdown-item cf">Configuración</a>
                         <a href="<?php echo $PROYECTOROOT ?>TPFinal/Vista/Accion/destruirSession.php" class="dropdown-item cs">Cerrar sesión</a>
                     </div>
