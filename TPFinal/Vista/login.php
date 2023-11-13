@@ -12,25 +12,67 @@ include_once "./Estructura/ultimoNav.php";
                 <div class="text-center">
                     <h2>Login</h2>
                 </div>
-                <div class="form-group">
-                    <label for="user-input">Nombre de Usuario</label>
-                    <input type="text" class="form-control" name="user-input" id="user-input" placeholder="Username" errorVacio="Por favor rellene este campo" errorPatron="El contenido solo acepta carácteres alfanuméricos" required>
+                <div class="form-group mb-2">
+                    <label for="email-input" class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email-input" id="email-input" placeholder="Ingrese su email" errorVacio="Por favor rellene este campo" errorPatron="El contenido solo acepta carácteres alfanuméricos" required>
                     <div class="invalid-feedback">
                         Rellene este campo
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="password-input">Contraseña</label>
-                    <input type="password" class="form-control" name="password-input" id="password-input" placeholder="Password" errorVacio="Por favor rellene este campo" errorPatron="El contenido solo acepta carácteres alfanuméricos" required>
+                    <label for="password-input" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" maxlength="11" pattern="[0-9]+" name="password-input" id="password-input" placeholder="Ingrese su contraseña" errorVacio="Por favor rellene este campo" errorPatron="El contenido solo acepta hasta 11 carácteres numéricos" required>
                     <div class="invalid-feedback">
                         Rellene este campo
                     </div>
                 </div>
                 <br>
                 <div class="text-center">
-                    <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+                    <button type="submit" class="btn btn-primary w-75">Ingresar</button>
+                    <!-- Link que trigerea el modal -->
+                    <a type="button" class="text-primary text-decoration-none link-body-emphasis mt-3" data-bs-target="#registroModal" data-bs-toggle="modal">¿No tiene una cuenta? ¡Registrese ahora!</a>
                 </div>
             </form>
+            <!-- Modal -->
+            <div class="modal fade" id="registroModal" tabindex="-1" aria-labelledby="tituloModal" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="tituloModal">Registro</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="./Accion/registroUsuario.php" method="post" class="needs-validation" novalidate>
+                                <div class="form-group mb-2">
+                                    <label for="user-register" class="form-label">Nombre de Usuario</label>
+                                    <input type="text" class="form-control" name="user-register" id="user-register" placeholder="Username" errorVacio="Por favor rellene este campo" errorPatron="El contenido solo acepta carácteres alfanuméricos" required>
+                                    <div class="invalid-feedback">
+                                        Rellene este campo
+                                    </div>
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="password-input" class="form-label">Contraseña</label>
+                                    <input type="password" class="form-control" pattern="[0-9]+" maxlength="11" name="password-register" id="password-register" placeholder="Password" errorVacio="Por favor rellene este campo" errorPatron="El contenido solo acepta hasta 11 carácteres numéricos" required>
+                                    <div class="invalid-feedback">
+                                        Rellene este campo
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password-input" class="form-label">Email</label>
+                                    <input type="email" class="form-control" name="email-register" id="email-register" placeholder="Email" errorVacio="Por favor rellene este campo" errorPatron="El contenido solo acepta carácteres alfanuméricos" required>
+                                    <div class="invalid-feedback">
+                                        Rellene este campo
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="text-center mb-2">
+                                    <button type="submit" class="btn btn-primary p-2">Registrarse</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
