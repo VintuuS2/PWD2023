@@ -1,7 +1,12 @@
 <?php
 $titulo = "Login";
 include_once "../../configuracionProyecto.php";
+include_once "../configuracion.php";
 include_once "./Estructura/header.php";
+$sesion = new Session;
+if ($sesion->validar()){
+    header('Location:'.$urlRoot."Vista/index.php");
+}
 include_once "./Estructura/ultimoNav.php";
 ?>
 
