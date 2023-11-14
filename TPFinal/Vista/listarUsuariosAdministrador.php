@@ -1,32 +1,11 @@
 <?php
-$tituloPagina = "TP5-";
+$titulo = "TP-FINAL Listar usuarios del Administrador";
 include_once "../../configuracionProyecto.php";
 include_once "../configuracion.php";
 include_once "./Estructura/header.php";
 $objUsuario = new AbmUsuario();
 $listaUsuarios = $objUsuario->buscar(null);
 $usuariosConRoles = $objUsuario->listarUsuarioRol(null);
-
-foreach ($usuariosConRoles as $usuarioId => $roles) {
-    $usuarioYRoles = array(
-        'usuario' => $usuarioId,
-        'roles' => $roles
-    );
-
-    $usuariosYRoles[] = $usuarioYRoles;
-}
-/*
-foreach ($usuariosYRoles as $usuarioYRoles) {
-    $usuarioId = $usuarioYRoles['usuario'];
-    $roles = $usuarioYRoles['roles'];
-
-    echo "Usuario $usuarioId tiene los siguientes roles: ";
-    foreach ($roles as $rol) {
-        echo "$rol, ";
-    }
-    echo "<br>";
-}
-*/
 ?>
 <div class="d-flex justify-content-center align-items-center">
     <div class="d-flex justify-content-center bg-gris row col-12 col-md-12 col-xl-8 row position-relative align-items-center min-vh-100">
@@ -38,7 +17,7 @@ foreach ($usuariosYRoles as $usuarioYRoles) {
             echo "<table class='table text-center'>
                         <thead class='table-dark'>
                             <tr>
-                                <th colspan='7' class='table-dark text-center fs-4'>Usuarios</th>
+                                <th colspan='8' class='table-dark text-center fs-4'>Usuarios</th>
                             </tr>
                             <tr>
                                 <th>ID</th>
@@ -47,6 +26,7 @@ foreach ($usuariosYRoles as $usuarioYRoles) {
                                 <th>Estado</th>
                                 <th>Rol/es</th>
                                 <th>Modificar</th>
+                                <th>Modificar Roles</th>
                                 <th>Cambiar estado</th>
                             </tr>
                         </thead>";
@@ -59,14 +39,6 @@ foreach ($usuariosYRoles as $usuarioYRoles) {
                 $estaHabilitado = is_null($usuario->getHabilitado());
                 echo "<td class='col-2'>" . ($estaHabilitado ? 'Activo' : 'Deshabilitado desde: ' . $usuario->getHabilitado()) . "<input type='hidden' name='usdeshabilitado' value='" . $usuario->getHabilitado() . "'></td>";
                 echo "<td>";
-                /*if (isset($usuario[$usuario->getId()])) {
-                    $roles = $rolesPorUsuario[$usuario->getId()];
-                    foreach ($roles as $rol) {
-                        echo "$rol, ";
-                    }
-                } else {
-                    echo "Sin roles asignados";
-                }*/
                 $arrayUsuarioRol['idusuario'] = $usuario->getId();
                 $objUsuarioRol = new AbmUsuarioRol;
                 $arrayUserRol = $objUsuarioRol->buscar($arrayUsuarioRol);
@@ -86,10 +58,13 @@ foreach ($usuariosYRoles as $usuarioYRoles) {
                     
                 }
                 echo "</td>";
+                
 
                 // Boton para activar modoficación de los datos
-                echo "<td><div class='d-flex h-100 justify-content-around' id='columnaBotones" . $usuario->getId() . "'><button type='submit' data-bs-toggle='tooltip' data-bs-placement='top' data-bs-title='Cambiar datos' data-bs-custom-class='custom-tooltip' class='btn btn-primary btn-modificar' id='btn-modificar-" . $usuario->getId() . "'>Editar</button></div></td>";
+                echo "<td><div class='d-flex h-100 justify-content-around' id='columnaBotones" . $usuario->getId() . "'><button type='submit' data-bs-toggle='tooltip' data-bs-placement='top' data-bs-title='Cambiar datos' data-bs-custom-class='custom-tooltip' class='btn btn-primary btn-modificar' id='btn-modificar" . $usuario->getId() . "'>Editar</button></div></td>";
+                
                 echo "</form>";
+                echo "<td class='col-2'><button class='btn btn-primary' onclick='redirectToModRoles()'>Cambiar Roles</button></td>";
                 // Boton para deshabilitar o habilitar
 
                 echo "<td>
@@ -105,11 +80,15 @@ foreach ($usuariosYRoles as $usuarioYRoles) {
             echo "<h3 class='text-center'>No hay Usuarios registrados</h3>";
         }
         ?>
-
     </div>
 </div>
 <script src="JS/validador.js"></script>
 <script src="JS/funciones.js"></script>
+<script>
+    function redirectToModRoles() {
+        window.location.href = 'verRolesAdministrador.php';
+    }
+</script>
 <?php
 include_once "../../vista/estructura/footer.php";
 
