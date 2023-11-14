@@ -83,9 +83,11 @@ class AbmProducto {
         $resp = false;
         if ($this->seteadosCamposClaves($param)){
             $objProducto = $this->cargarObjetoConClave($param);
-            $objProducto->setCantStock($param['procantstock']);
-            if($objProducto!=null and $objProducto->modificarStock()){
-                $resp = true;
+            if (array_key_exists('procantstock',$param)) {
+                $objProducto->setCantStock($param['procantstock']);
+                if($objProducto!=null and $objProducto->modificarStock()){
+                    $resp = true;
+                }
             }
         }
         return $resp;
