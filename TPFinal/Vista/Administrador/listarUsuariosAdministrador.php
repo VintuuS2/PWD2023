@@ -1,8 +1,9 @@
 <?php
 $titulo = "TP-FINAL Listar usuarios del Administrador";
-include_once "../../configuracionProyecto.php";
-include_once "../configuracion.php";
-include_once "./Estructura/header.php";
+include_once "../../../configuracionProyecto.php";
+include_once "../../configuracion.php";
+include_once "./../Estructura/header.php";
+include_once "./../Estructura/ultimoNav.php";
 $objUsuario = new AbmUsuario();
 $listaUsuarios = $objUsuario->buscar(null);
 $usuariosConRoles = $objUsuario->listarUsuarioRol(null);
@@ -32,7 +33,7 @@ $usuariosConRoles = $objUsuario->listarUsuarioRol(null);
                         </thead>";
             foreach ($listaUsuarios as $usuario) {
                 echo "<tr class='align-middle'>";
-                echo "<form novalidate class='needs-validation' data-id=" . $usuario->getId() . " method='post' action='Accion/modificarLogin.php'>";
+                echo "<form novalidate class='needs-validation' data-id=" . $usuario->getId() . " method='post' action='../Accion/modificarLogin.php'>";
                 echo "<td>" . $usuario->getId() . "<input type='hidden' name='idusuario' value='" . $usuario->getId() . "'></td>";
                 echo "<td><input  disabled name='usnombre' class='form-control cursor-text bg-white border border-0 text-center rounded-5' maxlength='50' id='inputnombre" . $usuario->getId() . "' type='text' value='" . $usuario->getNombre() . "' placeholder='Nombre de usuario'></td>";
                 echo "<td><input  disabled name='usmail' class='form-control cursor-text bg-white border border-0 text-center rounded-5' maxlength='50'  id='inputmail" . $usuario->getId() . "' type='email' value='" . $usuario->getMail() . "' placeholder='ejemplo@gmail.com'></td>";
@@ -68,7 +69,7 @@ $usuariosConRoles = $objUsuario->listarUsuarioRol(null);
                 // Boton para deshabilitar o habilitar
 
                 echo "<td>
-                        <form method='post' action='Accion/" . ($estaHabilitado ? "eliminar" : "habilitar") . "Login.php'>
+                        <form method='post' action='../Accion/" . ($estaHabilitado ? "eliminar" : "habilitar") . "Login.php'>
                             <input type='hidden' name='idusuario' value='" . $usuario->getId() . "'> 
                             <button type='submit' class='btn btn-" . ($estaHabilitado ? "danger" : "success") . "' data-bs-toggle='tooltip' data-bs-placement='top' data-bs-title='" . ($estaHabilitado ? "Deshabilitar" : "Habilitar") . " al usuario' data-bs-custom-class='custom-tooltip-" . ($estaHabilitado ? "danger" : "success") . "' name='" . ($estaHabilitado ? "deshabilitar" : "habilitar") . "'>" . ($estaHabilitado ? "Deshabilitar" : "Habilitar") . "</button>
                         </form>
@@ -82,14 +83,14 @@ $usuariosConRoles = $objUsuario->listarUsuarioRol(null);
         ?>
     </div>
 </div>
-<script src="JS/validador.js"></script>
-<script src="JS/funciones.js"></script>
+<script src="../JS/validador.js"></script>
+<script src="../JS/funciones.js"></script>
 <script>
     function redirectToModRoles() {
         window.location.href = 'verRolesAdministrador.php';
     }
 </script>
 <?php
-include_once "../../vista/estructura/footer.php";
+include_once "../../../vista/estructura/footer.php";
 
 ?>
