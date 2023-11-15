@@ -7,6 +7,7 @@ include_once "./../Estructura/ultimoNav.php";
 $objUsuario = new AbmUsuario();
 $listaUsuarios = $objUsuario->buscar(null);
 $usuariosConRoles = $objUsuario->listarUsuarioRol(null);
+$mensajeCookie = $_COOKIE;
 ?>
 
 <div class="d-flex justify-content-center align-items-center">
