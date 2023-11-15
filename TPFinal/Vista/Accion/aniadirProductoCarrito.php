@@ -49,7 +49,8 @@ function crearCarrito($idUsuario, $idProducto)
     $controlCompraItem = new AbmCompraItem();
     // Se crea nueva compra
     $controlCompra->alta(['idcompra' => 0, 'cofecha' => null, 'idusuario' => $idUsuario]);
-    $compra = $controlCompra->buscar(['idusuario' => $idUsuario])[0];
+    $comprasUsuario = $controlCompra->buscar(['idusuario' => $idUsuario]);
+    $compra = $comprasUsuario[count($comprasUsuario)-1];
     // Se crea nuevo estado para la compra (carrito)
     $controlCompraEstado->alta(['idcompraestado' => 0, 'idcompra' => $compra->getIdCompra(), 'idcompraestadotipo' => 5, 'cefechaini' => NULL, 'cefechafin' => NULL]);
     // Se agrega el item al carrito (compraitem)

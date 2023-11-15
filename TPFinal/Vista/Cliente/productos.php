@@ -31,7 +31,7 @@ include_once "../../configuracion.php";
                     </div>";
             }
         } else {
-            echo "<h3 class='text-center'>No hay productos</h3>";
+            echo "<h3 class='text-center text-dark'>No hay productos</h3>";
         }
         ?>
     </div>

@@ -1,15 +1,15 @@
 <?php
 $titulo = "Configuración";
-include_once "../../configuracionProyecto.php";
-include_once "../configuracion.php";
-include_once "./Estructura/header.php";
+include_once "../../../configuracionProyecto.php";
+include_once "../../configuracion.php";
+include_once "../Estructura/header.php";
 $sesion = new Session();
 if (!$sesion->validar()) {
     header('Location: ' . $urlRoot . "Vista/Login.php");
 } else {
     $usuario = $sesion->getUserObj();
 }
-include_once "./Estructura/ultimoNav.php";
+include_once "../Estructura/ultimoNav.php";
 ?>
 <!-- HAY QUE AJUSTAR BIEN PQ NO ME GUSTA EL ROW PERO COPYPASTEÉ EL LOGIN --->
 <div class="min-vh-100 d-flex justify-content-center">
@@ -21,7 +21,7 @@ include_once "./Estructura/ultimoNav.php";
                         <div class="fw-bold">Nombre de usuario</div>
                         <?php echo $usuario->getNombre() ?>
                     </div>
-                    <button class="btn btn-primary my-auto">Modificar</button>
+                    <button class="btn btn-primary my-auto">Modificar</button> <!-- HAY QUE HACER ESTOS BOTONES FUNCIONALES, LOS HAGO YO SI TENGO TIEMPO(CAMUSSO) -->
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
@@ -33,14 +33,14 @@ include_once "./Estructura/ultimoNav.php";
                         }
                         ?>
                     </div>
-                    <button class="btn btn-primary my-auto">Modificar</button>
+                    <button class="btn btn-primary my-auto">Modificar</button><!-- HAY QUE HACER ESTOS BOTONES FUNCIONALES, LOS HAGO YO SI TENGO TIEMPO(CAMUSSO) -->
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
                         <div class="fw-bold">Email</div>
                         <?php echo $usuario->getMail() ?>
                     </div>
-                    <button class="btn btn-primary my-auto">Modificar</button>
+                    <button class="btn btn-primary my-auto">Modificar</button><!-- HAY QUE HACER ESTOS BOTONES FUNCIONALES, LOS HAGO YO SI TENGO TIEMPO(CAMUSSO) -->
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
@@ -50,11 +50,11 @@ include_once "./Estructura/ultimoNav.php";
                         echo is_null($habilitado) ? "Usuario habilitado" : "Usuario deshabilitado";
                         ?>
                     </div>
-                    <button class="btn btn-danger my-auto">Deshabilitar</button>
+                    <button class="btn btn-danger my-auto">Deshabilitar</button><!-- HAY QUE HACER ESTOS BOTONES FUNCIONALES, LOS HAGO YO SI TENGO TIEMPO(CAMUSSO) -->
                 </li>
             </ul>
         </div>
     </div>
 </div>
 </main>
-<?php include_once "../../vista/estructura/footer.php"; ?>
+<?php include_once "../../../vista/estructura/footer.php"; ?>

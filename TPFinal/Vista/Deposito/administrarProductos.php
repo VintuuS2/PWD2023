@@ -2,7 +2,6 @@
 $titulo = "Administrar productos";
 include_once "../../../configuracionProyecto.php";
 include_once "../Estructura/header.php";
-include_once "../Estructura/ultimoNav.php"; // hay que hacer la verificación de que el usuario loggeado tenga rol de 'deposito'
 include_once "../../configuracion.php";
 $sesion = new Session();
 if (!$sesion->validar()) {
@@ -10,6 +9,7 @@ if (!$sesion->validar()) {
 } else {
     $usuario = $sesion->getUserObj();
 }
+include_once "../Estructura/ultimoNav.php"; // hay que hacer la verificación de que el usuario loggeado tenga rol de 'deposito'
 ?>
 <div class="d-flex justify-content-center align-items-center ">
     <div class="d-flex justify-content-center bg-gris col-12 col-md-8 position-relative h-100 align-items-center min-vh-100 row row-cols-1">
@@ -41,7 +41,7 @@ if (!$sesion->validar()) {
                     </div>";
             }
         } else {
-            echo "<h3 class='text-center'>No hay productos guardados</h3>
+            echo "<h3 class='text-center text-dark'>No hay productos guardados</h3>
             <div class='d-flex align-content justify-content-center'>
                 <a class='btn btn-primary mx-3 fs-5' role='button' href='./AgregarProductos.php'>Agregar productos</a>
             </div>";

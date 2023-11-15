@@ -13,7 +13,6 @@ if (isset($datos['idproducto'])) {
     if (file_exists($ruta_destino)) {
         // Elimina la imagen que tenia ese producto
         if (unlink($ruta_destino)) {
-            // Elimina el producto de la base de datos
             if ($controlProducto->baja($datos)) {
                 $mensaje = "El producto se ha eliminado correctamente.";
             } else {
@@ -23,7 +22,11 @@ if (isset($datos['idproducto'])) {
             $mensaje = "Hubo un error y no se pudo borrar el archivo $nombre_imagen.";
         }
     } else {
-        $mensaje = "Hubo un error: El archivo $nombre_imagen no existe.";
+        if ($controlProducto->baja($datos)) {
+            $mensaje = "El producto se ha eliminado correctamente.";
+        } else {
+            $mensaje = "Hubo un error y no se pudo eliminar el producto.";
+        }
     }
 } else {
     $mensaje = "ERROR: No se han recibido todos los datos necesarios.";
