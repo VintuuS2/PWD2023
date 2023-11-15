@@ -5,10 +5,10 @@ class AbmRol{
      * @return Rol */
     private function cargarObjeto($param){
         $objRol = null;
-        if (array_key_exists('idrol',$param) && array_key_exists('rodescripcion',$param) ) {
+        if (array_key_exists('rodescripcion',$param) ) {
             $objRol = new Rol();
             
-            $objRol->setear($param['idrol'], $param['rodescripcion']);
+            $objRol->setear(null, $param['rodescripcion']);
         }
         return $objRol;
     }
