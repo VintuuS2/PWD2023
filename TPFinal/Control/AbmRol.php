@@ -85,7 +85,7 @@ class AbmRol{
         $objRol = new Rol();
         if ($param<>NULL){
             if  (isset($param['idrol']))
-                $where.=" and idrol ='".$param['rodescripcion']."'";
+                $where.=" and idrol ='".$param['idrol']."'";
             if  (isset($param['rodescripcion']))
                 $where.=" and rodescripcion ='".$param['rodescripcion']."'";
         }

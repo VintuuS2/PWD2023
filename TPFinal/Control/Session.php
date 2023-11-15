@@ -4,7 +4,7 @@ class Session{
     private $usuario;
     private $pass;
     private $userObj;
-    private $roles;
+    private $objRoles;
 
     function __construct(){
         if (session_start()){
@@ -12,7 +12,7 @@ class Session{
             $this->usuario = "";
             $this->pass = "";
             $this->userObj = null;
-            $this->roles = array();
+            $this->objRoles = null;
         }
     }
 
@@ -30,7 +30,7 @@ class Session{
     }
 
     function setRoles($roles){
-        $this->roles = $roles;
+        $this->objRoles = $roles;
     }
 
     //Funciones get
@@ -55,7 +55,18 @@ class Session{
     }
 
     function getRoles(){
-        return $this->roles;
+        if (isset($_SESSION['idusuario']) && is_null($this->objRoles)){
+            $busqueda['idusuario'] = $_SESSION['idusuario'];
+            $usuarioRol = new AbmUsuarioRol;
+            $roles = $usuarioRol->buscar($busqueda);
+            foreach ($roles as $rol){
+                $unRol[] = $rol->getObjRol();
+            }
+            $objRol = $unRol;
+        } else {
+            $objRol = $this->objRoles;
+        }
+        return $objRol;
     }
 
     //Funciones session
@@ -68,6 +79,11 @@ class Session{
         if (count($listaUsuarios)>0 && is_null($listaUsuarios[0]->getHabilitado())){
             $this->setUserObj($listaUsuarios[0]);
             $_SESSION['idusuario'] = $listaUsuarios[0]->getId();
+            $listaObjRoles = $this->getRoles();
+            foreach ($listaObjRoles as $unRol){
+                $roles[] = $unRol->getIdRol();
+            }
+            $_SESSION['idroles'] = $roles;
             $resp = true;
         } else {
             $this->cerrar();
@@ -83,6 +99,7 @@ class Session{
         $resp = false;
         if ($this->activa() && isset($_SESSION['idusuario'])){
             $resp = true;
+            $this->updateRol();
         }
         return $resp;
     }
@@ -105,6 +122,18 @@ class Session{
      */
     function cerrar(){
         session_destroy();
+    }
+
+    /**
+     * Actualiza los roles de la sesión
+     */
+    function updateRol(){
+        $roles = $this->getRoles();
+        foreach ($roles as $rol){
+            $listaRoles[] = $rol->getIdRol();
+        }
+        unset($_SESSION['idroles']);
+        $_SESSION['idroles'] = $listaRoles;
     }
 }
 

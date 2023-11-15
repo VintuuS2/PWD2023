@@ -43,7 +43,7 @@ if (!$sesion->validar()) {
         } else {
             echo "<h3 class='text-center'>No hay productos guardados</h3>
             <div class='d-flex align-content justify-content-center'>
-                <a class='btn btn-primary mx-3 fs-5' role='button' href='./depositoAgregarProductos.php'>Agregar productos</a>
+                <a class='btn btn-primary mx-3 fs-5' role='button' href='./AgregarProductos.php'>Agregar productos</a>
             </div>";
         }
         ?>

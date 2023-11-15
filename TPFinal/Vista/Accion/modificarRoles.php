@@ -2,9 +2,11 @@
 $titulo = "Roles Modificados";
 
 include_once "../../../configuracionProyecto.php";
-include_once "../Estructura/header.php";
 include_once "../../configuracion.php";
+include_once "../Estructura/header.php";
 //include_once "../Estructura/ultimoNav.php";
+
+$session = new Session;
 
 $datos = data_submitted();
 $error = false;
@@ -68,6 +70,10 @@ if (isset($datos['idusuario']) && isset($datos['usnombre']) && isset($datos['usr
                         //setCookie('alta', 'Rol/es agregados correctamente.');
                     } 
                 } 
+            }
+
+            if ($_SESSION['idusuario'] == $datos['idusuario']){
+                $session->updateRol();
             }
         }
     }
