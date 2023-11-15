@@ -66,6 +66,7 @@ class AbmUsuarioRol{
         $resp = false;
         // $param['idusuario'] = null;   ----Si no está en comentarios el código no funciona
         // $param['idrol'] = null;   ----Si no está en comentarios el código no funciona
+        //llama a la funcion cargarObjeto de AmbUsuarioRol
         $objUsuarioRol = $this->cargarObjeto($param);
         // verEstructura($objUsuarioRol);
         if ($objUsuarioRol!=null and $objUsuarioRol->insertar()){

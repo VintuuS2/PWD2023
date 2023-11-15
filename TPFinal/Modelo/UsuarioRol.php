@@ -58,6 +58,7 @@ class UsuarioRol{
                         $objUsuario = new Usuario();
                         $objUsuario->setId($row['idusuario']);
                         $objUsuario->cargar();
+                        print_r($objUsuario);
                     }
 
                     if($row['idrol']!=null){
@@ -79,9 +80,7 @@ class UsuarioRol{
     public function insertar(){
         $resp = false;
         $base = new BaseDatos();
-        $objUsuario = new Usuario;
-        $objRol = new Rol;
-        $sql = "INSERT INTO usuariorol(idusuario, idrol)  VALUES('".$objUsuario->getId()."','".$objRol->getIdRol()."');";
+        $sql = "INSERT INTO usuariorol(idusuario, idrol)  VALUES(".$this->getObjUsuario()->getId()." , ".$this->getObjRol()->getIdRol().");";
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;
@@ -116,9 +115,9 @@ class UsuarioRol{
     public function eliminar(){
         $resp = false;
         $base = new BaseDatos();
-        $objUsuario = new Usuario;
-        $objRol = new Rol;
-        $sql = "DELETE FROM usuariorol WHERE idusuario=" . $objUsuario->getId() . "AND idrol=" . $objRol->getIdRol();
+        
+        $sql = "DELETE FROM usuariorol WHERE idusuario=" . $this->getObjUsuario()->getId() . " AND idrol=" . $this->getObjRol()->getIdRol();
+        echo $sql;
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 return true;
