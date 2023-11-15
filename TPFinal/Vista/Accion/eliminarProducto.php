@@ -23,7 +23,7 @@ if (isset($datos['idproducto'])) {
             $mensaje = "Hubo un error y no se pudo borrar el archivo $nombre_imagen.";
         }
     } else {
-        echo "Hubo un error: El archivo $nombre_imagen no existe.";
+        $mensaje = "Hubo un error: El archivo $nombre_imagen no existe.";
     }
 } else {
     $mensaje = "ERROR: No se han recibido todos los datos necesarios.";

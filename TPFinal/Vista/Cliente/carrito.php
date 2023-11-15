@@ -23,6 +23,7 @@ if (!$sesion->validar()) {
     }
     $itemsCarrito = $controlCompraItem->buscar(['idcompra'=>$objCompra->getIdCompra()]);
     $cantidadItems = count($itemsCarrito);
+    $precioTotal = 0;
 }
 ?>
 <section class="min-vh-100">
@@ -43,7 +44,6 @@ if (!$sesion->validar()) {
                                 if ($cantidadItems == 0) {
                                     echo "<h3 class='text-center'>El carrito está vacio</h3>";
                                 } else {
-                                    $precioTotal = 0;
                                     foreach ($itemsCarrito as $item) {
                                         $id = $item->getIdCompraItem();
                                         $cantidad = $item->getCantidad();
@@ -62,20 +62,23 @@ if (!$sesion->validar()) {
                                             <h6 class='text-black-50'>$detalle</h6>
                                         </div>
                                         <div class='col-md-3 col-lg-3 col-xl-2 d-flex'>
-                                            <button class='btn btn-link px-1' onclick=\"this.parentNode.querySelector('input[type=number]').stepDown()\">
+                                            <button class='btn btn-link px-1 botonRestar' data-product-id='$id'>
                                                 <i class='fas fa-minus fs-5'></i>
                                             </button>
-    
-                                            <input id='inputCantidad$id' min='1' name='cantidad' value='$cantidad' type='number' class='form-control form-control-sm text-center' />
-    
-                                            <button class='btn btn-link px-1' onclick=\"this.parentNode.querySelector('input[type=number]').stepUp()\">
+
+                                            <input id='inputCantidad$id' data-product-id='$id' min='1' name='cantidad' value='$cantidad' type='number' class='cicantidad form-control form-control-sm text-center' />
+
+                                            <button class='btn btn-link px-1 botonSumar' data-product-id='$id'>
                                                 <i class='fas fa-plus fs-5'></i>
                                             </button>
                                         </div>
                                         <div class='col-md-1 col-lg-1 col-xl-1 text-center p-0'>
                                             <h6 class='d-inline m-0' id='precioTotal$id'>$ ".$precio*$cantidad."</h6>
                                         </div>
-                                        <a href='#!' style='left: 92%' class='text-danger w-auto fs-2 d-block position-absolute top-0'><i class='fas fa-times'></i></a>
+                                        <form action='../Accion/eliminarItemCarrito.php' id='form$id' method='POST'>
+                                            <input type='hidden' name='idcompraitem' id='idcompraitem' value='$id'>
+                                            <button type='submit' style='left: 92%' class='text-light w-auto fs-2 d-block position-absolute top-0 p-0 px-2 btn btn-danger'><i class='fas fa-times'></i></button>
+                                        </form>
                                     </div>
     
                                     <hr class='my-4'>";
@@ -94,28 +97,17 @@ if (!$sesion->validar()) {
 
                                 <div class="d-flex justify-content-between mb-4">
                                     <h5 class="text-uppercase"><?php echo ($existeCarrito ? $cantidadItems : "Sin") ?> producto<?php if ($cantidadItems !== 1) { echo "s";} ?></h5>
-                                    <h5>$ <?php echo $precioTotal ?></h5>
                                 </div>
-
-                                <h5 class="text-uppercase mb-3">Shipping</h5>
-
-                                <div class="mb-4 pb-2">
-                                    <select class="select">
-                                        <option value="1">Standard-Delivery- €5.00</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                        <option value="4">Four</option>
-                                    </select>
-                                </div>
-
+                                <h4 class="pt-1">Envio gratuito por email</h4>
                                 <hr class="my-4">
 
                                 <div class="d-flex justify-content-between mb-5">
                                     <h5 class="text-uppercase">Precio total</h5>
-                                    <h5>$ 137.00</h5>
+                                    <h5>$ <?php echo $precioTotal ?></h5>
                                 </div>
-
-                                <button type="button" class="btn btn-success btn-block btn-lg">Finalizar compra</button>
+                                <div class="col-12">
+                                    <button type="button" class="btn btn-success btn-block btn-lg col-12">Finalizar compra</button>
+                                </div>
 
                             </div>
                         </div>
@@ -125,6 +117,7 @@ if (!$sesion->validar()) {
         </div>
     </div>
 </section>
+<script src="../JS/scriptCarrito.js"></script>
 <?php
 include_once "../../../vista/estructura/footer.php"
 ?>
