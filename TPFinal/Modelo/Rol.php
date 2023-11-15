@@ -66,7 +66,7 @@ class Rol{
     public function insertar(){
         $resp = false;
         $base=new BaseDatos();
-        $sql="INSERT INTO rol(rodescipcion) VALUES(".$this->getRolDesc().");";
+        $sql="INSERT INTO rol(rodescripcion) VALUES('".$this->getRolDesc()."');";
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;
