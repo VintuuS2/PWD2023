@@ -1,5 +1,5 @@
 <?php
-$titulo = "Producto agregado";
+$titulo = "Producto modificado";
 include_once "../../../configuracionProyecto.php";
 include_once "../Estructura/header.php"; // hay que hacer la verificación de que el usuario loggeado tenga rol de 'deposito'
 include_once "../../configuracion.php";
@@ -13,9 +13,15 @@ if (isset($datos['idproducto']) && isset($datos['pronombre']) && isset($datos['p
 
     $nombreImagen = $datos['nombreimagen'];
     $rutaArchivo = "../../Imagenes/" . $nombreImagen;
-
-    if (!isset($_FILES['proimagen'])) {
-        $imagen = file_get_contents($rutaArchivo, true);
+    if ($_FILES['proimagen']['name'] === "") {
+        $imagenInfo = pathinfo($rutaArchivo);
+        $imagen = array(
+            'name'      => $imagenInfo['basename'],
+            'full_path' => $imagenInfo['dirname'],
+            'type'      => mime_content_type($rutaArchivo),
+            'error'     => 0,
+            'size'      => filesize($rutaArchivo)
+        );
     } else {
         $imagen = $_FILES['proimagen'];
     }
@@ -75,17 +81,17 @@ if (isset($datos['idproducto']) && isset($datos['pronombre']) && isset($datos['p
             if ($error) {
                 echo "<div class='d-flex align-content justify-content-center'>
                         <form method='post' action='./formModificarProducto.php'>
-                            <input type='hidden' name='idproducto' id='idproducto' value='".$datos['idproducto']."'>
+                            <input type='hidden' name='idproducto' id='idproducto' value='" . $datos['idproducto'] . "'>
                             <button type='submit' class='btn btn-primary mx-3 fs-5'>Volver a intentar modificar el producto</button>
                         </form>
                     </div>";
             } else {
                 echo "<div class='d-flex align-content justify-content-center'>
-                        <a class='btn btn-primary mx-3 fs-5' role='button' href='../depositoAdministrarProductos.php'>Volver a la lista de productos</a>
+                        <a class='btn btn-primary mx-3 fs-5' role='button' href='../Deposito/administrarProductos.php'>Volver a la lista de productos</a>
                     </div>";
             }
             ?>
-            
+
         </div>
     </div>
 </div>

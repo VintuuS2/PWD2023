@@ -1,12 +1,13 @@
 <?php
 $titulo = "Agregar productos";
-include_once "../../configuracionProyecto.php";
-include_once "./Estructura/ultimoNav.php"; // hay que hacer la verificación de que el usuario loggeado tenga rol de 'deposito'
+include_once "../../../configuracionProyecto.php";
+include_once "../Estructura/header.php";
+include_once "../Estructura/ultimoNav.php"; // hay que hacer la verificación de que el usuario loggeado tenga rol de 'deposito'
 ?>
 <div class="d-flex justify-content-center align-items-center ">
   <div class="d-flex justify-content-center bg-gris col-12 col-md-8 row position-relative h-100 align-items-center min-vh-100">
     <div class="bg-dark p-5 rounded-5 col-12 col-md-10 col-xl-8">
-      <form action="Accion/agregarProducto.php" id="form" method="POST" class="col-12 needs-validation p-4 rounded-5 gap-3" novalidate enctype="multipart/form-data">
+      <form action="../Accion/agregarProducto.php" id="form" method="POST" class="col-12 needs-validation p-4 rounded-5 gap-3" novalidate enctype="multipart/form-data">
         <h2 class="mt-1 mb-4 text-center text-primary" style="text-wrap: balance;">Agregar producto a la base de datos</h2>
         <input type="hidden" name="idproducto" id="idproducto" required value="0">
         <div class="input-group mb-3">
@@ -51,7 +52,7 @@ include_once "./Estructura/ultimoNav.php"; // hay que hacer la verificación de 
     </div>
   </div>
 </div>
-<script src="./JS/scriptAgregarProductos.js"></script>
+<script src="../JS/scriptAgregarProductos.js"></script>
 <?php
-include_once "../../vista/estructura/footer.php"
+include_once "../../../vista/estructura/footer.php"
 ?>

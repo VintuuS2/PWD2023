@@ -1,9 +1,9 @@
 <?php
 $titulo = "Cambiar stocks";
-include_once "../../configuracionProyecto.php";
-include_once "./Estructura/header.php";
-include_once "./Estructura/ultimoNav.php"; // hay que hacer la verificación de que el usuario loggeado tenga rol de 'deposito'
-include_once "../configuracion.php";
+include_once "../../../configuracionProyecto.php";
+include_once "../Estructura/header.php";
+include_once "../Estructura/ultimoNav.php"; // hay que hacer la verificación de que el usuario loggeado tenga rol de 'deposito'
+include_once "../../configuracion.php";
 $controlProducto = new AbmProducto();
 $listaProductos = $controlProducto->buscar(null);
 ?>
@@ -28,8 +28,8 @@ $listaProductos = $controlProducto->buscar(null);
                         </thead>";
             foreach ($listaProductos as $producto) {
                 echo "<tr class='align-middle table-light'>";
-                echo "<form novalidate class='needs-validation bg-secondary' data-id=" . $producto->getIdProducto() . " method='post' action='Accion/modificarStockProducto.php'>";
-                echo "<td class='p-0'><img class='imagen-redimensionada' src='../Imagenes/" . $producto->getImagen() . "'><input type='hidden' name='idproducto' value='" . $producto->getIdProducto() . "'></td>";
+                echo "<form novalidate class='needs-validation bg-secondary' data-id=" . $producto->getIdProducto() . " method='post' action='../Accion/modificarStockProducto.php'>";
+                echo "<td class='p-0'><img class='imagen-redimensionada' src='../../Imagenes/" . $producto->getImagen() . "'><input type='hidden' name='idproducto' value='" . $producto->getIdProducto() . "'></td>";
                 echo "<td>" . $producto->getNombre() . "</td>";
                 echo "<td><input disabled type='number' name='procantstock' id='procantstock".$producto->getIdProducto()."' class='form-control cursor-text bg-light text-dark border border-0 text-center rounded-5' value='" . $producto->getCantStock() . "'</td>";
                 // Boton para activar modificación del stock
@@ -44,8 +44,8 @@ $listaProductos = $controlProducto->buscar(null);
         ?>
     </div>
 </div>
-<script src="JS/scriptCambiarStocks.js"></script>
-<script src="JS/funciones.js"></script>
+<script src="../JS/scriptCambiarStocks.js"></script>
+<script src="../JS/funciones.js"></script>
 <?php
-include_once "../../vista/estructura/footer.php"
+include_once "../../../vista/estructura/footer.php"
 ?>

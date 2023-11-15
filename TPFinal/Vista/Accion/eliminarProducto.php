@@ -38,7 +38,7 @@ if (isset($datos['idproducto'])) {
                 ?>
             </div>
             <div class="d-flex align-content justify-content-center">
-                <a class="btn btn-primary mx-3 fs-5" role="button" href="../depositoAdministrarProductos.php">Volver a administrar productos</a>
+                <a class="btn btn-primary mx-3 fs-5" role="button" href="../Deposito/administrarProductos.php">Volver a administrar productos</a>
             </div>
         </div>
     </div>

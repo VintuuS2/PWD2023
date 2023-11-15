@@ -26,7 +26,7 @@ if (isset($datos['idproducto']) && isset($datos['procantstock'])) {
                 ?>
             </div>
             <div class="d-flex align-content justify-content-center">
-                <a class="btn btn-primary mx-3 fs-5" role="button" href="../depositoCambiarStocks.php">Volver atrás</a>
+                <a class="btn btn-primary mx-3 fs-5" role="button" href="../Deposito/cambiarStocks.php">Volver atrás</a>
             </div>
         </div>
     </div>

@@ -110,7 +110,9 @@ class CompraEstado {
     public function insertar(){
         $resp = false;
         $base = new BaseDatos();
-        $sql = "INSERT INTO compraestado(idcompra, idcompraestadotipo, cefechaini, cefechafin) VALUES(".$this->getObjCompra()->getIdCompra().",".$this->getObjCompraEstadoTipo()->getIdCompraEstadoTipo().",'".$this->getFechaIni()."','".$this->getFechaFin()."');";
+        date_default_timezone_set('America/Argentina/Buenos_Aires');
+        $fechaComienzo = date('Y-m-d H:i:s');
+        $sql = "INSERT INTO compraestado(idcompra, idcompraestadotipo, cefechaini, cefechafin) VALUES(".$this->getObjCompra()->getIdCompra().",".$this->getObjCompraEstadoTipo()->getIdCompraEstadoTipo().",'".$fechaComienzo."','".$this->getFechaFin()."');";
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;
