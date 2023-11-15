@@ -42,8 +42,8 @@ if (isset($datos['idproducto']) && isset($datos['pronombre']) && isset($datos['p
             ?>
             </div>
             <div class="d-flex align-content justify-content-center">
-                <a class="btn btn-primary mx-3 fs-5" role="button" href="../depositoAgregarProductos.php">Volver atrás</a>
-                <a class="btn btn-primary mx-3 fs-5" role="button" href="../depositoAdministrarProductos.php">Ver lista de productos</a>
+                <a class="btn btn-primary mx-3 fs-5" role="button" href="../Deposito/agregarProductos.php">Volver atrás</a>
+                <a class="btn btn-primary mx-3 fs-5" role="button" href="../Deposito/administrarProductos.php">Ver lista de productos</a>
             </div>
         </div>
     </div>

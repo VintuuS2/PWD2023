@@ -1,9 +1,15 @@
 <?php
 $titulo = "Administrar productos";
-include_once "../../configuracionProyecto.php";
-include_once "./Estructura/header.php";
-include_once "./Estructura/ultimoNav.php"; // hay que hacer la verificación de que el usuario loggeado tenga rol de 'deposito'
-include_once "../configuracion.php";
+include_once "../../../configuracionProyecto.php";
+include_once "../Estructura/header.php";
+include_once "../Estructura/ultimoNav.php"; // hay que hacer la verificación de que el usuario loggeado tenga rol de 'deposito'
+include_once "../../configuracion.php";
+$sesion = new Session();
+if (!$sesion->validar()) {
+    header('Location: ' . $urlRoot . "Vista/login.php");
+} else {
+    $usuario = $sesion->getUserObj();
+}
 ?>
 <div class="d-flex justify-content-center align-items-center ">
     <div class="d-flex justify-content-center bg-gris col-12 col-md-8 position-relative h-100 align-items-center min-vh-100 row row-cols-1">
@@ -14,18 +20,18 @@ include_once "../configuracion.php";
             foreach ($colProductos as $unProducto) {
                 echo "<div class='col p-4 col-xl-4 col-sm-6'>
                         <div class='bg-white p-2 rounded text-black'>
-                            <img src='../Imagenes/".$unProducto->getImagen()."' class='card-img-top' alt='imagen ".$unProducto->getNombre()."'>
+                            <img src='../../Imagenes/".$unProducto->getImagen()."' class='card-img-top' alt='imagen ".$unProducto->getNombre()."'>
                             <div class='card-body'>
-                                <h4 class='card-title'>".$unProducto->getNombre()."</h5>
+                                <h4 class='card-title'>".$unProducto->getNombre()."</h4>
                                 <p class='card-text mb-0'>".$unProducto->getDetalle()."</p>
                                 <p class='card-text text-primary-emphasis fw-bold mb-0'> Stock: ".$unProducto->getCantStock()." unidades.</p>
                                 <p class='card-text mb-0 text-success fw-bold'>$".$unProducto->getPrecio()." US</p>
                                 <div class='text-center row'>
-                                    <form method='post' action='Accion/formModificarProducto.php' class='col-6'>
+                                    <form method='post' action='../Accion/formModificarProducto.php' class='col-6'>
                                         <input type='hidden' name='idproducto' id='idproducto' value='".$unProducto->getIdProducto()."'>
                                         <button type='submit' class='btn btn-primary mt-1'>Modificar datos</button>
                                     </form>
-                                    <form method='post' action='Accion/eliminarProducto.php' class='col-6'>
+                                    <form method='post' action='../Accion/eliminarProducto.php' class='col-6'>
                                         <input type='hidden' name='idproducto' id='idproducto' value='".$unProducto->getIdProducto()."'>
                                         <button type='submit' class='btn btn-danger mt-1'>Eliminar producto</button>
                                     </form>
@@ -44,5 +50,5 @@ include_once "../configuracion.php";
     </div>
 </div>
 <?php
-include_once "../../vista/estructura/footer.php"
+include_once "../../../vista/estructura/footer.php"
 ?>
