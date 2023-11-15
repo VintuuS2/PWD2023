@@ -53,7 +53,10 @@ if (isset($datos['idusuario']) && isset($datos['usnombre']) && isset($datos['usr
                     $rolesEliminar[] = $idRolActual;
                 }
             }
-
+            //actualmente tiene 2
+            //voy a eliminar 2
+            //si cantRoles == CantRolesEliminar
+            //Agregar 
             foreach ($rolesEliminar as $idRolEliminar) {
                 if ($controlUsuarioRol->baja(['idusuario' => $usuario->getId(), 'idrol' => $idRolEliminar])) {
                     //setCookie('baja', 'Rol/es borrados correctamente.');

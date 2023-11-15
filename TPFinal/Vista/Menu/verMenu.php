@@ -1,6 +1,6 @@
 <?php
 //ob_start();
-//include_once '../configuracion.php';
+//include_once '../../configuracion.php';
 
 /**Variables Importantes:
  * $verComo: Las options de roles

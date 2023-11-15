@@ -1,16 +1,16 @@
 <?php
 $titulo = "Game Galaxy";
 include_once "../../configuracionProyecto.php";
+//include_once "./Menu/verMenu.php";
 include_once "../configuracion.php";
-include_once "./Menu/verMenu.php";
-include_once "./Estructura/header.php";
+//include_once "./Estructura/header.php";
 /*$sesion = new Session();
 if ($sesion->validar()) {
   setcookie("login", 1);
 } else {
   setcookie("login", 0);
 }*/
-include_once "./Estructura/ultimoNav.php";
+//include_once "./Estructura/ultimoNav.php";
 ?>
 <div class="min-vh-100 d-flex justify-content-center">
   <div class="col-12 col-lg-9 bg-body-tertiary h-100 min-vh-100">
