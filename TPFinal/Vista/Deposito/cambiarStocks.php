@@ -29,7 +29,7 @@ $listaProductos = $controlProducto->buscar(null);
             foreach ($listaProductos as $producto) {
                 echo "<tr class='align-middle table-light'>";
                 echo "<form novalidate class='needs-validation bg-secondary' data-id=" . $producto->getIdProducto() . " method='post' action='../Accion/modificarStockProducto.php'>";
-                echo "<td class='p-0'><img class='imagen-redimensionada' src='../../Imagenes/" . $producto->getImagen() . "'><input type='hidden' name='idproducto' value='" . $producto->getIdProducto() . "'></td>";
+                echo "<td class='p-0'><img class='imagen-redimensionada' src='../Imagenes/" . $producto->getImagen() . "'><input type='hidden' name='idproducto' value='" . $producto->getIdProducto() . "'></td>";
                 echo "<td>" . $producto->getNombre() . "</td>";
                 echo "<td><input disabled type='number' name='procantstock' id='procantstock".$producto->getIdProducto()."' class='form-control cursor-text bg-light text-dark border border-0 text-center rounded-5' value='" . $producto->getCantStock() . "'</td>";
                 // Boton para activar modificación del stock

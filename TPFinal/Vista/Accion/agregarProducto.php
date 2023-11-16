@@ -1,8 +1,8 @@
 <?php
 $titulo = "Producto agregado";
 include_once "../../../configuracionProyecto.php";
-include_once "../Estructura/header.php"; // hay que hacer la verificación de que el usuario loggeado tenga rol de 'deposito'
 include_once "../../configuracion.php";
+include_once "../Estructura/ultimoNav.php";
 $datos = data_submitted();
 if (isset($datos['idproducto']) && isset($datos['pronombre']) && isset($datos['prodetalle']) && isset($datos['procantstock']) && isset($datos['proprecio']) && isset($_FILES['proimagen'])) {
     $nombre = $datos['pronombre'];
@@ -12,7 +12,7 @@ if (isset($datos['idproducto']) && isset($datos['pronombre']) && isset($datos['p
     $imagen = $_FILES['proimagen'];
 
     $nombre_archivo = $imagen['name'];
-    $ruta_destino = '../../Imagenes/' . $nombre_archivo;
+    $ruta_destino = '../Imagenes/' . $nombre_archivo;
     if (file_exists($ruta_destino)) {
         $mensaje = "Ya hay una imagen con ese nombre, suba la imagen con otro nombre o suba otra imagen.";
     } else {

@@ -9,7 +9,7 @@ if (isset($datos['idproducto'])) {
     $producto = $controlProducto->buscar($datos)[0];
 
     $nombre_imagen = $producto->getImagen();
-    $ruta_destino = '../../Imagenes/' . $nombre_imagen;
+    $ruta_destino = '../Imagenes/' . $nombre_imagen;
     if (file_exists($ruta_destino)) {
         // Elimina la imagen que tenia ese producto
         if (unlink($ruta_destino)) {

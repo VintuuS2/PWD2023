@@ -1,22 +1,26 @@
 <?php
 $titulo = "Mi carrito";
-include_once "../../configuracion.php";
 include_once "../../../configuracionProyecto.php";
-$sesion = new Session();
-include_once "../Estructura/header.php";
-include_once "../Estructura/ultimoNav.php";
-if (!$sesion->validar()) {
-    header('Location: ' . $urlRoot . "Vista/login.php");
+include_once "../../configuracion.php";
+include_once "../../Vista/Estructura/ultimoNav.php";
+
+$usuario = $session->getUserObj();
+$idUsuario = $usuario->getId();
+$controlCompra = new AbmCompra();
+$controlCompraEstado = new AbmCompraEstado();
+$controlCompraItem = new AbmCompraItem();
+$controlProducto = new AbmProducto();
+$comprasCliente = $controlCompra->buscar(['idusuario' => $idUsuario]);
+$existeCarrito = false;
+if (count($comprasCliente) == 0) { // si no hay compras
+    // Se crea nueva compra carrito
+    $controlCompra->alta(['idcompra' => 0, 'cofecha' => null, 'idusuario' => $idUsuario]);
+    $comprasUsuario = $controlCompra->buscar(['idusuario' => $idUsuario]);
+    $objCompra = $comprasUsuario[count($comprasUsuario) - 1];
+    // Se crea nuevo estado para la compra (carrito)
+    $controlCompraEstado->alta(['idcompraestado' => 0, 'idcompra' => $objCompra->getIdCompra(), 'idcompraestadotipo' => 5, 'cefechaini' => NULL, 'cefechafin' => NULL]);
 } else {
-    $usuario = $sesion->getUserObj(); // Obtengo el user actual
-    $idUsuario = $usuario->getId();
-    $controlCompra = new AbmCompra();
-    $controlCompraEstado = new AbmCompraEstado();
-    $controlCompraItem = new AbmCompraItem();
-    $controlProducto = new AbmProducto();
-    $comprasCliente = $controlCompra->buscar(['idusuario' => $idUsuario]);
     $posibleCompraCarrito = $comprasCliente[count($comprasCliente) - 1];
-    $existeCarrito = false;
     if (count($controlCompraEstado->buscar(['idcompra' => $posibleCompraCarrito->getIdCompra()])) === 1) { // ya existe un carrito
         $existeCarrito = true;
         $objCompra = $posibleCompraCarrito;
@@ -24,14 +28,15 @@ if (!$sesion->validar()) {
         // Se crea nueva compra carrito
         $controlCompra->alta(['idcompra' => 0, 'cofecha' => null, 'idusuario' => $idUsuario]);
         $comprasUsuario = $controlCompra->buscar(['idusuario' => $idUsuario]);
-        $objCompra = $comprasUsuario[count($comprasUsuario)-1];
+        $objCompra = $comprasUsuario[count($comprasUsuario) - 1];
         // Se crea nuevo estado para la compra (carrito)
         $controlCompraEstado->alta(['idcompraestado' => 0, 'idcompra' => $objCompra->getIdCompra(), 'idcompraestadotipo' => 5, 'cefechaini' => NULL, 'cefechafin' => NULL]);
     }
-    $itemsCarrito = $controlCompraItem->buscar(['idcompra' => $objCompra->getIdCompra()]);
-    $cantidadItems = count($itemsCarrito);
-    $precioTotal = 0;
 }
+$itemsCarrito = $controlCompraItem->buscar(['idcompra' => $objCompra->getIdCompra()]);
+$cantidadItems = count($itemsCarrito);
+$precioTotal = 0;
+
 ?>
 <section class="min-vh-100">
     <div style="top: 100px;" class="z-3 row justify-content-center align-items-center position-fixed fixed-top mx-0 px-0">
@@ -66,7 +71,7 @@ if (!$sesion->validar()) {
                                         $precioTotal += $precio * $cantidad;
                                         echo "<div class='row mb-4 d-flex justify-content-between align-items-center position-relative py-3'>
                                         <div class='col-md-2 col-lg-2 col-xl-2'>
-                                            <img src='../../Imagenes/$img' class='img-fluid rounded-3' alt='$nombre'>
+                                            <img src='../Imagenes/$img' class='img-fluid rounded-3' alt='$nombre'>
                                         </div>
                                         <div class='col-md-6 col-lg-6 col-xl-7'>
                                             <h5 class='text-black mb-0'>$nombre</h5>

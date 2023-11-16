@@ -12,7 +12,7 @@ if (isset($datos['idproducto']) && isset($datos['pronombre']) && isset($datos['p
     $precio = $datos['proprecio'];
 
     $nombreImagen = $datos['nombreimagen'];
-    $rutaArchivo = "../../Imagenes/" . $nombreImagen;
+    $rutaArchivo = "../Imagenes/" . $nombreImagen;
     if ($_FILES['proimagen']['name'] === "") {
         $imagenInfo = pathinfo($rutaArchivo);
         $imagen = array(
@@ -27,7 +27,7 @@ if (isset($datos['idproducto']) && isset($datos['pronombre']) && isset($datos['p
     }
     $datos['proimagen'] = $imagen;
     $nombre_archivo = $imagen['name'];
-    $ruta_destino = '../../Imagenes/' . $nombre_archivo;
+    $ruta_destino = '../Imagenes/' . $nombre_archivo;
     // Si no existe la imagen (se cambió la imagen)
     if (!(file_exists($ruta_destino))) {
         // Se borra la foto anterior

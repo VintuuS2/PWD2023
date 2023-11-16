@@ -1,15 +1,8 @@
 <?php
 $titulo = "Administrar productos";
 include_once "../../../configuracionProyecto.php";
-include_once "../Estructura/header.php";
 include_once "../../configuracion.php";
-$sesion = new Session();
-if (!$sesion->validar()) {
-    header('Location: ' . $urlRoot . "Vista/login.php");
-} else {
-    $usuario = $sesion->getUserObj();
-}
-include_once "../Estructura/ultimoNav.php"; // hay que hacer la verificación de que el usuario loggeado tenga rol de 'deposito'
+include_once "../Estructura/ultimoNav.php";
 ?>
 <div class="d-flex justify-content-center align-items-center ">
     <div class="d-flex justify-content-center bg-gris col-12 col-md-8 position-relative h-100 align-items-center min-vh-100 row row-cols-1">
@@ -18,9 +11,9 @@ include_once "../Estructura/ultimoNav.php"; // hay que hacer la verificación de
         $colProductos = $controlProducto->buscar(null);
         if (count($colProductos) > 0) {
             foreach ($colProductos as $unProducto) {
-                echo "<div class='col p-4 col-xl-4 col-sm-6'>
+                echo "<div class='col p-4 col-xxl-3 col-xl-4 col-sm-6'>
                         <div class='bg-white p-2 rounded text-black'>
-                            <img src='../../Imagenes/".$unProducto->getImagen()."' class='card-img-top' alt='imagen ".$unProducto->getNombre()."'>
+                            <img src='../Imagenes/".$unProducto->getImagen()."' class='card-img-top' alt='imagen ".$unProducto->getNombre()."'>
                             <div class='card-body'>
                                 <h4 class='card-title'>".$unProducto->getNombre()."</h4>
                                 <p class='card-text mb-0'>".$unProducto->getDetalle()."</p>

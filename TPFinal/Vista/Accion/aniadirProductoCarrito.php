@@ -1,47 +1,43 @@
 <?php
 $titulo = "Añadir producto carrito";
 include_once "../../../configuracionProyecto.php";
-include_once "../Estructura/header.php"; // hay que hacer la verificación de que el usuario loggeado tenga rol de 'deposito'
 include_once "../../configuracion.php";
-$sesion = new Session();
-if (!$sesion->validar()) {
-    header('Location: ' . $urlRoot . "Vista/login.php");
-} else {
-    $controlCompraEstado = new AbmCompraEstado();
-    $controlCompraItem = new AbmCompraItem();
-    $controlCompra = new AbmCompra();
-    $datos = data_submitted();
-    if (isset($datos['idproducto'])) {
-        $usuario = $sesion->getUserObj();
-        $idUsuario = $usuario->getId();
-        $idProducto = $datos['idproducto'];
-        $comprasCliente = $controlCompra->buscar(['idusuario' => $idUsuario]);
-        // Si el cliente no tiene compras, se crea una nueva compra con el compraestadotipo de carrito
-        if (count($comprasCliente) === 0) {
-            crearCarrito($idUsuario, $idProducto);
-        } else { // Si tiene compras se busca la ultima compra que solo tenga compraestadotipo de carrito
-            $posibleCarrito = $comprasCliente[count($comprasCliente) - 1];
-            if (count($controlCompraEstado->buscar(['idcompra' => $posibleCarrito->getIdCompra()])) === 1) { // ya existe un carrito
-                $objCompraCarrito = $posibleCarrito;
-                $colCompraItems = $controlCompraItem->buscar(['idcompra' => $objCompraCarrito->getIdCompra(), 'idproducto' => $idProducto]);
-                // Verifico si ya existe el producto que se esta intentando agregar
-                if (count($colCompraItems) != 0) {
-                    $objCompraItem = $colCompraItems[0];
-                    // se suma 1 a la cantidad
-                    $objCompraItem->setCantidad($objCompraItem->getCantidad() + 1);
-                    $objCompraItem->modificar();
-                } else {
-                    $controlCompraItem->alta(['idcompraitem' => 0, 'idproducto' => $idProducto, 'idcompra' => $objCompraCarrito->getIdCompra(), 'cicantidad' => 1]);
-                }
+$controlCompraEstado = new AbmCompraEstado();
+$controlCompraItem = new AbmCompraItem();
+$controlCompra = new AbmCompra();
+$datos = data_submitted();
+if (isset($datos['idproducto'])) {
+    $usuario = $session->getUserObj();
+    $idUsuario = $usuario->getId();
+    $idProducto = $datos['idproducto'];
+    $comprasCliente = $controlCompra->buscar(['idusuario' => $idUsuario]);
+    // Si el cliente no tiene compras, se crea una nueva compra con el compraestadotipo de carrito
+    if (count($comprasCliente) === 0) {
+        crearCarrito($idUsuario, $idProducto);
+    } else { // Si tiene compras se busca la ultima compra que solo tenga compraestadotipo de carrito
+        $posibleCarrito = $comprasCliente[count($comprasCliente) - 1];
+        if (count($controlCompraEstado->buscar(['idcompra' => $posibleCarrito->getIdCompra()])) === 1) { // ya existe un carrito
+            $objCompraCarrito = $posibleCarrito;
+            $colCompraItems = $controlCompraItem->buscar(['idcompra' => $objCompraCarrito->getIdCompra(), 'idproducto' => $idProducto]);
+            // Verifico si ya existe el producto que se esta intentando agregar
+            if (count($colCompraItems) != 0) {
+                $objCompraItem = $colCompraItems[0];
+                // se suma 1 a la cantidad
+                $objCompraItem->setCantidad($objCompraItem->getCantidad() + 1);
+                $objCompraItem->modificar();
             } else {
-                crearCarrito($idUsuario, $idProducto);
+                $controlCompraItem->alta(['idcompraitem' => 0, 'idproducto' => $idProducto, 'idcompra' => $objCompraCarrito->getIdCompra(), 'cicantidad' => 1]);
             }
+        } else {
+            crearCarrito($idUsuario, $idProducto);
         }
-        header('Location: ' . $urlRoot . "Vista/Cliente/carrito.php");
-    } else {
-        $mensaje = "ERROR: No se pudo añadir el producto al carrito.";
     }
+    header('Location: ' . $urlRoot . "Vista/Cliente/carrito.php");
+} else {
+    $mensaje = "ERROR: No se pudo añadir el producto al carrito.";
 }
+include_once "../../Vista/Estructura/ultimoNav.php";
+
 function crearCarrito($idUsuario, $idProducto)
 {
     $controlCompra = new AbmCompra();
@@ -50,7 +46,7 @@ function crearCarrito($idUsuario, $idProducto)
     // Se crea nueva compra
     $controlCompra->alta(['idcompra' => 0, 'cofecha' => null, 'idusuario' => $idUsuario]);
     $comprasUsuario = $controlCompra->buscar(['idusuario' => $idUsuario]);
-    $compra = $comprasUsuario[count($comprasUsuario)-1];
+    $compra = $comprasUsuario[count($comprasUsuario) - 1];
     // Se crea nuevo estado para la compra (carrito)
     $controlCompraEstado->alta(['idcompraestado' => 0, 'idcompra' => $compra->getIdCompra(), 'idcompraestadotipo' => 5, 'cefechaini' => NULL, 'cefechafin' => NULL]);
     // Se agrega el item al carrito (compraitem)

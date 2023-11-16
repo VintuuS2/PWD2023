@@ -12,6 +12,6 @@ $urlRoot = "http://".$_SERVER['HTTP_HOST']."/PWD2023/TPFinal/";
 include_once($ROOT.'./util/funciones.php');
 include_once($ROOT.'./Vista/Menu/verMenu.php');
 include_once($ROOT.'./Vista/Estructura/header.php');
-include_once($ROOT.'./Vista/Estructura/ultimoNav.php');
+//include_once($ROOT.'./Vista/Estructura/ultimoNav.php');
 
 ?>

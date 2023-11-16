@@ -48,7 +48,7 @@ if (isset($datos['idproducto'])) {
     <div class='input-group mb-3 align-items-center'>
       <div class='col-3 p-0' style='display: inline-table;'>
         <span class='input-group-text bg-secondary-emphasis fw-bold border-0 text-info rounded rounded-bottom-0 text-center d-block' id='basic-addon5'>Imagen guardada</span>
-        <img src='../../Imagenes/" . $nombreImagen . "' alt='imagen " . $nombre . "' class='w-100'>
+        <img src='../Imagenes/" . $nombreImagen . "' alt='imagen " . $nombre . "' class='w-100'>
       </div>
       <input type='file' class='form-control ms-1' name='proimagen' id='proimagen' accept='.png,.jpg' aria-describedby='basic-addon5'>
       <div class='invalid-feedback'>
