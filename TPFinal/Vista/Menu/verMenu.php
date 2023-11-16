@@ -6,7 +6,7 @@
  * 
  */
 $datos = data_submitted();
-//var_dump($datos);
+//var_dump($datos);z
 
 $session = new Session;
 //var_dump($_SESSION);
@@ -111,6 +111,7 @@ if ($session->validar()){
 
     //Declaro una variable para saber si puedo estar en la página actual
     $puedoEstar = false;
+    $idAux = 0;
     foreach ($liMenus as $opcionMenu){
 
         //Comparo la URL donde estoy con la de los Menús
@@ -120,11 +121,12 @@ if ($session->validar()){
         }
         //Genero el índice del navbarecho
         $nombreMenu = $opcionMenu->getMeNombre();
-        if ($nombreMenu == "Inicio"){
-            $lista .= '<li class="nav-item"><a href="'. $PROYECTOROOT."TPFinal/Vista/".$descMenu .'" class="nav-link text-light link-body-emphasis">'.$nombreMenu.'</a></li>';
+        if ($nombreMenu == "Inicio" || $nombreMenu == "Configuracion"){
+            $lista .= '<li class="nav-item m'.$idAux.'"><a href="'. $PROYECTOROOT."TPFinal/Vista/".$descMenu .'" class="nav-link text-light link-body-emphasis">'.$nombreMenu.'</a></li>';
         } else {
-            $estoVanUltimo .= '<li class="nav-item"><a href="'. $PROYECTOROOT."TPFinal/Vista/".$descMenu .'" class="nav-link text-light link-body-emphasis">'.$nombreMenu.'</a></li>';
+            $estoVanUltimo .= '<li class="nav-item m'.$idAux.'"><a href="'. $PROYECTOROOT."TPFinal/Vista/".$descMenu .'" class="nav-link text-light link-body-emphasis">'.$nombreMenu.'</a></li>';
         }
+        $idAux++;
     }
     $lista .= $estoVanUltimo;
 

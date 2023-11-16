@@ -18,6 +18,8 @@ $(document).ready(function(){
     form = $('#form-nav')
     select = $('#selectVerComo');
     optionSelect = select.val();
+    $('ul li:eq(1)').hide();
+
     datos = {opcionSeleccionada: optionSelect,};
 
     if (document.cookie.includes('login=1')){
