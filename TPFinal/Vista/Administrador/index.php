@@ -69,5 +69,5 @@ include_once "../Estructura/ultimoNav.php";
   </div>
 </div>
 <?php
-include_once "../../vista/estructura/footer.php"
+include_once "../../../vista/estructura/footer.php"
 ?>

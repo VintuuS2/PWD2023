@@ -57,6 +57,7 @@ if ($session->validar()){
             $aunTieneRol = true;
         }
     }
+    var_dump($aunTieneRol);
 
     //Si aun tiene el rol, la opción se queda a la última opción que seleccionó, si no, obtiene la opción del 1er rol que tenga.
     if ($aunTieneRol){
@@ -96,7 +97,9 @@ if ($session->validar()){
     } else {
         setcookie("verComo",0);
         //setcookie("opcion",$descRol[0]->getIdRol());
-        $verComo .= '<option value="' . $descRol[0]->getIdRol() . '">' . $descRol[0]->getRolDesc() . '</option>';
+        $session->updateRol();
+        $verComoOpcion = $_SESSION['idroles'][0];
+        $verComo .= '<option value="' . $_SESSION['idroles'][0] . '">' . $descRol[0]->getRolDesc() . '</option>';
     }
 
     //Convierto el idRol en un ARRAY para poder buscar
@@ -116,8 +119,12 @@ if ($session->validar()){
         //Comparo la URL donde estoy con la de los Menús
         $descMenu = $opcionMenu->getMeDescripcion();
         if (trim($url) == trim($descMenu)){
+            //echo "<br>Aca puedo estar: <br>";
             $puedoEstar = true;
-        }
+        } /*else {
+            echo "<br>Aca no puedo estar: <br>";
+        }*/
+        //echo "Estoy en: ".$url." - Tendría que ir a: ".$descMenu."<br>";
         //Genero el índice del navbarecho
         $nombreMenu = $opcionMenu->getMeNombre();
         if ($nombreMenu == "Inicio" || $nombreMenu == "Configuracion"){
@@ -142,10 +149,12 @@ if ($session->validar()){
         }
         $urlDelLocation = 'Location:'.$urlRoot."Vista/".$descRol[$meQuedoAca]->getRolDesc()."/index.php";
     }
-    header($urlDelLocation);
+    //header($urlDelLocation);
 
 } else {
     setcookie("login", 0);
+    setcookie("verComo",0);
+    //var_dump($_COOKIE);
 }
 
 /*//echo "Menu: ";

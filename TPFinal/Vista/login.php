@@ -12,6 +12,17 @@ include_once "./Estructura/ultimoNav.php";
 <div class="d-flex justify-content-center align-items-center ">
     <div class="d-flex justify-content-center bg-body-tertiary row col-12 col-md-8 row position-relative h-100 align-items-center min-vh-100">
         <div class="bg-black p-5 rounded-5 text-white col-12 col-sm-8 col-md-8 col-lg-6 col-xl-4">
+            <div class="text-center">
+                <?php 
+                if (isset($_SESSION['mensajeError'])){
+                    echo "<p class='text-danger'>".$_SESSION['mensajeError']."</p>";
+                    $_SESSION['mensajeError'] = null;
+                } else if (isset($_SESSION['mensajeExito'])){
+                    echo "<p class='text-success'>".$_SESSION['mensajeExito']."</p>";
+                    $_SESSION['mensajeExito'] = null;
+                }
+                ?>
+            </div>
             <form action="./Accion/verificarLogin.php" method="post" class="needs-validation" novalidate>
                 <div class="text-center">
                     <h2>Login</h2>
@@ -25,7 +36,7 @@ include_once "./Estructura/ultimoNav.php";
                 </div>
                 <div class="form-group">
                     <label for="password-input" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" maxlength="11" pattern="[0-9]+" name="password-input" id="password-input" placeholder="Ingrese su contraseña" errorVacio="Por favor rellene este campo" errorPatron="El contenido solo acepta hasta 11 carácteres numéricos" required>
+                    <input type="password" class="form-control" pattern="[a-zA-Z0-9]+" name="password-input" id="password-input" placeholder="Ingrese su contraseña" errorVacio="Por favor rellene este campo" errorPatron="El contenido solo acepta hasta 11 carácteres numéricos" required>
                     <div class="invalid-feedback">
                         Rellene este campo
                     </div>
@@ -56,7 +67,7 @@ include_once "./Estructura/ultimoNav.php";
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="password-input" class="form-label">Contraseña</label>
-                                    <input type="password" class="form-control" pattern="[0-9]+" maxlength="11" name="password-register" id="password-register" placeholder="Password" errorVacio="Por favor rellene este campo" errorPatron="El contenido solo acepta hasta 11 carácteres numéricos" required>
+                                    <input type="password" class="form-control" pattern="[a-zA-Z0-9]+" name="password-register" id="password-register" placeholder="Password" errorVacio="Por favor rellene este campo" errorPatron="El contenido solo acepta hasta 11 carácteres numéricos" required>
                                     <div class="invalid-feedback">
                                         Rellene este campo
                                     </div>

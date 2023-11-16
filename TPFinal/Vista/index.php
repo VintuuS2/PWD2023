@@ -1,6 +1,7 @@
 <?php
-$titulo = "Game Galaxy";
 include_once "../../configuracionProyecto.php";
+header('Location: ' . $urlRoot . "Cliente/index.php");
+/*$titulo = "Game Galaxy";
 include_once "../configuracion.php";
 include_once "./Estructura/ultimoNav.php";
 ?>
@@ -61,5 +62,5 @@ include_once "./Estructura/ultimoNav.php";
   </div>
 </div>
 <?php
-include_once "../../vista/estructura/footer.php"
+include_once "../../vista/estructura/footer.php"*/
 ?>
