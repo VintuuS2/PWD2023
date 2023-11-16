@@ -58,7 +58,7 @@ if ($session->validar()){
             $aunTieneRol = true;
         }
     }
-    var_dump($aunTieneRol);
+    //var_dump($aunTieneRol);
 
     //Si aun tiene el rol, la opción se queda a la última opción que seleccionó, si no, obtiene la opción del 1er rol que tenga.
     if ($aunTieneRol){
@@ -66,6 +66,7 @@ if ($session->validar()){
     } else {
         $opcion = $_SESSION['idroles'][0];
     }*/
+
     //Obtengo los roles del user
     $descRol = $session->getRoles();
     
