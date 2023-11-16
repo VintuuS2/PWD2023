@@ -8,7 +8,6 @@ include_once "./../Estructura/ultimoNav.php";
 $objUsuario = new AbmUsuario();
 $listaUsuarios = $objUsuario->buscar(null);
 $usuariosConRoles = $objUsuario->listarUsuarioRol(null);
-$mensajeCookie = $_COOKIE;
 ?>
 
 <div class="d-flex justify-content-center align-items-center">
@@ -29,7 +28,7 @@ $mensajeCookie = $_COOKIE;
                         <th>Rol/es</th>
                     </tr>
                 </thead>";
-            echo "<form novalidate class='needs-validation' method='post' action='./../Accion/modificarRoles.php' id='cambiarRol'>";
+            echo "<form novalidate class='needs-validation' method='post' id='formrolesusuario'>";
             foreach ($listaUsuarios as $usuario) {
                 echo "<tr class='align-middle'>";
                 echo "<td>" . $usuario->getId() . "<input type='hidden' name='idusuario[]' value='" . $usuario->getId() . "'></td>";
@@ -62,7 +61,7 @@ $mensajeCookie = $_COOKIE;
             echo "</table>";
             echo "
                 <div class='d-flex justify-content-center align-items-center'>
-                    <button class='btn btn-success'type='submit'><i class='fa-solid fa-check'></i> Enviar</button>
+                    <button class='btn btn-success' type='button' id = 'recibirdatosformboton'><i class='fa-solid fa-check'></i> Enviar</button>
                 </div>";
                 
             echo "</form>";
@@ -72,7 +71,8 @@ $mensajeCookie = $_COOKIE;
         ?>
     </div>
 </div>
-<script src="JS/funciones.js"></script>
+<script src="../JS/funciones.js"></script>
+<script src="../JS/rolesAdministrador.js"></script>
 <?php
 include_once "../../../vista/estructura/footer.php";
 
