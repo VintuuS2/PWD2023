@@ -116,7 +116,6 @@ class Usuario{
         $habilitado = $this->getHabilitado();
         $habilitadoSql = ($habilitado == 'null' || $habilitado == null) ? "NULL" : "'$habilitado'";
         $sql = "UPDATE usuario SET usnombre = '".$this->getNombre()."', uspass = '".$this->getPass()."', usmail = '".$this->getMail()."', usdeshabilitado = $habilitadoSql WHERE idusuario = '".$this->getId()."'";
-        
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;

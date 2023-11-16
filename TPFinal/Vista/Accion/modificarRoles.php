@@ -4,14 +4,14 @@ $titulo = "Roles Modificados";
 include_once "../../../configuracionProyecto.php";
 include_once "../../configuracion.php";
 include_once "../Estructura/header.php";
-//include_once "../Estructura/ultimoNav.php";
+include_once "../Estructura/ultimoNav.php";
 
 $session = new Session;
 
 $datos = data_submitted();
 $error = false;
 $mensaje = "";
-if (!isset($datos['usroles'])){
+if (!isset($datos['usroles'])) {
     $datos['usroles'] = -1;
 }
 if (isset($datos['idusuario']) && isset($datos['usnombre']) && isset($datos['usroles'])) {
@@ -40,7 +40,19 @@ if (isset($datos['idusuario']) && isset($datos['usnombre']) && isset($datos['usr
                 foreach ($roles[$id] as $roleName) {
                     if (isset($roleNameToIdMap[$roleName])) {
                         $idRoles[] = $roleNameToIdMap[$roleName];
-                    } 
+                    }
+                }
+            }
+
+            foreach ($idRoles as $idRol) {
+                // Verificar si la relación usuario-rol ya existe
+                $relacionExistente = $controlUsuarioRol->buscar(['idusuario' => $usuario->getId(), 'idrol' => $idRol]);
+
+                if (empty($relacionExistente)) {
+                    // La relación no existe, entonces podes insertarla
+                    if ($controlUsuarioRol->alta(['idusuario' => $usuario->getId(), 'idrol' => $idRol])) {
+                        //setCookie('alta', 'Rol/es agregados correctamente.');
+                    }
                 }
             }
 
@@ -53,34 +65,37 @@ if (isset($datos['idusuario']) && isset($datos['usnombre']) && isset($datos['usr
                     $rolesEliminar[] = $idRolActual;
                 }
             }
-            //actualmente tiene 2
-            //voy a eliminar 2
-            //si cantRoles == CantRolesEliminar
-            //Agregar 
-            foreach ($rolesEliminar as $idRolEliminar) {
-                if ($controlUsuarioRol->baja(['idusuario' => $usuario->getId(), 'idrol' => $idRolEliminar])) {
-                    //setCookie('baja', 'Rol/es borrados correctamente.');
-                } 
+
+            if (count($rolesEliminar)==count($rolesActuales)){
+                foreach ($rolesEliminar as $idRolEliminar) {
+
+                    if ($controlUsuarioRol->baja(['idusuario' => $usuario->getId(), 'idrol' => $idRolEliminar])) {
+                        //setCookie('baja', 'Rol/es borrados correctamente.');
+                    }
+                }
+                $controlUsuarioRol->alta(['idusuario' => $usuario->getId(), 'idrol' => '3']);
+            } else {
+                foreach ($rolesEliminar as $idRolEliminar) {
+
+                    if ($controlUsuarioRol->baja(['idusuario' => $usuario->getId(), 'idrol' => $idRolEliminar])) {
+                        //setCookie('baja', 'Rol/es borrados correctamente.');
+                    }
+                }
             }
 
-            foreach ($idRoles as $idRol) {
-                // Verificar si la relación usuario-rol ya existe
-                $relacionExistente = $controlUsuarioRol->buscar(['idusuario' => $usuario->getId(), 'idrol' => $idRol]);
 
-                if (empty($relacionExistente)) {
-                    // La relación no existe, entonces podes insertarla
-                    if ($controlUsuarioRol->alta(['idusuario' => $usuario->getId(), 'idrol' => $idRol])) {
-                        //setCookie('alta', 'Rol/es agregados correctamente.');
-                    } 
-                } 
-            }
+            
 
-            if ($_SESSION['idusuario'] == $datos['idusuario']){
+            
+
+
+
+            if ($_SESSION['idusuario'] == $datos['idusuario']) {
                 $session->updateRol();
             }
         }
     }
-    header('Location: '.$urlRoot."Vista/Administrador/verRolesAdministrador.php");
+    header('Location: ' . $urlRoot . "Vista/Administrador/verRolesAdministrador.php");
 } else {
     $mensaje = "El formulario no ha llegado correctamente o no se han seleccionado roles, reinténtalo.";
 }
