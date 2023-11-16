@@ -21,7 +21,7 @@ $estoVanUltimo = "";
 $urlDelLocation = "";
 
 //Setea el idRol a la opción que tenía seleccionada
-$idRolAnterior = $_COOKIE['opcion'];
+//$idRolAnterior = $_COOKIE['opcion'];
 $paginaVisible = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
 $archivo = basename($paginaVisible);
@@ -51,7 +51,7 @@ if ($session->validar()){
 
 
     //Comprueba si aún tiene el rol desde la Sesion actual.
-    $aunTieneRol = false;
+    /*$aunTieneRol = false;
     foreach ($_SESSION['idroles'] as $idRoles){
         if ($idRoles == $idRolAnterior){
             $aunTieneRol = true;
@@ -63,8 +63,7 @@ if ($session->validar()){
         $opcion = $verComoOpcion;
     } else {
         $opcion = $_SESSION['idroles'][0];
-    }
-
+    }*/
     //Obtengo los roles del user
     $descRol = $session->getRoles();
     

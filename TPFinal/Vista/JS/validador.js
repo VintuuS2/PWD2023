@@ -18,6 +18,7 @@ $(document).ready(function () {
         var idUsuario = $(this).data("id");
 
         var botonSubmit = $('#btn-modificar-' + idUsuario);
+        console.log(botonSubmit);
         var inputNombre = $('#inputnombre' + idUsuario);
         var inputMail = $('#inputmail' + idUsuario);
 
@@ -28,13 +29,11 @@ $(document).ready(function () {
             inputMail.prop('disabled', false);
             inputMail.addClass('bg-success-subtle');
             inputMail.addClass('border-secondary');
-            inputMail.removeClass('bg-white');
             inputMail.removeClass('border-0');
 
             inputNombre.prop('disabled', false);
             inputNombre.addClass('bg-success-subtle');
             inputNombre.addClass('border-secondary');
-            inputNombre.removeClass('bg-white');
             inputNombre.removeClass('border-0');
             // Deshabilita todos los otros botones
             $('.btn-modificar').each(function() {
@@ -154,7 +153,6 @@ $(document).ready(function () {
         inputMail.removeClass('bg-success-subtle');
         inputMail.removeClass('border-secondary');
         inputMail.removeClass('border-danger');
-        inputMail.addClass('bg-white');
         inputMail.addClass('border-0');
         inputMail.removeClass('is-invalid');
 
@@ -164,7 +162,6 @@ $(document).ready(function () {
         inputNombre.removeClass('bg-success-subtle');
         inputNombre.removeClass('border-secondary');
         inputNombre.removeClass('border-danger');
-        inputNombre.addClass('bg-white');
         inputNombre.addClass('border-0');
         // Deshabilita todos los otros botones
         $('.btn-modificar').each(function() {

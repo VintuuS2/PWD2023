@@ -15,6 +15,7 @@ if (isset($datos['idusuario'])) {
 } else {
     $mensaje = "ERROR: No se han recibido datos, por favor vuelva atras y rellene el formulario.";
 }
+header('Location: ' . $urlRoot . "Vista/Administrador/listarUsuariosAdministrador.php");
 ?>
 <div class="row align-items-center justify-content-center">
     <div class="d-flex align-items-center justify-content-center col-12 col-md-8  min-vh-100 bg-gris ">

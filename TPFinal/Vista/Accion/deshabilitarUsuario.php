@@ -7,14 +7,10 @@ $datos = data_submitted();
 if (isset($datos['idusuario'])) {
     $controlUsuario = new AbmUsuario;
     $usuarioBuscado = $controlUsuario->buscar('idusuario');
-    if ($controlUsuario->deshabilitar($datos)) {
-        $mensaje = "Se ha deshabilitado al usuario correctamente.";
-    } else {
-        $mensaje = "ERROR: No se ha podido deshabilitar al usuario.";
-    }
+    $controlUsuario->deshabilitar($datos);
 } else {
     $mensaje = "ERROR: No se han recibido datos, por favor vuelva atras y rellene el formulario.";
 }
-
+header('Location: ' . $urlRoot . "Vista/Administrador/listarUsuariosAdministrador.php");
 
 ?>
