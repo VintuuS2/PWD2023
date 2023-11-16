@@ -23,7 +23,7 @@ $usuario = $session->getUserObj();
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-start">
                         <div class="ms-2 me-auto">
-                            <div class="fw-bold ">Contraseña</div>
+                            <div class="fw-bold ">Contraseña</div> de
                             <input class='form-control' type='password' required name='uspass' id='uspass' value= <?php echo "'" . $usuario->getPass() . "'"?>>
                         </div>
                     </li>
