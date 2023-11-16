@@ -2,8 +2,8 @@
 $titulo = "TP-FINAL Listar usuarios del Administrador";
 include_once "../../../configuracionProyecto.php";
 include_once "../../configuracion.php";
-include_once "../Menu/verMenu.php";
-include_once "./../Estructura/header.php";
+//include_once "../Menu/verMenu.php";
+//include_once "./../Estructura/header.php";
 include_once "./../Estructura/ultimoNav.php";
 $objUsuario = new AbmUsuario();
 $listaUsuarios = $objUsuario->buscar(null);
@@ -29,7 +29,7 @@ $mensajeCookie = $_COOKIE;
                         <th>Rol/es</th>
                     </tr>
                 </thead>";
-            echo "<form novalidate class='needs-validation' method='post' action='./../Accion/modificarRoles.php'>";
+            echo "<form novalidate class='needs-validation' method='post' action='./../Accion/modificarRoles.php' id='cambiarRol'>";
             foreach ($listaUsuarios as $usuario) {
                 echo "<tr class='align-middle'>";
                 echo "<td>" . $usuario->getId() . "<input type='hidden' name='idusuario[]' value='" . $usuario->getId() . "'></td>";

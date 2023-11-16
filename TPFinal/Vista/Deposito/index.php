@@ -1,8 +1,8 @@
 <?php
 $titulo = "Game Galaxy";
-include_once "../../configuracionProyecto.php";
-include_once "../configuracion.php";
-include_once "./Estructura/ultimoNav.php";
+include_once "../../../configuracionProyecto.php";
+include_once "../../configuracion.php";
+include_once "../Estructura/ultimoNav.php";
 ?>
 <div class="min-vh-100 d-flex justify-content-center">
   <div class="col-12 col-lg-9 bg-body-tertiary h-100 min-vh-100">
@@ -61,5 +61,5 @@ include_once "./Estructura/ultimoNav.php";
   </div>
 </div>
 <?php
-include_once "../../vista/estructura/footer.php"
+include_once "../../../vista/estructura/footer.php"
 ?>

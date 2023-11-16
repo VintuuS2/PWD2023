@@ -1,9 +1,9 @@
 <?php
 $titulo = "Cambiar stocks";
 include_once "../../../configuracionProyecto.php";
-include_once "../Estructura/header.php";
-include_once "../Estructura/ultimoNav.php"; // hay que hacer la verificación de que el usuario loggeado tenga rol de 'deposito'
 include_once "../../configuracion.php";
+//include_once "../Estructura/header.php";
+include_once "../Estructura/ultimoNav.php"; // hay que hacer la verificación de que el usuario loggeado tenga rol de 'deposito'
 $controlProducto = new AbmProducto();
 $listaProductos = $controlProducto->buscar(null);
 ?>

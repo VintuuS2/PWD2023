@@ -3,10 +3,8 @@ $titulo = "Roles Modificados";
 
 include_once "../../../configuracionProyecto.php";
 include_once "../../configuracion.php";
-include_once "../Estructura/header.php";
-include_once "../Estructura/ultimoNav.php";
-
-$session = new Session;
+//include_once "../Estructura/header.php";
+//include_once "../Estructura/ultimoNav.php";
 
 $datos = data_submitted();
 $error = false;
@@ -66,9 +64,11 @@ if (isset($datos['idusuario']) && isset($datos['usnombre']) && isset($datos['usr
                 }
             }
 
+            $soyYo = false;
+            $estoyEnEseRol = false;
             if (count($rolesEliminar)==count($rolesActuales)){
                 foreach ($rolesEliminar as $idRolEliminar) {
-
+                    
                     if ($controlUsuarioRol->baja(['idusuario' => $usuario->getId(), 'idrol' => $idRolEliminar])) {
                         //setCookie('baja', 'Rol/es borrados correctamente.');
                     }
@@ -77,11 +77,29 @@ if (isset($datos['idusuario']) && isset($datos['usnombre']) && isset($datos['usr
             } else {
                 foreach ($rolesEliminar as $idRolEliminar) {
 
+                    if ($_SESSION['idusuario'] == $usuario->getId()){
+                        $soyYo = true;
+                    }
+                    if ($_SESSION['rolelegido'] == $idRolEliminar){
+                        $estoyEnEseRol = true;
+                    }
+
                     if ($controlUsuarioRol->baja(['idusuario' => $usuario->getId(), 'idrol' => $idRolEliminar])) {
                         //setCookie('baja', 'Rol/es borrados correctamente.');
                     }
+                    //echo "<br><br>Este es mi usuario: ";
+                    //var_dump($soyYo);
+                    //echo "<br><br>Este es el rol de ADM en teoria: ";
+                    //var_dump($estoyEnEseRol);
+                    //echo "<br><br>";
+                    if ($soyYo && $estoyEnEseRol){
+                        $session->updateRol();
+                        //echo $_SESSION['idroles'][0]."<br>";
+                        $_SESSION['rolelegido'] = $_SESSION['idroles'][0];
+                    }
                 }
             }
+            //var_dump($_SESSION);
 
 
             
@@ -95,11 +113,12 @@ if (isset($datos['idusuario']) && isset($datos['usnombre']) && isset($datos['usr
             }
         }
     }
-    header('Location: ' . $urlRoot . "Vista/Administrador/verRolesAdministrador.php");
+    //header('Location: ' . $urlRoot . "Vista/Administrador/verRolesAdministrador.php");
+    header($urlDelLocation);
 } else {
     $mensaje = "El formulario no ha llegado correctamente o no se han seleccionado roles, reinténtalo.";
 }
-
+//include_once '../Estructura/ultimoNav.php';
 ?>
 <!--
 <div class="d-flex justify-content-center align-items-center ">

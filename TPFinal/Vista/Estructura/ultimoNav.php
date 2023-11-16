@@ -14,9 +14,11 @@
                         Ver como:
                     </div>
                     <div class="container-fluid">
-                        <select name="verComo" id="verComo" class="form-select">
-                        <?php echo $verComo;?>
-                        </select>
+                        <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" id="form-nav">
+                            <select name="selectVerComo" id="selectVerComo" class="form-select">
+                            <?php echo $verComo;?>
+                            </select>
+                        </form>
                     </div>
                 </div>
                 <!-- </Ver como rol> --->
@@ -28,11 +30,12 @@
                 </div>
                 <div class="navbar-collapse justify-content-center collapse" id="collapsibleNavbar">
                     <ul class="nav nav-pills justify-content-center gap-2">
-                        <li class="nav-item"><a href="<?php echo $PROYECTOROOT ?>TPFinal/Vista/index.php" class="nav-link text-light link-body-emphasis">Inicio</a></li>
-                        <li class="nav-item"><a href="<?php echo $PROYECTOROOT ?>" class="nav-link text-light link-body-emphasis">Algo1</a></li>
-                        <li class="nav-item"><a href="<?php echo $PROYECTOROOT ?>" class="nav-link text-light link-body-emphasis">Algo2</a></li>
-                        <li class="nav-item"><a href="<?php echo $PROYECTOROOT ?>" class="nav-link text-light link-body-emphasis">Algo3</a></li>
-                        <li class="nav-item"><a href="<?php echo $PROYECTOROOT ?>" class="nav-link text-light link-body-emphasis">Algo4</a></li>
+                        <!--<li class="nav-item"><a href="<?php //echo $PROYECTOROOT ?>TPFinal/Vista/index.php" class="nav-link text-light link-body-emphasis">Inicio</a></li>
+                        <li class="nav-item"><a href="<?php //echo $PROYECTOROOT ?>" class="nav-link text-light link-body-emphasis">Algo1</a></li>
+                        <li class="nav-item"><a href="<?php //echo $PROYECTOROOT ?>" class="nav-link text-light link-body-emphasis">Algo2</a></li>
+                        <li class="nav-item"><a href="<?php //echo $PROYECTOROOT ?>" class="nav-link text-light link-body-emphasis">Algo3</a></li>
+                        <li class="nav-item"><a href="<?php //echo $PROYECTOROOT ?>" class="nav-link text-light link-body-emphasis">Algo4</a></li>--->
+                        <?php echo $lista ?>
                     </ul>
                 </div>
                 <!-- /Navbar --->
@@ -45,7 +48,7 @@
                         </button>
                         <div class="dropdown-menu" id="menuUsuario">
                             <a href="<?php echo $PROYECTOROOT ?>TPFinal/Vista/login.php" class="dropdown-item is">Iniciar sesión</a>
-                            <a href="<?php echo $PROYECTOROOT ?>TPFinal/Vista/configuracionUsuario.php" class="dropdown-item cf">Configuración</a>
+                            <a href="<?php echo $PROYECTOROOT ?>TPFinal/Vista/Cliente/configuracionUsuario.php" class="dropdown-item cf">Configuración</a>
                             <a href="<?php echo $PROYECTOROOT ?>TPFinal/Vista/Accion/destruirSession.php" class="dropdown-item cs">Cerrar sesión</a>
                         </div>
                     </div>
