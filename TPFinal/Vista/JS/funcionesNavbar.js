@@ -24,9 +24,9 @@ $(document).ready(function(){
 
     if (document.cookie.includes('login=1')){
         $('.is').hide();
-        /*if (document.cookie.includes('verComo=0')){
+        if (document.cookie.includes('verComo=0')){
             $('.verComo').hide();
-        }*/
+        }
     } else {
         $('.cf').hide();
         $('.cs').hide();
@@ -35,7 +35,6 @@ $(document).ready(function(){
 
     select.on('change',function(){
         form[0].submit();
-        console.log(select.val());
     })
 
     form.on('submit',function(event){

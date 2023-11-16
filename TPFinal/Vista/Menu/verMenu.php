@@ -31,6 +31,7 @@ $carpeta = basename($carpeta);
 $url = trim($carpeta)."/".trim($archivo);
 //$session->cerrar();
 if ($session->validar()){
+    //echo "<br>Paso por el true";
     setcookie("login", 1);
 
     //Obtengo los datos del ajax
@@ -88,6 +89,7 @@ if ($session->validar()){
     
     //Si hay más de un ROL habilito el SELECT
     if (count($descRol)>1){
+        //echo "<br>Paso por el otra vez por el true y seteo cookie en 1";
         setcookie("verComo",1);
         foreach ($descRol as $nombreRol) {
             $idRol = $nombreRol->getIdRol();
@@ -95,6 +97,7 @@ if ($session->validar()){
         }
     //Si no, solo muestro el único ROL que tengo
     } else {
+        //echo "<br>Paso por el false y seteo cookie en 0";
         setcookie("verComo",0);
         //setcookie("opcion",$descRol[0]->getIdRol());
         $session->updateRol();
@@ -149,11 +152,12 @@ if ($session->validar()){
         }
         $urlDelLocation = 'Location:'.$urlRoot."Vista/".$descRol[$meQuedoAca]->getRolDesc()."/index.php";
     }
-    //header($urlDelLocation);
+    header($urlDelLocation);
 
 } else {
+    //echo "<br>Paso por el false";
     setcookie("login", 0);
-    setcookie("verComo",0);
+    //setcookie("verComo",0);
     //var_dump($_COOKIE);
 }
 

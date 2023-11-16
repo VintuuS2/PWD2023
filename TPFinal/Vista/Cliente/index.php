@@ -1,16 +1,21 @@
 <?php
 $titulo = "Game Galaxy";
 include_once "../../../configuracionProyecto.php";
-//include_once "./Menu/verMenu.php";
 include_once "../../configuracion.php";
-//include_once "./Estructura/header.php";
-/*$sesion = new Session();
-if ($sesion->validar()) {
-  setcookie("login", 1);
-} else {
-  setcookie("login", 0);
-}*/
 include_once "../Estructura/ultimoNav.php";
+$productos = new AbmProducto;
+$listaProductos = $productos->buscar(null);
+if (count($listaProductos)>0){
+  for ($i=0; $i < 3; $i++) { 
+    $elProductito = $listaProductos[$i];
+    $productosDestacados[$i]['pronombre'] = $elProductito->getNombre();
+    $productosDestacados[$i]['prodetalle'] = $elProductito->getDetalle();
+    $productosDestacados[$i]['proprecio'] = $elProductito->getPrecio();
+    $productosDestacados[$i]['proimagen'] = $elProductito->getImagen();
+  }
+}
+//var_dump($productosDestacados);
+//var_dump($_COOKIE);
 ?>
 <div class="min-vh-100 d-flex justify-content-center">
   <div class="col-12 col-lg-9 bg-body-tertiary h-100 min-vh-100">
@@ -34,35 +39,21 @@ include_once "../Estructura/ultimoNav.php";
       </div>
       <div class="d-flex justify-content-around align-items-center">
         <!-- <1erItem> --->
-        <div class="card" style="width: 18rem;">
-          <img src="https://i.pinimg.com/originals/1f/bf/18/1fbf1891190c7fe0a89a31009609bbd0.gif" class="card-img-top" alt="...">
-          <div class="card-body text-center">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+        <?php
+        
+        for ($i=0; $i < 3; $i++) { 
+          echo '<div class="card" style="width: 18rem;">
+          <img src="../imagenes/'.$productosDestacados[$i]['proimagen'].'" class="card-img-top" alt="...">
+          <div class="card-body text-center h-25 overflow-y-auto">
+            <h5 class="card-title">'.$productosDestacados[$i]['pronombre'].'</h5>
+            <p class="card-text">'.$productosDestacados[$i]['prodetalle'].'</p>
+            <a href="'.($_COOKIE['login'] == "1" ? "./productos.php": "../login.php").'" class="btn btn-primary">Ir a producto</a>
           </div>
-        </div>
+        </div>';
+        }
+        
+        ?>
         <!-- </1erItem> --->
-        <!-- <2doItem> --->
-        <div class="card" style="width: 18rem;">
-          <img src="https://i.pinimg.com/originals/1f/bf/18/1fbf1891190c7fe0a89a31009609bbd0.gif" class="card-img-top" alt="...">
-          <div class="card-body text-center">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-        <!-- </2doItem> --->
-        <!-- <3erItem> --->
-        <div class="card" style="width: 18rem;">
-          <img src="https://i.pinimg.com/originals/1f/bf/18/1fbf1891190c7fe0a89a31009609bbd0.gif" class="card-img-top" alt="..." style="height: 100%; width: 100%;">
-          <div class="card-body text-center">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-        <!-- </3erItem> --->
       </div>
     </div>
     <!-- </Catálogo de opciones recomendadas> --->
