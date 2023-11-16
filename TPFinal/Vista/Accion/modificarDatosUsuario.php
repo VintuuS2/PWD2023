@@ -12,6 +12,7 @@ if (isset($datos['idusuario']) && isset($datos['uspass']) && isset($datos['usmai
         $mensaje = "Se ha modificado al usuario correctamente.";
     }
 }
+header('Location: ' . $urlRoot . "Vista/Cliente/configuracionUsuario.php");
 
 
 ?>

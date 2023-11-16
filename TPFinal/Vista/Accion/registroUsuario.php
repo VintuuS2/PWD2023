@@ -2,7 +2,6 @@
 $titulo = "Registro";
 include_once '../../configuracion.php';
 include_once '../../../configuracionProyecto.php';
-include_once '../Estructura/header.php';
 include_once '../Estructura/ultimoNav.php';
 
 $datos = data_submitted();

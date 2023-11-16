@@ -1,7 +1,6 @@
 <?php
 $titulo = "Añadir producto carrito";
 include_once "../../../configuracionProyecto.php";
-include_once "../Estructura/header.php"; // hay que hacer la verificación de que el usuario loggeado tenga rol de 'deposito'
 include_once "../../configuracion.php";
 $sesion = new Session();
 if (!$sesion->validar()) {
@@ -11,7 +10,6 @@ if (!$sesion->validar()) {
     $controlCompraItem = new AbmCompraItem();
     $controlCompra = new AbmCompra();
     $datos = data_submitted();
-    print_r($datos);
     if (isset($datos['idcompraitem']) && isset($datos['cicantidad'])) {
         if ($datos['cicantidad'] == 0) {
             $controlCompraItem->baja($datos);
@@ -20,11 +18,11 @@ if (!$sesion->validar()) {
             $objCompraItem->setCantidad($datos['cicantidad']);
             $objCompraItem->modificar();
         }
-        header('Location: ' . $urlRoot . "Vista/Cliente/carrito.php");
     } else {
         $mensaje = "ERROR: No se pudo añadir el producto al carrito.";
     }
 }
+header('Location: ' . $urlRoot . "Vista/Cliente/carrito.php");
 
 ?>
 <div class="d-flex justify-content-center align-items-center ">

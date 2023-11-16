@@ -2,9 +2,9 @@
 $titulo = "Compra cancelada";
 include_once "../../../configuracionProyecto.php";
 include_once "../../configuracion.php";
-include_once "../Estructura/ultimoNav.php";
 $datos = data_submitted();
-if (isset($datos['idcompra'])) {
+if (isset($datos['idcompra']) && isset($datos['vuelta'])) {
+    $linkVuelta = $datos['vuelta'];
     $controlCompra = new AbmCompra();
     $controlCompraEstado = new AbmCompraEstado();
     $controlCompraItem = new AbmCompraItem();
@@ -33,6 +33,8 @@ if (isset($datos['idcompra'])) {
 } else {
     $mensaje = "Error: no se han recibido los datos necesarios para cancelar la compra.";
 }
+header('Location: ' . $urlRoot . "Vista/$linkVuelta");
+
 include_once "../Estructura/ultimoNav.php";
 ?>
 <div class="d-flex justify-content-center align-items-center ">
@@ -44,7 +46,7 @@ include_once "../Estructura/ultimoNav.php";
                 ?>
             </div>
             <div class="d-flex align-content justify-content-center">
-                <a class='btn btn-primary mx-3 fs-5' role='button' href='../Cliente/compras.php'>Volver a mis compras</a>
+                <a class='btn btn-primary mx-3 fs-5' role='button' href='../<?php echo $linkVuelta ?>'>Volver</a>
             </div>
         </div>
     </div>

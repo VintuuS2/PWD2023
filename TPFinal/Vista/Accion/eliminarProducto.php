@@ -1,7 +1,6 @@
 <?php
 $titulo = "Producto eliminado";
 include_once "../../../configuracionProyecto.php";
-include_once "../Estructura/header.php"; // hay que hacer la verificación de que el usuario loggeado tenga rol de 'deposito'
 include_once "../../configuracion.php";
 $datos = data_submitted();
 if (isset($datos['idproducto'])) {
@@ -31,6 +30,7 @@ if (isset($datos['idproducto'])) {
 } else {
     $mensaje = "ERROR: No se han recibido todos los datos necesarios.";
 }
+header('Location: ' . $urlRoot . "Vista/Deposito/administrarProductos.php");
 ?>
 <div class="d-flex justify-content-center align-items-center ">
     <div class="d-flex justify-content-center bg-gris row col-12 col-md-8 row position-relative h-100 align-items-center min-vh-100">

@@ -3,7 +3,6 @@ $tituloPagina = "TP5-Ver usuarios";
 include_once "../../configuracionProyecto.php";
 include_once "../configuracion.php";
 include_once "./Estructura/header.php";
-include_once "./Estructura/ultimoNav.php";
 $objUsuario = new AbmUsuario();
 $listaUsuarios = $objUsuario->buscar(null);
 ?>
@@ -59,5 +58,5 @@ $listaUsuarios = $objUsuario->buscar(null);
 <script src="JS/validador.js"></script>
 <script src="JS/funciones.js"></script>
 <?php
-include_once "../../vista/estructura/footer.php";
+//include_once "../../vista/estructura/footer.php";
 ?>

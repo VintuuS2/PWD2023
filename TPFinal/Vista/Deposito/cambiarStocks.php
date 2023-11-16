@@ -2,8 +2,7 @@
 $titulo = "Cambiar stocks";
 include_once "../../../configuracionProyecto.php";
 include_once "../../configuracion.php";
-//include_once "../Estructura/header.php";
-include_once "../Estructura/ultimoNav.php"; // hay que hacer la verificación de que el usuario loggeado tenga rol de 'deposito'
+include_once "../Estructura/ultimoNav.php";
 $controlProducto = new AbmProducto();
 $listaProductos = $controlProducto->buscar(null);
 ?>
@@ -14,7 +13,7 @@ $listaProductos = $controlProducto->buscar(null);
         </div>
         <?php
         if (count($listaProductos) > 0) {
-            echo "<table class='table text-center'>
+            echo "<table class='table text-center mb-0'>
                         <thead class='table-primary'>
                             <tr>
                                 <th colspan='4' class='table-primary text-center fs-4'>Productos</th>
@@ -32,7 +31,7 @@ $listaProductos = $controlProducto->buscar(null);
                 echo "<td class='p-0'><img class='imagen-redimensionada' src='../Imagenes/" . $producto->getImagen() . "'><input type='hidden' name='idproducto' value='" . $producto->getIdProducto() . "'></td>";
                 echo "<td>" . $producto->getNombre() . "</td>";
                 echo "<td><input disabled type='number' name='procantstock' id='procantstock".$producto->getIdProducto()."' class='form-control cursor-text bg-light text-dark border border-0 text-center rounded-5' value='" . $producto->getCantStock() . "'</td>";
-                // Boton para activar modificación del stock
+                // Botón para activar modificación del stock
                 echo "<td><div class='d-flex h-100 justify-content-around' id='columnaBotones" . $producto->getIdProducto() . "'><button type='submit' data-bs-toggle='tooltip' data-bs-placement='top' data-bs-title='Cambiar el stock del producto' data-bs-custom-class='custom-tooltip' class='btn btn-primary btn-modificar' id='btn-modificar-" . $producto->getIdProducto() . "'>Editar</button></div></td>";
                 echo "</form>";
                 echo "</tr>";

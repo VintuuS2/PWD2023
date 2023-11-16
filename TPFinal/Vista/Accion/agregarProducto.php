@@ -2,7 +2,6 @@
 $titulo = "Producto agregado";
 include_once "../../../configuracionProyecto.php";
 include_once "../../configuracion.php";
-include_once "../Estructura/ultimoNav.php";
 $datos = data_submitted();
 if (isset($datos['idproducto']) && isset($datos['pronombre']) && isset($datos['prodetalle']) && isset($datos['procantstock']) && isset($datos['proprecio']) && isset($_FILES['proimagen'])) {
     $nombre = $datos['pronombre'];
@@ -28,10 +27,10 @@ if (isset($datos['idproducto']) && isset($datos['pronombre']) && isset($datos['p
             $mensaje = "Hubo un error y no se pudo subir la imagen.";
         }
     }
-    
 } else {
     $mensaje = "No se han recibido todos los datos necesarios, por favor vuelva al formulario y completelo nuevamente.";
 }
+header('Location: ' . $urlRoot . "Vista/Deposito/agregarProductos.php");
 ?>
 <div class="d-flex justify-content-center align-items-center ">
     <div class="d-flex justify-content-center bg-gris row col-12 col-md-8 row position-relative h-100 align-items-center min-vh-100">

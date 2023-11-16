@@ -69,3 +69,8 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+@media (min-width: 1200px) {
+    .modal-xlg {
+       width: 90%; 
+    }
+ }

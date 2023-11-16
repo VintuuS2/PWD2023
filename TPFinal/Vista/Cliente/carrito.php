@@ -53,10 +53,12 @@ $precioTotal = 0;
                                     <h1 class="fw-bold mb-0 text-black">Carrito de compras</h1>
                                     <h6 class="mb-0 text-black-50"><?php echo ($existeCarrito ? $cantidadItems : "Sin") ?> producto<?php echo ($cantidadItems !== 1) ? "s" : ""; ?></h6>
                                 </div>
-                                <hr>
+                                <hr class="my-2">
 
                                 <?php
+                                $noHayItems = false;
                                 if ($cantidadItems == 0) {
+                                    $noHayItems = true;
                                     echo "<h3 class='text-center'>El carrito está vacio</h3>";
                                 } else {
                                     foreach ($itemsCarrito as $item) {
@@ -69,7 +71,7 @@ $precioTotal = 0;
                                         $precio = $producto->getPrecio();
                                         $stock = $producto->getCantStock();
                                         $precioTotal += $precio * $cantidad;
-                                        echo "<div class='row mb-4 d-flex justify-content-between align-items-center position-relative py-3'>
+                                        echo "<div class='row d-flex justify-content-between align-items-center position-relative py-3'>
                                         <div class='col-md-2 col-lg-2 col-xl-2'>
                                             <img src='../Imagenes/$img' class='img-fluid rounded-3' alt='$nombre'>
                                         </div>
@@ -97,7 +99,7 @@ $precioTotal = 0;
                                         </form>
                                     </div>
     
-                                    <hr>";
+                                    <hr class='my-2'>";
                                     }
                                 }
                                 ?>
@@ -124,7 +126,7 @@ $precioTotal = 0;
                                 <div class="col-12">
                                     <form action="../Accion/finalizarCompra.php" method="post" id="formFinalizar">
                                         <input type="hidden" name="idcompra" id="idcompra" value="<?php echo $objCompra->getIdCompra() ?>">
-                                        <button type="submit" class="btn btn-success btn-block btn-lg col-12">Finalizar compra</button>
+                                        <button type="submit" <?php echo ($noHayItems ? "disabled" : "") ?> class="btn btn-success btn-block btn-lg col-12">Finalizar compra</button>
                                     </form>
                                 </div>
                             </div>

@@ -47,6 +47,8 @@ if (isset($datos['idcompra'])) {
     $mensaje = "Error: no se han recibido los datos necesarios para finalizar la compra.";
     $mensajeBoton = "<a class='btn btn-primary mx-3 fs-5' role='button' href='../Cliente/carrito.php'>Volver al carrito</a>";
 }
+header('Location: ' . $urlRoot . "Vista/Cliente/compras.php");
+
 include_once "../Estructura/ultimoNav.php";
 ?>
 <div class="d-flex justify-content-center align-items-center ">

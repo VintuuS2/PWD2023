@@ -50,7 +50,8 @@ $listaCompras = $controlCompra->buscar(['idusuario' => $usuario->getId()]);
                     echo "<td>$fechaInicioCompra</td>";
                     echo "<td>
                             <form class='m-0' method='post' action='../Accion/cancelarCompra.php'>
-                                <input type='hidden' name='".($puedeCancelar ? "idcompra" : "a")."' id='".($puedeCancelar ? "idcompra" : "1")."' value='".($puedeCancelar ? $compra->getIdCompra() : "")."'> 
+                                <input type='hidden' name='".($puedeCancelar ? "idcompra" : "a")."' id='".($puedeCancelar ? "idcompra" : "a")."' value='".($puedeCancelar ? $compra->getIdCompra() : "")."'> 
+                                <input type='hidden' name='vuelta' id='vuelta' value='Cliente/compras.php'> 
                                 <button type='submit' class='btn btn-danger'".($puedeCancelar ? "" : "disabled")." name='btncancelar'>Cancelar compra</button>
                             </form>
                         </td>";

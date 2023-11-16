@@ -2,7 +2,6 @@
 $tituloPagina = "TpFinal-Habilitar login";
 include_once "../../../configuracionProyecto.php";
 include_once "../../configuracion.php";
-include_once "../Estructura/header.php";
 
 $datos = data_submitted();
 if (isset($datos['idusuario'])) {
@@ -15,6 +14,8 @@ if (isset($datos['idusuario'])) {
 } else {
     $mensaje = "ERROR: No se han recibido datos, por favor vuelva atras y rellene el formulario.";
 }
+header('Location: ' . $urlRoot . "Vista/Administrador/listarUsuariosAdministrador.php");
+
 ?>
 <div class="row align-items-center justify-content-center">
     <div class="d-flex align-items-center justify-content-center col-12 col-md-8  min-vh-100 bg-gris ">
@@ -23,7 +24,7 @@ if (isset($datos['idusuario'])) {
             echo $mensaje;
             ?>
             <div class='container d-flex justify-content-center mt-3'>
-                <a href='../listarUsuario.php' class='btn btn-primary link-light px-3 fs-5 mt-3'>Volver atrás</a>
+                <a href='../Administrador/listarUsuariosAdministrador.php' class='btn btn-primary link-light px-3 fs-5 mt-3'>Volver atrás</a>
             </div>
         </div>
     </div>

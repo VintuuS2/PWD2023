@@ -32,10 +32,11 @@ if (isset($datos['idproducto'])) {
             crearCarrito($idUsuario, $idProducto);
         }
     }
-    header('Location: ' . $urlRoot . "Vista/Cliente/carrito.php");
 } else {
     $mensaje = "ERROR: No se pudo añadir el producto al carrito.";
 }
+header('Location: ' . $urlRoot . "Vista/Cliente/carrito.php");
+
 include_once "../../Vista/Estructura/ultimoNav.php";
 
 function crearCarrito($idUsuario, $idProducto)

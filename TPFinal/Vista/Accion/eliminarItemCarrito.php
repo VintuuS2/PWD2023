@@ -1,13 +1,8 @@
 <?php
 $titulo = "Item eliminado";
 include_once "../../../configuracionProyecto.php";
-include_once "../Estructura/header.php"; // hay que hacer la verificación de que el usuario loggeado tenga rol de 'deposito'
-include_once "../Estructura/ultimoNav.php";
 include_once "../../configuracion.php";
-$sesion = new Session;
-if (!$sesion->validar()) {
-    header('Location: ' . $urlRoot . "Vista/Login.php");
-}
+
 $datos = data_submitted();
 if (isset($datos['idcompraitem'])) {
     print_r($datos);
@@ -16,13 +11,13 @@ if (isset($datos['idcompraitem'])) {
     // Elimina el item del carrito de la base de datos
     if ($controlCompraItem->baja($datos)) {
         $mensaje = "El item se ha eliminado correctamente.";
-        header('Location: ' . $urlRoot . "Vista/Cliente/carrito.php");
     } else {
         $mensaje = "Hubo un error y no se pudo eliminar el item.";
     }
 } else {
     $mensaje = "ERROR: No se pudo borrar el item del carrito de compras";
 }
+header('Location: ' . $urlRoot . "Vista/Cliente/carrito.php");
 ?>
 <div class="d-flex justify-content-center align-items-center ">
     <div class="d-flex justify-content-center bg-gris row col-12 col-md-8 row position-relative h-100 align-items-center min-vh-100">

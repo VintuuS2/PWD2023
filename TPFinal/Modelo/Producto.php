@@ -145,14 +145,17 @@ class Producto
     {
         $resp = false;
         $base = new BaseDatos();
-        $infoImagen = false;
-        $urlImagen = "../../Vista/Imagenes/".$this->getImagen();
-        if (file_exists($urlImagen)) {
-            $infoImagen = getimagesize($urlImagen);
-        }
-        // Verificamos si es una imagen
-        if ($infoImagen !== false) {
-            $nombre = $infoImagen['name'];
+        $rutaArchivo = "../../Vista/Imagenes/" . $this->getImagen()['name'];
+        if (file_exists($rutaArchivo)) {
+            $imagenInfo = pathinfo($rutaArchivo);
+            $imagen = array(
+                'name'      => $imagenInfo['basename'],
+                'full_path' => $imagenInfo['dirname'],
+                'type'      => mime_content_type($rutaArchivo),
+                'error'     => 0,
+                'size'      => filesize($rutaArchivo)
+            );
+            $nombre = $imagen['name'];
         } else {
             $nombre = $this->getImagen();
         }

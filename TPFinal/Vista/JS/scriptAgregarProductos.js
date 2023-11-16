@@ -20,6 +20,8 @@ $(document).ready(function () {
                 imagenInput.addClass('is-invalid');
                 imagenInput.removeClass('is-valid');
                 imagenInput.val(''); // Borrar la selección de archivo no válido
+                event.preventDefault();
+                event.stopPropagation();
             } else {
                 imagenInput.addClass('is-valid');
                 imagenInput.removeClass('is-invalid');

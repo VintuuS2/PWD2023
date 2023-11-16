@@ -114,10 +114,10 @@ if (isset($datos['idusuario']) && isset($datos['usnombre']) && isset($datos['usr
         }
     }
     //header('Location: ' . $urlRoot . "Vista/Administrador/verRolesAdministrador.php");
-    header($urlDelLocation);
 } else {
     $mensaje = "El formulario no ha llegado correctamente o no se han seleccionado roles, reinténtalo.";
 }
+header('Location: ' . $urlRoot . "Vista/Administrador/verRolesAdministrador.php");
 //include_once '../Estructura/ultimoNav.php';
 ?>
 <!--
