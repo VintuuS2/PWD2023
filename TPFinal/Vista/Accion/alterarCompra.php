@@ -60,7 +60,7 @@ if (isset($datos['idcompra'])) {
             // Se suman los stocks
             $producto->setCantStock($producto->getCantStock() + $cantidadItems);
             // Se eliminan los items cancelados
-            $itemCancelar->baja();
+            $itemCancelar->eliminar();
         }
         // Se finaliza el estado actual de la compra
         $colCompraEstado = $controlCompraEstado->buscar(['idcompra' => $datos['idcompra']]);
@@ -77,9 +77,10 @@ if (isset($datos['idcompra'])) {
 } else {
     $mensaje = "ERROR: No se pudo alterar la compra.";
 }
-header('Location: ' . $urlRoot . "Vista/Deposito/agregarProductos.php");
+header('Location: ' . $urlRoot . "Vista/Deposito/administrarCompras.php");
 
-include_once "../../Vista/Deposito/administrarCompras.php";
+include_once "../Estructura/otroNavbar.php";
+
 ?>
 <div class="d-flex justify-content-center align-items-center ">
     <div class="d-flex justify-content-center bg-gris row col-12 col-md-8 row position-relative h-100 align-items-center min-vh-100">

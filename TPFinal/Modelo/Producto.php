@@ -145,7 +145,11 @@ class Producto
     {
         $resp = false;
         $base = new BaseDatos();
-        $rutaArchivo = "../../Vista/Imagenes/" . $this->getImagen()['name'];
+        $rutaArchivo = "";
+        // Verificar si $this->getImagen() es un array antes de intentar acceder a un índice
+        if (is_array($this->getImagen()) && isset($this->getImagen()['name'])) {
+            $rutaArchivo = "../../Vista/Imagenes/" . $this->getImagen()['name'];
+        }
         if (file_exists($rutaArchivo)) {
             $imagenInfo = pathinfo($rutaArchivo);
             $imagen = array(

@@ -13,8 +13,7 @@ $controlCompra = new AbmCompra();
 <div class="d-flex justify-content-center align-items-center">
     <div class="d-flex justify-content-center row col-12 col-md-12 col-xl-8 row position-relative align-items-center min-vh-100">
         <?php
-        $usuario = $session->getUserObj();
-        $listaCompras = $controlCompra->buscar(['idusuario' => $usuario->getId()]);
+        $listaCompras = $controlCompra->buscar(null);
         if (count($listaCompras) > 0) {
             echo "<table class='table text-center'>
                         <thead class='table-primary'>
@@ -26,7 +25,7 @@ $controlCompra = new AbmCompra();
                                 <th>Estado</th>
                                 <th>Productos</th>
                                 <th>Cambiar estado</th>
-                                <th>Fecha de compra</th>
+                                <th>Fechas</th>
                                 <th>Cancelar compra</th>
                             </tr>
                         </thead>";
@@ -44,9 +43,6 @@ $controlCompra = new AbmCompra();
                             break;
                         case 3:
                             $siguienteEstado = "Enviar";
-                            break;
-                        case 4:
-                            $siguienteEstado = "No cancelar";
                             break;
                         default:
                             $siguienteEstado = false;
@@ -85,7 +81,11 @@ $controlCompra = new AbmCompra();
                     </button></td>";
                     echo "</form>";
                     echo "<td>";
-                    echo $fechaInicioCompra;
+                    foreach ($estadosCompras as $unEstadoCompra) {
+                        if ($unEstadoCompra->getObjCompraEstadoTipo()->getDescripcion() != "carrito") {
+                            echo "<b>".$unEstadoCompra->getObjCompraEstadoTipo()->getDescripcion()."</b>: ".$unEstadoCompra->getFechaIni()."<br>";
+                        }
+                    }
                     echo "</td>";
                     echo "<td>
                             <form class='m-0' method='post' action='../Accion/cancelarCompra.php'>

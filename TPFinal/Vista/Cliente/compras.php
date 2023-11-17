@@ -33,7 +33,7 @@ while (!$encontroCompra && $i < count($listaCompras)) {
                             <tr>
                                 <th>Estado</th>
                                 <th>Productos</th>
-                                <th>Fecha de compra</th>
+                                <th>Fechas</th>
                                 <th>Cancelar compra</th>
                             </tr>
                         </thead>";
@@ -58,7 +58,13 @@ while (!$encontroCompra && $i < count($listaCompras)) {
                         echo "x$cantidad $nombreProducto <br>";
                     }
                     echo "</td>";
-                    echo "<td>$fechaInicioCompra</td>";
+                    echo "<td>";
+                    foreach ($estadosCompras as $unEstadoCompra) {
+                        if ($unEstadoCompra->getObjCompraEstadoTipo()->getDescripcion() != "carrito") {
+                            echo "<b>".$unEstadoCompra->getObjCompraEstadoTipo()->getDescripcion()."</b>: ".$unEstadoCompra->getFechaIni()."<br>";
+                        }
+                    }
+                    echo "</td>";
                     echo "<td>
                             <form class='m-0' method='post' action='../Accion/cancelarCompra.php'>
                                 <input type='hidden' name='".($puedeCancelar ? "idcompra" : "a")."' id='".($puedeCancelar ? "idcompra" : "a")."' value='".($puedeCancelar ? $compra->getIdCompra() : "")."'> 

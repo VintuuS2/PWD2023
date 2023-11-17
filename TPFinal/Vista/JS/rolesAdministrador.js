@@ -19,7 +19,7 @@ $(document).ready(function() {
         
         var formRecibido = $('#formrolesusuario').serialize();
 
-        // O puedes enviarlos a un servidor usando AJAX
+        // enviarlos a un servidor usando AJAX
         $.ajax({
             type: 'POST',
             url: '../Accion/modificarRoles.php',

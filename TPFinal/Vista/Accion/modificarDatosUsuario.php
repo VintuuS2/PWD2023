@@ -24,12 +24,12 @@ if (isset($datos['usnombre']) && isset($datos['uspass']) && isset($datos['usmail
     $controlUsuario = new AbmUsuario;
     if ($controlUsuario->modificacion($datosRecibidos)) {
         //echo "<br>pasó el true";
-        header('Location: ' . $urlRoot . "Vista/Cliente/configuracionUsuario.php");
+        //header('Location: ' . $urlRoot . "Vista/Cliente/configuracionUsuario.php");
     } else {
         //echo "<br>No entró";
     }
 }
-header('Location: ' . $urlRoot . "Vista/Cliente/configuracionUsuario.php");
+//header('Location: ' . $urlRoot . "Vista/Cliente/configuracionUsuario.php");
 
 
 ?>
