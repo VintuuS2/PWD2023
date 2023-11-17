@@ -59,6 +59,7 @@ if (isset($datos['idcompra'])) {
             $cantidadItems = $itemCancelar->getCantidad();
             // Se suman los stocks
             $producto->setCantStock($producto->getCantStock() + $cantidadItems);
+            $producto->modificar();
             // Se eliminan los items cancelados
             $itemCancelar->eliminar();
         }
