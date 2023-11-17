@@ -5,15 +5,26 @@ include_once "../../configuracion.php";
 include_once "../Estructura/ultimoNav.php";
 $usuario = $session->getUserObj();
 $controlCompra = new AbmCompra();
+$controlCompraEstado = new AbmCompraEstado;
 $listaCompras = $controlCompra->buscar(['idusuario' => $usuario->getId()]);
+// busco si al menos una compra no es un carrito
+$i = 0;
+$encontroCompra = false;
+while (!$encontroCompra && $i < count($listaCompras)) {
+    $unaCompra = $listaCompras[$i];
+    $estadosCompras = $controlCompraEstado->buscar(['idcompra' => $unaCompra->getIdCompra()]);
+    if (count($estadosCompras) > 1) {
+        $encontroCompra = true;
+    }
+    $i++;
+}
 ?>
 <div class="d-flex justify-content-center align-items-center">
     <div class="d-flex justify-content-center row col-12 col-md-12 col-xl-8 row position-relative align-items-center min-vh-100">
         <?php
-        $controlCompraEstado = new AbmCompraEstado;
         $controlCompraItem = new AbmCompraItem;
         $controlProducto = new AbmProducto;
-        if (count($listaCompras) > 0) {
+        if ($encontroCompra) {
             echo "<table class='table text-center'>
                         <thead class='table-primary'>
                             <tr>

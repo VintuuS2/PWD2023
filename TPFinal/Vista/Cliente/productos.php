@@ -12,7 +12,7 @@ include_once "../Estructura/ultimoNav.php";
         if (count($colProductos) > 0) {
             foreach ($colProductos as $unProducto) {
                 $hayStock = $unProducto->getCantStock() !== 0;
-                echo "<div class='col p-4 col-xxl-3 col-xl-4 col-sm-6'>
+                echo "<div class='col p-3 col-xxl-3 col-xl-4 col-sm-6'>
                         <div class='bg-white p-2 rounded text-black'>
                             <img src='../Imagenes/".$unProducto->getImagen()."' class='card-img-top' alt='imagen ".$unProducto->getNombre()."'>
                             <div class='card-body'>
