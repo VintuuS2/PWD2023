@@ -2,8 +2,6 @@
 $titulo = "TP-FINAL Listar usuarios del Administrador";
 include_once "../../../configuracionProyecto.php";
 include_once "../../configuracion.php";
-//include_once "../Menu/verMenu.php";
-//include_once "./../Estructura/header.php";
 include_once "./../Estructura/ultimoNav.php";
 $objUsuario = new AbmUsuario();
 $listaUsuarios = $objUsuario->buscar(null);
@@ -49,17 +47,13 @@ $usuariosConRoles = $objUsuario->listarUsuarioRol(null);
                             $isChecked = true;
                         }
                     }
+                    //Verifico quién está en la SESSION y anulo que se pueda quitar el ROL de ADMINISTRADOR a si mismo
                     if (!($_SESSION['rolelegido']==$rol->getIdRol() && $_SESSION['idusuario'] == $usuario->getId())){
                         echo "<label><input type='checkbox' class='form-check-input' name='usroles[" . $usuario->getId() . "][]' id= 'usroles[]' value='". $rol->getRolDesc(). "' " . ($isChecked ? 'checked' : ''). ">". $rol->getRolDesc() . "</label><br>";
                     } else {
                         echo "Administrador no se puede quitar<br>";
                         echo "<label hidden><input type='checkbox' class='form-check-input' name='usroles[" . $usuario->getId() . "][]' id= 'usroles[]' value='". $rol->getRolDesc(). "' " . ($isChecked ? 'checked' : ''). ">". $rol->getRolDesc() . "</label>";
                     }
-                    //echo "<label><input type='checkbox' class='form-check-input' name='usroles[" . $usuario->getId() . "][]' id= 'usroles[]' value='". $rol->getRolDesc(). "' " . ($isChecked ? 'checked' : '') . ">". $rol->getRolDesc() . "</label><br>";
-                    /*echo "<div class='form-check w-50 justify-content-center'>
-                        <input type='checkbox' class='form-check-input' name='usroles[" . $usuario->getId() . "][]' id= 'usroles[]' value='". $rol->getRolDesc(). "' " . ($isChecked ? 'checked' : '') . ">
-                        <label>". $rol->getRolDesc() . "</label><br>
-                    </div>";*/
                 }
                 echo "</td>";
                 echo "</tr>";

@@ -37,7 +37,7 @@ $usuario = $session->getUserObj();
                 </div>
                 <div class="input-group mb-4">
                     <span class="input-group-text fw-bold border-0" id="basic-addon5">Contraseña actual</span>
-                    <input class='form-control' type='password' required maxlength="32" autocomplete="on" name='uspass' id='uspass' value='' aria-describedby="basic-addon5">
+                    <input class='form-control' type='password' required maxlength="32" placeholder="Ingrese su contraseña" autocomplete="on" name='uspass' id='uspass' value='' aria-describedby="basic-addon5">
                     <div class="invalid-feedback">
                         Debe ingresar su contraseña para confirmar cambios
                     </div>
