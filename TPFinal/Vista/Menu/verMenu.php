@@ -1,15 +1,8 @@
 <?php
-//include_once '../../configuracion.php';
 
-/**Variables Importantes:
- * $verComo: Las options de roles
- * 
- */
 $datos = data_submitted();
-//var_dump($datos);z
 
 $session = new Session;
-//var_dump($_SESSION);
 
 $abmRol = new AbmRol;
 $abmMenuRol = new AbmMenuRol;
@@ -21,55 +14,30 @@ $estoVanUltimo = "";
 $urlDelLocation = "";
 
 //Setea el idRol a la opción que tenía seleccionada
-//$idRolAnterior = $_COOKIE['opcion'];
 $paginaVisible = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
+//Descompongo la URL visible en el navegador
 $archivo = basename($paginaVisible);
-$carpeta = dirname($paginaVisible,1);
+$carpeta = dirname($paginaVisible, 1);
 $carpeta = basename($carpeta);
 
-$url = trim($carpeta)."/".trim($archivo);
-//$session->cerrar();
-if ($session->validar()){
-    //echo "<br>Paso por el true";
-    setcookie("login", 1);
+//Obtengo los últimos 2 indices
+$url = trim($carpeta) . "/" . trim($archivo);
 
+if ($session->validar()) {
     //Obtengo los datos del ajax
-    if (isset($datos['selectVerComo'])){
-        //echo "Pasó por el true<br>";
+    if (isset($datos['selectVerComo'])) {
         $_SESSION['ultimoRol'] = $datos['selectVerComo'];
         $verComoOpcion = $datos['selectVerComo'];
-    } else if (isset($_SESSION['rolelegido'])){
-        //echo "Pasó por el 2do true";
+    } else if (isset($_SESSION['rolelegido'])) {
         $verComoOpcion = $_SESSION['rolelegido'];
     } else {
-        //echo "Pasó por el false<br>";
         $verComoOpcion = $_SESSION['idroles'][0];
     }
-    //echo "<br>Esta es la opcion: ";
-    //var_dump($verComoOpcion);
-    //echo "<br>";
-
-
-    //Comprueba si aún tiene el rol desde la Sesion actual.
-    /*$aunTieneRol = false;
-    foreach ($_SESSION['idroles'] as $idRoles){
-        if ($idRoles == $idRolAnterior){
-            $aunTieneRol = true;
-        }
-    }
-    //var_dump($aunTieneRol);
-
-    //Si aun tiene el rol, la opción se queda a la última opción que seleccionó, si no, obtiene la opción del 1er rol que tenga.
-    if ($aunTieneRol){
-        $opcion = $verComoOpcion;
-    } else {
-        $opcion = $_SESSION['idroles'][0];
-    }*/
 
     //Obtengo los roles del user
     $descRol = $session->getRoles();
-    
+
     //Obtengo un array de todos los Menú padres
     foreach ($_SESSION['idroles'] as $rol) {
         $unIdRol['idrol'] = $rol;
@@ -78,7 +46,7 @@ if ($session->validar()){
             $menuPadre[] = $unaWea->getObjMenu();
         }
     }
-    
+
     //Obtengo un array de todos los Menús
     foreach ($menuPadre as $unMenu) {
         $elMenu['idpadre'] = $unMenu->getIdMenu();
@@ -87,20 +55,15 @@ if ($session->validar()){
             $menuNombre[] = $unMenusito->getMeDescripcion();
         }
     }
-    
-    //Si hay más de un ROL habilito el SELECT
-    if (count($descRol)>1){
-        //echo "<br>Paso por el otra vez por el true y seteo cookie en 1";
-        setcookie("verComo",1);
+
+    //Si hay más de un ROL: Habilito el SELECT
+    if (count($descRol) > 1) {
         foreach ($descRol as $nombreRol) {
             $idRol = $nombreRol->getIdRol();
             $verComo .= '<option value="' . $idRol . '"' . ($verComoOpcion == $idRol ? " selected" : '') . '>' . $nombreRol->getRolDesc() . '</option>';
         }
-    //Si no, solo muestro el único ROL que tengo
+        //Si no, solo muestro el único ROL que tengo
     } else {
-        //echo "<br>Paso por el false y seteo cookie en 0";
-        setcookie("verComo",0);
-        //setcookie("opcion",$descRol[0]->getIdRol());
         $session->updateRol();
         $verComoOpcion = $_SESSION['idroles'][0];
         $verComo .= '<option value="' . $_SESSION['idroles'][0] . '">' . $descRol[0]->getRolDesc() . '</option>';
@@ -108,9 +71,8 @@ if ($session->validar()){
 
     //Convierto el idRol en un ARRAY para poder buscar
     $opcionElegida['idrol'] = $verComoOpcion;
-    //echo $opcionElegida['idrol'];
     $listaMenu = $abmMenuRol->buscar($opcionElegida);
-    
+
     //Convierto la lista obtenida en IDs y las pongo en otro ARRAY para lograr otra búsqueda
     $idPadre['idpadre'] = $listaMenu[0]->getObjMenu()->getIdMenu();
     $liMenus = $abmMenu->buscar($idPadre);
@@ -118,74 +80,40 @@ if ($session->validar()){
     //Declaro una variable para saber si puedo estar en la página actual
     $puedoEstar = false;
     $idAux = 0;
-    foreach ($liMenus as $opcionMenu){
+    foreach ($liMenus as $opcionMenu) {
 
         //Comparo la URL donde estoy con la de los Menús
         $descMenu = $opcionMenu->getMeDescripcion();
-        if (trim($url) == trim($descMenu)){
-            //echo "<br>Aca puedo estar: <br>";
+        if (trim($url) == trim($descMenu)) {
             $puedoEstar = true;
-        } /*else {
-            echo "<br>Aca no puedo estar: <br>";
-        }*/
-        //echo "Estoy en: ".$url." - Tendría que ir a: ".$descMenu."<br>";
-        //Genero el índice del navbarecho
+        }
+
+        //Genero el índice del navbar
         $nombreMenu = $opcionMenu->getMeNombre();
-        if ($nombreMenu == "Inicio" || $nombreMenu == "Configuracion"){
-            $lista .= '<li class="nav-item m'.$idAux.'"><a href="'. $PROYECTOROOT."TPFinal/Vista/".$descMenu .'" class="nav-link text-light link-body-emphasis">'.$nombreMenu.'</a></li>';
+        if ($nombreMenu == "Inicio" || $nombreMenu == "Configuracion") {
+            $lista .= '<li class="nav-item m' . $idAux . '"><a href="' . $PROYECTOROOT . "TPFinal/Vista/" . $descMenu . '" class="nav-link text-light link-body-emphasis">' . $nombreMenu . '</a></li>';
         } else {
-            $estoVanUltimo .= '<li class="nav-item m'.$idAux.'"><a href="'. $PROYECTOROOT."TPFinal/Vista/".$descMenu .'" class="nav-link text-light link-body-emphasis">'.$nombreMenu.'</a></li>';
+            $estoVanUltimo .= '<li class="nav-item m' . $idAux . '"><a href="' . $PROYECTOROOT . "TPFinal/Vista/" . $descMenu . '" class="nav-link text-light link-body-emphasis">' . $nombreMenu . '</a></li>';
         }
         $idAux++;
     }
     $lista .= $estoVanUltimo;
 
     $contador = 0;
-    if (!$puedoEstar){
+    if (!$puedoEstar) {
         //Obtengo todos los roles y los comparo con la ID actual
-        foreach ($descRol as $roles){
-            //echo $roles->getIdRol();
-            if ($roles->getIdRol() == $verComoOpcion){
+        foreach ($descRol as $roles) {
+            if ($roles->getIdRol() == $verComoOpcion) {
                 $meQuedoAca = $contador;
                 $_SESSION['rolelegido'] = $descRol[$meQuedoAca]->getIdRol();
             }
             $contador++;
         }
-        $urlDelLocation = 'Location:'.$urlRoot."Vista/".$descRol[$meQuedoAca]->getRolDesc()."/index.php";
+        $urlDelLocation = 'Location:' . $urlRoot . "Vista/" . $descRol[$meQuedoAca]->getRolDesc() . "/index.php";
     }
     header($urlDelLocation);
-
 } else {
-    //echo "<br>Paso por el false";
-    setcookie("login", 0);
-    //setcookie("verComo",0);
-    //var_dump($_COOKIE);
+    if (!isset($_COOKIE['PHPSESSID'])){
+        header('Location:' . $urlRoot . "Vista/");
+    }
 }
-
-/*//echo "Menu: ";
-//print_r($opcion);
-//echo $descMenu."\n";
-//echo $nombreMenu."\n";
-//echo "<br><br>";*/
-
-/*//echo "<br>Estos son los roles del usuario:<br>";
-print_r($descRol);
-//echo "<br>";
-//echo "<br>";
-
-//echo "Rol seleccionado actualmente: ";
-//echo $opcion."<br><br>";
-
-//echo "Estos son los menús padres:<br>";
-print_r($menuPadre);
-//echo "<br>";
-
-//echo "<br>Estos son los nombres de todos los menús disponibles por el usuario:<br>";
-print_r($menuNombre);
-//echo "<br>";
-
-//echo "<br>Estos son los Menús visibles por la opción:<br>";
-print_r($liMenus);
-//echo "<br>";*/
-
-?>

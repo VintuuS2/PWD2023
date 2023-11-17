@@ -7,6 +7,7 @@
                 </div>
             </header>
             <!-- /Título --->
+            <!-- Menu --->
             <navbar class="container d-flex justify-content-around py-1 navbar-expand-md">
                 <!-- <Ver como rol> --->
                 <div class="position-absolute start-0 top-50 translate-middle-y ms-5 verComo">
@@ -30,11 +31,6 @@
                 </div>
                 <div class="navbar-collapse justify-content-center collapse" id="collapsibleNavbar">
                     <ul class="nav nav-pills justify-content-center gap-2">
-                        <!--<li class="nav-item"><a href="<?php //echo $PROYECTOROOT ?>TPFinal/Vista/index.php" class="nav-link text-light link-body-emphasis">Inicio</a></li>
-                        <li class="nav-item"><a href="<?php //echo $PROYECTOROOT ?>" class="nav-link text-light link-body-emphasis">Algo1</a></li>
-                        <li class="nav-item"><a href="<?php //echo $PROYECTOROOT ?>" class="nav-link text-light link-body-emphasis">Algo2</a></li>
-                        <li class="nav-item"><a href="<?php //echo $PROYECTOROOT ?>" class="nav-link text-light link-body-emphasis">Algo3</a></li>
-                        <li class="nav-item"><a href="<?php //echo $PROYECTOROOT ?>" class="nav-link text-light link-body-emphasis">Algo4</a></li>--->
                         <?php echo $lista ?>
                     </ul>
                 </div>
@@ -54,4 +50,5 @@
                     </div>
                 </div>
             </navbar>
+            <!-- /Menu --->
         </nav>

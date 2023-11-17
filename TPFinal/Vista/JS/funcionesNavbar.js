@@ -17,14 +17,15 @@ function getCookie(cookieName) {
 $(document).ready(function(){
     form = $('#form-nav')
     select = $('#selectVerComo');
+    cantOpc = $('#selectVerComo option').length;
     optionSelect = select.val();
     $('ul li:eq(1)').hide();
 
     datos = {opcionSeleccionada: optionSelect,};
 
-    if (document.cookie.includes('login=1')){
+    if (cantOpc>0){//document.cookie.includes('login=1')){
         $('.is').hide();
-        if (document.cookie.includes('verComo=0')){
+        if (!cantOpc>1){//document.cookie.includes('verComo=0')){
             $('.verComo').hide();
         }
     } else {

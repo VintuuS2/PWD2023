@@ -96,6 +96,8 @@ if (isset($datos['idusuario']) && isset($datos['usnombre']) && isset($datos['usr
                         $session->updateRol();
                         //echo $_SESSION['idroles'][0]."<br>";
                         $_SESSION['rolelegido'] = $_SESSION['idroles'][0];
+                    } else {
+
                     }
                 }
             }
@@ -117,7 +119,7 @@ if (isset($datos['idusuario']) && isset($datos['usnombre']) && isset($datos['usr
 } else {
     $mensaje = "El formulario no ha llegado correctamente o no se han seleccionado roles, reinténtalo.";
 }
-header('Location: ' . $urlRoot . "Vista/Administrador/verRolesAdministrador.php");
+//header('Location: ' . $urlRoot . "Vista/Administrador/verRolesAdministrador.php");
 //include_once '../Estructura/ultimoNav.php';
 ?>
 <!--

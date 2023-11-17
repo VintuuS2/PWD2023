@@ -48,7 +48,7 @@ if (count($listaProductos)>0){
           <div class="my-3 px-2 text-center h-25 overflow-y-auto">
             <p class="card-text">'.$productosDestacados[$i]['prodetalle'].'</p>
           </div>
-          <a href="'.($_COOKIE['login'] == "1" ? "./productos.php": "../login.php").'" class="btn btn-primary mb-3">Ir a producto</a>
+          <a href="'.($session->validar() ? "./productos.php": "../login.php").'" class="btn btn-primary mb-3">Ir a producto</a>
         </div>';
         }
         

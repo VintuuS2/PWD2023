@@ -9,7 +9,7 @@ class Session{
     function __construct(){
         if (session_start()){
             $_SESSION['ROOT'] = $_SERVER['DOCUMENT_ROOT'] . '/PWD2023/TPFinal/';
-            $_SESSION['ultimoRol'] = "";
+            //$_SESSION['ultimoRol'] = "";
             $this->usuario = "";
             $this->pass = "";
             $this->userObj = null;

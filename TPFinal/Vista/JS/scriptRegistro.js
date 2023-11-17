@@ -1,15 +1,15 @@
 $(document).ready(function () {
-  var login = $("#login");
+  var registro = $("#registro");
 
-  login.on("submit", function (event) {
+  registro.on("submit", function (event) {
     var formulario = this;
+    var contrasenia = $('#password-register').val();
+    var confirmarContrasenia = $('#password-registerConfirm');
+    confirmarContrasenia.attr("pattern","^"+contrasenia+"$");
 
     if (!formulario.checkValidity()) {
-      event.preventDefault();
-      event.stopPropagation();
-      if ($('#password-registerConfirm') !== $('#password-register')){
-        $('#password-registerConfirm').siblings(".invalid-feedback").html($('#password-registerConfirm').attr("errorPatron"))
-      }
+        event.preventDefault();
+        event.stopPropagation();
     }
 
     $(formulario).addClass("was-validated");
@@ -17,6 +17,11 @@ $(document).ready(function () {
   
   $(".needs-validation input[pattern]").on("input", function () {
     var input = $(this);
+    if (input.has("#password-register")){
+      var contrasenia = $('#password-register').val();
+      var confirmarContrasenia = $('#password-registerConfirm');
+      confirmarContrasenia.attr("pattern","^"+contrasenia+"$");
+    }
     var mensajeError = "";
 
     if (input.prop("required") && input.val() === "") {

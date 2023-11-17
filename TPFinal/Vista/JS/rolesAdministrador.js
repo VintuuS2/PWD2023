@@ -31,5 +31,8 @@ $(document).ready(function() {
                 alert ('No se ha podido enviar', 'danger');
             }
         });
+        setTimeout(function(){
+            location.reload();
+        },2000)
     });
 });

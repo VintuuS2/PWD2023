@@ -7,6 +7,12 @@ if ($session->validar()){
     header('Location:'.$urlRoot."Vista/Cliente/index.php");
 }
 include_once "./Estructura/ultimoNav.php";
+
+$datos = data_submitted();
+
+if (isset($datos['url']) && isset($datos['mensaje'])){
+
+}
 ?>
 
 <div class="d-flex justify-content-center align-items-center ">
@@ -57,7 +63,7 @@ include_once "./Estructura/ultimoNav.php";
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="./Accion/registroUsuario.php" method="post" class="needs-validation" novalidate>
+                            <form action="./Accion/registroUsuario.php" id="registro" method="post" class="needs-validation" novalidate>
                                 <div class="form-group mb-2">
                                     <label for="user-register" class="form-label">Nombre de Usuario</label>
                                     <input type="text" class="form-control" name="user-register" id="user-register" placeholder="Username" errorVacio="Por favor rellene este campo" errorPatron="El contenido solo acepta carácteres alfanuméricos" required>
@@ -67,7 +73,14 @@ include_once "./Estructura/ultimoNav.php";
                                 </div>
                                 <div class="form-group mb-2">
                                     <label for="password-input" class="form-label">Contraseña</label>
-                                    <input type="password" class="form-control" pattern="[a-zA-Z0-9]+" name="password-register" id="password-register" placeholder="Password" errorVacio="Por favor rellene este campo" errorPatron="El contenido solo acepta hasta 11 carácteres numéricos" required>
+                                    <input type="password" class="form-control" pattern="[a-zA-Z0-9]+" name="password-register" id="password-register" placeholder="Password" errorVacio="Por favor rellene este campo" errorPatron="El contenido solo acepta carácteres alfanuméricos" required>
+                                    <div class="invalid-feedback">
+                                        Rellene este campo
+                                    </div>
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label for="password-input" class="form-label">Confirmar contraseña</label>
+                                    <input type="password" class="form-control" pattern="[a-zA-Z0-9]+" name="password-registerConfirm" id="password-registerConfirm" placeholder="Password" errorVacio="Por favor rellene este campo" errorPatron="Las contraseñas no coínciden" required>
                                     <div class="invalid-feedback">
                                         Rellene este campo
                                     </div>
@@ -92,5 +105,5 @@ include_once "./Estructura/ultimoNav.php";
     </div>
 </div>
 <script src="./JS/scriptLogin.js"></script>
-
+<script src="./JS/scriptRegistro.js"></script>
 <?php include_once "../../vista/estructura/footer.php"; ?>

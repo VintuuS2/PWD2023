@@ -49,7 +49,13 @@ $usuariosConRoles = $objUsuario->listarUsuarioRol(null);
                             $isChecked = true;
                         }
                     }
-                    echo "<label><input type='checkbox' class='form-check-input' name='usroles[" . $usuario->getId() . "][]' id= 'usroles[]' value='". $rol->getRolDesc(). "' " . ($isChecked ? 'checked' : '') . ">". $rol->getRolDesc() . "</label><br>";
+                    if (!($_SESSION['rolelegido']==$rol->getIdRol() && $_SESSION['idusuario'] == $usuario->getId())){
+                        echo "<label><input type='checkbox' class='form-check-input' name='usroles[" . $usuario->getId() . "][]' id= 'usroles[]' value='". $rol->getRolDesc(). "' " . ($isChecked ? 'checked' : ''). ">". $rol->getRolDesc() . "</label><br>";
+                    } else {
+                        echo "Administrador no se puede quitar<br>";
+                        echo "<label hidden><input type='checkbox' class='form-check-input' name='usroles[" . $usuario->getId() . "][]' id= 'usroles[]' value='". $rol->getRolDesc(). "' " . ($isChecked ? 'checked' : ''). ">". $rol->getRolDesc() . "</label>";
+                    }
+                    //echo "<label><input type='checkbox' class='form-check-input' name='usroles[" . $usuario->getId() . "][]' id= 'usroles[]' value='". $rol->getRolDesc(). "' " . ($isChecked ? 'checked' : '') . ">". $rol->getRolDesc() . "</label><br>";
                     /*echo "<div class='form-check w-50 justify-content-center'>
                         <input type='checkbox' class='form-check-input' name='usroles[" . $usuario->getId() . "][]' id= 'usroles[]' value='". $rol->getRolDesc(). "' " . ($isChecked ? 'checked' : '') . ">
                         <label>". $rol->getRolDesc() . "</label><br>
