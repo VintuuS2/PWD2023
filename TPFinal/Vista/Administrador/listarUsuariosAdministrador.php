@@ -31,10 +31,12 @@ $usuariosConRoles = $objUsuario->listarUsuarioRol(null);
                                 <th>Cambiar estado</th>
                             </tr>
                         </thead>";
+
+            // Se crea una tabla que lista a todos los usuarios
             foreach ($listaUsuarios as $usuario) {
                 if ($usuario->getId() != $_SESSION['idusuario']) {
                     echo "<tr class='align-middle'>";
-                    echo "<form novalidate class='needs-validation' data-id=" . $usuario->getId() . " method='post' action='../Accion/modificarLogin.php'>";
+                    echo "<form novalidate class='needs-validation' data-id=" . $usuario->getId() . " method='post'                                       action='../Accion/modificarLogin.php'>";
                     echo "<td>" . $usuario->getId() . "<input type='hidden' name='idusuario' value='" . $usuario->getId() . "'></td>";
                     echo "<td><input  disabled name='usnombre' class='form-control cursor-text  border border-0 text-center rounded-5' maxlength='50' id='inputnombre" . $usuario->getId() . "' type='text' value='" . $usuario->getNombre() . "' placeholder='Nombre de usuario'></td>";
                     echo "<td><input  disabled name='usmail' class='form-control cursor-text  border border-0 text-center rounded-5' maxlength='50'  id='inputmail" . $usuario->getId() . "' type='email' value='" . $usuario->getMail() . "' placeholder='ejemplo@gmail.com'></td>";

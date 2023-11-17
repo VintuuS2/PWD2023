@@ -25,7 +25,7 @@ $(document).ready(function(){
 
     if (cantOpc>0){//document.cookie.includes('login=1')){
         $('.is').hide();
-        if (!cantOpc>1){//document.cookie.includes('verComo=0')){
+        if (!(cantOpc>1)){//document.cookie.includes('verComo=0')){
             $('.verComo').hide();
         }
     } else {

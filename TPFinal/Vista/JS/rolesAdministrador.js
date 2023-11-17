@@ -11,7 +11,7 @@ $(document).ready(function() {
         ].join('')
         alertPlaceholder.append(wrapper)
     }
-
+    //Captura el evento de click en el boton dentro del form de verRolesAdministrador
     $('#recibirdatosformboton').on('click', function(e){
         e.preventDefault();
 
@@ -19,7 +19,7 @@ $(document).ready(function() {
         
         var formRecibido = $('#formrolesusuario').serialize();
 
-        // enviarlos a un servidor usando AJAX
+        // Lo envia a modificarRoles.php
         $.ajax({
             type: 'POST',
             url: '../Accion/modificarRoles.php',
