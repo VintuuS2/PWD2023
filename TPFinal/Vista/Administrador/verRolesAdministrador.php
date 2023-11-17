@@ -59,6 +59,7 @@ $usuariosConRoles = $objUsuario->listarUsuarioRol(null);
                 echo "</tr>";
             }
             echo "</table>";
+            // En este boton se recibe el evento on click de rolesAdministrador.js
             echo "
                 <div class='d-flex justify-content-center align-items-center'>
                     <button class='btn btn-success' type='button' id = 'recibirdatosformboton'><i class='fa-solid fa-check'></i> Enviar</button>

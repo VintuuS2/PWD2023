@@ -9,13 +9,7 @@ if (isset($datos['idusuario'])) {
     $arregloID = array('idusuario' => $datos['idusuario']);
     $usuario = $controlUsuario->buscar($arregloID)[0];
     $datos['uspass'] = $usuario->getPass();
-    if ($controlUsuario->modificacion($datos)) {
-        $mensaje = "Se ha modificado al usuario correctamente.";
-    } else {
-        $mensaje = "ERROR: No se ha podido modificar al usuario.";
-    }
-} else {
-    $mensaje = "ERROR: No se han recibido datos, por favor vuelva atras.";
+    $controlUsuario->modificacion($datos);
 }
 header('Location: ' . $urlRoot . "Vista/Administrador/listarUsuariosAdministrador.php");
 ?>
