@@ -1,5 +1,5 @@
 <?php
-$titulo = "TP-FINAL Listar usuarios del Administrador";
+$titulo = "Cambiar roles";
 include_once "../../../configuracionProyecto.php";
 include_once "../../configuracion.php";
 include_once "./../Estructura/ultimoNav.php";

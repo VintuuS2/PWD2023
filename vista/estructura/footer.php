@@ -48,7 +48,7 @@
                                 <a href="https://api.jquery.com/" class="text-light">JQuery</a>
                             </p>
                             <p>
-                                <a href="https://pedco.uncoma.edu.ar/" class="text-light">Pedco</a>
+                                <a href="https://pedco.uncoma.edu.ar/" class="text-light">PEDCO</a>
                             </p>
                         </div>
                         <!-- Grid column -->
