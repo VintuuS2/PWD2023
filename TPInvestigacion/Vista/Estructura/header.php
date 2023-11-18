@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?php echo $PROYECTOROOT ?>Vista/css/style.css">
+    <link rel="stylesheet" href="<?php echo $PROYECTOROOT ?>vista/css/style.css">
     <script src="<?php echo $PROYECTOROOT ?>vista/js/jquery-3.7.1.min.js"></script>
     <link rel="stylesheet" href="<?php echo $PROYECTOROOT ?>vista/css/bootstrap.min.css">
     <script src="<?php echo $PROYECTOROOT ?>vista/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/3f0f040aa7.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="<?php echo $PROYECTOROOT ?>TPInvestigacion/Vista/CSS/style.css">
-    <title><?php echo $tituloPagina ?></title>
+    <title>Inicio</title>
 </head>
 
 <body>
@@ -49,7 +48,7 @@
                             <ul class="dropdown-menu" style="background: linear-gradient(135deg, rgba(85,68,173,0.75) 5%, rgba(72,57,161,0.75) 62%, rgba(110,90,199,0.75) 95%);">
                                 <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP3/Vista/ej1.php">Ejercicio 1</a></li>
                                 <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP3/Vista/ej2.php">Ejercicio 2</a></li>
-                                <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP3/Vista/ej3.php">Ejercicio 3</a></li>
+                                <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP3/Vista/EJ3.php">Ejercicio 3</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -78,6 +77,12 @@
                             <ul class="dropdown-menu" style="background: linear-gradient(135deg, rgba(85,68,173,0.75) 5%, rgba(72,57,161,0.75) 62%, rgba(110,90,199,0.75) 95%);">
                                 <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP5/Vista/login.php">Login</a></li>
                                 <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP5/Vista/listarUsuario.php">Ver usuarios</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">TP Final</a>
+                            <ul class="dropdown-menu" style="background: linear-gradient(135deg, rgba(85,68,173,0.75) 5%, rgba(72,57,161,0.75) 62%, rgba(110,90,199,0.75) 95%);">
+                                <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TPFinal/Vista/landpage.php">Inicio</a></li>
                             </ul>
                         </li>
                     </ul>

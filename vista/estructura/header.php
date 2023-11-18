@@ -79,6 +79,12 @@
                                 <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TP5/Vista/listarUsuario.php">Ver usuarios</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">TP Final</a>
+                            <ul class="dropdown-menu" style="background: linear-gradient(135deg, rgba(85,68,173,0.75) 5%, rgba(72,57,161,0.75) 62%, rgba(110,90,199,0.75) 95%);">
+                                <li><a class="dropdown-item text-light" href="<?php echo $PROYECTOROOT ?>TPFinal/Vista/index.php">Inicio</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>

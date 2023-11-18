@@ -102,8 +102,8 @@ class Session{
     function activa(){
         $resp = false;
         $isActive = session_status();
+        $resp = true;
         if ($isActive == 2){
-            $resp = true;
         }
         return $resp;
     }

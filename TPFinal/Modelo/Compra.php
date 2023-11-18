@@ -64,43 +64,49 @@ class Compra {
             if($res>-1){
                 if($res>0){
                     $row = $base->Registro();
-                    $this->setear($row['idproducto'], $row['pronombre'], $row['prodetalle'], $row['procantstock']); 
+                    $objUsuario = null;
+                    if ($row['idusuario'] != null) {
+                        $objUsuario = new Usuario();
+                        $objUsuario->setId($row['idusuario']);
+                        $objUsuario->cargar();
+                    }
+                    $this->setear($row['idcompra'], $row['cofecha'], $objUsuario); 
                 }
             }
         } else {
-            $this->setMensajeOperacion("Producto->cargar: ".$base->getError());
+            $this->setMensajeOperacion("Compra->cargar: ".$base->getError());
         }
         return $resp;
     }
 
     public function insertar(){
         $resp = false;
-        $base=new BaseDatos();
-        $sql="INSERT INTO producto(pronombre, prodetalle, procantstock) VALUES('".$this->getNombre()."','".$this->getDetalle()."',".$this->getCantStock().");";
+        $base = new BaseDatos();
+        $sql = "INSERT INTO compra(cofecha, idusuario) VALUES('".$this->getFecha()."',".$this->getObjUsuario()->getId().");";
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;
             } else {
-                $this->setMensajeOperacion("Producto->insertar: ".$base->getError());
+                $this->setMensajeOperacion("Compra->insertar: ".$base->getError());
             }
         } else {
-            $this->setMensajeOperacion("Producto->insertar: ".$base->getError());
+            $this->setMensajeOperacion("Compra->insertar: ".$base->getError());
         }
         return $resp;
     }
     
     public function modificar(){
         $resp = false;
-        $base=new BaseDatos();
-        $sql = "UPDATE producto SET pronombre ='".$this->getNombre()."',prodetalle='".$this->getDetalle()."',procantstock=".$this->getCantStock()." WHERE idproducto=".$this->getIdProducto();
+        $base = new BaseDatos();
+        $sql = "UPDATE compra SET cofecha ='".$this->getFecha()."',idusuario=".$this->getObjUsuario()->getId()." WHERE idcompra=".$this->getIdCompra();
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;
             } else {
-                $this->setMensajeOperacion("Producto->modificar: ".$base->getError());
+                $this->setMensajeOperacion("Compra->modificar: ".$base->getError());
             }
         } else {
-            $this->setMensajeOperacion("Producto->modificar: ".$base->getError());
+            $this->setMensajeOperacion("Compra->modificar: ".$base->getError());
         }
         return $resp;
     }
@@ -108,15 +114,15 @@ class Compra {
     public function eliminar(){
         $resp = false;
         $base=new BaseDatos();
-        $sql="DELETE FROM producto WHERE idproducto=".$this->getIdProducto();
+        $sql="DELETE FROM compra WHERE idcompra=".$this->getIdCompra();
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 return true;
             } else {
-                $this->setMensajeOperacion("Producto->eliminar: ".$base->getError());
+                $this->setMensajeOperacion("Compra->eliminar: ".$base->getError());
             }
         } else {
-            $this->setMensajeOperacion("Producto->eliminar: ".$base->getError());
+            $this->setMensajeOperacion("Compra->eliminar: ".$base->getError());
         }
         return $resp;
     }
@@ -124,7 +130,7 @@ class Compra {
     public function listar($parametro=""){
         $arreglo = array();
         $base = new BaseDatos();
-        $sql = "SELECT * FROM producto ";
+        $sql = "SELECT * FROM compra ";
         if ($parametro!="") {
             $sql.='WHERE '.$parametro;
         }
@@ -132,13 +138,19 @@ class Compra {
         if($res>-1){
             if($res>0){    
                 while ($row = $base->Registro()){
-                    $obj = new Producto();
-                    $obj->setear($row['idproducto'], $row['pronombre'], $row['prodetalle'], $row['procantstock']);
+                    $obj = new Compra();
+                    $objUsuario = null;
+                    if ($row['idusuario'] != null) {
+                        $objUsuario = new Usuario();
+                        $objUsuario->setId($row['idusuario']);
+                        $objUsuario->cargar();
+                    }
+                    $obj->setear($row['idcompra'], $row['cofecha'], $objUsuario); 
                     array_push($arreglo, $obj);
                 }
             }     
         } else {
-            $this->setMensajeOperacion("Producto->listar: ".$base->getError());
+            $this->setMensajeOperacion("Compra->listar: ".$base->getError());
         }
         return $arreglo;
     }

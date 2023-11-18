@@ -3,11 +3,11 @@ $tituloPagina = "TP5-Ver usuarios";
 include_once "../../configuracionProyecto.php";
 include_once "../configuracion.php";
 include_once "./Estructura/header.php";
-$objUsuario = new AbmUsuario;
+$objUsuario = new AbmUsuario();
 $listaUsuarios = $objUsuario->buscar(null);
 ?>
 <div class="d-flex justify-content-center align-items-center">
-    <div class="d-flex justify-content-center bg-gris row col-12 col-md-12 col-xl-8 row position-relative align-items-center min-vh-100">
+    <div class="d-flex justify-content-center bg-body-tertiary row col-12 col-md-12 col-xl-8 row position-relative align-items-center min-vh-100">
         <div class="z-3 row justify-content-center align-items-center position-absolute fixed-top mx-0 px-0">
             <div id="liveAlertPlaceholder" class="col-12 col-sm-10 col-md-7 col-xl-6 mt-5 text-center"></div>
         </div>
@@ -31,8 +31,8 @@ $listaUsuarios = $objUsuario->buscar(null);
                 echo "<tr class='align-middle'>";
                 echo "<form novalidate class='needs-validation' data-id=" . $usuario->getId() . " method='post' action='Accion/modificarLogin.php'>";
                 echo "<td>" . $usuario->getId() . "<input type='hidden' name='idusuario' value='" . $usuario->getId() . "'></td>";
-                echo "<td><input  disabled name='usnombre' class='form-control cursor-text bg-white border border-0 text-center rounded-5' maxlength='50' id='inputnombre" . $usuario->getId() . "' type='text' value='" . $usuario->getNombre() . "' placeholder='Nombre de usuario'></td>";
-                echo "<td><input  disabled name='usmail' class='form-control cursor-text bg-white border border-0 text-center rounded-5' maxlength='50'  id='inputmail" . $usuario->getId() . "' type='email' value='" . $usuario->getMail() . "' placeholder='ejemplo@gmail.com'></td>";
+                echo "<td><input  disabled name='usnombre' class='form-control cursor-text border border-0 text-center rounded-5' maxlength='50' id='inputnombre" . $usuario->getId() . "' type='text' value='" . $usuario->getNombre() . "' placeholder='Nombre de usuario'></td>";
+                echo "<td><input  disabled name='usmail' class='form-control cursor-text border border-0 text-center rounded-5' maxlength='50'  id='inputmail" . $usuario->getId() . "' type='email' value='" . $usuario->getMail() . "' placeholder='ejemplo@gmail.com'></td>";
                 $estaHabilitado = is_null($usuario->getHabilitado());
                 echo "<td class='col-2'>" . ($estaHabilitado ? 'Activo' : 'Deshabilitado desde: ' . $usuario->getHabilitado()) . "<input type='hidden' name='usdeshabilitado' value='" . $usuario->getHabilitado() . "'></td>";
                 // Boton para activar modoficación de los datos

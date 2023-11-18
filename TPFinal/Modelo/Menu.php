@@ -61,7 +61,7 @@ class Menu{
         return $this->meNombre;
     }
 
-    function getIdPadre(){
+    function getObjMenu(){
        return $this->idPadre;
     }
 
@@ -115,7 +115,7 @@ class Menu{
     public function modificar(){
         $resp = false;
         $base=new BaseDatos();
-        $sql = "UPDATE menu SET menombre=" . $this->getMeNombre(). "medescripcion=" . $this->getMeDescripcion()."idpadre=" . $this->getIdPadre()."medeshabilitado=" . $this->getMeDeshabilitado() . "' WHERE idmenu=" . $this->getIdMenu();
+        $sql = "UPDATE menu SET menombre=" . $this->getMeNombre(). ",medescripcion=" . $this->getMeDescripcion().",idpadre=" . $this->getIdPadre().",medeshabilitado=" . $this->getMeDeshabilitado() . "' WHERE idmenu=" . $this->getIdMenu();
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;
@@ -144,6 +144,40 @@ class Menu{
         return $resp;
     }
     
+    function deshabilitar(){
+        $resp = false;
+        $base = new BaseDatos();
+        date_default_timezone_set('America/Argentina/Buenos_Aires');
+        $fecha = date('Y-m-d H:i:s');
+        $sql = "UPDATE menu SET medeshabilitado='$fecha' WHERE idmenu=" . $this->getIdMenu();
+        if ($base->Iniciar()){
+            if ($base->Ejecutar($sql)){
+                $resp = true;
+            } else {
+                $this->setMensajeOperacion("Menu->deshabilitar: ".$base->getError());
+            }
+        } else {
+            $this->setMensajeOperacion("Menu->deshabilitar: " . $base->getError());
+        }
+        return $resp;
+    }
+
+    function habilitar(){
+        $resp = false;
+        $base = new BaseDatos();
+        $sql = "UPDATE menu SET medeshabilitado=NULL WHERE idmenu=" . $this->getIdMenu();
+        if ($base->Iniciar()){
+            if ($base->Ejecutar($sql)){
+                $resp = true;
+            } else {
+                $this->setMensajeOperacion("Menu->habilitar: ".$base->getError());
+            }
+        } else {
+            $this->setMensajeOperacion("Menu->habilitar: " . $base->getError());
+        }
+        return $resp;
+    }
+
     public function listar($parametro=""){
         $arreglo = array();
         $base=new BaseDatos();

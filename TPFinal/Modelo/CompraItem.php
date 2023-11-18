@@ -75,13 +75,18 @@ class CompraItem {
             if($res>-1){
                 if($res>0){
                     $row = $base->Registro();
-
-                    $objProducto = new Producto;
-                    $objProducto->cargar($row['idproducto']);
-
-                    $objCompra = new Compra;
-                    $objCompra->cargar($row['idcompra']);
-
+                    $objProducto = null;
+                    $objCompra = null;
+                    if ($row['idproducto'] != null) {
+                        $objProducto = new Producto;
+                        $objProducto->setIdProducto($row['idproducto']);
+                        $objProducto->cargar();
+                    }
+                    if ($row['idcompra'] != null) {
+                        $objCompra = new Compra;
+                        $objCompra->setIdCompra($row['idcompra']);
+                        $objCompra->cargar();
+                    }
                     $this->setear($row['idcompraitem'], $objProducto, $objCompra, $row['cicantidad']); 
                 }
             }
@@ -151,13 +156,18 @@ class CompraItem {
             if($res>0){    
                 while ($row = $base->Registro()){
                     $obj = new CompraItem();
-
-                    $objProducto = new Producto;
-                    $objProducto->cargar($row['idproducto']);
-
-                    $objCompra = new Compra;
-                    $objCompra->cargar($row['idcompra']);
-
+                    $objProducto = null;
+                    $objCompra = null;
+                    if ($row['idproducto'] != null) {
+                        $objProducto = new Producto;
+                        $objProducto->setIdProducto($row['idproducto']);
+                        $objProducto->cargar();
+                    }
+                    if ($row['idcompra'] != null) {
+                        $objCompra = new Compra;
+                        $objCompra->setIdCompra($row['idcompra']);
+                        $objCompra->cargar();
+                    }
                     $obj->setear($row['idcompraitem'], $objProducto, $objCompra, $row['cicantidad']); 
                     array_push($arreglo, $obj);
                 }
