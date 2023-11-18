@@ -7,12 +7,6 @@ if ($session->validar()){
     header('Location:'.$urlRoot."Vista/Cliente/index.php");
 }
 include_once "./Estructura/ultimoNav.php";
-
-$datos = data_submitted();
-
-if (isset($datos['url']) && isset($datos['mensaje'])){
-
-}
 ?>
 
 <div class="d-flex justify-content-center align-items-center ">
@@ -101,6 +95,7 @@ if (isset($datos['url']) && isset($datos['mensaje'])){
                     </div>
                 </div>
             </div>
+            <!-- /Modal --->
         </div>
     </div>
 </div>

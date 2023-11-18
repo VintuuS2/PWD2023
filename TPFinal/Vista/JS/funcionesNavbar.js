@@ -1,19 +1,3 @@
-// Función para obtener el valor de una cookie por nombre
-function getCookie(cookieName) {
-    var name = cookieName + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var cookieArray = decodedCookie.split(';');
-    var cookieValor = "";
-
-    for (var i = 0; i < cookieArray.length; i++) {
-        var cookie = cookieArray[i].trim();
-        if (cookie.indexOf(name) == 0) {
-            cookieValor = cookie.substring(name.length, cookie.length);
-        }
-    }
-    return cookieValor;
-}
-
 $(document).ready(function(){
     form = $('#form-nav')
     select = $('#selectVerComo');
